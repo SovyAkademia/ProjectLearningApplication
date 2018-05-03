@@ -3,26 +3,295 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-Infinity" prefWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-Infinity" prefWidth="-Infinity" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Label layoutX="674.0" layoutY="78.0" text="Test number 1">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="157.0" layoutY="169.0" prefHeight="115.0" prefWidth="1187.0" text="1. Inside which HTML element do we put the JavaScript?">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnSUBMIT" layoutX="980.0" layoutY="528.0" mnemonicParsing="false" onAction="#TestSubmit" prefHeight="31.0" prefWidth="85.0" text="SUBMIT" />
-      <Label fx:id="lblCHECK" layoutX="336.0" layoutY="324.0" />
-      <RadioButton fx:id="radioA" layoutX="498.0" layoutY="313.0" mnemonicParsing="false" onAction="#Checkbox" text="&lt;scripting&gt;" />
-      <RadioButton fx:id="radioB" layoutX="498.0" layoutY="390.0" mnemonicParsing="false" text="&lt;js&gt;" />
-      <RadioButton fx:id="radioC" layoutX="498.0" layoutY="458.0" mnemonicParsing="false" text="&lt;javascript&gt;" />
-      <RadioButton fx:id="radioD" layoutX="498.0" layoutY="533.0" mnemonicParsing="false" text="&lt;script&gt;" />
+      <Button fx:id="btnSUBMIT" disable="true" layoutX="980.0" layoutY="528.0" mnemonicParsing="false" onAction="#chooseTest" prefHeight="31.0" prefWidth="85.0" text="SUBMIT" />
+      <TabPane fx:id="TabQuestion" layoutX="50.0" layoutY="5.0" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #434343;" tabClosingPolicy="UNAVAILABLE" visible="false">
+        <tabs>
+          <Tab text="Q: 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #434343;">
+                     <children>
+                        <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                        <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" textFill="WHITE" />
+                        <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" textFill="WHITE" />
+                        <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" textFill="WHITE" />
+                        <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" textFill="WHITE" />
+                        <Button fx:id="btnSubmitQuestion1" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" onAction="#MenuLogout" text="SUBMIT" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+           <Tab text="Q: 2">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion2" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 3">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion3" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 4">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion4" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 5">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion5" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 6">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion6" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 7">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion7" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 8">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion8" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 9">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion9" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 10">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion10" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 11">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion11" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 12">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion12" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 13">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion13" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 14">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion14" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 15">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion15" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 16">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion16" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 17">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion17" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 18">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion18" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 19">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion19" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 20">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion20" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+           <Tab text="Q: 21">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Label layoutX="583.0" layoutY="140.0" text="Label" />
+                       <RadioButton layoutX="432.0" layoutY="236.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="299.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="360.0" mnemonicParsing="false" text="RadioButton" />
+                       <RadioButton layoutX="432.0" layoutY="446.0" mnemonicParsing="false" text="RadioButton" />
+                       <Button fx:id="btnSubmitQuestion21" layoutX="774.0" layoutY="366.0" mnemonicParsing="false" text="SUBMIT" />
+                    </children></AnchorPane>
+              </content>
+           </Tab>
+        </tabs>
+      </TabPane>
+      <RadioButton fx:id="radioChooseTest1" layoutX="235.0" layoutY="119.0" mnemonicParsing="false" onAction="#CheckTest" text="Test num.1" textFill="WHITE" />
+      <RadioButton fx:id="radioChooseTest2" layoutX="243.0" layoutY="206.0" mnemonicParsing="false" onAction="#CheckTest" prefHeight="21.0" prefWidth="109.0" text="Test num.2" textFill="WHITE" />
+      <RadioButton fx:id="radioChooseTest3" layoutX="235.0" layoutY="305.0" mnemonicParsing="false" onAction="#CheckTest" text="Test num.3" textFill="WHITE" />
+      <RadioButton fx:id="radioChooseTest4" layoutX="235.0" layoutY="383.0" mnemonicParsing="false" onAction="#CheckTest" text="Test num.4" textFill="WHITE" />
+      <RadioButton fx:id="radioChooseTest5" layoutX="235.0" layoutY="452.0" mnemonicParsing="false" onAction="#CheckTest" text="Test num.5" textFill="WHITE" />
    </children>
 </Pane>
