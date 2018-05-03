@@ -6,11 +6,20 @@ const flash = require('connect-flash');
 const bcrypt = require('bcryptjs');
 
 exports.index_get = (req,res,next)=>{
+    
     res.render('login');
 }
 
 exports.dashboard = (req,res,next)=>{
-    res.render('dashboard');
+
+    db.query('select FirstName, LastName from temp_teachers where id like ?',[req.user[0].id], (err,result) => {
+        if(err) throw err;
+        res.render('dashboard',{
+            name:result[0].FirstName,
+            isAdmin:false
+        });
+    });
+    
 }
 
 exports.logout = (req,res,next)=>{
@@ -19,21 +28,26 @@ exports.logout = (req,res,next)=>{
     res.redirect('/');
 }
 
-exports.login = (req,res,next)=>{
-    let userQuery = 'select count(FirstName) as name from temp_teachers where FirstName like ?';
-    let passQuery = 'select count(Password) as num from temp_teachers where FirstName = ? AND Password = ?';
 
-    const username = req.body.username;
+exports.login = (req,res,next)=>{
+    let userQuery = 'select count(Email) as Email from temp_teachers where Email like ?';
+    let passQuery = 'select count(Password) as num from temp_teachers where Email = ? AND Password = ?';
+    let getUserId = 'select id from temp_teachers where Email like ?'
+
+    const email = req.body.email;
     const password = req.body.password;
 
-    passport.use(new LocalStrategy((req,res,next)=>{
+    passport.use(new LocalStrategy({
+        usernameField: 'email',
+        passwordField: 'password'
+    },(req,res,next)=>{
        
-        db.query(userQuery,[username], (err, result) => {
+        db.query(userQuery,[email], (err, result) => {
             if (err) throw err;
-            if(result[0].name != 1){
+            if(result[0].Email != 1){
                 return next(null,false, {message:'User NOT found'});
             }
-        db.query(passQuery,[username,password],(err,res) => {
+        db.query(passQuery,[email,password],(err,res) => {
             if(res[0].num == 1){
                 return next(null,result)
             }else{
@@ -41,7 +55,7 @@ exports.login = (req,res,next)=>{
             }
             
         });
-        })
+      })
     }));
     
     passport.serializeUser((user,done)=>{
@@ -49,7 +63,7 @@ exports.login = (req,res,next)=>{
     });
     
     passport.deserializeUser((name,done)=>{
-        db.query(userQuery,[username], (err, user) => {
+        db.query(getUserId,[email], (err, user) => {
         done(err,user);
     });
     });
