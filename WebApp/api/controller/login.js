@@ -9,6 +9,10 @@ exports.index_get = (req,res,next)=>{
     res.render('login');
 }
 
+exports.dashboard = (req,res,next)=>{
+    res.render('dashboard');
+}
+
 exports.logout = (req,res,next)=>{
     req.logout();
     req.flash('success_msg', 'You are logged out');
@@ -51,7 +55,7 @@ exports.login = (req,res,next)=>{
     });
 
     passport.authenticate('local',{
-        successRedirect:'/registerStudent',
+        successRedirect:'/dashboard',
         failureRedirect:'/',
         failureFlash: true
     })(req,res,next);
