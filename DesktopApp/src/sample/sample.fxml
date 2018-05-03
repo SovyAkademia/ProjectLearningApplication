@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="708.0" style="-fx-background-color: EC5832;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="708.0" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <Button fx:id="btnLogin" layoutX="301.0" layoutY="477.0" mnemonicParsing="false" onAction="#clickLogin" prefHeight="35.0" prefWidth="114.0" text="Login" />
       <PasswordField fx:id="passwordField" layoutX="261.0" layoutY="387.0" prefHeight="35.0" prefWidth="186.0" promptText="Type here ..." style="-fx-background-color: white; -fx-border-color: black;" />

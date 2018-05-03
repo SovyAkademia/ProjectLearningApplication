@@ -22,6 +22,12 @@ public class Controller {
     public RadioButton radioB;
     public RadioButton radioC;
     public RadioButton radioD;
+    public TabPane TabQuestion;
+    public RadioButton radioChooseTest1;
+    public RadioButton radioChooseTest2;
+    public RadioButton radioChooseTest3;
+    public RadioButton radioChooseTest4;
+    public RadioButton radioChooseTest5;
 
 
     public void clickLogin(ActionEvent event) {
@@ -84,6 +90,50 @@ public class Controller {
 
     }
 
+    public void CheckTest(ActionEvent event) {
+
+        if(event.getSource() == radioChooseTest1){
+            radioChooseTest2.setSelected(false);
+            radioChooseTest3.setSelected(false);
+            radioChooseTest4.setSelected(false);
+            radioChooseTest5.setSelected(false);
+            btnSUBMIT.setDisable(false);
+        }
+
+        else if(event.getSource() == radioChooseTest2){
+            radioChooseTest1.setSelected(false);
+            radioChooseTest3.setSelected(false);
+            radioChooseTest4.setSelected(false);
+            radioChooseTest5.setSelected(false);
+            btnSUBMIT.setDisable(false);
+        }
+
+        else if(event.getSource() == radioChooseTest3){
+            radioChooseTest1.setSelected(false);
+            radioChooseTest2.setSelected(false);
+            radioChooseTest4.setSelected(false);
+            radioChooseTest5.setSelected(false);
+            btnSUBMIT.setDisable(false);
+        }
+
+        else if(event.getSource() == radioChooseTest4){
+            radioChooseTest1.setSelected(false);
+            radioChooseTest3.setSelected(false);
+            radioChooseTest2.setSelected(false);
+            radioChooseTest5.setSelected(false);
+            btnSUBMIT.setDisable(false);
+        }
+
+        else if(event.getSource() == radioChooseTest5){
+            radioChooseTest1.setSelected(false);
+            radioChooseTest3.setSelected(false);
+            radioChooseTest4.setSelected(false);
+            radioChooseTest2.setSelected(false);
+            btnSUBMIT.setDisable(false);
+        }
+
+    }
+
     public void btnSUBMIT(ActionEvent event){
         try {
             Stage primarystage = (Stage) btnSUBMIT.getScene().getWindow();
@@ -120,6 +170,11 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void chooseTest(ActionEvent event) {
+
+        TabQuestion.setVisible(true);
     }
 /*
     public void TestSubmit(ActionEvent event) {
