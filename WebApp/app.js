@@ -32,6 +32,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //Routes
 const login = require('./api/routes/login');
 const registerStudent = require('./api/routes/registerStudent');
+const registerTeacher = require('./api/routes/registerTeacher');
 //const teacher = require('./api/routes/teacher');
 //const student = require('./api/routes/student');
 
@@ -62,6 +63,7 @@ app.use((req,res,next)=>{
 
 app.use('/',login);
 app.use('/registerStudent', registerStudent);
+app.use('/registerTeacher', registerTeacher);
 //app.use('/regteacher', teacher);
 
 

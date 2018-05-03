@@ -24,9 +24,9 @@
          <ul class=" navbar-nav ">
           {{#if user}}
            <li><i class="fas menuic fa-home"></i><a href="">Dashboard</a></li>
-           <li><i class="fas menuic fa-user-circle"></i><a href="">User Profile</a></li>
-           <li><i class="fas menuic fa-chart-bar"></i><a href="">Analitics</a></li>
-           <li><i class="fas menuic fa-bell"></i><a href="">Notification</a></li>
+           <li><i class="fas menuic fa-file"></i><a href="">My tests</a></li>
+           <li><i class="fas menuic fa-plus"></i><a href="">Create new test</a></li>
+           <li><i class="fas menuic fa-graduation-cap"></i><a href="">Students</a></li>
           {{else}}
            <li><i class="fas menuic fa-tasks"></i><a href="">Tests</a></li>
           {{/if}}
@@ -46,9 +46,13 @@
          <a href=""><i class="fas headeric fa-cloud"></i></a>
          </div>
          <div class="links">
+           {{#if user}}
+           <a href="/logout">Log out</a>
+            {{else}}
          <a href="/registerStudent">Register as student</a>
-         <a href="/logout">Log out</a>
-         <a href="/login">Log in</a>
+         <a href="/registerTeacher">Register as teacher</a>
+         <a href="/">Log in</a>
+         {{/if}}
          </div>
          <div class="">
            <a href=""><i class="fas menubutton fa-align-justify"></i></a>

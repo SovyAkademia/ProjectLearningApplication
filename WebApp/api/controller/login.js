@@ -20,8 +20,8 @@ exports.logout = (req,res,next)=>{
 }
 
 exports.login = (req,res,next)=>{
-    let userQuery = 'select count(FirstName) as name from temp_students where FirstName like ?';
-    let passQuery = 'select count(Password) as num from temp_students where FirstName = ? AND Password = ?';
+    let userQuery = 'select count(FirstName) as name from temp_teachers where FirstName like ?';
+    let passQuery = 'select count(Password) as num from temp_teachers where FirstName = ? AND Password = ?';
 
     const username = req.body.username;
     const password = req.body.password;
