@@ -11,7 +11,7 @@ exports.index_get = (req,res,next)=>{
 }
 
 exports.dashboard = (req,res,next)=>{
-
+    // console.log(req.user);
     db.query('select FirstName, LastName from temp_teachers where id like ?',[req.user[0].id], (err,result) => {
         if(err) throw err;
         res.render('dashboard',{
@@ -19,7 +19,6 @@ exports.dashboard = (req,res,next)=>{
             isAdmin:false
         });
     });
-    
 }
 
 exports.logout = (req,res,next)=>{
@@ -31,11 +30,11 @@ exports.logout = (req,res,next)=>{
 
 exports.login = (req,res,next)=>{
     let userQuery = 'select count(Email) as Email from temp_teachers where Email like ?';
-    let passQuery = 'select count(Password) as num from temp_teachers where Email = ? AND Password = ?';
+    let passQuery = 'select count(Password) as num,email from temp_teachers where Email = ? AND Password = ?';
     let getUserId = 'select id from temp_teachers where Email like ?'
 
-    const email = req.body.email;
-    const password = req.body.password;
+    let email = req.body.email;
+    let password = req.body.password;
 
     passport.use(new LocalStrategy({
         usernameField: 'email',
@@ -49,23 +48,24 @@ exports.login = (req,res,next)=>{
             }
         db.query(passQuery,[email,password],(err,res) => {
             if(res[0].num == 1){
-                return next(null,result)
+                return next(null,res)
             }else{
                 return next(null,false,{message:'Wrong password'})
             }
             
         });
-      })
+      });
     }));
     
     passport.serializeUser((user,done)=>{
+        console.log(user);
         done(null,user)
     });
     
     passport.deserializeUser((name,done)=>{
-        db.query(getUserId,[email], (err, user) => {
+        db.query(getUserId,[name[0].email], (err, user) => {
         done(err,user);
-    });
+        });
     });
 
     passport.authenticate('local',{
