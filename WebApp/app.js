@@ -76,16 +76,6 @@ app.set('view engine', 'handlebars');
 //Static path
 app.use(express.static(path.join(__dirname+'.../public')));
 
-//Global var for user
-/*
-app.use((req,res,next)=>{
-    
-    next();
-});
-*/
-
-
-
 app.listen(port, () => {
     console.log('SERVER STARTED ON PORT '+port);
 })
