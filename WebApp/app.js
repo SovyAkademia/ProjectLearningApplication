@@ -17,6 +17,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
+const bcrypt = require('bcrypt');
 
 
 app.use('/public', express.static('public'));
