@@ -1,0 +1,39 @@
+<div class="col-md-8 col-md-offset-2">
+<input class="form-control" id="search" type="text" placeholder="Search..">
+<table>
+    {{#if result}}
+<table class="table table_show table-bordered table-striped">
+    <thead>
+        <tr>
+            
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        {{#each result}}
+        <tr>
+            
+            <td class="name">{{FirstName}}</td>
+            <td class="name">{{LastName}}</td>
+            
+    {{!--         <td>
+                <a class="btn  manage" href="/show/{{id}}"><i class="fas butman fa-info-circle"></i>Info</a>
+                <a class="btn  manage" href="/edit/{{id}}"><i class="fas butman fa-pencil-alt"></i>Edit</a>
+
+
+                <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form" class="manage">
+                <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn  manage"><i class="fas butman fa-eraser"></i>Delete</button>
+                </form>
+
+            </td> --}}
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+    {{else}}
+<p>NO employees found</p>
+    {{/if}}
+</table>
+</div>

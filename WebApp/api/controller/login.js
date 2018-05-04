@@ -11,11 +11,12 @@ exports.index_get = (req,res,next)=>{
 }
 
 exports.dashboard = (req,res,next)=>{
-    console.log(req.user);
+    // console.log(req.user);
     db.query('select FirstName, LastName from temp_teachers where id like ?',[req.user[0].id], (err,result) => {
         if(err) throw err;
         res.render('dashboard',{
             name:result[0].FirstName,
+            lname: result[0].LastName,
             isAdmin:false
         });
     });
@@ -30,7 +31,7 @@ exports.logout = (req,res,next)=>{
 
 exports.login = (req,res,next)=>{
     let userQuery = 'select count(Email) as Email from temp_teachers where Email like ?';
-    let passQuery = 'select email,password as pass from temp_teachers where Email = ?';
+    let passQuery = 'select email, password as pass from temp_teachers where Email = ?';
     let getUserId = 'select id from temp_teachers where Email like ?'
 
     let email = req.body.email;
@@ -43,30 +44,27 @@ exports.login = (req,res,next)=>{
        
         db.query(userQuery,[email], (err, result) => {
             if (err) throw err;
+            if(result[0].Email == 0){
+                return next(null,false, {message:'User NOT found'});
+            }
+        db.query(passQuery,[email],(err,resu) => {
+            if (err) throw err;
 
-            if(result[0].Email != 1){
-                return next(null,false, {message:'Wrong email or password'});
-            } 
-
-            db.query(passQuery,[email],(err,resu) => {
-                if (err) throw err;
-                console.log(resu);
-
-                bcrypt.compare(password, resu[0].pass, (err, isMatch) => {
-                    if(err) throw err;
-                    if(isMatch){
-                        return next(null,resu);
-                    } else {
-                        console.log('wrong password');
-                        return next(null,false,{message:'Wrong email or password'});
-                    }
-                });    
+            bcrypt.compare(password, resu[0].pass, (err, isMatch) => {
+                if(err) throw err;
+                if(isMatch){
+                    return next(null,resu);
+                } else {
+                    console.log('wrong password');
+                    return next(null,false,{message:'Wrong email or password'});
+                }
             });
-         });
+        });
+      });
     }));
     
     passport.serializeUser((user,done)=>{
-        // console.log(user);
+        console.log(user);
         done(null,user)
     });
     
