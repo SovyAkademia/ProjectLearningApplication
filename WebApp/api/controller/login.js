@@ -16,6 +16,7 @@ exports.dashboard = (req,res,next)=>{
         if(err) throw err;
         res.render('dashboard',{
             name:result[0].FirstName,
+            lname: result[0].LastName,
             isAdmin:false
         });
     });
@@ -43,7 +44,7 @@ exports.login = (req,res,next)=>{
        
         db.query(userQuery,[email], (err, result) => {
             if (err) throw err;
-            if(result[0].Email != 1){
+            if(result[0].Email = 0){
                 return next(null,false, {message:'User NOT found'});
             }
         db.query(passQuery,[email,password],(err,res) => {
