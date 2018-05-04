@@ -32,13 +32,15 @@
           {{/if}}
          </ul>
       </div>
+      
+      
 
   </div>
 
 
-    {{#if user}}
+    
       <div class="top-header col-md-10">
-        
+        {{#if user}}
         <div class="notifications">
             <a id="title" href="">Dashboard</a>
             <a href=""><i class="far headeric fa-comment"></i></a>
@@ -58,10 +60,22 @@
             {{/if}}
          </div>
 
-         <div class="">
-           <a href=""><i class="fas menubutton fa-align-justify"></i></a>
+        <div>
+          <img class="mob-logo" src="/public/img/Untitled-5.png" alt="">
+        </div>
+            
+           <div class="dropdown">
+   <a class="dropdown" data-toggle="dropdown"><i class="fas menubutton fa-align-justify"></i>
+   </a>
+    <ul class="dropdown-menu">
+      <li class="drop"><a href="/registerStudent">Register as student</a></li>
+      <li class="drop"><a href="/registerTeacher">Register as teacher</a></li>
+      <li class="drop"><a href="/">Log in</a></li>
+    </ul>
+  </div>
+         
          </div>
-      </div>
+      
 
   <div class="col-md-10 content">
 

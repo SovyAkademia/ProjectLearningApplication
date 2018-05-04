@@ -1,5 +1,5 @@
 
-$( document ).ready(function() {
+$(function() {
 
     $('#login-form-link').click(function(e) {
 		$("#login-form").delay(100).fadeIn(100);
@@ -14,8 +14,6 @@ $( document ).ready(function() {
 		$('#login-form-link').removeClass('active');
 		$(this).addClass('active');
 		e.preventDefault();
-    });
+	});
 
 });
-
-console.log('hey');
