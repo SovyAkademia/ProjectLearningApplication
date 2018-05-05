@@ -17,6 +17,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
+const bcrypt = require('bcrypt');
 
 
 app.use('/public', express.static('public'));
@@ -34,7 +35,7 @@ const login = require('./api/routes/login');
 const registerStudent = require('./api/routes/registerStudent');
 const registerTeacher = require('./api/routes/registerTeacher');
 //const teacher = require('./api/routes/teacher');
-//const student = require('./api/routes/student');
+const student = require('./api/routes/student');
 
 //Session
 app.use(session({
@@ -64,6 +65,7 @@ app.use((req,res,next)=>{
 app.use('/',login);
 app.use('/registerStudent', registerStudent);
 app.use('/registerTeacher', registerTeacher);
+app.use('/students',student);
 //app.use('/regteacher', teacher);
 
 
@@ -74,16 +76,6 @@ app.set('view engine', 'handlebars');
 
 //Static path
 app.use(express.static(path.join(__dirname+'.../public')));
-
-//Global var for user
-/*
-app.use((req,res,next)=>{
-    
-    next();
-});
-*/
-
-
 
 app.listen(port, () => {
     console.log('SERVER STARTED ON PORT '+port);

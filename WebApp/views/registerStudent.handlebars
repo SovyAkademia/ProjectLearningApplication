@@ -1,5 +1,5 @@
 <div class=" regastudent container">
-    <form class="form-horizontal" role="form" method="POST" action="/registerTeacher">
+    <form class="form-horizontal" role="form" method="POST" action="/registerStudent">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -102,7 +102,7 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="date">Year of the start of study</label>
+                <label for="date">First year of study</label>
             </div>
             <div class="col-md-5">
                 <div class="form-group">
@@ -110,8 +110,16 @@
                         <div class="input-group-addon" style="width: 2.6rem">
                             <i class="fa regico fa-repeat"></i>
                         </div>
-                        <input type="date" name="date" class="form-control"
-                               id="date" placeholder="date" required>
+                        <select name="firstYear" required>
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="2014">2014/2015</option>
+                                <option value="2015">2015/2016</option>
+                                <option value="2016">2016/2017</option>
+                                <option value="2017">2017/2018</option>
+                                <option value="2018">2018/2019</option>
+                                <option value="2019">2019/2020</option>
+                                <option value="2020">2020/2021</option>
+                        </select> 
                     </div>
                 </div>
             </div>

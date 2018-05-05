@@ -1,35 +1,38 @@
 const db = require('../models/db');
+const bcrypt = require('bcrypt');
 
 exports.get_student_reg_form = (req,res,next) => {
     res.render('registerStudent');
 }
 
 exports.register_new_student = (req,res,next) => {
-    const email = req.body.email;
-    const firstName = req.body.firstName;
-    const lastName = req.body.lastName;
-    const password = req.body.password;
+    let email = req.body.email;
+    let firstName = req.body.firstName;
+    let lastName = req.body.lastName;
+    let password = req.body.password;
+    let firstYear = req.body.firstYear;
+
+    console.log(firstYear);
 
     let selectEmail = 'select Email from temp_students where Email like ?';
-    let insertStudent = 'insert into temp_students(FirstName,LastName,Email,Password) values(?,?,?,?)';
+    let insertStudent = 'insert into temp_students(FirstName,LastName,Email,Password,Year) values(?,?,?,?,?)';
 
     db.query(selectEmail,[email], (err, result) => {
         if (err) throw err;
-        //validate input with validator,check if passwords match
-        //x check if email already exists
-        if(result.length < 1 ){
-            //hash password with bcrypt
-            //x store student in temp_students table
-            db.query(insertStudent,[firstName,lastName,email,password],(err,inserted) => {
-                if(err) throw err;
-                console.log('Student registered');
-                console.log(inserted);
-                res.render('login');
 
+        if(result.length == 0 ){
+
+            bcrypt.hash(password,10, (err,hash) => {
+                if(err) throw err;
+                db.query(insertStudent,[firstName,lastName,email,hash,firstYear],(err,inserted) => {
+                    if(err) throw err;
+                    console.log('Student registered');
+                    res.render('login', {message:'Student succesfully registered'});
+                });
             });
 
         } else {
-            res.render('registerStudent', {message: 'email already exists'})
+            res.render('registerStudent', {message: 'Student already exists'})
             console.log('Student already exists');
         }
     });

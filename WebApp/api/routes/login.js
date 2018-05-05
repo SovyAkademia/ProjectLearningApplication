@@ -8,7 +8,6 @@ const flash = require('connect-flash');
 //Import controller
 const loginController = require('../controller/login');
 
-
 router.get('/',loginController.index_get);
 router.get('/dashboard',ensureAuth,loginController.dashboard);
 router.post('/login',loginController.login);
