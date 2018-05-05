@@ -215,3 +215,26 @@ ul{
         margin-right: 10px;
     }
 }
+
+#registrations {
+    border:0.5px solid cadetblue;
+    background-color: white;
+    width: 85%;
+    margin: 0 auto;
+    overflow: auto;
+    max-height: 300px;
+    font-size: 14px;
+    padding: 15px;
+    -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
+
+}
+
+.handleRegBtns{
+    float: right;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.regContent{
+    margin-left: 5px;
+}

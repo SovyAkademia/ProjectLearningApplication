@@ -1,3 +1,4 @@
+// import { workers } from "cluster";
 
 $(function() {
 
@@ -15,5 +16,27 @@ $(function() {
 		$(this).addClass('active');
 		e.preventDefault();
 	});
+
+	$('.studentAcceptBtn').click(function(){
+		var email = $(this).parent().parent().find('.regEmail').html();
+		var divToRemove = $(this).parent().parent();
+		var fade = { opacity: 0, transition: 'opacity 0.5s' };
+		
+		console.log(email);
+		$.ajax({
+			type: 'POST',
+			url:'http://localhost:5000/dashboard/handleRegistration',
+			data: {'email':email},
+            
+            error: function(){
+               console.log('ajax not working')
+            },
+            dataType: "jsonp",
+            success : function(data){
+				console.log(divToRemove.css(fade).slideUp(500,function(){divToRemove.remove()}));
+			},
+
+        });
+	})
 
 });

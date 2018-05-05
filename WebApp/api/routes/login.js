@@ -12,6 +12,7 @@ router.get('/',loginController.index_get);
 router.get('/dashboard',ensureAuth,loginController.dashboard);
 router.post('/login',loginController.login);
 router.get('/logout', loginController.logout);
+router.post('/dashboard/handleRegistration',ensureAuth,loginController.handleRegistration);
 
 //Access Controll
 function ensureAuth(req,res,next){

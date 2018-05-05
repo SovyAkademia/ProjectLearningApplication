@@ -1,1 +1,16 @@
-<h1>Hello there, {{name}} {{lname}}</h1>
+{{!-- <h1>Hello there, {{name}} {{lname}}</h1> --}}
+
+<div id="registrations"><h2 class="regHead">New registrations</h2>
+<hr style="background:#434343">
+    {{#each temp_students}}
+    <div class="regContent"><span>A new student <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email adress <b><span class="regEmail">{{this.Email}}</span></b> has registered.</span> 
+     <span class="handleRegBtns"><button class="btn btn-success btn-sm studentAcceptBtn">Accept</button> <button class="btn btn-danger btn-sm studentDeclineBtn">Decline</button></span><hr></div>
+   
+    {{/each}}
+
+    {{#each temp_teachers}}
+    <div class="regContent"><span>A new teacher <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email adress <b>{{this.Email}}</b> has registered.</span> 
+    <span class="handleRegBtns"><button class="btn btn-success btn-sm teacherAcceptBtn">Accept</button> <button class="btn btn-danger btn-sm teacherDeclineBtn">Decline</button></span></div>
+   <hr>
+    {{/each}}
+ </div>

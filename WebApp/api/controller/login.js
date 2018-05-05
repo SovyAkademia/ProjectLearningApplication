@@ -11,15 +11,35 @@ exports.index_get = (req,res,next)=>{
 }
 
 exports.dashboard = (req,res,next)=>{
-    // console.log(req.user);
-    db.query('select FirstName, LastName from temp_teachers where id like ?',[req.user[0].id], (err,result) => {
-        if(err) throw err;
-        res.render('dashboard',{
-            name:result[0].FirstName,
-            lname: result[0].LastName,
-            isAdmin:false
+    let getStudents = 'select * from temp_students';
+    let getTeachers = 'select * from temp_teachers';
+
+    db.query(getStudents,(err,students) => {
+        if (err) throw err;
+        console.log(students);
+        db.query(getTeachers,(err,teachers) => {
+            if (err) throw err;
+
+            res.render('dashboard', {
+                temp_students:students,
+                temp_teachers:teachers
+            });
         });
     });
+    // console.log(req.user);
+    // db.query('select FirstName, LastName from temp_teachers where id like ?',[req.user[0].id], (err,result) => {
+    //     if(err) throw err;
+    //     res.render('dashboard',{
+    //         name:result[0].FirstName,
+    //         lname: result[0].LastName,
+    //         isAdmin:false
+    //     });
+    // });
+}
+
+exports.handleRegistration = (req,res,next) => {
+    console.log(req.body);
+    res.jsonp({message:'user handled'});
 }
 
 exports.logout = (req,res,next)=>{
@@ -64,7 +84,7 @@ exports.login = (req,res,next)=>{
     }));
     
     passport.serializeUser((user,done)=>{
-        console.log(user);
+        console.log('current user logged in: ' +user);
         done(null,user)
     });
     
