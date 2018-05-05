@@ -80,6 +80,11 @@ ul>li>a:hover{
     padding-top: 25px;
 }
 
+.regico{
+    margin-top: 10px;
+    color: #696970;
+}
+
 .content{
     position: static;
     float: right;
