@@ -1,5 +1,21 @@
 {{!-- <h1>Hello there, {{name}} {{lname}}</h1> --}}
+<div class="container">
+ <div class="col-md-6 newquest">
 
+<input class="btn-create" type="button" value="Create New Qusetion +" onclick="addRow()">
+
+<div id="content">
+
+</div>
+<button class="btn btn-success">Save the test</button>
+<button class="btn btn-danger">Cancel the test</button>
+ </div>
+ <div class="col-md-4 ">
+
+     <label for="">Time of passing the test Min:Sec </label><input type="time">
+
+ </div>
+ </div>
 <div id="registrations"><h2 class="regHead">New registrations</h2>
 <hr style="background:#434343">
     {{#each temp_students}}

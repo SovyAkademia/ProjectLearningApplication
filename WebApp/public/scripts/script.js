@@ -37,6 +37,24 @@ $(function() {
 			},
 
         });
-	})
+	});
+
+	
 
 });
+
+
+function addRow() {
+    var div = document.createElement('div');
+
+    div.className = 'row';
+
+    div.innerHTML = '<input class="questioninput" type="text" value="" />\
+        <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)">';
+
+     document.getElementById('content').appendChild(div);
+}
+
+function removeRow(input) {
+    document.getElementById('content').removeChild( input.parentNode );
+}

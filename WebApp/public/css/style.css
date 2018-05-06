@@ -134,6 +134,32 @@ ul{
 .btn-sub{
     background-color: #08A2BE;
     color: #F7F7F8;
+    border-style: none;
+}
+
+.btn-delete{
+    color: #F7F7F8;
+    border-style: none;
+    height: 35px;
+}
+
+.btn-create{
+    background-color: #08A2BE;
+    color: #F7F7F8;
+    border-style: none;
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+.question{
+    margin-bottom: 10px;
+}
+
+.questioninput{
+    margin-bottom: 10px;
+    width: 230px;
+    height: 35px;
+    
 }
 
 .top-header{
@@ -175,6 +201,32 @@ ul{
     display: none;
 }
 
+.studentslist{
+    margin: 0 auto;
+}
+
+.alert{
+    margin: 0 auto;
+    width: 520px;
+}
+
+.newquest{
+    
+    
+}
+
+#registrations {
+    border:0.5px solid cadetblue;
+    background-color: white;
+    width: 85%;
+    margin: 0 auto;
+    overflow: auto;
+    max-height: 300px;
+    font-size: 14px;
+    padding: 15px;
+    -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
+
+}
 /* Login */
 
 
@@ -188,6 +240,11 @@ ul{
     .notifications,.links{
         display: none;
     }
+    #registrations{
+        width: 100%;
+        margin: 0 auto;
+    }
+   
     .menubutton{
         color: #434343;
         display: block;
@@ -216,17 +273,8 @@ ul{
     }
 }
 
-#registrations {
-    border:0.5px solid cadetblue;
-    background-color: white;
-    width: 85%;
+#content{
     margin: 0 auto;
-    overflow: auto;
-    max-height: 300px;
-    font-size: 14px;
-    padding: 15px;
-    -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
-
 }
 
 .handleRegBtns{

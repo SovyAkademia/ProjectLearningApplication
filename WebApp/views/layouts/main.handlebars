@@ -27,7 +27,7 @@
           {{#if user}}
            <li><i class="fas menuic fa-home"></i><a href="/dashboard">Dashboard</a></li>
            <li><i class="fas menuic fa-file"></i><a href="">My tests</a></li>
-           <li><i class="fas menuic fa-plus"></i><a href="">Create new test</a></li>
+           <li><i class="fas menuic fa-plus"></i><a href="/newtest.handlebars">Create new test</a></li>
            <li><i class="fas menuic fa-graduation-cap"></i><a href="/students">Students</a></li>
           {{else}}
            <li><i class="fas menuic fa-tasks"></i><a href="">Tests</a></li>
@@ -39,7 +39,7 @@
   </div>
     
       <div class="top-header col-md-12">
-        {{#if user}}
+        {{!-- {{#if user}}
         <div class="notifications">
             <a id="title" href="">Dashboard</a>
             <a href=""><i class="far headeric fa-comment"></i></a>
@@ -47,7 +47,7 @@
             <a href=""><i class="fas headeric fa-cloud"></i></a>
          </div>
 
-    {{/if}}
+    {{/if}} --}}
 
          <div class="links">
             {{#if user}}
@@ -76,7 +76,7 @@
          </div>
       
 
-  <div class="col-md-10 content">
+  <div class="col-md-10 col-sm-12 col-xs-12 content">
 
 
       {{#if error_msg}}
