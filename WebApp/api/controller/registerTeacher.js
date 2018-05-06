@@ -12,7 +12,7 @@ exports.register_new_teacher = (req,res,next) => {
     let password = req.body.password;
 
     let selectEmail = 'select Email from temp_teachers where Email like ?';
-    let insertTeacher = 'insert into temp_teachers(FirstName,LastName,Email,Password) values(?,?,?,?)';
+    let insertTeacher = 'insert into temp_teachers(FirstName,LastName,Email,Password,Date) values(?,?,?,?,CURRENT_TIMESTAMP())';
 
     db.query(selectEmail,[email], (err, result) => {
 

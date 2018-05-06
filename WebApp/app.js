@@ -18,7 +18,7 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 const bcrypt = require('bcrypt');
-
+const dateFormat = require('dateformat');
 
 app.use('/public', express.static('public'));
 
@@ -69,9 +69,19 @@ app.use('/students',student);
 //app.use('/regteacher', teacher);
 
 
+var hbs= exphbs.create({
+    defaultLayout: 'main',
+    // Specify helpers which are only registered on this instance. 
+    helpers: {
+        formatDate: function (date) { return dateFormat(date,"dd.mm.yyyy, HH:MM"); },
+    }
+  });
+
 //view engine
-app.engine('handlebars',exphbs({defaultLayout: 'main'}));
+app.engine('handlebars',hbs.engine);
 app.set('view engine', 'handlebars');
+
+
 
 
 //Static path

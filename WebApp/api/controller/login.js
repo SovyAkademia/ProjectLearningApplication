@@ -11,14 +11,15 @@ exports.index_get = (req,res,next)=>{
 }
 
 exports.dashboard = (req,res,next)=>{
-    let getStudents = 'select * from temp_students';
-    let getTeachers = 'select * from temp_teachers';
+    let getStudents = 'select * from temp_students order by Date ASC';
+    let getTeachers = 'select * from temp_teachers order by Date ASC';
 
     db.query(getStudents,(err,students) => {
         if (err) throw err;
-        console.log(students);
+        // console.log(students);
         db.query(getTeachers,(err,teachers) => {
             if (err) throw err;
+            console.log(teachers);
 
             res.render('dashboard', {
                 temp_students:students,
