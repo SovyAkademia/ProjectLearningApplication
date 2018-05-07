@@ -49,7 +49,7 @@ function addRow() {
 
     div.className = 'row';
 
-    div.innerHTML = '<input class="questioninput" type="text" value="" />\
+    div.innerHTML = '<div id="counter"></div><input class="col-md-8 col-sm-10 questioninput" type="text" value="" />\
         <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)">';
 
      document.getElementById('content').appendChild(div);
@@ -58,3 +58,12 @@ function addRow() {
 function removeRow(input) {
     document.getElementById('content').removeChild( input.parentNode );
 }
+
+
+
+$('#create').click(function() {
+	$('#counter').html(+$('#counter').html()+1);
+	var counterval = $('#counter').html;
+	
+	
+  });

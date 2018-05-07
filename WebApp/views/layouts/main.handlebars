@@ -17,9 +17,9 @@
     <title>Document</title>
 </head>
 <body>
- <div class="sidebar navbar-fixed-top">
+ <div class="sidebar col-md-2">
       <div class="logo">
-        <img class="mimg" src="/public/img/Untitled-5.png" alt="">
+        <img class="img-responsive " src="/public/img/Untitled-5.png" alt="">
       </div><hr>
 
       <div class="navigation">
@@ -27,7 +27,7 @@
           {{#if user}}
            <li><i class="fas menuic fa-home"></i><a href="/dashboard">Dashboard</a></li>
            <li><i class="fas menuic fa-file"></i><a href="">My tests</a></li>
-           <li><i class="fas menuic fa-plus"></i><a href="/newtest.handlebars">Create new test</a></li>
+           <li><i class="fas menuic fa-plus"></i><a href="/newtest.handlebars">Create test</a></li>
            <li><i class="fas menuic fa-graduation-cap"></i><a href="/students">Students</a></li>
           {{else}}
            <li><i class="fas menuic fa-tasks"></i><a href="">Tests</a></li>
@@ -67,9 +67,10 @@
    <a class="dropdown" data-toggle="dropdown"><i class="fas menubutton fa-align-justify"></i>
    </a>
     <ul class="dropdown-menu">
-      <li class="drop"><a href="/registerStudent">Register as student</a></li>
-      <li class="drop"><a href="/registerTeacher">Register as teacher</a></li>
-      <li class="drop"><a href="/">Log in</a></li>
+      <li class="drop"><a href="/registerStudent">Dashboard</a></li>
+      <li class="drop"><a href="/registerStudent">My Tests</a></li>
+      <li class="drop"><a href="/registerTeacher">Create new Test</a></li>
+      <li class="drop"><a href="/">Students</a></li>
     </ul>
   </div>
          
