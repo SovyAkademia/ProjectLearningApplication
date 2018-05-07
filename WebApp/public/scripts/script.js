@@ -65,5 +65,5 @@ $('#create').click(function() {
 	$('#counter').html(+$('#counter').html()+1);
 	var counterval = $('#counter').html;
 	
-	
+
   });

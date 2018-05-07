@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: Št 03.Máj 2018, 12:23
+-- Čas generovania: Ne 06.Máj 2018, 15:10
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -97,8 +97,11 @@ INSERT INTO `questions` (`ID`, `Text`, `Points`) VALUES
 DROP TABLE IF EXISTS `results`;
 CREATE TABLE IF NOT EXISTS `results` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `StudentID` int(11) DEFAULT NULL,
-  `TestID` int(11) DEFAULT NULL,
+  `StudentID` int(11) NOT NULL,
+  `TestID` int(11) NOT NULL,
+  `Date` datetime NOT NULL,
+  `Score` float NOT NULL,
+  `Time` time NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `StudentID` (`StudentID`),
   KEY `TestID` (`TestID`)
@@ -138,15 +141,14 @@ CREATE TABLE IF NOT EXISTS `students` (
   `Year` int(4) NOT NULL,
   `Login` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `students`
 --
 
 INSERT INTO `students` (`ID`, `FirstName`, `LastName`, `Email`, `Password`, `Year`, `Login`) VALUES
-(1, 'Ondrej', 'Tomco', 'ondrej.tomco@akademiasovy.sk', '1234', 2017, b'0'),
-(2, 'Boris', 'Galický', 'boris.galicky@akademiasovy.sk', '1234', 2017, b'0');
+(1, 'Erik', 'Ruszinka', 'erik.ruszinka@akademiasovy.sk', '1234', 2017, b'0');
 
 -- --------------------------------------------------------
 
@@ -186,17 +188,19 @@ CREATE TABLE IF NOT EXISTS `temp_students` (
   `LastName` varchar(30) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `Year` int(4) NOT NULL,
+  `Year` year(4) NOT NULL,
+  `Date` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `temp_students`
 --
 
-INSERT INTO `temp_students` (`ID`, `FirstName`, `LastName`, `Email`, `Password`, `Year`) VALUES
-(1, 'Boris', 'Galický', 'boris.galicky@akademiasovy.sk', '1234', 2017),
-(2, 'Ondrej', 'Tomco', 'ondrej.tomco@akademiasovy.sk', '1234', 2017);
+INSERT INTO `temp_students` (`ID`, `FirstName`, `LastName`, `Email`, `Password`, `Year`, `Date`) VALUES
+(1, 'Boris', 'Galický', 'boris.galicky@akademiasovy.sk', '1234', 2017, NULL),
+(2, 'Ondrej', 'Tomco', 'ondrej.tomco@akademiasovy.sk', '1234', 2017, NULL),
+(3, 'Erik', 'Ruszinka', 'erik.ruszinka@akademiasovy.sk', '1234', 2017, NULL);
 
 -- --------------------------------------------------------
 
@@ -211,6 +215,7 @@ CREATE TABLE IF NOT EXISTS `temp_teachers` (
   `LastName` varchar(30) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
+  `Date` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -248,8 +253,8 @@ INSERT INTO `tests` (`ID`, `Name`, `CategoryID`, `TeacherID`, `Allowed`) VALUES
 DROP TABLE IF EXISTS `test_details`;
 CREATE TABLE IF NOT EXISTS `test_details` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `TestID` int(11) DEFAULT NULL,
-  `QuestionID` int(11) DEFAULT NULL,
+  `TestID` int(11) NOT NULL,
+  `QuestionID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `TestID` (`TestID`),
   KEY `QuestionID` (`QuestionID`)

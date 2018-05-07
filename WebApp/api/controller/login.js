@@ -11,18 +11,30 @@ exports.index_get = (req,res,next)=>{
 }
 
 exports.dashboard = (req,res,next)=>{
-    let getStudents = 'select * from temp_students';
-    let getTeachers = 'select * from temp_teachers';
+    let getStudents = 'select * from temp_students order by Date DESC';
+    let getTeachers = 'select * from temp_teachers order by Date DESC';
 
     db.query(getStudents,(err,students) => {
         if (err) throw err;
-        console.log(students);
+        students.map((student) => {
+            student.type = 'student';
+        });
         db.query(getTeachers,(err,teachers) => {
             if (err) throw err;
+            teachers.map((teacher) => {
+                teacher.type = 'teacher';
+            });
+
+            let users = students.concat(teachers);
+
+            users.sort((a,b) => {
+                let c = new Date(a.Date);
+                let d = new Date(b.Date)
+                return d-c;
+            });
 
             res.render('dashboard', {
-                temp_students:students,
-                temp_teachers:teachers
+                users
             });
         });
     });
