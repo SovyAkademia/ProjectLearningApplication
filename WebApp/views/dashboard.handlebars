@@ -18,17 +18,24 @@
  </div>
 
 
-<div id="registrations"><h2 class="regHead">New registrations</h2>
-<hr style="background:#434343">
-    {{#each temp_students}}
-    <div class="regContent"><em>{{formatDate this.Date }} - </em><span>A new student <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email adress <b><span class="regEmail">{{this.Email}}</span></b> has registered.</span> 
+<div id="registrations">
+    <h3 class="regHead">New registrations</h3>
+    <hr style="background:#434343">
+
+    {{#each users}}
+    <div class="regContent"><em>{{formatDate this.Date }} - </em><span>A new {{this.type}} <b>{{this.FirstName }} </b> <b>{{this.LastName }}</b> with Email <b><span class="regEmail">{{this.Email}}</span></b> has registered.</span> 
      <span class="handleRegBtns"><button class="btn btn-success btn-sm studentAcceptBtn">Accept</button> <button class="btn btn-danger btn-sm studentDeclineBtn">Decline</button></span><hr></div>
    
     {{/each}}
 
-    {{#each temp_teachers}}
+    {{#unless users}}
+    <span>There are currently no newly registered students or teachers</span>
+
+    {{/unless}}
+
+    {{!-- {{#each temp_teachers}}
     <div class="regContent"><em>{{formatDate this.Date }} - </em> <span>A new teacher <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email adress <b>{{this.Email}}</b> has registered.</span> 
     <span class="handleRegBtns"><button class="btn btn-success btn-sm teacherAcceptBtn">Accept</button> <button class="btn btn-danger btn-sm teacherDeclineBtn">Decline</button></span></div>
    <hr>
-    {{/each}}
+    {{/each}} --}}
  </div>
