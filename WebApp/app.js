@@ -34,8 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const login = require('./api/routes/login');
 const registerStudent = require('./api/routes/registerStudent');
 const registerTeacher = require('./api/routes/registerTeacher');
-//const teacher = require('./api/routes/teacher');
 const student = require('./api/routes/student');
+const createTest = require('./api/routes/createTest');
 
 //Session
 app.use(session({
@@ -49,6 +49,7 @@ app.use(session({
         maxAge:100000,
     }
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -66,10 +67,9 @@ app.use('/',login);
 app.use('/registerStudent', registerStudent);
 app.use('/registerTeacher', registerTeacher);
 app.use('/students',student);
-//app.use('/regteacher', teacher);
+app.use('/createTest',createTest)
 
-
-var hbs= exphbs.create({
+let hbs= exphbs.create({
     defaultLayout: 'main',
     // Specify helpers which are only registered on this instance. 
     helpers: {

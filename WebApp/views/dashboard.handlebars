@@ -1,39 +1,26 @@
 {{!-- <h1>Hello there, {{name}} {{lname}}</h1> --}}
-<div class="container testcreate">
-    <div class="row">
- <div class="newquest col-md-6 col-sm-12">
 
-<input class="btn-create col-md-12" id="create" type="button" value="Create New Qusetion +" onclick="addRow()">
 
-<div id="content">
+<div id="registrations"><h3 class="regHead">New registrations</h3>
+    <hr style="background:#434343">
 
-</div>
- </div>
- <div class="col-md-6 col-sm-12">
-     <div class="timediv col-sm-12">
-     <label class="timelabel" for="">Time of test Min:Sec </label><input type="time">
-     </div>
+    {{#each users}}
+        <div class="regContent">
+            
+            <span>
+                <em>{{formatDate this.Date }} - </em> A new {{this.type}} <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email <b><span class="regEmail">{{this.Email}}</span></b> has registered.
+            </span> 
 
-    
- </div>
- <div class="buttons col-md-12 col-sm-12">
-     <button class="btn col-sm-12 testbtns btn-success">Save the test</button>
-     <button class="btn col-sm-12 testbtns btn-danger">Cancel the test</button>
-    </div>
- </div>
- </div>
-<div id="registrations"><h2 class="regHead">New registrations</h2>
-<hr style="background:#434343">
-    {{#each temp_students}}
-    <div class="regContent"><span>A new student <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email adress <b><span class="regEmail">{{this.Email}}</span></b> has registered.</span> 
-     <span class="handleRegBtns"><br><button class="btn btn-success btn-sm studentAcceptBtn">Accept</button> <button class="btn btn-danger btn-sm studentDeclineBtn">Decline</button></span><hr></div>
-   
+            <span class="handleRegBtns"><br>
+                <button class="btn btn-success btn-sm studentAcceptBtn">Accept</button> 
+                <button class="btn btn-danger btn-sm studentDeclineBtn">Decline</button>
+            </span>
+            <hr>
+        </div>
     {{/each}}
 
-    {{#each temp_teachers}}
-    <div class="regContent"><span>A new teacher <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email adress <b>{{this.Email}}</b> has registered.</span> 
-    <span class="handleRegBtns"><br><button class="btn btn-success btn-sm teacherAcceptBtn">Accept</button> <button class="btn btn-danger btn-sm teacherDeclineBtn">Decline</button></span></div>
-   <hr>
-    {{/each}} --}}
+    {{#unless users}}
+        <span>There are currently no newly registered users</span>
+    {{/unless}}
  </div>
 
