@@ -1,0 +1,38 @@
+POST /desktop/auth/login
+sample request:
+	{"username":"xxx", 
+	"password":"xxx"}
+
+alternative
+	{"email":"xxx@xx.xx", 
+	"password":"xxx"}
+
+Sample response: 200 / 401
+	{"identity":{}, 
+	"token":"xxxxxxxxxxxxxxxxxxxx"}
+
+
+POST /desktop/auth/logout
+sample request: 
+	{"username":"xxx" ,
+	"token":"xxxxxxxxxxxxxxxxxx"}
+
+response: 200 / 401
+
+GET /desktop/tests/categories
+response: 200 / 404
+	{"categories":[]}
+
+GET /desktop/tests/category/@category
+response: 200 / 404
+	{"tests":[]}
+
+GET /desktop/tests/test/@testID
+response: 200 / 404
+	{"questions":[]}
+
+POST /desktop/answer
+	{"username":"", "token":"xxxxxxxxxxxxx", "testID":"xxx", 
+	"questionID":"xxx", "answerID":"xxx"}
+	
+
