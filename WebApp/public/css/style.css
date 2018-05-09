@@ -142,6 +142,17 @@ ul{
     margin-left: 150px;
 }
 
+.testinf{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+.pointsin{
+
+}
+
 .sidebar{
     background-color: #434343;
      height: 100%;
@@ -187,6 +198,22 @@ ul{
     
 }
 
+.answer{
+    margin-left: 20px;
+    margin-right: 20px;
+   
+}
+
+.letter{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.addquest{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .top-header{
     background-color: #FFFFFF;
     height: 70px;
@@ -222,6 +249,11 @@ ul{
 
 .studentslist{
     margin: 0 auto;
+}
+
+#pointsin{
+    margin-left: 30px;
+    margin-bottom: 5px;
 }
 
 .alert{
@@ -288,6 +320,24 @@ ul{
         height: 50px;
         float: left;
         
+    }
+
+    .answer{
+        
+        margin-right: 100px;
+    }
+
+    .ok{
+        margin-left: 5px;
+    }
+
+    #pointsin{
+        margin-bottom: 10px;
+        margin-left: 50%;
+    }
+
+    .testsave{
+        margin-top: 5px;
     }
 
     .top-header{

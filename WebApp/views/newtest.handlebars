@@ -1,19 +1,92 @@
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create a Test</h4>
+        </div>
+        <div class="modal-body">
+           
+        <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()">
+       
+                
+            
+
+        <div id="content">
+
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-md testsave btn-success">Save the test</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="choose" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Choose from existing Questions</h4>
+        </div>
+        <div class="modal-body">
+           
+        <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()">
+
+        <div id="content">
+
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
 <div class="container testcreate">
     <div class="row">
- <div class="newquest col-md-6 col-sm-12">
-
-<input class="btn-create col-md-12" id="create" type="button" value="Create New Qusetion +" onclick="addRow()">
-
-<div id="content">
-
-</div>
- </div>
+        <div class="col-md-12">
+            <div class="row">
+            <div class="col-md-6">
+        <input class="testinf" placeholder="Test name" type="text">
+        </div>
+        <div class="col-md-6">
+        <input class="testinf" placeholder="Choose a category" list="Categories">
+            <datalist id="Categories">
+            <option value="Web technologies">
+            <option value="Programming">
+            <option value="Aplicated software">
+            <option value="Databases">
+            <option value="Logic systems">
+            </datalist>
+        </div>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+        <button type="button" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal" data-target="#myModal">Add new question</button>
+        </div>
  <div class="col-md-6 col-sm-12">
-     <div class="timediv col-sm-12">
-     <label class="timelabel" for="">Time of test Min:Sec </label><input type="time">
-     </div>
-
-    
+     <button type="button" class="btn addquest btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>    
  </div>
  <div class="buttons col-md-12 col-sm-12">
      <button class="btn col-sm-12 testbtns btn-success">Save the test</button>
