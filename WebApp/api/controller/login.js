@@ -11,9 +11,10 @@ exports.index_get = (req,res,next)=>{
 }
 
 exports.dashboard = (req,res,next)=>{
-    let getStudents = 'select * from temp_students order by Date DESC';
-    let getTeachers = 'select * from temp_teachers order by Date DESC';
+    let getStudents = 'select * from students where allowed = 0 order by DateOfReg DESC';
+    let getTeachers = 'select * from teachers where allowed = 0 order by DateOfReg DESC';
 
+    console.log('hey');
     db.query(getStudents,(err,students) => {
         if (err) throw err;
         students.map((student) => {
@@ -26,10 +27,11 @@ exports.dashboard = (req,res,next)=>{
             });
 
             let users = students.concat(teachers);
+            console.log(users);
 
             users.sort((a,b) => {
-                let c = new Date(a.Date);
-                let d = new Date(b.Date)
+                let c = new Date(a.DateOfReg);
+                let d = new Date(b.DateOfReg)
                 return d-c;
             });
 
@@ -62,9 +64,9 @@ exports.logout = (req,res,next)=>{
 
 
 exports.login = (req,res,next)=>{
-    let userQuery = 'select count(Email) as Email from temp_teachers where Email like ?';
-    let passQuery = 'select email, password as pass from temp_teachers where Email = ?';
-    let getUserId = 'select id from temp_teachers where Email like ?'
+    let userQuery = 'select count(Email) as Email from teachers where Email like ?'; // and allowed like 1
+    let passQuery = 'select email, password as pass from teachers where Email = ?';
+    let getUserId = 'select id,admin from teachers where Email like ?'; // and allowed like 1
 
     let email = req.body.email;
     let password = req.body.password;
@@ -96,12 +98,13 @@ exports.login = (req,res,next)=>{
     }));
     
     passport.serializeUser((user,done)=>{
-        console.log('current user logged in: ' +user);
+        console.log(user);
         done(null,user)
     });
     
     passport.deserializeUser((name,done)=>{
         db.query(getUserId,[name[0].email], (err, user) => {
+            console.log(user);
         done(err,user);
         });
     });

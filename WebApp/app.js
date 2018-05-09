@@ -67,22 +67,24 @@ app.use('/',login);
 app.use('/registerStudent', registerStudent);
 app.use('/registerTeacher', registerTeacher);
 app.use('/students',student);
-app.use('/createTest',createTest)
+app.use('/createTest',createTest);
 
 let hbs= exphbs.create({
     defaultLayout: 'main',
     // Specify helpers which are only registered on this instance. 
     helpers: {
         formatDate: function (date) { return dateFormat(date,"dd.mm.yyyy, HH:MM"); },
+        isAdmin: function(user){
+            console.log(user[0].admin);
+            return user[0].admin == 1;
+        }
+        
     }
   });
 
 //view engine
 app.engine('handlebars',hbs.engine);
 app.set('view engine', 'handlebars');
-
-
-
 
 //Static path
 app.use(express.static(path.join(__dirname+'.../public')));

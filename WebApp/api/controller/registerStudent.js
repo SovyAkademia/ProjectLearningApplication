@@ -14,8 +14,8 @@ exports.register_new_student = (req,res,next) => {
 
     console.log(firstYear);
 
-    let selectEmail = 'select Email from temp_students where Email like ?';
-    let insertStudent = 'insert into temp_students(FirstName,LastName,Email,Password,Year,Date) values(?,?,?,?,?,CURRENT_TIMESTAMP())';
+    let selectEmail = 'select Email from students where Email like ?';
+    let insertStudent = 'insert into students(FirstName,LastName,Email,Password,Year,DateOfReg) values(?,?,?,?,?,CURRENT_TIMESTAMP())';
 
     db.query(selectEmail,[email], (err, result) => {
         if (err) throw err;
