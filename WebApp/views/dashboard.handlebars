@@ -8,7 +8,7 @@
         <div class="regContent">
             
             <span>
-                <em>{{formatDate this.Date }} - </em> A new {{this.type}} <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email <b><span class="regEmail">{{this.Email}}</span></b> has registered.
+                <em>{{formatDate this.DateOfReg }} - </em> A new {{this.type}} <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email <b><span class="regEmail">{{this.Email}}</span></b> has registered.
             </span> 
 
             <span class="handleRegBtns"><br>
@@ -18,6 +18,8 @@
             <hr>
         </div>
     {{/each}}
+
+    {{user.id}}
 
     {{#unless users}}
         <span>There are currently no newly registered users</span>

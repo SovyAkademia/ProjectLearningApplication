@@ -11,8 +11,8 @@ exports.register_new_teacher = (req,res,next) => {
     let lastName = req.body.lastName;
     let password = req.body.password;
 
-    let selectEmail = 'select Email from temp_teachers where Email like ?';
-    let insertTeacher = 'insert into temp_teachers(FirstName,LastName,Email,Password,Date) values(?,?,?,?,CURRENT_TIMESTAMP())';
+    let selectEmail = 'select Email from teachers where Email like ?'; //and allowed like 1
+    let insertTeacher = 'insert into teachers(FirstName,LastName,Email,Password,DateOfReg) values(?,?,?,?,CURRENT_TIMESTAMP())';
 
     db.query(selectEmail,[email], (err, result) => {
 
