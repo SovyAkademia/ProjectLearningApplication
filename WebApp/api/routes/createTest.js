@@ -5,6 +5,7 @@ const router = express.Router();
 const createTestController = require('../controller/createTest');
 
 router.get('/', ensureAuth,createTestController.get_create_test);
+router.post('/',createTestController.create_test);
 
 //Access Controll
 function ensureAuth(req,res,next){
