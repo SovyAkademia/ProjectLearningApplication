@@ -22,12 +22,12 @@ const dateFormat = require('dateformat');
 
 app.use('/public', express.static('public'));
 
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //Port
- const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 //App
 //Routes
@@ -36,17 +36,18 @@ const registerStudent = require('./api/routes/registerStudent');
 const registerTeacher = require('./api/routes/registerTeacher');
 const student = require('./api/routes/student');
 const createTest = require('./api/routes/createTest');
+const desktop = require('./api/routes/desktop');
 
 //Session
 app.use(session({
-    key:'sessionID',
-    secret:'This is secret',
-    resave:true,
-    rolling:true,
-    saveUninitialized:false,
-    cookie:{
+    key: 'sessionID',
+    secret: 'This is secret',
+    resave: true,
+    rolling: true,
+    saveUninitialized: false,
+    cookie: {
         //Miliseconds, current 1min
-        maxAge:100000,
+        maxAge: 100000,
     }
 }));
 
@@ -55,7 +56,7 @@ app.use(passport.session());
 
 //Flash messages
 app.use(flash());
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
@@ -63,32 +64,33 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.use('/',login);
+app.use('/', login);
 app.use('/registerStudent', registerStudent);
 app.use('/registerTeacher', registerTeacher);
-app.use('/students',student);
-app.use('/createTest',createTest);
+app.use('/students', student);
+app.use('/createTest', createTest);
+app.use('/desktop', desktop);
 
-let hbs= exphbs.create({
+let hbs = exphbs.create({
     defaultLayout: 'main',
     // Specify helpers which are only registered on this instance. 
     helpers: {
-        formatDate: function (date) { return dateFormat(date,"dd.mm.yyyy, HH:MM"); },
-        isAdmin: function(user){
+        formatDate: function (date) { return dateFormat(date, "dd.mm.yyyy, HH:MM"); },
+        isAdmin: function (user) {
             console.log(user[0].admin);
             return user[0].admin == 1;
         }
-        
+
     }
-  });
+});
 
 //view engine
-app.engine('handlebars',hbs.engine);
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 //Static path
-app.use(express.static(path.join(__dirname+'.../public')));
+app.use(express.static(path.join(__dirname + '.../public')));
 
 app.listen(port, () => {
-    console.log('SERVER STARTED ON PORT '+port);
+    console.log('SERVER STARTED ON PORT ' + port);
 })
