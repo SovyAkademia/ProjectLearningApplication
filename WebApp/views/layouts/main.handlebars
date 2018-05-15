@@ -30,7 +30,8 @@
            <li><i class="fas menuic fa-plus"></i><a href="/createTest">Create test</a></li>
            <li><i class="fas menuic fa-graduation-cap"></i><a href="/students">Students</a></li>
           {{else}}
-           <li><i class="fas menuic fa-tasks"></i><a href="">Tests</a></li>
+           <li><i class="fas menuic fa-user"></i><a href="/registerStudent">Register as student</a></li>
+           <li><i class="fas menuic fa-user"></i><a href="/registerTeacher">Register as teacher</a></li>
           {{/if}}
          </ul>
       </div>
@@ -53,8 +54,6 @@
             {{#if user}}
                 <a href="/logout">Log out</a>
             {{else}}
-                <a href="/registerStudent">Register as student</a>
-                <a href="/registerTeacher">Register as teacher</a>
                 <a href="/">Log in</a>
             {{/if}}
          </div>
@@ -75,7 +74,6 @@
   </div>
          
          </div>
-      
       
 
   <div class="col-md-10 col-sm-12 col-xs-12 content">
