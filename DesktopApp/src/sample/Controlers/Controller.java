@@ -13,7 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
+import sample.api.HttpGet;
 
 
 import javax.swing.*;
@@ -43,6 +43,7 @@ public class Controller {
     public ChoiceBox Testy;
     public MenuButton menuButton;
 
+    private static String categories;
 
     public void clickLogin(ActionEvent event) {
         String login = loginField.textProperty().get();
@@ -164,6 +165,8 @@ public class Controller {
 
     public void clickTests(ActionEvent event) {
         try {
+            HttpGet httpRequest = new HttpGet();
+            categories = httpRequest.SimplegetCategories("http://akademiasovy.ddns.net:3050/desktop/getCategories");
             FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("../Scenes/TestStage.fxml"));
             Parent root = (Parent) fxmlLoader.load();
 
@@ -171,12 +174,6 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.setTitle("Testing");
 
-
-/*
-            choice.getItems().add("Apple");
-            choice.getItems().add("Cock");
-            choice.getItems().addAll("Boris","BERE","Dnuka","valibuka");
-            */
 
             stage.show();
             stage.setMaximized(true);

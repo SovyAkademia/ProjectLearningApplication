@@ -1,4 +1,4 @@
-package sample;
+package sample.api;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import java.io.IOException;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class HttpGet {
 
@@ -35,6 +40,27 @@ public class HttpGet {
         }
         rd.close();
         return result.toString();
+    }
+
+    public String SimplegetCategories(String url)
+    {
+        String result = "";
+        try {
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+            Response response = client.newCall(request).execute();
+            result = response.body().string();
+            System.out.println(response.code());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            return result;
+        }
     }
 
 

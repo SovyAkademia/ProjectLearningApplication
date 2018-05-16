@@ -1,4 +1,4 @@
-package sample;
+package sample.threads;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
