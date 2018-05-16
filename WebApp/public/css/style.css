@@ -22,6 +22,10 @@ i{
     margin-top: -2px;
 }
 
+#testname{
+    margin-bottom: 10px;
+}
+
 .testquestions{
     height: 300px;
     overflow: scroll;
@@ -169,10 +173,6 @@ ul{
     padding-left: 5px;
 }
 
-.pointsin{
-
-}
-
 .sidebar{
     background-color: #434343;
      height: 100%;
@@ -276,7 +276,7 @@ questionlist:hover{
 }
 
 #pointsin{
-    margin-left: 30px;
+    margin-left: 21px;
     margin-bottom: 5px;
 }
 
@@ -304,16 +304,44 @@ questionlist:hover{
 
 }
 
+#questionlist{
+    padding: 5px 5px 5px 5px;
+}
+
+.answer{
+    margin-left: 10px;
+}
+
+#ansa{
+    margin-left: 7px;
+}
+
+#ansb{
+    margin-left: 8px;
+}
+
+#ansc{
+    margin-left: 7px;
+    margin-right: 19px;
+}
+
+#ansd{
+    margin-left: 6px;
+}
+
+
 
 .testcreate{
     background-color: #FFFF;
     -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
     margin: 0 auto;
-    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
     border: 1px solid #5F9EA0;
     width: 81%;
 
 }
+
 
 #registrations {
     border:0.5px solid cadetblue;
@@ -327,6 +355,8 @@ questionlist:hover{
     -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
 
 }
+
+
 /* Login */
 
 
@@ -348,7 +378,7 @@ questionlist:hover{
 
     .answer{
         
-        margin-right: 100px;
+       
     }
 
     .ok{
@@ -357,7 +387,7 @@ questionlist:hover{
 
     #pointsin{
         margin-bottom: 10px;
-        margin-left: 50%;
+        
     }
 
     .testsave{

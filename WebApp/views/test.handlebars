@@ -23,9 +23,17 @@
           <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)">
           <br>
           <div class="row">
+            <input class="col-md-9 col-sm-10 required questioninput" id="questioninput" placeholder="Question?"  type="text"
+            value="" />
+              <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)">
+
+          </div>
+          <div class="row">
             <div class="container">
               <div class="col-md-12 col-sm-12">
-                <input id="pointsin" placeholder="Points" list="points">
+                
+                <div class="container">
+                  <input id="pointsin" placeholder="Points" list="points">
                 <datalist id="points">
                   <option value="1">
                     <option value="2">
@@ -35,20 +43,21 @@
                 </datalist>
                 <br>
                 <label for="">A</label>
-                <input class="answer" type="text" name="a">
-                <input class="ok" name="correctans" type="radio">
+                <input class="answer" id="ansa" type="text">
+                <input class="ok"  name="correctans" type="radio">
                 <br>
                 <label for="">B</label>
-                <input class="answer" type="text" name="b">
+                <input class="answer" id="ansb" type="text">
                 <input class="ok" name="correctans" type="radio">
                 <br>
                 <label for="">C</label>
-                <input class="answer" type="text" name="c"> 
+                <input class="answer" id="ansc" type="text">
                 <input class="ok" name="correctans" type="radio">
                 <br>
                 <label for="">D</label>
-                <input class="answer" type="text" name="d">
+                <input class="answer" id="ansd" type="text">
                 <input class="ok" name="correctans" type="radio">
+                </div>
               </div>
             </div>
           </div>
@@ -56,7 +65,7 @@
 
         </div>
         <div class="modal-footer">
-          <button class="btn btn-md testsave btn-success" data-dismiss="modal" type="submit">Save to test</button>
+          <button type="submit" class="btn btn-md testsave btn-success" data-dismiss="modal" onclick="newItem()">Add the question</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
 
@@ -112,7 +121,7 @@
   </div>
   <div class="row">
     <div class="col-md-6 col-sm-12">
-      <button type="button" id="addquest" class="btn addquest btn-info btn-md col-md-12 " onclick="testName()" data-toggle="modal"
+      <button type="button" id="addquest" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal"
         data-target="#myModal">Add new question</button>
       <table class="col-md-12 testquestions" id="questionlist"></table>
     </div>
