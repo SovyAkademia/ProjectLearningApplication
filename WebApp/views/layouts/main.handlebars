@@ -66,12 +66,20 @@
            <div class="dropdown">
    <a class="dropdown" data-toggle="dropdown"><i class="fas menubutton fa-align-justify"></i>
    </a>
+   
     <ul class="dropdown-menu">
+      {{#if user}}
       <li class="drop"><a href="/dashboard">Dashboard</a></li>
       <li class="drop"><a href="/">My Tests</a></li>
       <li class="drop"><a href="/createTest">Create new Test</a></li>
       <li class="drop"><a href="/students">Students</a></li>
+      <li class="drop"><a href="/logout">Log out</a></li>
+      {{else}}
+       <li class="drop"><a href="/registerStudent">Register as student</a></li>
+       <li class="drop"><a href="/registerTeacher">Register as teacher</a></li>
+      {{/if}}
     </ul>
+
   </div>
          
          </div>

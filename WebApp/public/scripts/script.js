@@ -63,27 +63,27 @@ $(function() {
 //   	test.appendChild(document.createTextNode(name+" "+category));
 // }
 
-function testName() {
-	var namevalue = document.getElementById("testnamelabel").value;
-	var ul = document.getElementById("testnamelabel");
-	var name = document.getElementById('testname').value;
-	var category = document.getElementById('choosecat').value;
-  	ul.appendChild(document.createTextNode(name+" "+category));
+// function testName() {
+// 	var namevalue = document.getElementById("testnamelabel").value;
+// 	var ul = document.getElementById("testnamelabel");
+// 	var name = document.getElementById('testname').value;
+// 	var category = document.getElementById('choosecat').value;
+//   	ul.appendChild(document.createTextNode(name+" "+category));
  
-}
+// }
 
 function newItem() {
 	var item = document.getElementById('questioninput').value;
 	var a = document.createElement('a');
 	var questpoints = document.getElementById('pointsin').value;
-	var tr = document.getElementById("questionlist");
-	var td = document.createElement('tr');
+	var table = document.getElementById("questionlist");
+	var tr = document.createElement('tr');
 	var correct = document.getElementById('pointsin').value;
-  td.appendChild(document.createTextNode(item+" "+questpoints));
-  tr.appendChild(td);
-  td.appendChild(a);
+  table.appendChild(tr);
+  tr.appendChild(a);
+  a.appendChild(document.createTextNode(item+" "+questpoints));
   document.getElementById('questioninput').value="";
-  td.onclick = removeItem;
+  tr.onclick = removeItem;
 }
 
 
