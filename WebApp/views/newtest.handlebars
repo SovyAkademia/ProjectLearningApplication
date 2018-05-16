@@ -101,10 +101,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="row">
-          <div class="col-md-6">
-            <input class="testinf" id="testname" placeholder="Test name" type="text" name="testName">
-          </div>
-          <div class="col-md-6">
+          
+          <div class="col-md-12">
             <input class="testinf" id="choosecat" placeholder="Choose a category" list="Categories" name="testCategory">
             <datalist id="Categories">
 
@@ -114,14 +112,17 @@
 
             </datalist>
           </div>
+
+          <div class="col-md-12">
+             <input class="testinf" type="text" id="testname" placeholder="Test name" type="text" name="testName">
+              <button type="submit" name="test"  id="addquest" class="test btn addquest btn-info btn-md col-md-12 " data-target="#choose" onclick="testName()" data-toggle="modal" data-target="#myModal" style="display: none">Create new test</button>
+          </div>
         </div>
       </div>
     </div>
     <div class="row">
 
-      <div class="col-md-6 col-sm-12">
-        <button type="submit" class="btn addquest disabled btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Create new test</button>
-      </div>
+      
       <div class="col-md-12">
         <table id="questionlist">
 

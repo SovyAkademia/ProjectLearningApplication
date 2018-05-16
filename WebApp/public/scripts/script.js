@@ -1,5 +1,16 @@
 // import { workers } from "cluster";
 
+$(document).ready(function() {
+    $(":text").keyup(function(e) {
+        if($(this).val() != '') {
+            $(this).next(".test").show();
+        } else {
+            $(":text").removeAttr('disabled');
+            $(this).next(".test").hide();
+        }
+    });
+});
+
 $(function() {
 
     $('#login-form-link').click(function(e) {
@@ -43,7 +54,14 @@ $(function() {
 
 });
 
-$("namediv").empty();
+
+// function insertName(){
+// 	var namevalue = document.getElementById("testnamelabel").value;
+// 	var test = document.getElementsByClassName("createdquestions");
+// 	var name = document.getElementById('testname').value;
+// 	var category = document.getElementById('choosecat').value;
+//   	test.appendChild(document.createTextNode(name+" "+category));
+// }
 
 function testName() {
 	var namevalue = document.getElementById("testnamelabel").value;
@@ -70,10 +88,10 @@ function newItem() {
 
 
     
-// function addText()
-// {
-//     document.querySelector('.questioncontainer').innerHTML = document.querySelector('.questioninput').value+document.querySelector('.questioninput').value;
-// }
+ function addText()
+{    
+	 document.querySelector('.questioncontainer').innerHTML = document.querySelector('.questioninput').value+document.querySelector('.questioninput').value;
+ }
 
 // function addRow() {
 //     var div = document.createElement('div');
