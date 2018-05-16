@@ -3,10 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: St 16.Máj 2018, 11:10
+-- Čas generovania: St 16.Máj 2018, 11:14
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
-
+DROP DATABASE IF EXISTS `sovylearn`;
+CREATE SCHEMA IF NOT EXISTS `sovylearn` DEFAULT CHARACTER SET utf8;
+USE SOVYLEARN;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
