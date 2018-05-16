@@ -27,7 +27,6 @@ exports.dashboard = (req,res,next)=>{
             });
 
             let users = students.concat(teachers);
-            console.log(users);
 
             users.sort((a,b) => {
                 let c = new Date(a.DateOfReg);
@@ -52,7 +51,6 @@ exports.dashboard = (req,res,next)=>{
 }
 
 exports.handleRegistration = (req,res,next) => {
-    console.log(req.body);
     res.jsonp({message:'user handled'});
 }
 

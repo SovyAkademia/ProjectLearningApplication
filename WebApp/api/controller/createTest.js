@@ -17,7 +17,7 @@ exports.get_create_test = (req,res,next) => {
 exports.create_test = (req,res,next) => {
     let testName = req.body.testName;
     let testCategory = req.body.testCategory;
-    let teacherId = req.body.teacherId;
+    let teacherId = req.user[0].id;
 
     let getCategoryID = 'select id from categories where Name like ?;';
     let insertTest = 'insert into tests (Name,CategoryID,TeacherID) values(?,?,?);';
@@ -26,8 +26,10 @@ exports.create_test = (req,res,next) => {
         if(err) throw err;
         db.query(insertTest,[testName,categoryId[0].id,teacherId],(err,result) => {
             if(err) throw err;
-            res.json({
-                message:"test created"
+            res.render('test',{
+                testName,
+                testCategory
+
             });
         });
 

@@ -6,8 +6,17 @@ exports.get_categories = (req, res, next) => {
 
     db.query(query, (err, result) => {
         if (err) { throw err };
+        console.log(result[1]);
 
-        res.send(result);
+        res.json({
+            categories:result
+        })
+        
     });
 
+}
+
+exports.get_tests = (req,res,next) => {
+    
+    console.log(req.params);
 }

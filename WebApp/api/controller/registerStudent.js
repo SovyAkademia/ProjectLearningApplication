@@ -12,8 +12,6 @@ exports.register_new_student = (req,res,next) => {
     let password = req.body.password;
     let firstYear = req.body.firstYear;
 
-    console.log(firstYear);
-
     let selectEmail = 'select Email from students where Email like ?';
     let insertStudent = 'insert into students(FirstName,LastName,Email,Password,Year,DateOfReg) values(?,?,?,?,?,CURRENT_TIMESTAMP())';
 

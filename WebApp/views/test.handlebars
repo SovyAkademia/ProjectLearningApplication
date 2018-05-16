@@ -1,4 +1,9 @@
-{{!-- <div class="container">
+<div>hello im in test</div>
+
+{{testName}}
+{{testCategory}}
+
+<div class="container">
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -17,8 +22,8 @@
           <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()">
 
           <div id="counter"></div>
-          <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text" value=""
-          />
+          <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text"
+            value="" />
           <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)">
           <br>
           <div class="row">
@@ -94,39 +99,38 @@
     </div>
   </div>
 
-</div> --}}
+</div>
 
-<form action="/createTest" method="POST">
-  <div class="container testcreate">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-6">
-            <input class="testinf" id="testname" placeholder="Test name" type="text" name="testName">
-          </div>
-          <div class="col-md-6">
-            <input class="testinf" id="choosecat" placeholder="Choose a category" list="Categories" name="testCategory">
-            <datalist id="Categories">
 
-              {{#each categories}}
-              <option value={{this.name}}>
-                {{/each}}
-
-            </datalist>
-          </div>
+<div class="container testcreate">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <div>Test name: {{testName}}</div>
+        </div>
+        <div class="col-md-6">
+          <div>Test category: {{testCategory}}</div>
         </div>
       </div>
     </div>
-    <div class="row">
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <button type="button" id="addquest" class="btn addquest disabled btn-info btn-md col-md-12 " onclick="testName()" data-toggle="modal"
+        data-target="#myModal">Add new question</button>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <button type="button" class="btn addquest disabled btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
+    </div>
+    <div class="col-md-12">
+      <table id="questionlist">
 
-      <div class="col-md-6 col-sm-12">
-        <button type="submit" class="btn addquest disabled btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Create new test</button>
-      </div>
-      <div class="col-md-12">
-        <table id="questionlist">
-
-        </table>
-      </div>
+      </table>
+    </div>
+    <div class="buttons col-md-12 col-sm-12">
+      <button class="btn col-sm-12 testbtns btn-success">Save the test</button>
+      <button class="btn col-sm-12 testbtns btn-danger">Cancel the test</button>
     </div>
   </div>
-</form>
+</div>
