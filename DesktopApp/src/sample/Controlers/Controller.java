@@ -45,29 +45,42 @@ public class Controller {
 
     private static String categories;
 
+    private Communication communication = new Communication();
+
     public void clickLogin(ActionEvent event) {
-        String login = loginField.textProperty().get();
+        String email = loginField.textProperty().get();
         String password = passwordField.textProperty().get();
 
-        if (login.length() < 1 || password.length() < 1)
+        if (email.length() < 1 || password.length() < 1)
             lblError.textProperty().set("Error input try again");
         else
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Scenes/MainWindow.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setResizable(false);
-                stage.setScene(new Scene(root));
 
-                //stage.getStylesheets().add("path/stylesheet.css");
-                stage.setTitle("Main");
-                stage.show();
-                stage.setMaximized(true);
-                stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-                stage.setFullScreen(true);
-                Stage primarystage = (Stage) btnLogin.getScene().getWindow();
+                if (communication.authetifiaction(email,password))
+                {
 
-                primarystage.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Scenes/MainWindow.fxml"));
+                    Parent root = (Parent) fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setResizable(false);
+                    stage.setScene(new Scene(root));
+
+                    //stage.getStylesheets().add("path/stylesheet.css");
+                    stage.setTitle("Main");
+                    stage.show();
+                    stage.setMaximized(true);
+                    stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+                    stage.setFullScreen(true);
+                    Stage primarystage = (Stage) btnLogin.getScene().getWindow();
+
+                    primarystage.close();
+                }
+                else
+                {
+
+                }
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
