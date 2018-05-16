@@ -18,6 +18,7 @@ exports.create_test = (req,res,next) => {
     let testName = req.body.testName;
     let testCategory = req.body.testCategory;
     let teacherId = req.user[0].id;
+    console.log(testName);
 
     let getCategoryID = 'select id from categories where Name like ?;';
     let insertTest = 'insert into tests (Name,CategoryID,TeacherID) values(?,?,?);';
