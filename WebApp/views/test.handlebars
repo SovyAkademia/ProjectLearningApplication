@@ -1,24 +1,25 @@
-
 <div class="container">
   
+<form method="POST" action="/test/{{TestName}}?_method=POST">
+<input type="hidden" name="_method" value="POST">  
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
 
-      <!-- Modal content-->
+      <!-- contenModal t-->
+
       <div class="modal-content">
         <div class="modal-header">
-          
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Create a Test</h4>
         </div>
         <div class="modal-body">
-         
+
           <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()">
 
           <div id="counter"></div>
-          <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text"
-            value="" />
+          <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text" 
+         name="textQuest" />
           <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)">
           <br>
           <div class="row">
@@ -34,39 +35,38 @@
                 </datalist>
                 <br>
                 <label for="">A</label>
-                <input class="answer" type="text">
+                <input class="answer" type="text" name="a">
                 <input class="ok" name="correctans" type="radio">
                 <br>
                 <label for="">B</label>
-                <input class="answer" type="text">
+                <input class="answer" type="text" name="b">
                 <input class="ok" name="correctans" type="radio">
                 <br>
                 <label for="">C</label>
-                <input class="answer" type="text">
+                <input class="answer" type="text" name="c"> 
                 <input class="ok" name="correctans" type="radio">
                 <br>
                 <label for="">D</label>
-                <input class="answer" type="text">
+                <input class="answer" type="text" name="d">
                 <input class="ok" name="correctans" type="radio">
               </div>
             </div>
           </div>
           <hr>
 
-
-
         </div>
         <div class="modal-footer">
-          <button class="btn btn-md testsave btn-success" data-dismiss="modal" onclick="newItem()">Save the test</button>
+          <button class="btn btn-md testsave btn-success" data-dismiss="modal" type="submit">Save to test</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
+
       </div>
 
     </div>
   </div>
 
 </div>
-
+</form>
 <div class="container">
   <!-- Modal -->
   <div class="modal fade" id="choose" role="dialog">
@@ -102,10 +102,10 @@
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-6">
-          <div>Test name: {{testName}}</div>
+          <div>Test name: {{TestName}}</div>
         </div>
         <div class="col-md-6">
-          <div>Test category: {{testCategory}}</div>
+          <div>Test category: {{CategoryName}}</div>
         </div>
       </div>
     </div>
@@ -114,14 +114,15 @@
     <div class="col-md-6 col-sm-12">
       <button type="button" id="addquest" class="btn addquest btn-info btn-md col-md-12 " onclick="testName()" data-toggle="modal"
         data-target="#myModal">Add new question</button>
-        <table class="col-md-12 testquestions" id="questionlist"></table>
+      <table class="col-md-12 testquestions" id="questionlist"></table>
     </div>
     <div class="col-md-6 col-sm-12">
       <button type="button" class="btn addquest btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
       <table class="col-md-12 existingquestions"></table>
     </div>
     <div class="buttons col-md-12 col-sm-12">
-      {{!-- <button class="btn col-sm-12 testbtns btn-success">Save the test</button>
+      {{!--
+      <button class="btn col-sm-12 testbtns btn-success">Save the test</button>
       <button class="btn col-sm-12 testbtns btn-danger">Cancel the test</button> --}}
     </div>
   </div>

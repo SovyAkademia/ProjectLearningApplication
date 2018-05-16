@@ -14,7 +14,6 @@ exports.dashboard = (req,res,next)=>{
     let getStudents = 'select * from students where allowed = 0 order by DateOfReg DESC';
     let getTeachers = 'select * from teachers where allowed = 0 order by DateOfReg DESC';
 
-    console.log('hey');
     db.query(getStudents,(err,students) => {
         if (err) throw err;
         students.map((student) => {
@@ -96,13 +95,13 @@ exports.login = (req,res,next)=>{
     }));
     
     passport.serializeUser((user,done)=>{
-        console.log(user);
+       // console.log(user);
         done(null,user)
     });
     
     passport.deserializeUser((name,done)=>{
         db.query(getUserId,[name[0].email], (err, user) => {
-            console.log(user);
+          //  console.log(user);
         done(err,user);
         });
     });

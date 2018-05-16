@@ -1,11 +1,10 @@
 const db = require('../models/db');
 
 exports.get_create_test = (req,res,next) => {
-    let query = 'select name from categories';
+    let query = 'select CategoryName from categories';
 
     db.query(query, (err, result) => {
         if (err) throw err;
-
         res.render('newTest',{
             categories:result
         });
@@ -18,21 +17,17 @@ exports.create_test = (req,res,next) => {
     let testName = req.body.testName;
     let testCategory = req.body.testCategory;
     let teacherId = req.user[0].id;
-    console.log(testName);
-
-    let getCategoryID = 'select id from categories where Name like ?;';
-    let insertTest = 'insert into tests (Name,CategoryID,TeacherID) values(?,?,?);';
+    let getCategoryID = 'select ID from categories where CategoryName like ?;';
+    let insertTest = 'insert into tests (TestName,CategoryID,TeacherID) values (?,?,?);';
 
     db.query(getCategoryID,[testCategory],(err,categoryId) => {
         if(err) throw err;
-        db.query(insertTest,[testName,categoryId[0].id,teacherId],(err,result) => {
+        db.query(insertTest,[testName,categoryId[0].ID,teacherId],(err,result) => {
             if(err) throw err;
-            res.render('test',{
-                testName,
-                testCategory
 
-            });
+            res.redirect('/test/'+testName);
+
         });
 
-    });
+    }); 
 }
