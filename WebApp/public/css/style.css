@@ -18,6 +18,26 @@ i{
     color:#FFFFEC;
 }
 
+.navbar-nav>li>a{
+    margin-top: -2px;
+}
+
+.testquestions{
+    height: 300px;
+    overflow: scroll;
+    -webkit-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+-moz-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+}
+
+.existingquestions{
+    height: 300px;
+    overflow: scroll;
+    -webkit-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+-moz-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+}
+
 .menuic{
     margin-left: 15px;
     margin-top: 2px;
