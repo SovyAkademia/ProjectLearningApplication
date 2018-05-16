@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: St 16.Máj 2018, 07:51
+-- Čas generovania: St 16.Máj 2018, 11:10
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -36,14 +36,19 @@ CREATE TABLE IF NOT EXISTS `answers` (
   `Correct` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
   KEY `questionID` (`QuestionID`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `answers`
 --
 
 INSERT INTO `answers` (`ID`, `QuestionID`, `AnswerText`, `Correct`) VALUES
-(3, 3, 'Yes', 1);
+(4, 4, 'HTML5', 1),
+(3, 3, 'Hardware device', 0),
+(5, 5, '<i>', 0),
+(6, 5, '<b>', 1),
+(7, 3, 'Programming Language', 1),
+(8, 4, 'HTML4', 0);
 
 -- --------------------------------------------------------
 
@@ -78,14 +83,16 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `QuestionText` text NOT NULL,
   `Points` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `questions`
 --
 
 INSERT INTO `questions` (`ID`, `QuestionText`, `Points`) VALUES
-(3, 'Is Java programming?', 5);
+(4, 'What is the newest version of HTML?', 5),
+(3, 'What is Java?', 1),
+(5, 'Which tag is used for bold text?', 3);
 
 -- --------------------------------------------------------
 
@@ -188,14 +195,15 @@ CREATE TABLE IF NOT EXISTS `tests` (
   PRIMARY KEY (`ID`),
   KEY `CategoryID` (`CategoryID`),
   KEY `TeacherID` (`TeacherID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `tests`
 --
 
 INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Time`) VALUES
-(2, 'Objects test', 2, 3, 0, NULL);
+(2, 'Java knowledge test', 2, 3, 0, NULL),
+(3, 'Big HTML test', 3, 3, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -211,26 +219,18 @@ CREATE TABLE IF NOT EXISTS `test_details` (
   PRIMARY KEY (`ID`),
   KEY `TestID` (`TestID`),
   KEY `QuestionID` (`QuestionID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `test_details`
 --
 
 INSERT INTO `test_details` (`ID`, `TestID`, `QuestionID`) VALUES
-(1, 2, 3);
+(1, 2, 3),
+(2, 3, 4),
+(3, 3, 5);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-START TRANSACTION;
-CREATE USER 'learner'@'%' IDENTIFIED BY '1820learnowl';
-GRANT ALL PRIVILEGES ON sovylearn.* TO 'learner'@'%';
-FLUSH PRIVILEGES;
-COMMIT;
-
-/*START TRANSACTION;
-
-COMMIT;*/
