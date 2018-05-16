@@ -7,6 +7,10 @@
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
+DROP DATABASE IF EXISTS `sovylearn`;
+CREATE SCHEMA IF NOT EXISTS `sovylearn` DEFAULT CHARACTER SET utf8 ;
+USE `sovylearn` ;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -180,3 +184,19 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+START TRANSACTION;
+CREATE USER 'learner'@'%' IDENTIFIED BY '1820learnowl';
+GRANT ALL PRIVILEGES ON sovylearn.* TO 'learner'@'%';
+FLUSH PRIVILEGES;
+COMMIT;
+
+START TRANSACTION;
+insert into categories (Name) values ("SQL");
+insert into categories (Name) values ("Java");
+insert into categories (Name) values ("JavaScript");
+insert into categories (Name) values ("C");
+insert into categories (Name) values ("C++");
+insert into categories (Name) values ("HTML");
+insert into categories (Name) values ("CSS");
+COMMIT;
