@@ -93,6 +93,10 @@ function newItem() {
 	 document.querySelector('.questioncontainer').innerHTML = document.querySelector('.questioninput').value+document.querySelector('.questioninput').value;
  }
 
+/* function form_submit(){
+	document.getElementById("form").submit();
+} */
+
 // function addRow() {
 //     var div = document.createElement('div');
 
