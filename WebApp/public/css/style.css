@@ -22,24 +22,28 @@ i{
     margin-top: -2px;
 }
 
+#mytests{
+    margin-left: 16px;
+}
+
+#createtest{
+    margin-left: 14px;
+}
+
 #testname{
     margin-bottom: 10px;
 }
 
 .testquestions{
     height: 300px;
-    overflow: scroll;
-    -webkit-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
--moz-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+    overflow: auto;
+    -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
 }
 
 .existingquestions{
     height: 300px;
-    overflow: scroll;
-    -webkit-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
--moz-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+    overflow: auto;
+    -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
 }
 
 .menuic{
@@ -280,6 +284,10 @@ questionlist:hover{
     margin-bottom: 5px;
 }
 
+.regMessage{
+    margin-bottom: 5px;
+}
+
 .alert{
     margin: 0 auto;
     width: 500px;
@@ -394,9 +402,6 @@ questionlist:hover{
         margin-top: 5px;
     }
 
-    .top-header{
-        width: 100%;
-    }
     .notifications,.links{
         display: none;
     }

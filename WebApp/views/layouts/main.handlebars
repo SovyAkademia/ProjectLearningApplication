@@ -15,7 +15,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/v4-shims.js"></script>
     
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <title>Document</title>
+    <title>SOVY Learning Page</title>
 </head>
 <body>
  <div class="sidebar col-md-2">
@@ -27,12 +27,12 @@
          <ul class="navbar-nav">
           {{#if user}}
            <li><i class="fas menuic fa-home"></i><a href="/dashboard">Dashboard</a></li>
-           <li><i class="fas menuic fa-file"></i><a href="">My tests</a></li>
-           <li><i class="fas menuic fa-plus"></i><a href="/createTest">Create test</a></li>
+           <li><i class="fas menuic fa-file"></i><a id="mytests" href="">My tests</a></li>
+           <li><i class="fas menuic fa-plus"></i><a id="createtest" href="/createTest">Create test</a></li>
            <li><i class="fas menuic fa-graduation-cap"></i><a href="/students">Students</a></li>
           {{else}}
            <li><i class="fas menuic fa-user"></i><a href="/registerStudent">Register as student</a></li>
-           <li><i class="fas menuic fa-user"></i><a href="/registerTeacher">Register as teacher</a></li>
+           <li><i class="fas menuic fa-user"></i></i><a href="/registerTeacher">Register as teacher</a></li>
           {{/if}}
          </ul>
       </div>
@@ -40,7 +40,7 @@
     
   </div>
     
-      <div class="top-header col-md-12 col-sm-12 col-xs-12">
+      <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
         {{!-- {{#if user}}
         <div class="notifications">
             <a id="title" href="">Dashboard</a>
@@ -75,6 +75,7 @@
       <li class="drop"><a href="/students">Students</a></li>
       <li class="drop"><a href="/logout">Log out</a></li>
       {{else}}
+       <li class="drop"><a href="/">Log in</a></li>
        <li class="drop"><a href="/registerStudent">Register as student</a></li>
        <li class="drop"><a href="/registerTeacher">Register as teacher</a></li>
       {{/if}}
