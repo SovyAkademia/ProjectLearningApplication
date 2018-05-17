@@ -6,7 +6,7 @@ const testController = require('../controller/testController');
 const addQuestion = require('../controller/addNewQuestion');
 
 router.get('/:name', ensureAuth,testController.get_test_creator);
-router.post('/:name',testController.add_question);
+router.post('/:name',addQuestion.add_question);
 
 //Access Controll
 function ensureAuth(req,res,next){

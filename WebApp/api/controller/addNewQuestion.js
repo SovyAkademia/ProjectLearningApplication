@@ -6,5 +6,7 @@ exports.add_question = (req, res, next) => {
 
     let question = req.body;
     console.log(question);
+
+    res.redirect('/test/'+name);
     
 }
