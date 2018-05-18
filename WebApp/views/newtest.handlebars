@@ -1,4 +1,5 @@
-{{!-- <div class="container">
+{{!--
+<div class="container">
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -96,33 +97,61 @@
 
 </div> --}}
 
+<div id="newCategoryModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <form action="/createTest/createCategory" method="POST">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">Create new category</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <span>Category Name: </span>
+          <input id="newCategoryInput" name="categoryName" type="text">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
 <form action="/createTest" method="POST">
-  <div class="container testcreate">
+  <div class="container testcreate col-md-6">
     <div class="row">
       <div class="col-md-12">
         <div class="row">
-          
+
           <div class="col-md-12">
-            <input class="testinf" id="choosecat" placeholder="Choose a category" list="Categories" name="testCategory">
-            <datalist id="Categories">
-
+            <select id="categories" name="testCategory" class="col-md-6">
               {{#each categories}}
-              <option value={{this.CategoryName}} name={{this.CategoryName}}>
-                {{/each}}
+              <option value="{{this.CategoryName}}">{{this.CategoryName}}</option>
+              {{/each}}
+            </select>
 
-            </datalist>
+            <span>or
+              <a href="" data-toggle="modal" data-target="#newCategoryModal">Create new category</a>
+            </span>
+
+            
           </div>
 
           <div class="col-md-12">
-             <input class="testinf" type="text" id="testname" placeholder="Test name" type="text" name="testName">
-              <button type="submit" name="test"  id="addquest" class="test btn addquest btn-info btn-md col-md-12 " data-target="#choose" data-toggle="modal" data-target="#myModal" style="display: none">Create new test</button>
+            <input class="testinf" type="text" id="testname" placeholder="Test name" type="text" name="testName">
+            <button type="submit" name="test" id="addquest" class="test btn addquest btn-info btn-md col-md-12 " data-target="#choose"
+              data-toggle="modal" data-target="#myModal" style="display: none">Create new test</button>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
 
-      
+
       <div class="col-md-12">
         <table id="questionlist">
 

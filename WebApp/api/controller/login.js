@@ -35,7 +35,7 @@ exports.dashboard = (req,res,next)=>{
 
             res.render('dashboard', {
                 users,
-                where:'dashboard'
+                where:'Dashboard'
             });
         });
     });

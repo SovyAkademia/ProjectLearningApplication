@@ -1,18 +1,19 @@
-<div class="col-md-6 studentslist">
-    
+<div class="col-md-9 studentslist">
 
-        <form action="/students/class" method="POST">
-        <div class="input-group mb-3">
-            <input class="form-control col-md-8 "  id="search" type="text" placeholder="Search.." >
-            <select class="col-md-4 class-select" name="options" onchange="this.form.submit()">
+
+    <form action="/students/class" method="POST">
+        <div class="input-group mb-3 col-centered">
+            <input class="form-control col-md-6 " id="search" type="text" placeholder="Search..">
+            <span class="col-md-2 col-sm-2 h4 text-right">Class:</span>
+            <select class="col-md-2 col-sm-4 class-select" name="options" onchange="this.form.submit()">
                 <option value="0" disabled selected>Select class</option>
-                <option value="1">1.N</option>
-                <option value="2">2.N</option>
-                <option value="3">3.N</option>
+                <option value="1" {{#if (eq result.[0].class 1)}} selected {{/if}}>1.N</option>
+                <option value="2" {{#if (eq result.[0].class 2)}} selected {{/if}}>2.N</option>
+                <option value="3" {{#if (eq result.[0].class 3)}} selected {{/if}}>3.N</option>
             </select>
-            </div>
-        </form>
-
+            
+        </div>
+    </form>
 
     {{#if result}}
     <table class="table table_show student-table table-bordered">
@@ -20,7 +21,9 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
+                <th>Email</th>
                 <th>Class</th>
+                <th>Remove</th>
 
             </tr>
         </thead>
@@ -28,10 +31,12 @@
             {{#each result}}
             <tr>
                 <td class="number"></td>
-                <td class="name">
+                <td class="name tableStudentName">
                     <a href="/students/{{ID}}">{{FirstName}} {{LastName}}</a>
                 </td>
+                <td class="class">{{Email}}</td>
                 <td class="class">{{class}}.N</td>
+                <td class="class"><a href="/students/remove/{{ID}}" onclick="return confirm('Are you sure you want to remove this student?')"><button class="btn btn-sm btn-danger deleteStudent">Remove</button></a></td>
                 {{!--
                 <td>
                     <a class="btn  manage" href="/show/{{id}}">

@@ -82,7 +82,9 @@ let hbs = exphbs.create({
             console.log(user[0].admin);
             return user[0].admin == 1;
         },
-        json:function(obj){return JSON.stringify(obj)}
+        eq: function(v1,v2) {
+            return v1 == v2;
+        }
 
     }
 });

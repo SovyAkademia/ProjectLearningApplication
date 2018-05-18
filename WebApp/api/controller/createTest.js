@@ -6,7 +6,8 @@ exports.get_create_test = (req,res,next) => {
     db.query(query, (err, result) => {
         if (err) throw err;
         res.render('newTest',{
-            categories:result
+            categories:result,
+            where:'Create Test'
         });
         
     });
@@ -30,4 +31,16 @@ exports.create_test = (req,res,next) => {
         });
 
     }); 
+}
+
+exports.create_category = (req,res,next) => {
+    let categoryName = req.body.categoryName;
+    let query = 'insert into categories (categoryName) values (?);';
+
+    db.query(query,[categoryName],(err,result) => {
+        if (err) { 
+            throw err;      
+        }
+       res.redirect('/createTest');
+    });
 }

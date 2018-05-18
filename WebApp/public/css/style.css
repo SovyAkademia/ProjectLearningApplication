@@ -50,7 +50,7 @@ i{
     margin-left: 15px;
     margin-top: 2px;
     float: left;
-    font-size: 1.3vw;
+    font-size: 1.1vw;
 }
 
 .headeric{
@@ -71,7 +71,7 @@ ul>li>a:hover{
 
 ul>li{
     padding-top: 15px;
-    font-size: 1.3vw;
+    font-size: 1.1vw;
     text-decoration-line: none;
     list-style: none;
     width: 100%;
@@ -474,3 +474,23 @@ questionlist:hover{
     counter-increment: serial-number; 
     content: counter(serial-number);
 }
+
+.whereHeader{
+    display: inline-block;
+    margin-left: 18%;
+    margin-top: 20px;
+    color: #9fa2a5;
+    font-weight: 300;
+}
+
+.tableStudentName a{
+    color: black;
+    border-bottom:1px solid black;
+}
+
+.tableStudentName a:hover{
+    text-decoration: none;
+    border-bottom:1px solid cadetblue;
+}
+
+
