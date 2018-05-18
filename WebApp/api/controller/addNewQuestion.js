@@ -14,11 +14,11 @@ exports.add_question = (req, res, next) => {
     let answerB = req.body.ansb;
     let answerC = req.body.ansc;
     let answerD = req.body.ansd;
-    let corrA = req.body.A == 'on' ? 1 : 0;
-    let corrB = req.body.B == 'on' ? 1 : 0;
-    let corrC = req.body.C == 'on' ? 1 : 0;
-    let corrD = req.body.D == 'on' ? 1 : 0;
-
+    let corrA = req.body.corr == 'A' ? 1 : 0;
+    let corrB = req.body.corr == 'B' ? 1 : 0;
+    let corrC = req.body.corr == 'C' ? 1 : 0;
+    let corrD = req.body.corr == 'D' ? 1 : 0;
+    
     console.log({
         test,
         question,
