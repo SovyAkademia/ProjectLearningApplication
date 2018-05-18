@@ -1,40 +1,51 @@
-<div class="col-md-7 studentslist">
-<input class="form-control" id="search" type="text" placeholder="Search..">
-<table>
-    {{#if result}}
-<table class="table table_show table-bordered table-striped">
-    <thead>
-        <tr>
-            
-            <th>First Name</th>
-            <th>Last Name</th>
-        </tr>
-    </thead>
-    <tbody id="myTable">
-        {{#each result}}
-        <tr>
-            
-            <td class="name">{{FirstName}}</td>
-            <td class="name">{{LastName}}</td>
-            
-    {{!--         <td>
-                <a class="btn  manage" href="/show/{{id}}"><i class="fas butman fa-info-circle"></i>Info</a>
-                <a class="btn  manage" href="/edit/{{id}}"><i class="fas butman fa-pencil-alt"></i>Edit</a>
+<div class="col-md-6 studentslist">
+    <div class="input-group mb-3">
+        <input class="form-control col-md-8 " id="search" type="text" placeholder="Search..">
+        <select class="col-md-4">
+            <option value="1" selected>1.N</option>
+            <option value="2">2.N</option>
+            <option value="3">3.N</option>
+        </select>
+
+    </div>
+
+        {{#if result}}
+        <table class="table table_show student-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Class</th>
+
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                {{#each result}}
+                <tr>
+                    <td class="class"></td>
+                    <td class="name"><a href="">{{FirstName}} {{LastName}}</a></td>
+                    <td class="class">{{Year}}</td>
+                    {{!--
+                    <td>
+                        <a class="btn  manage" href="/show/{{id}}">
+                            <i class="fas butman fa-info-circle"></i>Info</a>
+                        <a class="btn  manage" href="/edit/{{id}}">
+                            <i class="fas butman fa-pencil-alt"></i>Edit</a>
 
 
-                <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form" class="manage">
-                <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn  manage"><i class="fas butman fa-eraser"></i>Delete</button>
-                </form>
+                        <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form" class="manage">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn  manage">
+                                <i class="fas butman fa-eraser"></i>Delete</button>
+                        </form>
 
-            </td> --}}
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
-    {{else}}
-<p>NO employees found</p>
-    {{/if}}
-</table>
+                    </td> --}}
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        <p>No students found</p>
+        {{/if}}
 
 </div>

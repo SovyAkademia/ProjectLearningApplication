@@ -465,3 +465,12 @@ questionlist:hover{
     }
 
 }
+
+.student-table {
+    counter-reset: serial-number;
+}
+
+.student-table td:first-child:before {
+    counter-increment: serial-number; 
+    content: counter(serial-number);
+}
