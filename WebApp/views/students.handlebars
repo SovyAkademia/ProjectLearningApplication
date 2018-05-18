@@ -1,51 +1,57 @@
 <div class="col-md-6 studentslist">
-    <div class="input-group mb-3">
-        <input class="form-control col-md-8 " id="search" type="text" placeholder="Search..">
-        <select class="col-md-4">
-            <option value="1" selected>1.N</option>
-            <option value="2">2.N</option>
-            <option value="3">3.N</option>
-        </select>
+    
 
-    </div>
-
-        {{#if result}}
-        <table class="table table_show student-table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Class</th>
-
-                </tr>
-            </thead>
-            <tbody id="myTable">
-                {{#each result}}
-                <tr>
-                    <td class="class"></td>
-                    <td class="name"><a href="">{{FirstName}} {{LastName}}</a></td>
-                    <td class="class">{{Year}}</td>
-                    {{!--
-                    <td>
-                        <a class="btn  manage" href="/show/{{id}}">
-                            <i class="fas butman fa-info-circle"></i>Info</a>
-                        <a class="btn  manage" href="/edit/{{id}}">
-                            <i class="fas butman fa-pencil-alt"></i>Edit</a>
+        <form action="/students/class" method="POST">
+        <div class="input-group mb-3">
+            <input class="form-control col-md-8 "  id="search" type="text" placeholder="Search.." >
+            <select class="col-md-4 class-select" name="options" onchange="this.form.submit()">
+                <option value="0" disabled selected>Select class</option>
+                <option value="1">1.N</option>
+                <option value="2">2.N</option>
+                <option value="3">3.N</option>
+            </select>
+            </div>
+        </form>
 
 
-                        <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form" class="manage">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn  manage">
-                                <i class="fas butman fa-eraser"></i>Delete</button>
-                        </form>
+    {{#if result}}
+    <table class="table table_show student-table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Class</th>
 
-                    </td> --}}
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-        {{else}}
-        <p>No students found</p>
-        {{/if}}
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            {{#each result}}
+            <tr>
+                <td class="number"></td>
+                <td class="name">
+                    <a href="/students/{{ID}}">{{FirstName}} {{LastName}}</a>
+                </td>
+                <td class="class">{{class}}.N</td>
+                {{!--
+                <td>
+                    <a class="btn  manage" href="/show/{{id}}">
+                        <i class="fas butman fa-info-circle"></i>Info</a>
+                    <a class="btn  manage" href="/edit/{{id}}">
+                        <i class="fas butman fa-pencil-alt"></i>Edit</a>
 
+
+                    <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form" class="manage">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn  manage">
+                            <i class="fas butman fa-eraser"></i>Delete</button>
+                    </form>
+
+                </td> --}}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+    <p>No students found</p>
+    {{/if}}
 </div>

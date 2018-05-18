@@ -34,7 +34,8 @@ exports.dashboard = (req,res,next)=>{
             });
 
             res.render('dashboard', {
-                users
+                users,
+                where:'dashboard'
             });
         });
     });

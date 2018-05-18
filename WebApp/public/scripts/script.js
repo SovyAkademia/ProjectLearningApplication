@@ -1,6 +1,8 @@
 // import { workers } from "cluster";
 
 $(document).ready(function() {
+
+	
     $(":text").keyup(function(e) {
         if($(this).val() != '') {
             $(this).next(".test").show();
@@ -86,12 +88,35 @@ function newItem() {
   tr.onclick = removeItem;
 }
 
-
     
  function addText()
 {    
 	 document.querySelector('.questioncontainer').innerHTML = document.querySelector('.questioninput').value+document.querySelector('.questioninput').value;
  }
+
+
+//  $('.class-select').change(function(){
+// 	 console.log('lol');
+//  })
+
+
+// $('.class-select').change(function(){
+// 	$.ajax({
+// 		type: 'GET',
+// 		url:'http://localhost:5000/students/class/'+this.value+'',
+		
+// 		error: function(){
+// 		   console.log('ajax not working')
+// 		},
+// 		dataType: "jsonp",
+// 		success: function (data) {
+// 			console.log(data)
+// 			// location.reload();
+// 		},
+	
+// 	});
+
+// });
 
 /* function form_submit(){
 	document.getElementById("form").submit();

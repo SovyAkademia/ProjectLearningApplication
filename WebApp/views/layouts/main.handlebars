@@ -26,6 +26,7 @@
       <div class="navigation">
          <ul class="navbar-nav">
           {{#if user}}
+          
            <li><i class="fas menuic fa-home"></i><a href="/dashboard">Dashboard</a></li>
            <li><i class="fas menuic fa-file"></i><a id="mytests" href="">My tests</a></li>
            <li><i class="fas menuic fa-plus"></i><a id="createtest" href="/createTest">Create test</a></li>
@@ -39,8 +40,9 @@
       
     
   </div>
-    
       <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+        
         {{!-- {{#if user}}
         <div class="notifications">
             <a id="title" href="">Dashboard</a>
@@ -52,6 +54,7 @@
     {{/if}} --}}
 
          <div class="links">
+           
             {{#if user}}
                 <a href="/logout">Log out</a>
             {{else}}

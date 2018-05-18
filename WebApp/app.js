@@ -81,7 +81,8 @@ let hbs = exphbs.create({
         isAdmin: function (user) {
             console.log(user[0].admin);
             return user[0].admin == 1;
-        }
+        },
+        json:function(obj){return JSON.stringify(obj)}
 
     }
 });
