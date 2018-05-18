@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: Pi 18.Máj 2018, 11:19
+-- Čas generovania: Pi 18.Máj 2018, 11:45
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -86,7 +86,7 @@ INSERT INTO `categories` (`ID`, `CategoryName`) VALUES
 DROP TABLE IF EXISTS `questions`;
 CREATE TABLE IF NOT EXISTS `questions` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `QuestionText` varchar(255) DEFAULT NULL,
+  `QuestionText` varchar(1000) DEFAULT NULL,
   `Points` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `QuestionText` (`QuestionText`)
