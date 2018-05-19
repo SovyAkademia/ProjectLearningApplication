@@ -35,56 +35,57 @@ exports.add_question = (req, res, next) => {
 
     let queryFindTest = 'select * from tests where TestName like ?;';
     let queryInsertQuestion = 'insert into questions (QuestionText,Points) values(?,?);';
-    let queryIdQuestion = 'select id from questions where QuestionText like ?;';
     let queryIdTest = 'select id from tests where TestName like ?;';
     let queryInsertTestDetails = 'insert into test_details (TestID, QuestionID) values(?,?);';
-    let queryInsertA = 'insert into answers (QuestionID,AnswerText, Correct) values (?,?,?);';
-    let queryInsertB = 'insert into answers (QuestionID,AnswerText, Correct) values (?,?,?);';
-    let queryInsertC = 'insert into answers (QuestionID,AnswerText, Correct) values (?,?,?);';
-    let queryInsertD = 'insert into answers (QuestionID,AnswerText, Correct) values (?,?,?);';
+    let queryInsertAnswers = 'insert into answers (QuestionID,AnswerText, Correct) '+
+    'values (?,?,?),(?,?,?),(?,?,?),(?,?,?);';
+    /* transaction*/
+    db.beginTransaction((err)=>{
+        if (err) throw err;        
     /* Insert question into question table */
-    db.query(queryInsertQuestion, [question, points], (err, insertQuestion) => {
-        if (err) throw err;
-    /* find id of question */
-        db.query(queryIdQuestion, [question], (err, QuestionId) => {
-            if (err) throw err;
+      db.query(queryInsertQuestion, [question, points], (err, insertQuestion) => {
+    /* ID of inserted question */  
+    let QuestionId = insertQuestion.insertId;
+    if (err) {
+        return db.rollback(() => {
+        throw err;
+        });
+    }
+        console.log(insertQuestion);
     /* find id od test */
             db.query(queryIdTest, [test], (err, TestId) => {
                 if (err) throw err;
-                console.log(QuestionId[0].id);
-
                 console.log(TestId[0].id);
     /* insert question id and test id into test_details table */
-                db.query(queryInsertTestDetails, [TestId[0].id, QuestionId[0].id], (err, insertTestDetails) => {
-                    if (err) throw err;
+                db.query(queryInsertTestDetails, [TestId[0].id, QuestionId], (err, insertTestDetails) => {
+                    if (err) {
+                        return db.rollback(() => {
+                        throw err;
+                        });
+                    }
     /* insert answers to table answers */      
-                    db.query(queryInsertA,[QuestionId[0].id,answerA,corrA], (err,insertA)=>{
-                        if (err) throw err;
-                        db.query(queryInsertB,[QuestionId[0].id,answerB,corrB], (err,insertB)=>{
-                            if (err) throw err;
-                            db.query(queryInsertC,[QuestionId[0].id,answerC,corrC], (err,insertC)=>{
-                                if (err) throw err;
-                                db.query(queryInsertD,[QuestionId[0].id,answerD,corrD], (err,insertD)=>{
-                                    if (err) throw err;
-                                    console.log("Inserted");
-
-                                    res.redirect('/test/' + name);
-
-                                })
-                            })
+                    db.query(queryInsertAnswers,
+                        [QuestionId,answerA,corrA,
+                        QuestionId,answerB,corrB,
+                        QuestionId,answerC,corrC,
+                        QuestionId,answerD,corrD], (err,insertAnswers)=>{
+                            if (err) {
+                                return db.rollback(() => {
+                                throw err;
+                                });
+                            }                                                               
+                        db.commit((err)=> {
+                            if (err) {
+                                return db.rollback(() => {
+                                throw err;
+                                });
+                            }
+                            res.redirect('/test/' + name);
+                            console.log('success!');
+                            });
                         })
-                            
-                    })
-
-
                 })
-
             })
         })
-
-
     })
-
-
-
 }
