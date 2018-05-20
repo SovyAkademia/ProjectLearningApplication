@@ -122,16 +122,12 @@
 </div>
 
 <form action="/createTest" method="POST">
-  <div class="container testcreate col-lg-8 col-md-10">
+  <div class="container testcreate col-lg-7 col-md-10">
     <h2 class="text-center">Create new test</h2>
     <hr>
       <div class="col-md-12">
-        
-
-          <div class="col-md-12">
-
             <div class="form-group">
-              <div class="input-group">
+              <div class="col-md-12 input-group">
                 <label for="testCategory">Test category:</label>
                 <select id="categories" name="testCategory" class=" form-control col-md-6 col-sm-4 ml-4 d-inline-block">
                   {{#each categories}}
@@ -139,15 +135,16 @@
                   <option value="{{this.CategoryName}}">{{this.CategoryName}}</option>
                   {{/each}}
                 </select>
-              
+              </div>
+              <div class="centered">
 
-              <span class="ml-3">or
+              <span class="ml-5">or
                 <a href="" data-toggle="modal" data-target="#newCategoryModal">Create new category</a>
               </span>
               </div>
             </div>
 
-          </div>
+
 
           <div class="col-md-12">
             <label for="testName">Test name:</label>
