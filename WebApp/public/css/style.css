@@ -14,6 +14,14 @@ i{
     color:#FFFFEC;
 }
 
+th{
+    color: white;
+}
+
+.thead{
+    background-color: #434343;
+}
+
 #categories{
     margin-bottom: 15px;
 }
