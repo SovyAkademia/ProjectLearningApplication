@@ -27,7 +27,7 @@
           {{#if user}}
           
            <li><i class="fas menuic fa-home"></i><a href="/dashboard">Dashboard</a></li>
-           <li><i class="fas menuic fa-file"></i><a id="mytests" href="">My tests</a></li>
+           <li><i class="fas menuic fa-file"></i><a id="mytests" href="/myTests">My tests</a></li>
            <li><i class="fas menuic fa-plus"></i><a id="createtest" href="/createTest">Create test</a></li>
            <li><i class="fas menuic fa-graduation-cap"></i><a href="/students">Students</a></li>
           {{else}}
@@ -94,14 +94,14 @@
 
       {{#if error_msg}}
 
-        <div class="alert alert-danger">{{error_msg}}</div>
+        <div class="alert alert-danger mb-5">{{error_msg}}</div>
       {{/if}}
       {{#if error}}
-        <div class="alert alert-danger">{{error}}</div>
+        <div class="alert alert-danger mb-5">{{error}}</div>
       {{/if}}
       {{#if errors}}
         {{#each errors}}
-          <div class="alert alert-danger">{{msg}}</div>
+          <div class="alert alert-danger mb-5">{{msg}}</div>
         {{/each}}
       {{/if}}
 

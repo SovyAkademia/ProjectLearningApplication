@@ -38,6 +38,7 @@ const student = require('./api/routes/student');
 const createTest = require('./api/routes/createTest');
 const desktop = require('./api/routes/desktop');
 const test = require('./api/routes/test');
+const myTests = require('./api/routes/myTests');
 
 //Session
 app.use(session({
@@ -72,6 +73,7 @@ app.use('/students', student);
 app.use('/createTest', createTest);
 app.use('/desktop', desktop);
 app.use('/test', test);
+app.use('/myTests', myTests);
 
 let hbs = exphbs.create({
     defaultLayout: 'main',

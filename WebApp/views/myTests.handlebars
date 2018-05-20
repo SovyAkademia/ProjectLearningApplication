@@ -1,0 +1,50 @@
+<div class="form-group col-md-4">
+  <label for="sel1">Select list:</label>
+  <select class="form-control" id="sel1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+  
+</div>
+<hr>
+<div class="card-columns">
+{{#each test}}
+    <a href="" style="color:black"><div class="card col-md-10 testCard">
+        <div class="card-body">
+            {{testName}}
+
+
+        </div>
+        
+    </div></a>
+{{/each}}
+    {{!-- <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Test name</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each test}}
+            <tr>
+                <td>{{testName}}</td>
+                <td>{{categoryname}}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning">Test statistics</button>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-warning">Edit</button>
+                </td>
+
+                <td>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table> --}}
+</div>
