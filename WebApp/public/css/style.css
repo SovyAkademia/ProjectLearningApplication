@@ -516,4 +516,11 @@ questionlist:hover{
     border-bottom:1px solid cadetblue;
 }
 
+.testCard{
+    transition: all 200ms;
+}
+.testCard:hover {
+    transform: scale(1.07);
+    background-color:whitesmoke;
+}
 
