@@ -556,10 +556,11 @@ questionlist:hover{
 }
 
 .testCard{
-    transition: all 200ms;
+    transition: all 100ms ease-in-out;
 }
+
 .testCard:hover {
-    transform: scale(1.07);
-    background-color:whitesmoke;
+    transform: scale(1.05);
+    background-color: #fcfdff;
 }
 
