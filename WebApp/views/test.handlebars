@@ -1,14 +1,71 @@
 <div class="container">
 
-<form action="/test/{{TestName}}" method="POST" id="form">
+  <form action="/test/{{TestName}}" method="GET" id="form">
+    <!-- Modal -->
+    <div class="modal fade" id="Edit" role="dialog">
+      <div class="modal-dialog">
+        <!-- contenModal t-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div id="counter"></div>
+            <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" type="text" name="textQuest"
+            />
+            <br>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-      <!-- contenModal t-->
-      <div class="modal-content">
+            <div class="row">
+              <div class="container">
+                <div class="col-md-12 col-sm-12">
 
+                  <div class="container">
+                    <select name="selectPoint" id="pointsin">
+                      <optgroup label="Select points">
+                        <option name="1" value="1">1</option>
+                        <option name="2" value="2">2</option>
+                        <option name="3" value="3">3</option>
+                        <option name="4" value="4">4</option>
+                        <option name="5" value="5">5</option>
+                      </optgroup>
+                    </select>
+                    <br>
+                    <label for="">A</label>
+                    <input class="answer" id="ansa" type="text" name="ansa">
+                    <input class="ok" name="corr" type="radio" value="A">
+                    <br>
+                    <label for="">B</label>
+                    <input class="answer" id="ansb" type="text" name="ansb">
+                    <input class="ok" name="corr" type="radio" value="B">
+                    <br>
+                    <label for="">C</label>
+                    <input class="answer" id="ansc" type="text" name="ansc">
+                    <input class="ok" name="corr" type="radio" value="C">
+                    <br>
+                    <label for="">D</label>
+                    <input class="answer" id="ansd" type="text" name="ansd">
+                    <input class="ok" name="corr" type="radio" value="D">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-md testsave btn-success">Add the question</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 
+  <form action="/test/{{TestName}}" method="POST" id="form">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- contenModal t-->
+        <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Create a Test</h4>
@@ -28,17 +85,9 @@
                 <div class="col-md-12 col-sm-12">
 
                   <div class="container">
-                    {{!-- <input id="pointsin" placeholder="Points" list="points" name="selectPoint">
-                    <datalist id="points">
-                      <option value="1">
-                        <option value="2">
-                          <option value="3">
-                            <option value="4">
-                              <option value="5">
-                    </datalist> --}}
                     <select name="selectPoint" id="pointsin">
                       <optgroup label="Select points">
-                        <option name="1" value="1" >1</option>
+                        <option name="1" value="1">1</option>
                         <option name="2" value="2">2</option>
                         <option name="3" value="3">3</option>
                         <option name="4" value="4">4</option>
@@ -51,11 +100,11 @@
                     <input class="ok" name="corr" type="radio" value="A">
                     <br>
                     <label for="">B</label>
-                    <input class="answer" id="ansb" type="text" name="ansb"> 
+                    <input class="answer" id="ansb" type="text" name="ansb">
                     <input class="ok" name="corr" type="radio" value="B">
                     <br>
                     <label for="">C</label>
-                    <input class="answer" id="ansc" type="text" name="ansc"> 
+                    <input class="answer" id="ansc" type="text" name="ansc">
                     <input class="ok" name="corr" type="radio" value="C">
                     <br>
                     <label for="">D</label>
@@ -67,19 +116,14 @@
             </div>
             <hr>
           </div>
-
           <div class="modal-footer">
-            <button type="submit" class="btn btn-md testsave btn-success" >Add the question</button>
+            <button type="submit" class="btn btn-md testsave btn-success">Add the question</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
-
-
+        </div>
       </div>
-
     </div>
-  </div>
-  
-</form>
+  </form>
 
 
 </div>
@@ -129,7 +173,29 @@
   <div class="row">
     <div class="col-md-6 col-sm-12">
       <button type="button" id="addquest" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal" data-target="#myModal">Add new question</button>
-      <table class="col-md-12 testquestions" id="questionlist"></table>
+      <table class="col-md-12 testquestions" id="questionlist">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each questions}}
+          <tr>
+            <td class="class">{{this.QuestionText}}</td>
+            <td>{{this.ans1}}</td>
+            <td>{{this.ans2}}</td>
+            <td>{{this.ans3}}</td>
+            <td>{{this.ans4}}</td>  
+            <td><button type="button" class="btn addquest btn-info btn-md col-md-12" data-toggle="modal" data-target="#Edit">Edit</button></td>          
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
     <div class="col-md-6 col-sm-12">
       <button type="button" class="btn addquest btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>

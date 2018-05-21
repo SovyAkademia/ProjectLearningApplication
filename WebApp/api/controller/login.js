@@ -32,7 +32,6 @@ exports.dashboard = (req,res,next)=>{
                 let d = new Date(b.DateOfReg)
                 return d-c;
             });
-
             res.render('dashboard', {
                 users,
                 where:'Dashboard'

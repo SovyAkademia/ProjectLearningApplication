@@ -2,11 +2,7 @@ const db = require('../models/db');
 
 exports.add_question = (req, res, next) => {
     let name = req.params.name;
-    console.log(name);
-
-
     let all = req.body;
-    console.log(all);
     let test = req.params.name;
     let question = req.body.textQuest;
     let points = req.body.selectPoint;
@@ -19,26 +15,13 @@ exports.add_question = (req, res, next) => {
     let corrC = req.body.corr == 'C' ? 1 : 0;
     let corrD = req.body.corr == 'D' ? 1 : 0;
     
-    console.log({
-        test,
-        question,
-        points,
-        answerA,
-        answerB,
-        answerC,
-        answerD,
-        corrA,
-        corrB,
-        corrC,
-        corrD
-    });
-
     let queryFindTest = 'select * from tests where TestName like ?;';
     let queryInsertQuestion = 'insert into questions (QuestionText,Points) values(?,?);';
     let queryIdTest = 'select id from tests where TestName like ?;';
     let queryInsertTestDetails = 'insert into test_details (TestID, QuestionID) values(?,?);';
     let queryInsertAnswers = 'insert into answers (QuestionID,AnswerText, Correct) '+
     'values (?,?,?),(?,?,?),(?,?,?),(?,?,?);';
+    let queryAnswersView = 'insert into answers_view (IDQuestion, ans1,ans2,ans3,ans4) values(?,?,?,?,?);';
     /* transaction*/
     db.beginTransaction((err)=>{
         if (err) throw err;        
@@ -51,11 +34,9 @@ exports.add_question = (req, res, next) => {
         throw err;
         });
     }
-        console.log(insertQuestion);
     /* find id od test */
             db.query(queryIdTest, [test], (err, TestId) => {
                 if (err) throw err;
-                console.log(TestId[0].id);
     /* insert question id and test id into test_details table */
                 db.query(queryInsertTestDetails, [TestId[0].id, QuestionId], (err, insertTestDetails) => {
                     if (err) {
@@ -73,16 +54,20 @@ exports.add_question = (req, res, next) => {
                                 return db.rollback(() => {
                                 throw err;
                                 });
-                            }                                                               
-                        db.commit((err)=> {
-                            if (err) {
-                                return db.rollback(() => {
-                                throw err;
-                                });
-                            }
-                            res.redirect('/test/' + name);
-                            console.log('success!');
-                            });
+                            } 
+                            db.query(queryAnswersView,[QuestionId,answerA,answerB,answerC,answerD], (err,insertAnswerView)=>{
+                                if (err) throw err;
+                                db.commit((err)=> {
+                                    if (err) {
+                                        return db.rollback(() => {
+                                        throw err;
+                                        });
+                                    }
+                                    res.redirect('/test/' + name);
+                                    console.log('success!');
+                                    });
+                            })                                                              
+                        
                         })
                 })
             })
