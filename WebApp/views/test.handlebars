@@ -187,10 +187,15 @@
           {{#each questions}}
           <tr>
             <td class="class">{{this.QuestionText}}</td>
-            <td>{{this.ans1}}</td>
-            <td>{{this.ans2}}</td>
-            <td>{{this.ans3}}</td>
-            <td>{{this.ans4}}</td>  
+            <td id="tooltip">Answers
+            <span id="tooltiptext">
+            <p>{{this.ans1}}</p>
+            <p>{{this.ans2}}</p>
+            <p>{{this.ans3}}</p>
+            <p>{{this.ans4}}</p> 
+            </span>
+            </td>
+            
             <td><button type="button" class="btn addquest btn-info btn-md col-md-12" data-toggle="modal" data-target="#Edit">Edit</button></td>          
           </tr>
           {{/each}}
