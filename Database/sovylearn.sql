@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: Pi 18.Máj 2018, 11:45
+-- Čas generovania: Po 21.Máj 2018, 09:51
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -59,6 +59,24 @@ INSERT INTO `answers` (`ID`, `QuestionID`, `AnswerText`, `Correct`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Štruktúra tabuľky pre tabuľku `answers_view`
+--
+
+DROP TABLE IF EXISTS `answers_view`;
+CREATE TABLE IF NOT EXISTS `answers_view` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `IDQuestion` int(11) DEFAULT NULL,
+  `ans1` varchar(255) NOT NULL,
+  `ans2` varchar(255) NOT NULL,
+  `ans3` varchar(255) NOT NULL,
+  `ans4` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDQuestion` (`IDQuestion`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Štruktúra tabuľky pre tabuľku `categories`
 --
 
@@ -88,8 +106,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `QuestionText` varchar(1000) DEFAULT NULL,
   `Points` int(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `QuestionText` (`QuestionText`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
@@ -236,22 +253,6 @@ INSERT INTO `test_details` (`ID`, `TestID`, `QuestionID`) VALUES
 (2, 1, 2),
 (3, 1, 3);
 COMMIT;
-
---
--- Štruktúra tabuľky pre tabuľku `answers_view`
---
-
-DROP TABLE IF EXISTS `answers_view`;
-CREATE TABLE IF NOT EXISTS `answers_view` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `IDQuestion` int(11) DEFAULT NULL,
-  `ans1` varchar(255) NOT NULL,
-  `ans2` varchar(255) NOT NULL,
-  `ans3` varchar(255) NOT NULL,
-  `ans4` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `IDQuestion` (`IDQuestion`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
