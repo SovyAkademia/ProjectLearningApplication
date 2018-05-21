@@ -237,6 +237,22 @@ INSERT INTO `test_details` (`ID`, `TestID`, `QuestionID`) VALUES
 (3, 1, 3);
 COMMIT;
 
+--
+-- Štruktúra tabuľky pre tabuľku `answers_view`
+--
+
+DROP TABLE IF EXISTS `answers_view`;
+CREATE TABLE IF NOT EXISTS `answers_view` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `IDQuestion` int(11) DEFAULT NULL,
+  `ans1` varchar(255) NOT NULL,
+  `ans2` varchar(255) NOT NULL,
+  `ans3` varchar(255) NOT NULL,
+  `ans4` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDQuestion` (`IDQuestion`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
