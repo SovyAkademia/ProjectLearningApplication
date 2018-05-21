@@ -1,4 +1,9 @@
+
+{{#if student}}
 <h2>{{student.[0].FirstName}} {{student.[0].LastName}}</h2>
 <hr>
 
 <h3>Tests taken</h3>
+{{else}}
+<h2>No student found</h2>
+{{/if}}

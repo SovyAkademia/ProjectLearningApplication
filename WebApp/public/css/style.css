@@ -14,6 +14,18 @@ i{
     color:#FFFFEC;
 }
 
+th{
+    color: white;
+}
+
+.thead{
+    background-color: #434343;
+}
+
+#categories{
+    margin-bottom: 15px;
+}
+
 .navbar-nav>li>a{
     margin-top: -2px;
 }
@@ -274,7 +286,15 @@ questionlist:hover{
 }
 
 .studentslist{
+    border:0.5px solid cadetblue;
+    background-color: white;
+    width: 90%;
     margin: 0 auto;
+    overflow: auto;
+    max-height: 300px;
+    font-size: 15px;
+    padding: 15px;
+    -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
 }
 
 #pointsin{
@@ -283,7 +303,8 @@ questionlist:hover{
 }
 
 .regMessage{
-    margin-bottom: 5px;
+    color: green;
+    margin-bottom: 10px;
 }
 
 .alert{
@@ -308,6 +329,11 @@ questionlist:hover{
 .testbtns{
     margin-bottom: 10px;
 
+}
+
+.messageStudent{
+    color: red;
+    margin-bottom: 10px;
 }
 
 #questionlist{
@@ -348,6 +374,14 @@ questionlist:hover{
 
 }
 
+.whereHeader{
+    display: inline-block;
+    margin-left: 18%;
+    margin-top: 20px;
+    color: #9fa2a5;
+    font-weight: 300;
+}
+
 
 #registrations {
     border:0.5px solid cadetblue;
@@ -371,6 +405,10 @@ questionlist:hover{
         display: none;
     }
 
+    .whereHeader{
+        display: none;
+    }
+
     ul>li{
         padding-top: 15px;
         font-size: 16px;
@@ -380,11 +418,6 @@ questionlist:hover{
         height: 50px;
         float: left;
         
-    }
-
-    .answer{
-        
-       
     }
 
     .ok{
@@ -473,14 +506,6 @@ questionlist:hover{
     content: counter(serial-number);
 }
 
-.whereHeader{
-    display: inline-block;
-    margin-left: 18%;
-    margin-top: 20px;
-    color: #9fa2a5;
-    font-weight: 300;
-}
-
 .tableStudentName a{
     color: black;
     border-bottom:1px solid black;
@@ -491,4 +516,11 @@ questionlist:hover{
     border-bottom:1px solid cadetblue;
 }
 
+.testCard{
+    transition: all 200ms;
+}
+.testCard:hover {
+    transform: scale(1.07);
+    background-color:whitesmoke;
+}
 

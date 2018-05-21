@@ -74,6 +74,24 @@ $(function() {
  
 // }
 
+function Search() {
+    
+    var input, filter, tr, td, a, i;
+    input = document.getElementById('search');
+    filter = input.value.toUpperCase();
+    tr = document.getElementById("mainTR");
+    td = tr.getElementsByTagName('td');
+
+    for (i = 0; i < td.length; i++) {
+        a = document.getElementById("studname");
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            td[i].style.display = "";
+        } else {
+            td[i].style.display = "none";
+        }
+    }
+}
+
 function newItem() {
 	var item = document.getElementById('questioninput').value;
 	var a = document.createElement('a');

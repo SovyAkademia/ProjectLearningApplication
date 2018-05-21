@@ -3,7 +3,7 @@
 
     <form action="/students/class" method="POST">
         <div class="input-group mb-3 col-centered">
-            <input class="form-control col-md-6 " id="search" type="text" placeholder="Search..">
+            <input class="form-control col-md-6 " id="search" onkeyup="Search()" type="text" placeholder="Search..">
             <span class="col-md-2 col-sm-2 h4 text-right">Class:</span>
             <select class="col-md-2 col-sm-4 class-select" name="options" onchange="this.form.submit()">
                 <option value="0" disabled selected>Select class</option>
@@ -17,7 +17,7 @@
 
     {{#if result}}
     <table class="table table_show student-table table-bordered">
-        <thead class="thead-dark">
+        <thead class="thead">
             <tr>
                 <th>#</th>
                 <th>Name</th>
@@ -27,12 +27,12 @@
 
             </tr>
         </thead>
-        <tbody id="myTable">
+        <tbody>
             {{#each result}}
-            <tr>
+            <tr id="mainTR">
                 <td class="number"></td>
                 <td class="name tableStudentName">
-                    <a href="/students/{{ID}}">{{FirstName}} {{LastName}}</a>
+                    <a id="studname" href="/students/{{ID}}">{{FirstName}} {{LastName}}</a>
                 </td>
                 <td class="class">{{Email}}</td>
                 <td class="class">{{class}}.N</td>
