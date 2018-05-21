@@ -20,24 +20,24 @@ exports.get_test_creator = (req, res, next) => {
     db.query(queryCategoryTest, [name], (err, result) => {
         if (err) throw err;
         db.query(queryQuestions, [name], (err, questions) => {
-//            console.log(questions);
+    //     console.log(questions);
             if (err) throw err;
                 if (questions != null) {
                     res.render('test', {
                         TestName: result[0].TestName,
                         CategoryName: result[0].CategoryName,
-                        questions
+                        questions,
                     })
                 } else {
                     res.render('test', {
                         TestName: result[0].TestName,
                         CategoryName: result[0].CategoryName
-                    })
+                    })   
                 }
         })
     });
 }
 
 exports.edit_question = (req,res,next) =>{
-    console.log(req.body.id);
+    console.log(req.params.id);
 }
