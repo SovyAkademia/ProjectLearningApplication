@@ -1,7 +1,7 @@
 const db = require('../models/db');
 
 exports.get_all_tests = (req,res,next) => {
-    let getTests = 'select tests.testName,tests.id,Categories.categoryname,categories.id from tests inner join categories on tests.categoryid = categories.id where teacherid=1;';
+    let getTests = 'select tests.testName,tests.id,Categories.categoryname,categories.id from tests inner join categories on tests.categoryid = categories.id where teacherid like ?;';
 
     db.query(getTests,[req.user[0].id],(err,result) => {
         if(err){
