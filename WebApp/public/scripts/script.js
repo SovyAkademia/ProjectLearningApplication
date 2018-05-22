@@ -111,6 +111,56 @@ function newItem() {
 	 document.querySelector('.questioncontainer').innerHTML = document.querySelector('.questioninput').value+document.querySelector('.questioninput').value;
  }
 
+ $('.editBtn').click(function(){
+     var questionID = this.value;
+     var testName = $('#nameOfTest').html();
+     console.log(questionID);
+
+     $.ajax({
+        type: 'GET',
+        url:'http://localhost:5000/test/'+testName+'/'+questionID,
+        error: function(){
+           console.log('ajax not working')
+        },
+        dataType: "jsonp",
+        success : function(data){
+            fillModal(data);
+        }
+
+    });
+ })
+
+ function fillModal(data){
+     var question = data.question[0].questiontext;
+     var points = data.question[0].points;
+     var a = data.answers[0];
+     var b = data.answers[1];
+     var c = data.answers[2];
+     var d = data.answers[3];
+     var array = [a,b,c,d];
+
+    if(a.correct == 1){
+        $('#checka').attr('checked', true);
+    }
+    if(b.correct == 1){
+        $('#checkb').attr('checked', true);
+    }
+    if(c.correct == 1){
+        $('#checkc').attr('checked', true);
+    }
+    if(d.correct == 1){
+        $('#checkd').attr('checked', true);
+    }
+     console.log(a,b,c,d);
+     $('#questioninput').val(question);
+     $('#ansa').val(a.answertext);
+     $('#ansb').val(b.answertext);
+     $('#ansc').val(c.answertext);
+     $('#ansd').val(d.answertext);
+     $('.selectPoints').val(points);
+
+ }
+
 
 //  $('.class-select').change(function(){
 // 	 console.log('lol');
