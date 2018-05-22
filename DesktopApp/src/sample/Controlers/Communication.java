@@ -19,7 +19,7 @@ public class Communication {
     {
         String json = "{\n\t\"email\": \""+email+"\",\n\t\"password\":\""+password+"\"}";
         HttpPost httpPost = new HttpPost();
-        String url = baseUrl+"";
+        String url = baseUrl+"/desktop/auth/login";
         String response = "";
         try {
             response = httpPost.post(url,json);
@@ -27,13 +27,14 @@ public class Communication {
             AuthResponse authResponse = gson.fromJson(response,AuthResponse.class);
             this.token = authResponse.getToken();
             this.studentId = authResponse.getStudentId();
+            System.out.println(this.token);
+            return true;
 
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
 
-        return false;
     }
 
     public Categories getCategories()
