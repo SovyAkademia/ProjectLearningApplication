@@ -7,6 +7,7 @@ const addQuestion = require('../controller/addNewQuestion');
 
 router.get('/:name',testController.get_test_creator);
 router.post('/:name',addQuestion.add_question);
+router.get('/:name/:id', testController.show_edit_modal);
 router.put('/:name/:id',testController.edit_question);
 
 //Access Controll

@@ -1,7 +1,7 @@
 const db = require('../models/db');
 
 exports.get_all_tests = (req, res, next) => {
-    let getTests = "SELECT tests.ID AS 'TestID',TestName,categories.ID AS 'CategoryID',CategoryName FROM tests INNER JOIN teachers ON tests.TeacherID=teachers.ID INNER JOIN categories ON tests.CategoryID=categories.ID WHERE teachers.ID=1;";
+    let getTests = "SELECT tests.ID AS 'TestID',TestName,categories.ID AS categoryID ,categoryname FROM tests INNER JOIN teachers ON tests.TeacherID=teachers.ID INNER JOIN categories ON tests.CategoryID=categories.ID WHERE teachers.ID=?;";
     let getCategories = 'select * from categories';
     db.query(getTests, [req.user[0].id], (err, test) => {
         console.log(test);
@@ -30,7 +30,7 @@ exports.get_all_tests = (req, res, next) => {
 
 exports.get_all_tests_in_category = (req, res, next) => {
     let categoryId = req.body.options;
-    let getTests = 'select tests.testName,tests.id,Categories.categoryname,categories.id as categoryID from tests inner join categories on tests.categoryid = categories.id where categoryid like ? and teacherid like ?;';
+    let getTests = 'select tests.TestName,tests.id as "TestID",Categories.categoryname,categories.id as categoryID from tests inner join categories on tests.categoryid = categories.id where categoryid like ? and teacherid like ?;';
     let getCategories = 'select * from categories';
 
     if(categoryId == 'all'){

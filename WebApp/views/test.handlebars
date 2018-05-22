@@ -1,7 +1,7 @@
 <div class="container">
 
-<form method="post" action="/test/{{questions.ID}}/?_method=PUT" id="form">
-<input type="hidden" name="_method" value="PUT">
+  <form method="post" action="/test/{{questions.ID}}/?_method=PUT" id="form">
+    <input type="hidden" name="_method" value="PUT">
     <!-- Modal -->
     <div class="modal fade" id="Edit" role="dialog">
       <div class="modal-dialog">
@@ -12,8 +12,8 @@
           </div>
           <div class="modal-body">
             <div id="counter"></div>
-            <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" type="text" name="textQuest"
-            value="{{questions.QuestionText}}"/>
+            <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" type="text" name="textQuest" value="{{questions.QuestionText}}"
+            />
             <br>
 
             <div class="row">
@@ -21,7 +21,7 @@
                 <div class="col-md-12 col-sm-12">
 
                   <div class="container">
-                    <select name="selectPoint" id="pointsin">
+                    <select name="selectPoint" class="selectPoints" id="pointsin">
                       <optgroup label="Select points">
                         <option name="1" value="1">1</option>
                         <option name="2" value="2">2</option>
@@ -32,20 +32,20 @@
                     </select>
                     <br>
                     <label for="">A</label>
-                    <input class="answer" id="ansa" type="text" name="ansa" value="{{questions.ans1}}"> 
-                    <input class="ok" name="corr" type="radio" value="A">
+                    <input class="answer" id="ansa" type="text" name="ansa" value="{{questions.ans1}}">
+                    <input class="ok" id="checka" name="corr" type="radio" value="A">
                     <br>
                     <label for="">B</label>
                     <input class="answer" id="ansb" type="text" name="ansb" value="{{questions.ans2}}">
-                    <input class="ok" name="corr" type="radio" value="B">
+                    <input class="ok" id="checkb"name="corr" type="radio" value="B">
                     <br>
                     <label for="">C</label>
                     <input class="answer" id="ansc" type="text" name="ansc" value="{{questions.ans3}}">
-                    <input class="ok" name="corr" type="radio" value="C">
+                    <input class="ok" id="checkc" name="corr" type="radio" value="C">
                     <br>
                     <label for="">D</label>
                     <input class="answer" id="ansd" type="text" name="ansd" value="{{questions.ans4}}">
-                    <input class="ok" name="corr" type="radio" value="D">
+                    <input class="ok" id="checkd" name="corr" type="radio" value="D">
                   </div>
                 </div>
               </div>
@@ -163,7 +163,9 @@
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-6">
-          <h4>Test name: {{TestName}}</h4>
+          <h4>Test name:
+            <span id="nameOfTest">{{TestName}}</span>
+          </h4>
         </div>
         <div class="col-md-6">
           <h4>Test category: {{CategoryName}}</h4>
@@ -188,20 +190,20 @@
           {{#each questions}}
           <tr>
             <td class="class">{{this.QuestionText}}</td>
+
             <td id="tooltip">Answers
-            <span id="tooltiptext">
-            <p>{{this.ans1}}</p>
-            <p>{{this.ans2}}</p>
-            <p>{{this.ans3}}</p>
-            <p>{{this.ans4}}</p> 
-            </span>
+              <span id="tooltiptext">
+                <p>{{this.ans1}}</p>
+                <p>{{this.ans2}}</p>
+                <p>{{this.ans3}}</p>
+                <p>{{this.ans4}}</p>
+              </span>
             </td>
-            
+
             <td>
-              <button value="{{this.ID}}" type="button" class="btn addquest btn-info btn-md col-md-12" data-toggle="modal" data-target="#Edit">Edit
+              <button value="{{ID}}" type="button" class="btn addquest editBtn btn-info btn-md col-md-12" data-toggle="modal" data-target="#Edit">Edit
               </button>
-              <a href="/test/{{this.ID}}" data-toggle="modal" data-target="#Edit">Edit</a>
-            </td>          
+            </td>
           </tr>
           {{/each}}
         </tbody>
