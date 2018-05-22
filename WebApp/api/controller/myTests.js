@@ -1,11 +1,12 @@
 const db = require('../models/db');
 
 exports.get_all_tests = (req, res, next) => {
-    let getTests = 'select tests.testName,tests.id,Categories.categoryname,categories.id from tests inner join categories on tests.categoryid = categories.id where teacherid like ?;';
+    let getTests = "SELECT tests.ID AS 'TestID',TestName,categories.ID AS 'CategoryID',CategoryName FROM tests INNER JOIN teachers ON tests.TeacherID=teachers.ID INNER JOIN categories ON tests.CategoryID=categories.ID WHERE teachers.ID=1;";
     let getCategories = 'select * from categories';
     db.query(getTests, [req.user[0].id], (err, test) => {
+        console.log(test);
         if (err) {
-            res.render('myTests', {
+           return res.render('myTests', {
                 error: err
             });
         }
@@ -18,7 +19,6 @@ exports.get_all_tests = (req, res, next) => {
             res.render('myTests', {
                 test,
                 categories,
-                
                 where: 'My Tests'
             });
 
