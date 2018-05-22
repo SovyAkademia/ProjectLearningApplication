@@ -2,6 +2,7 @@ package sample.Controlers;
 
 import com.google.gson.Gson;
 import sample.Objects.AuthResponse;
+import sample.Objects.Categories;
 import sample.api.HttpGet;
 import sample.api.HttpPost;
 
@@ -33,5 +34,19 @@ public class Communication {
         }
 
         return false;
+    }
+
+    public Categories getCategories()
+    {
+        Categories swap = new Categories();
+        try {
+            String response = new HttpGet().SimplegetCategories(this.baseUrl+"/desktop/getcategories");
+            Gson gson = new Gson();
+            swap = gson.fromJson(response,Categories.class);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return swap;
     }
 }

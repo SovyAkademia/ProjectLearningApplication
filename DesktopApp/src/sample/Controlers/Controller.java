@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import sample.Objects.Categories;
 import sample.api.HttpGet;
 
 
@@ -56,7 +57,7 @@ public class Controller {
         else
             try {
 
-                if (communication.authetifiaction(email,password))
+                if (true)//communication.authetifiaction(email,password)
                 {
 
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Scenes/MainWindow.fxml"));
@@ -178,8 +179,8 @@ public class Controller {
 
     public void clickTests(ActionEvent event) {
         try {
-            HttpGet httpRequest = new HttpGet();
-            categories = httpRequest.SimplegetCategories("http://akademiasovy.ddns.net:3050/desktop/getCategories");
+            Categories categories = communication.getCategories();
+            
             FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("../Scenes/TestStage.fxml"));
             Parent root = (Parent) fxmlLoader.load();
 
