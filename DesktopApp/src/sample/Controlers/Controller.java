@@ -32,6 +32,7 @@ public class Controller {
     public RadioButton radioC;
     public RadioButton radioD;
     public MenuButton MenuButtonForUser;
+    public MenuButton category;
     public MenuItem action_logout;
 
     private Communication communication = new Communication();
@@ -71,13 +72,13 @@ public class Controller {
 
                     ArrayList<Category> list = communication.getCategories().getCategories();
                     this.categoryList = list;
-                    for (Category temp:categoryList) {
+                    for (Category temp:list) {
                         System.out.println(temp.getCategoryName());
                     }
                 }
                 else
                 {
-
+                    System.out.println("AUTH ERR");
                 }
 
             } catch (Exception e) {

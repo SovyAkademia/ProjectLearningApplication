@@ -42,7 +42,7 @@ public class HttpGet {
         return result.toString();
     }
 
-    public String SimplegetCategories(String url)
+    public String Simpleget(String url)
     {
         String result = "";
         try {

@@ -3,6 +3,7 @@ package sample.Controlers;
 import com.google.gson.Gson;
 import sample.Objects.AuthResponse;
 import sample.Objects.Categories;
+import sample.Objects.Tests;
 import sample.api.HttpGet;
 import sample.api.HttpPost;
 
@@ -23,6 +24,7 @@ public class Communication {
         String response = "";
         try {
             response = httpPost.post(url,json);
+            System.out.println(response.hashCode()+"wueeeej");
             Gson gson = new Gson();
             AuthResponse authResponse = gson.fromJson(response,AuthResponse.class);
             this.token = authResponse.getToken();
@@ -41,11 +43,24 @@ public class Communication {
     {
         Categories swap = new Categories();
         try {
-            String response = new HttpGet().SimplegetCategories(this.baseUrl+"/desktop/getcategories");
+            String response = new HttpGet().Simpleget(this.baseUrl+"/desktop/getcategories");
             Gson gson = new Gson();
             swap = gson.fromJson(response,Categories.class);
         }
         catch (Exception e) {
+            e.printStackTrace();
+        }
+        return swap;
+    }
+
+    public Tests getTestsDetails(){
+        Tests swap = new Tests();
+        try {
+            String response = new HttpGet().Simpleget()
+
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
         return swap;
