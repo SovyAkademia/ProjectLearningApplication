@@ -30,8 +30,16 @@ th{
     margin-top: -2px;
 }
 
+#test>th{
+    color: rgb(90, 90, 90);
+    }
+
 #mytests{
     margin-left: 16px;
+}
+
+#message{
+    margin-top: 15px;
 }
 
 #createtest{

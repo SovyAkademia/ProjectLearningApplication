@@ -12,6 +12,15 @@ $(document).ready(function() {
     });
 });
 
+$('#password, #password-confirm').on('keyup', function () {
+    if ($('#password').val() == $('#password-confirm').val()) {
+      $('#message').html('Matching').css('color', 'green');
+    } else 
+    {
+      $('#message').html('Not Matching').css('color', 'red');
+    }
+  });
+
 $(function() {
     
     $('#login-form-link').click(function(e) {
