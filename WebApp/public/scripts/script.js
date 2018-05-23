@@ -169,18 +169,25 @@ function newItem() {
      var d = data.answers[3];
      var array = [a,b,c,d];
 
+     $('.ok').prop('checked', false);
+
     if(a.correct == 1){
-        $('#checka').attr('checked', true);
+        console.log('a is correct');
+        $('.checka').prop('checked', true);
     }
-    if(b.correct == 1){
-        $('#checkb').attr('checked', true);
+    else if(b.correct == 1){
+        $('.checkb').prop('checked', true);
+        console.log('b is correct');
     }
-    if(c.correct == 1){
-        $('#checkc').attr('checked', true);
+    else if(c.correct == 1){
+        $('.checkc').prop('checked', true);
+        console.log('c is correct');
     }
-    if(d.correct == 1){
-        $('#checkd').attr('checked', true);
+    else if(d.correct == 1){
+        $('.checkd').prop('checked', true);
+        console.log('d is correct');
     }
+
      console.log(a,b,c,d);
      $('#questioninput').val(question);
      $('#ansa').val(a.answertext);
