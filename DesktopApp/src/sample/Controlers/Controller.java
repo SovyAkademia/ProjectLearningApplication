@@ -16,6 +16,9 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import sample.Objects.Category;
+
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -32,11 +35,12 @@ public class Controller {
     public MenuItem action_logout;
 
     private Communication communication = new Communication();
+    private ArrayList<Category> categoryList;
 
     @FXML
     public Button closeButton;
 
-   // <Button fx:id="closeButton" cancelButton="true" layoutX="350.0" layoutY="767.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefWidth="100.0" text="Close" />
+    // <Button fx:id="closeButton" cancelButton="true" layoutX="350.0" layoutY="767.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefWidth="100.0" text="Close" />
 
     public void clickLogin(ActionEvent event) {
         String email = loginField.textProperty().get();
@@ -46,7 +50,7 @@ public class Controller {
             lblError.textProperty().set("Error input try again");
         else
             try {
-            if (communication.authetifiaction(email,password))
+                if (communication.authetifiaction(email,password))
                 {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Scenes/MainWindow.fxml"));
                     Parent root = (Parent) fxmlLoader.load();
@@ -64,6 +68,12 @@ public class Controller {
                     Stage primarystage = (Stage) btnLogin.getScene().getWindow();
 
                     primarystage.close();
+
+                    ArrayList<Category> list = communication.getCategories().getCategories();
+                    this.categoryList = list;
+                    for (Category temp:categoryList) {
+                        System.out.println(temp.getCategoryName());
+                    }
                 }
                 else
                 {
@@ -84,45 +94,45 @@ public class Controller {
 
     public void start(ActionEvent event) {
 
-try {
-    Group root = new Group();
-    Scene scene = new Scene(root, 800, 600, Color.WHITE);
+        try {
+            Group root = new Group();
+            Scene scene = new Scene(root, 800, 600, Color.WHITE);
 
-    Stage primaryStage = new Stage();
-    primaryStage.setFullScreen(true);
+            Stage primaryStage = new Stage();
+            primaryStage.setFullScreen(true);
 
-    TabPane tabPane = new TabPane();
-    BorderPane mainPane = new BorderPane();
+            TabPane tabPane = new TabPane();
+            BorderPane mainPane = new BorderPane();
 
-    for(int i=1;i<15;i++) {
+            for(int i=1;i<15;i++) {
 
-        ToggleGroup toggleGroup = new ToggleGroup();
-
-
-        Tab tab = new Tab();
-        tab.setText("Question " + i);
-        HBox hbox = new HBox();
-        mainPane.setTop(hbox);
+                ToggleGroup toggleGroup = new ToggleGroup();
 
 
-        //tabC_hbox.setSpacing(80);
-       // tabC_hbox.setPadding(new Insets(350,20, 10,10));
+                Tab tab = new Tab();
+                tab.setText("Question " + i);
+                HBox hbox = new HBox();
+                mainPane.setTop(hbox);
 
-        Label lbl = new Label("This is question number "+i);
 
-        RadioButton radio1 = new RadioButton();
-        RadioButton radio2 = new RadioButton();
-        RadioButton radio3 = new RadioButton();
-        RadioButton radio4 = new RadioButton();
-        toggleGroup.selectToggle(radio1);
-        toggleGroup.selectToggle(radio2);
-        toggleGroup.selectToggle(radio3);
+                //tabC_hbox.setSpacing(80);
+                // tabC_hbox.setPadding(new Insets(350,20, 10,10));
+
+                Label lbl = new Label("This is question number "+i);
+
+                RadioButton radio1 = new RadioButton();
+                RadioButton radio2 = new RadioButton();
+                RadioButton radio3 = new RadioButton();
+                RadioButton radio4 = new RadioButton();
+                toggleGroup.selectToggle(radio1);
+                toggleGroup.selectToggle(radio2);
+                toggleGroup.selectToggle(radio3);
 
 //toto tu vytvori tlacidlo prida mu ID,funkciu a zavrie scenu
 
-        Button btnSubmitQuestion = new Button("Submit answer");
-        btnSubmitQuestion.setId("closeButton");
-        mainPane.setCenter(tabPane);
+                Button btnSubmitQuestion = new Button("Submit answer");
+                btnSubmitQuestion.setId("closeButton");
+                mainPane.setCenter(tabPane);
         /*
         btnSubmitQuestion.setOnAction(event1 -> {
                     try {
@@ -132,65 +142,64 @@ try {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
                     });
                     */
-        hbox.getChildren().add(lbl);
-        lbl.setTranslateX(650);
-        lbl.setTranslateY(250);
+                hbox.getChildren().add(lbl);
+                lbl.setTranslateX(650);
+                lbl.setTranslateY(250);
 
-        hbox.getChildren().add(radio1);
-        radio1.setTranslateX(300);
-        radio1.setTranslateY(300);
+                hbox.getChildren().add(radio1);
+                radio1.setTranslateX(300);
+                radio1.setTranslateY(300);
 
-        hbox.getChildren().add(radio2);
-        radio2.setTranslateX(300);
-        radio2.setTranslateY(350);
+                hbox.getChildren().add(radio2);
+                radio2.setTranslateX(300);
+                radio2.setTranslateY(350);
 
-        hbox.getChildren().add(radio3);
-        radio3.setTranslateX(300);
-        radio3.setTranslateY(400);
+                hbox.getChildren().add(radio3);
+                radio3.setTranslateX(300);
+                radio3.setTranslateY(400);
 
-        hbox.getChildren().add(radio4);
-        radio4.setTranslateX(300);
-        radio4.setTranslateY(450);
+                hbox.getChildren().add(radio4);
+                radio4.setTranslateX(300);
+                radio4.setTranslateY(450);
 
-        hbox.getChildren().add(btnSubmitQuestion);
-        btnSubmitQuestion.setTranslateX(250);
-        btnSubmitQuestion.setTranslateY(500);
+                hbox.getChildren().add(btnSubmitQuestion);
+                btnSubmitQuestion.setTranslateX(250);
+                btnSubmitQuestion.setTranslateY(500);
 
-       // hbox.getChildren().addAll(lbl, btnSubmitQuestion);
-
-
-        tab.setContent(hbox);
-        tabPane.getTabs().add(tab);
-
-        lbl.setFont(new Font("Arial", 30));
-
-        tab.setClosable(false);
-
-        tabPane.setStyle("-fx-background-color: #434343;-fx-text-fill: white;");
-        lbl.setStyle("-fx-text-fill: white;-fx-text-size: 25px");
-        radio1.setStyle("-fx-text-fill: white;");
-        radio2.setStyle("-fx-text-fill: white;");
-        radio3.setStyle("-fx-text-fill: white;");
-        radio4.setStyle("-fx-text-fill: white;");
-    }
+                // hbox.getChildren().addAll(lbl, btnSubmitQuestion);
 
 
+                tab.setContent(hbox);
+                tabPane.getTabs().add(tab);
+
+                lbl.setFont(new Font("Arial", 30));
+
+                tab.setClosable(false);
+
+                tabPane.setStyle("-fx-background-color: #434343;-fx-text-fill: white;");
+                lbl.setStyle("-fx-text-fill: white;-fx-text-size: 25px");
+                radio1.setStyle("-fx-text-fill: white;");
+                radio2.setStyle("-fx-text-fill: white;");
+                radio3.setStyle("-fx-text-fill: white;");
+                radio4.setStyle("-fx-text-fill: white;");
+            }
 
 
-        mainPane.prefHeightProperty().bind(scene.heightProperty()); //da tabPane na celu stranu STAGU
-        mainPane.prefWidthProperty().bind(scene.widthProperty());
-        primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-
-        root.getChildren().add(mainPane);
-        primaryStage.setScene(scene);
-        primaryStage.show();
 
 
-} catch (Exception e) {
-    e.printStackTrace();}
+            mainPane.prefHeightProperty().bind(scene.heightProperty()); //da tabPane na celu stranu STAGU
+            mainPane.prefWidthProperty().bind(scene.widthProperty());
+            primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+
+            root.getChildren().add(mainPane);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();}
     }
 
     public void Checkbox(ActionEvent event) {

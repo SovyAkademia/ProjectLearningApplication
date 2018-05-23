@@ -178,12 +178,10 @@
       <button type="button" id="addquest" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal" data-target="#myModal">Add new question</button>
       <table class="col-md-12 testquestions" id="questionlist">
         <thead>
-          <tr>
+          <tr id="test">
             <th>Question</th>
-            <th>A</th>
-            <th>B</th>
-            <th>C</th>
-            <th>D</th>
+            <th>Answers</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -193,10 +191,10 @@
 
             <td id="tooltip">Answers
               <span id="tooltiptext">
-                <p>{{this.ans1}}</p>
-                <p>{{this.ans2}}</p>
-                <p>{{this.ans3}}</p>
-                <p>{{this.ans4}}</p>
+                <p>A. {{this.ans1}}</p>
+                <p>B. {{this.ans2}}</p>
+                <p>C. {{this.ans3}}</p>
+                <p>D. {{this.ans4}}</p>
               </span>
             </td>
 
