@@ -8,19 +8,22 @@
         <!-- contenModal t-->
         <div class="modal-content">
           <div class="modal-header">
+            <h4 class="modal-title">Edit question</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
             <div id="counter"></div>
-            <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" type="text" name="textQuest" value="{{questions.QuestionText}}"
-            />
-            <br>
+            <div class="text-center">
+            <textarea name="textQuest" id="questioninput" class="questioninput" cols="30" rows="3"></textarea>
+            </div>
 
             <div class="row">
               <div class="container">
                 <div class="col-md-12 col-sm-12">
 
                   <div class="container">
+                    <div class="text-center">
+                      <span>Points:</span>
                     <select name="selectPoint" class="selectPoints" id="pointsin">
                       <optgroup label="Select points">
                         <option name="1" value="1">1</option>
@@ -30,22 +33,24 @@
                         <option name="5" value="5">5</option>
                       </optgroup>
                     </select>
+                    </div>
                     <br>
+                    <div style="margin-left:35px; padding:5px;"><strong>Answers</strong> <strong style="margin-left:153px;">Correct</strong></div>
                     <label for="">A</label>
-                    <input class="answer" id="ansa" type="text" name="ansa" value="{{questions.ans1}}">
-                    <input class="ok" id="checka" name="corr" type="radio" value="A">
+                    <input class="answer col-md-6 col-sm-6" id="ansa" type="text" name="ansa" value="">
+                    <input class="ok checka"  name="corr" type="radio" value="A">
                     <br>
                     <label for="">B</label>
-                    <input class="answer" id="ansb" type="text" name="ansb" value="{{questions.ans2}}">
-                    <input class="ok" id="checkb"name="corr" type="radio" value="B">
+                    <input class="answer col-md-6 col-sm-6" id="ansb" type="text" name="ansb" value="">
+                    <input class="ok checkb" name="corr" type="radio" value="B">
                     <br>
                     <label for="">C</label>
-                    <input class="answer" id="ansc" type="text" name="ansc" value="{{questions.ans3}}">
-                    <input class="ok" id="checkc" name="corr" type="radio" value="C">
+                    <input class="answer col-md-6 col-sm-6" id="ansc" type="text" name="ansc" value="">
+                    <input class="ok checkc"  name="corr" type="radio" value="C">
                     <br>
                     <label for="">D</label>
-                    <input class="answer" id="ansd" type="text" name="ansd" value="{{questions.ans4}}">
-                    <input class="ok" id="checkd" name="corr" type="radio" value="D">
+                    <input class="answer col-md-6 col-sm-6" id="ansd" type="text" name="ansd" value="">
+                    <input class="ok checkd"  name="corr" type="radio" value="D">
                   </div>
                 </div>
               </div>
@@ -68,24 +73,28 @@
         <!-- contenModal t-->
         <div class="modal-content">
           <div class="modal-header">
+            
+            <h4 class="modal-title">Add new question</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Create a Test</h4>
           </div>
-          <div class="modal-body">
+          <div class="modal-body text-left">
 
-            <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()">
+            {{!-- <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()"> --}}
 
-            <div id="counter"></div>
-            <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text" name="textQuest"
-            />
-            <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)">
-            <br>
+            <div class="text-center">
+            <textarea class="questioninput" name="textQuest" id="questioninput" placeholder="Type in your question" required cols="30" rows="3"></textarea>
+            </div>
+            {{!-- <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text" name="textQuest" --}}
+            {{!-- /> --}}
+            {{!-- <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)"> --}}
 
             <div class="row">
               <div class="container">
                 <div class="col-md-12 col-sm-12">
-
+                  
                   <div class="container">
+                    <div class="text-center">
+                    <span>Points:</span>
                     <select name="selectPoint" id="pointsin">
                       <optgroup label="Select points">
                         <option name="1" value="1">1</option>
@@ -95,21 +104,24 @@
                         <option name="5" value="5">5</option>
                       </optgroup>
                     </select>
+                    </div>
                     <br>
-                    <label for="">A</label>
-                    <input class="answer" id="ansa" type="text" name="ansa">
+                    <div style="margin-left:35px; padding:5px;"><strong>Answers</strong> <strong style="margin-left:153px;">Correct</strong></div>
+                    
+                    <label for="ansa">A</label>
+                    <input class="answer col-md-6 col-sm-6" id="ansa" type="text" name="ansa">
                     <input class="ok" name="corr" type="radio" value="A">
                     <br>
-                    <label for="">B</label>
-                    <input class="answer" id="ansb" type="text" name="ansb">
+                    <label for="ansb">B</label>
+                    <input class="answer col-md-6 col-sm-6" id="ansb" type="text" name="ansb">
                     <input class="ok" name="corr" type="radio" value="B">
                     <br>
-                    <label for="">C</label>
-                    <input class="answer" id="ansc" type="text" name="ansc">
+                    <label for="ansc">C</label>
+                    <input class="answer col-md-6 col-sm-6" id="ansc" type="text" name="ansc">
                     <input class="ok" name="corr" type="radio" value="C">
                     <br>
-                    <label for="">D</label>
-                    <input class="answer" id="ansd" type="text" name="ansd">
+                    <label for="ansd">D</label>
+                    <input class="answer col-md-6 col-sm-6" id="ansd" type="text" name="ansd">
                     <input class="ok" name="corr" type="radio" value="D">
                   </div>
                 </div>
@@ -178,25 +190,23 @@
       <button type="button" id="addquest" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal" data-target="#myModal">Add new question</button>
       <table class="col-md-12 testquestions" id="questionlist">
         <thead>
-          <tr>
+          <tr id="test">
             <th>Question</th>
-            <th>A</th>
-            <th>B</th>
-            <th>C</th>
-            <th>D</th>
+            <th>Answers</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
           {{#each questions}}
           <tr>
-            <td class="class">{{this.QuestionText}}</td>
+            <td>{{this.QuestionText}}</td>
 
             <td id="tooltip">Answers
               <span id="tooltiptext">
-                <p>{{this.ans1}}</p>
-                <p>{{this.ans2}}</p>
-                <p>{{this.ans3}}</p>
-                <p>{{this.ans4}}</p>
+                <p>A. {{this.ans1}}</p>
+                <p>B. {{this.ans2}}</p>
+                <p>C. {{this.ans3}}</p>
+                <p>D. {{this.ans4}}</p>
               </span>
             </td>
 

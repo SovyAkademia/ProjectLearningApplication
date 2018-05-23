@@ -12,6 +12,15 @@ $(document).ready(function() {
     });
 });
 
+$('#password, #password-confirm').on('keyup', function () {
+    if ($('#password').val() == $('#password-confirm').val()) {
+      $('#message').html('Matching').css('color', 'green');
+    } else 
+    {
+      $('#message').html('Not Matching').css('color', 'red');
+    }
+  });
+
 $(function() {
     
     $('#login-form-link').click(function(e) {
@@ -91,6 +100,27 @@ function Search() {
     }
 }
 
+function StudentSearch() {
+    // Declare variables 
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("studenttable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      } 
+    }
+  }
+
 function newItem() {
 	var item = document.getElementById('questioninput').value;
 	var a = document.createElement('a');
@@ -139,18 +169,25 @@ function newItem() {
      var d = data.answers[3];
      var array = [a,b,c,d];
 
+     $('.ok').prop('checked', false);
+
     if(a.correct == 1){
-        $('#checka').attr('checked', true);
+        console.log('a is correct');
+        $('.checka').prop('checked', true);
     }
-    if(b.correct == 1){
-        $('#checkb').attr('checked', true);
+    else if(b.correct == 1){
+        $('.checkb').prop('checked', true);
+        console.log('b is correct');
     }
-    if(c.correct == 1){
-        $('#checkc').attr('checked', true);
+    else if(c.correct == 1){
+        $('.checkc').prop('checked', true);
+        console.log('c is correct');
     }
-    if(d.correct == 1){
-        $('#checkd').attr('checked', true);
+    else if(d.correct == 1){
+        $('.checkd').prop('checked', true);
+        console.log('d is correct');
     }
+
      console.log(a,b,c,d);
      $('#questioninput').val(question);
      $('#ansa').val(a.answertext);
