@@ -21,7 +21,7 @@
             <h3 class="card-title d-inline-block">{{TestName}}</h3><span class="float-right small">{{categoryname}}</span>
             <div class="mb-3">Questions: 30</div>
             <i class="far fa-edit" style="color:black"></i>
-            <a href="#">Edit</a>
+            <a href="/test/{{TestName}}">Edit</a>
             <i class="fas fa-chart-bar ml-3" style="color:black;"></i>
             <a href="#" >Stats</a>
             {{!-- <a href="#" >Allow</a> --}}
@@ -31,7 +31,7 @@
     </div>
     
     {{#unless test}}
-    <h2>No tests found in this category</h2>
+    <h2>No tests found</h2>
 
     {{/unless}} {{!--
     <div class="col-md-6">
