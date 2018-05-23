@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: Po 21.Máj 2018, 09:51
+-- Čas generovania: St 23.Máj 2018, 09:32
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `answers` (
   `Correct` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
   KEY `questionID` (`QuestionID`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `answers`
@@ -54,7 +54,19 @@ INSERT INTO `answers` (`ID`, `QuestionID`, `AnswerText`, `Correct`) VALUES
 (9, 3, 'Hibernate Markup Language', 0),
 (10, 3, 'Hypertext Markup Language', 1),
 (11, 3, 'Hypertext Markable Language', 0),
-(12, 3, 'Hypertext Multiple Language', 0);
+(12, 3, 'Hypertext Multiple Language', 0),
+(13, 4, 'Server', 0),
+(14, 4, 'GUI', 1),
+(15, 4, 'Test applications', 0),
+(16, 4, 'Database scripts', 0),
+(17, 5, 'private int i==1;', 0),
+(18, 5, 'private integer i=1;', 0),
+(19, 5, 'private integer i==1;', 0),
+(20, 5, 'private int i=1;', 1),
+(21, 6, 'Lower letter', 0),
+(22, 6, 'Upper letter', 1),
+(23, 6, 'Number', 0),
+(24, 6, 'Special character', 0);
 
 -- --------------------------------------------------------
 
@@ -107,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `QuestionText` varchar(1000) DEFAULT NULL,
   `Points` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `questions`
@@ -116,7 +128,10 @@ CREATE TABLE IF NOT EXISTS `questions` (
 INSERT INTO `questions` (`ID`, `QuestionText`, `Points`) VALUES
 (1, 'What is <b> tag used for?', 3),
 (2, 'Which version of HTML is the newest?', 1),
-(3, 'HTML is...?', 2);
+(3, 'HTML is...?', 2),
+(4, 'JavaFX is used for creating of...?', 3),
+(5, 'What is correct syntax for defining of integer?', 2),
+(6, 'The name of class should start with...?', 1);
 
 -- --------------------------------------------------------
 
@@ -219,14 +234,15 @@ CREATE TABLE IF NOT EXISTS `tests` (
   PRIMARY KEY (`ID`),
   KEY `CategoryID` (`CategoryID`),
   KEY `TeacherID` (`TeacherID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `tests`
 --
 
 INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Time`) VALUES
-(1, 'Big HTML test', 1, 1, 0, NULL);
+(1, 'Big HTML test', 1, 1, 0, NULL),
+(2, 'Java test', 2, 1, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -242,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `test_details` (
   PRIMARY KEY (`ID`),
   KEY `TestID` (`TestID`),
   KEY `QuestionID` (`QuestionID`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `test_details`
@@ -251,7 +267,10 @@ CREATE TABLE IF NOT EXISTS `test_details` (
 INSERT INTO `test_details` (`ID`, `TestID`, `QuestionID`) VALUES
 (1, 1, 1),
 (2, 1, 2),
-(3, 1, 3);
+(3, 1, 3),
+(4, 2, 4),
+(5, 2, 5),
+(6, 2, 6);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
