@@ -91,7 +91,7 @@ public class Controller {
         //each menu item by its id
         MenuItem target  = (MenuItem) actionEvent.getSource();
         System.out.println("Clicked On Item:"+target.getId());
-        //communication.getTestsDetails(target.getId());
+        communication.getTestsDetails(target.getId());
     }
 
     public void start(ActionEvent event) {

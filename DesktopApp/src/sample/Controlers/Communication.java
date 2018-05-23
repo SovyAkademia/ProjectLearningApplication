@@ -3,6 +3,7 @@ package sample.Controlers;
 import com.google.gson.Gson;
 import sample.Objects.AuthResponse;
 import sample.Objects.Categories;
+import sample.Objects.TestDetails;
 import sample.Objects.Tests;
 import sample.api.HttpGet;
 import sample.api.HttpPost;
@@ -57,7 +58,8 @@ public class Communication {
         Tests swap = new Tests();
         try {
             String response = new HttpGet().Simpleget(this.baseUrl+"/desktop/getTests/"+clicked);
-
+            Gson gson = new Gson();
+            swap = gson.fromJson(response,Tests.class);
         }
         catch (Exception e)
         {
