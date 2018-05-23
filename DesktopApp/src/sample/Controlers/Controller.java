@@ -73,7 +73,7 @@ public class Controller {
                     ArrayList<Category> list = communication.getCategories().getCategories();
                     this.categoryList = list;
                     for (Category temp:list) {
-                        System.out.println(temp.getCategoryName());
+                        //System.out.println(temp.getCategoryName());
                     }
                 }
                 else
@@ -91,6 +91,7 @@ public class Controller {
         //each menu item by its id
         MenuItem target  = (MenuItem) actionEvent.getSource();
         System.out.println("Clicked On Item:"+target.getId());
+        //communication.getTestsDetails(target.getId());
     }
 
     public void start(ActionEvent event) {

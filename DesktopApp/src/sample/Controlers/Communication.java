@@ -53,10 +53,10 @@ public class Communication {
         return swap;
     }
 
-    public Tests getTestsDetails(){
+    public Tests getTestsDetails(String clicked){
         Tests swap = new Tests();
         try {
-            String response = new HttpGet().Simpleget()
+            String response = new HttpGet().Simpleget(this.baseUrl+"/desktop/getTests/"+clicked);
 
         }
         catch (Exception e)
