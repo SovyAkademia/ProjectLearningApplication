@@ -8,3 +8,34 @@
 <h2>No student found</h2>
 {{/if}}
 
+<canvas id="lineChart" height="400" width="400" style="border:solid"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+<script>
+    const CHART = document.getElementById("lineChart");
+    console.log(CHART);
+
+    Chart.defaults.global.responsive = false;
+
+    var lineChart = new Chart(CHART, {
+        type: 'bar',
+        data: {
+            labels: [{{#each testArr }}"{{this}}",{{/ each}}],
+    datasets: [{
+        label: '# of Votes',
+        data: [40, 20, 50],
+        borderWidth: 1
+    }]
+        },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+   });
+</script>
