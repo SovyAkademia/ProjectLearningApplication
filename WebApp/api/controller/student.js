@@ -18,14 +18,32 @@ exports.show_student = (req, res, next) => {
 
     let id = req.params.id;
     let findStudent = 'select FirstName, LastName from students where ID = ?';
+    let findStudentResults = 'SELECT TestName FROM tests ' +
+        'INNER JOIN results ON tests.ID=results.TestID ' +
+        'INNER JOIN categories ON tests.CategoryID=categories.ID WHERE results.StudentID like ?;';
+    let countTest = 'SELECT Count(TestName) as Count FROM tests ' +
+        'INNER JOIN results ON tests.ID=results.TestID ' +
+        'INNER JOIN categories ON tests.CategoryID=categories.ID WHERE results.StudentID like ?;';
 
     db.query(findStudent, [id], (err, student) => {
-        res.render('studentDetails', {
-            student
-            
+        if (err) throw err;
+        db.query(countTest, [id], (err, count) => {
+            if (err) throw err;
+            let num = count[0].Count;
+            db.query(findStudentResults, [id], (err, result) => {
+                if (err) throw err;
+                let testArr = [];
+                for (let index = 0; index < count[0].Count; index++) {
+                    let element = (result[index].TestName);
+                    testArr.push(element);
+                }
+                res.render('studentDetails', {
+                    student,
+                    testArr
+                })
+            });
         });
-    });
-
+    })
 }
 
 exports.remove_student = (req, res, next) => {
