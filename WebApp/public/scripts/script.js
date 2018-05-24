@@ -12,6 +12,8 @@ $(document).ready(function() {
     });
 });
 
+
+
 $('#password, #password-confirm').on('keyup', function () {
     if ($('#password').val() == $('#password-confirm').val()) {
       $('#message').html('Matching').css('color', 'green');
@@ -82,22 +84,28 @@ $(function() {
  
 // }
 
-function Search() {
-    
-    var input, filter, tr, td, a, i;
-    input = document.getElementById('search');
-    filter = input.value.toUpperCase();
-    tr = document.getElementById("mainTR");
-    td = tr.getElementsByTagName('td');
+ 
+function testSearch(){ 
+$('#searchtest').keyup(function () {
 
-    for (i = 0; i < td.length; i++) {
-        a = document.getElementById("studname");
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            td[i].style.display = "";
-        } else {
-            td[i].style.display = "none";
+    var filter = this.value.toLowerCase();  // no need to call jQuery here
+
+    $('.card').each(function() {
+        /* cache a reference to the current .media (you're using it twice) */
+        var _this = $(this);
+        var title = _this.find('h3').text().toLowerCase();
+
+        /* 
+            title and filter are normalized in lowerCase letters
+            for a case insensitive search
+         */
+        if (title.indexOf(filter) < 0) {
+            _this.hide();
+        }else{
+            _this.show();
         }
-    }
+    });
+});
 }
 
 function StudentSearch() {

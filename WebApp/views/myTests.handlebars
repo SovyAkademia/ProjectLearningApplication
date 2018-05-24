@@ -1,7 +1,9 @@
   <form action="/myTests/category" method="POST">
   
         <div class="input-group mb-3 col-centered">
-            <input class="form-control col-md-6 " id="search" onkeyup="Search()" type="text" placeholder="Search..">
+            
+            <input class="form-control col-md-6 " id="searchtest" onkeyup="testSearch()"  type="text" placeholder="Search..">
+           
             <span class="col-md-3 col-sm-2 h4 text-right">Choose category:</span>
             <select class="col-md-2 col-sm-4 class-select" name="options" onchange="this.form.submit()">
                 <option value="all" selected>All</option>
@@ -15,20 +17,24 @@
 <hr>
 
 <div class="card-columns mt-2">
+ 
     {{#each test}}
     <div class="card testCard">
-        <div class="card-body">
-            <h3 class="card-title d-inline-block">{{TestName}}</h3><span class="float-right small">{{categoryname}}</span>
+        <div  class="card-body">
+            <h3 id="card-title" class="card-title d-inline-block">{{TestName}}</h3>
+            <span class="float-right small">{{categoryname}}</span>
             <div class="mb-3">Questions: 30</div>
             <i class="far fa-edit" style="color:black"></i>
             <a href="/test/{{TestName}}">Edit</a>
             <i class="fas fa-chart-bar ml-3" style="color:black;"></i>
             <a href="#" >Stats</a>
-            {{!-- <a href="#" >Allow</a> --}}
+            {{!-- <a href="#" >Allow</a> --}}  
         </div>
     </div>
     {{/each}}
+    
     </div>
+
     
     {{#unless test}}
     <h2>No tests found</h2>
