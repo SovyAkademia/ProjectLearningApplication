@@ -10,7 +10,7 @@ router.post('/:name',addQuestion.add_question);
 router.get('/:name/:id', testController.show_edit_modal);
 router.put('/:name/:id',testController.edit_question);
 
-//Access Controll
+//Access Controll 
 function ensureAuth(req,res,next){
     if (req.isAuthenticated()){
         return next();

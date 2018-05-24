@@ -6,7 +6,11 @@ exports.get_categories = (req, res, next) => {
     let query = 'select CategoryName from categories';
 
     db.query(query, (err, result) => {
-        if (err) { throw err };
+        if (err) {
+            return res.status(404).json({
+                message: 'Something went wrong when retrieving categories'
+            });
+        };
 
         res.json({
             categories: result
@@ -24,11 +28,19 @@ exports.get_tests = (req, res, next) => {
     let getTests = 'select * from tests where CategoryID = ?';
 
     db.query(getCategoryId, [category], (err, categoryId) => {
-        if (err) throw err;
+        if (err || categoryId.length == 0) {
+            return res.status(404).json({
+                message: 'Something went wrong'
+            });
+        }
         console.log(categoryId);
 
         db.query(getTests, [categoryId[0].id], (err, tests) => {
-            if (err) throw err;
+            if (err) {
+                return res.status(404).json({
+                    message: 'Something went wrong'
+                });
+            }
             res.json({
                 tests
             })
@@ -41,7 +53,11 @@ exports.get_test_info = (req, res, next) => {
     let query = 'select Count(testID) as num from test_details where testID = ?';
 
     db.query(query, [testId], (err, questions) => {
-        if (err) throw err;
+        if (err) {
+            return res.status(404).json({
+                message: 'Something went wrong'
+            });
+        }
         console.log(questions);
 
         res.json({
@@ -66,7 +82,7 @@ exports.student_login = (req, res, next) => {
                 message: 'authentication failed'
             });
 
-        } else{
+        } else {
             bcrypt.compare(studentPass, result[0].password, (err, match) => {
                 if (err) {
                     return res.status(401).json({
@@ -76,7 +92,7 @@ exports.student_login = (req, res, next) => {
 
                 if (match) {
                     const token = jwt.sign({
-                        email:studentEmail
+                        email: studentEmail
                     },
                         process.env.JWT_KEY,
                         {
@@ -85,7 +101,7 @@ exports.student_login = (req, res, next) => {
                     )
                     return res.status(200).json({
                         message: 'authentication successful',
-                        studentId:result[0].id,
+                        studentId: result[0].id,
                         token
                     });
                 }
@@ -99,14 +115,28 @@ exports.student_login = (req, res, next) => {
     });
 }
 
-exports.get_test = (req,res,next) => {
+exports.get_test = (req, res, next) => {
 
-    let query = 'SELECT TestName, QuestionText, AnswerText FROM questions INNER JOIN answers ON questions.ID=answers.QuestionID INNER JOIN test_details ON test_details.QuestionID=questions.ID INNER JOIN tests ON test_details.TestID=tests.ID WHERE tests.ID=? ';
-    db.query(query,[req.body.testId],(err,result) => {
-        if(err) throw err;
+    let query1 = 'select testName from tests where id = ?';
+    let query = 'SELECT questions.id as questionID,questionText, answerText FROM questions INNER JOIN answers ON questions.ID=answers.QuestionID INNER JOIN test_details ON test_details.QuestionID=questions.ID INNER JOIN tests ON test_details.TestID=tests.ID WHERE tests.ID=? ';
+    db.query(query1, [req.body.testId], (err, testName) => {
+        if (err || testName.length < 1){
+            return res.status(404).json({
+                message: 'failed to retrieve test'
+            })
+        }
 
-        res.json({
-            result
-        })
-    })
+        db.query(query, [req.body.testId], (err, result) => {
+            if (err){
+                return res.status(404).json({
+                    message: 'failed to retrieve test'
+                })
+            };
+
+            res.status(200).json({
+                testName: testName[0].testName,
+                questions: result
+            });
+        });
+    });
 }

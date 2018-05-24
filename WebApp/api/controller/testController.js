@@ -18,7 +18,11 @@ exports.get_test_creator = (req, res, next) => {
     let name = req.params.name;
 
     db.query(queryCategoryTest, [name], (err, result) => {
-        if (err) throw err;
+        if (err){
+            return res.render('createTest', {
+                error: err
+            });
+        };
         db.query(queryQuestions, [name], (err, questions) => {
     //     console.log(questions);
             if (err) throw err;
@@ -44,7 +48,11 @@ exports.show_edit_modal = (req,res,next) => {
     let query2 = 'select answertext,correct from answers where questionid = ?';
 
     db.query(query,[questionID],(err,question) => {
-        if (err) throw err;
+        if (err){
+            return res.render('myTests', {
+                error: err
+            });
+        }
 
         db.query(query2,[questionID],(err,answers) => {
             if (err) throw err;
