@@ -6,6 +6,13 @@ public class Test {
     private String testName;
     private ArrayList<Question> testQuestions;
 
+    public String getTestName() {
+        return testName;
+    }
+
+    public void setTestName(String testName) {
+        this.testName = testName;
+    }
 
     public ArrayList<Question> getTestQuestions() {
         return testQuestions;

@@ -28,6 +28,8 @@ SET time_zone = "+00:00";
 -- Štruktúra tabuľky pre tabuľku `answers`
 --
 
+use sovylearn;
+
 DROP TABLE IF EXISTS `answers`;
 CREATE TABLE IF NOT EXISTS `answers` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
