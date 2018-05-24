@@ -52,7 +52,11 @@ public class HttpGet {
                     .build();
             Response response = client.newCall(request).execute();
             result = response.body().string();
-            System.out.println(response.code());
+            if (response.code() != 200)
+            {
+                return null;
+            }
+            //System.out.println(response.code());
         }
         catch (Exception e)
         {

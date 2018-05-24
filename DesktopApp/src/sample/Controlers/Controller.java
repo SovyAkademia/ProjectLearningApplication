@@ -71,6 +71,10 @@ public class Controller {
                     primarystage.close();
 
                     ArrayList<Category> list = communication.getCategories().getCategories();
+                    if (list == null)
+                    {
+
+                    }
                     this.categoryList = list;
                     for (Category temp:list) {
                         //System.out.println(temp.getCategoryName());
