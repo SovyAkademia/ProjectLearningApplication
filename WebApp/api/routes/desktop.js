@@ -9,6 +9,6 @@ router.get('/getCategories', desktopController.get_categories);
 router.get('/getTests/:category', desktopController.get_tests);
 router.get('/testInfo/:id', desktopController.get_test_info);
 router.post('/auth/login',desktopController.student_login);
-router.post('/getTest/:id',desktopController.get_test);
+router.post('/getTest',desktopController.get_test);
 
 module.exports = router;
