@@ -28,7 +28,9 @@ SET time_zone = "+00:00";
 -- Štruktúra tabuľky pre tabuľku `answers`
 --
 
-use sovylearn;
+DROP DATABASE IF EXISTS `sovylearn`;
+CREATE SCHEMA IF NOT EXISTS `sovylearn` DEFAULT CHARACTER SET utf8;
+USE sovylearn;
 
 DROP TABLE IF EXISTS `answers`;
 CREATE TABLE IF NOT EXISTS `answers` (
