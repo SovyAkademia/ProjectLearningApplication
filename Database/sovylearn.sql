@@ -233,6 +233,7 @@ CREATE TABLE IF NOT EXISTS `tests` (
   `TeacherID` int(11) DEFAULT NULL,
   `Allowed` tinyint(1) NOT NULL DEFAULT '0',
   `Time` time DEFAULT NULL,
+  `CountOfQuestions` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `CategoryID` (`CategoryID`),
   KEY `TeacherID` (`TeacherID`)
@@ -242,9 +243,9 @@ CREATE TABLE IF NOT EXISTS `tests` (
 -- Sťahujem dáta pre tabuľku `tests`
 --
 
-INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Time`) VALUES
-(1, 'Big HTML test', 1, 1, 0, NULL),
-(2, 'Java test', 2, 1, 0, NULL);
+INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Time`,`CountOfQuestions`) VALUES
+(1, 'Big HTML test', 1, 1, 0, NULL,3),
+(2, 'Java test', 2, 1, 0, NULL,3);
 
 -- --------------------------------------------------------
 
