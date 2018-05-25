@@ -125,11 +125,11 @@
   <div class="container testcreate col-lg-7 col-md-10">
     <h2 class="text-center">Create new test</h2>
     <hr>
-      <div class="col-md-12">
+      <div class="col-md-12 testinputs">
             <div class="form-group">
               <div class="col-md-12 input-group">
-                <label for="testCategory">Test category:</label>
-                <select id="categories" name="testCategory" class=" form-control col-md-6 col-sm-4 ml-4 d-inline-block">
+               
+                <select id="categories" name="testCategory" class=" form-control col-md-12 col-sm-12 ml-4 d-inline-block">
                   {{#each categories}}
 
                   <option value="{{this.CategoryName}}">{{this.CategoryName}}</option>
@@ -147,8 +147,7 @@
 
 
           <div class="col-md-12">
-            <label for="testName">Test name:</label>
-            <input class="testinf col-md-6 col-sm-6 col-xs-6" type="text" id="testname" placeholder="e.g. Java basics" type="text" name="testName">
+            <input class="testinf col-md-12 col-sm-12 col-xs-12" type="text" id="testname" placeholder="Test name" type="text" name="testName">
             
             <button type="submit" name="test" id="addquest" class="test btn addquest btn-info btn-md col-md-12 " data-target="#choose"
               data-toggle="modal" data-target="#myModal" style="display: none">Start creating test</button>
