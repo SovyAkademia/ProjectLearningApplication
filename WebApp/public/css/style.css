@@ -561,3 +561,9 @@ questionlist:hover{
     margin-left: 20px;
 }
 
+@media only screen and (max-width: 1064px){
+    .fa-user{
+        display: none;
+    }
+}
+

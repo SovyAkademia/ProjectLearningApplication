@@ -76,7 +76,7 @@ exports.login = (req,res,next)=>{
         db.query(userQuery,[email], (err, result) => {
             if (err) throw err;
             if(result[0].Email == 0){
-                return next(null,false, {message:'User NOT found'});
+                return next(null,false, {message:'User not found'});
             }
         db.query(passQuery,[email],(err,resu) => {
             if (err) throw err;
@@ -87,7 +87,7 @@ exports.login = (req,res,next)=>{
                     return next(null,resu);
                 } else {
                     console.log('wrong password');
-                    return next(null,false,{message:'Wrong email or password'});
+                    return next(null,false,{message:'Wrong password'});
                 }
             });
         });
