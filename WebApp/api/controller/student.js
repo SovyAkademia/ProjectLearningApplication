@@ -9,7 +9,8 @@ exports.show_all = (req, res, next) => {
         result.map(student => student.class = 1);
         res.render('students', {
             result: result,
-            where:'Students'
+            where:'Students',
+            class:1
         });
     });
 }
@@ -72,7 +73,8 @@ exports.get_class = (req, res, next) => {
     
         res.render('students',{
             result,
-            where:'Students'
+            where:'Students',
+            class:classNumber
         })
     })
 

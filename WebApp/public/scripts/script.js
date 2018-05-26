@@ -169,6 +169,7 @@ function newItem() {
  })
 
  function fillModal(data){
+     console.log(data.questionID);
      var question = data.question[0].questiontext;
      var points = data.question[0].points;
      var a = data.answers[0];
@@ -203,8 +204,42 @@ function newItem() {
      $('#ansc').val(c.answertext);
      $('#ansd').val(d.answertext);
      $('.selectPoints').val(points);
+     $('.hiddenQID').val(data.questionID);
 
  }
+
+ $('#createCategoryBtn').click(function(){
+     console.log('good');
+     var category = $('#newCategoryInput').val();
+    if(category.trim() == ''){
+        $('.message').html('Category field is empty');
+    }
+
+    else{
+
+        $.ajax({
+            type: 'POST',
+            url:'http://localhost:5000/createTest/createCategory',
+            error: function(data){
+                console.log(data.responseJSON);
+                $('.message').html(data.responseJSON.message);
+            },
+            data:{categoryName:category},
+            dataType: "jsonp",
+            success : function(data){
+                
+                if(data.success == true){
+                     location.reload();
+                } else {
+                    $('.message').html(data.message);
+                }
+                
+            }
+    
+        });
+
+    }
+ });
 
 
 //  $('.class-select').change(function(){

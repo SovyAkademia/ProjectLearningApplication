@@ -57,15 +57,15 @@ exports.show_edit_modal = (req,res,next) => {
         db.query(query2,[questionID],(err,answers) => {
             if (err) throw err;
             let obj = question.concat(answers);
-            console.log(obj);
             res.jsonp({
                 question:question,
-                answers:answers
+                answers:answers,
+                questionID
             })
         });
     })
 }
 
 exports.edit_question = (req,res,next) =>{
-    console.log(req.params.id);
+    console.log(req.body);
 }

@@ -49,7 +49,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         //Miliseconds, current 1min
-        maxAge: 100000,
+        maxAge: 2000000,
     }
 }));
 
@@ -75,6 +75,12 @@ app.use('/desktop', desktop);
 app.use('/test', test);
 app.use('/myTests', myTests);
 
+app.use((req,res)=> {
+    res.render('errorpage',{
+        message:'something went wrong'
+    })
+})
+
 let hbs = exphbs.create({
     defaultLayout: 'main',
     // Specify helpers which are only registered on this instance. 
@@ -90,6 +96,13 @@ let hbs = exphbs.create({
 
     }
 });
+
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('errorpage', {
+        message: 'Something went wrong, try again',
+    });
+  });
 
 //view engine
 app.engine('handlebars', hbs.engine);

@@ -7,9 +7,9 @@
             <span class="col-md-2 col-sm-2 h4 text-right">Class:</span>
             <select class="col-md-2 col-sm-4 class-select" name="options" onchange="this.form.submit()">
                 <option value="0" disabled selected>Select class</option>
-                <option value="1" {{#if (eq result.[0].class 1)}} selected {{/if}}>1.N</option>
-                <option value="2" {{#if (eq result.[0].class 2)}} selected {{/if}}>2.N</option>
-                <option value="3" {{#if (eq result.[0].class 3)}} selected {{/if}}>3.N</option>
+                <option value="1" {{#if (eq class 1)}} selected {{/if}}>1.N</option>
+                <option value="2" {{#if (eq class 2)}} selected {{/if}}>2.N</option>
+                <option value="3" {{#if (eq class 3)}} selected {{/if}}>3.N</option>
             </select>
             
         </div>

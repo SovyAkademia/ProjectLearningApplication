@@ -1,7 +1,7 @@
 <div class="container">
 
-  <form method="post" action="/test/{{questions.ID}}/?_method=PUT" id="form">
-    <input type="hidden" name="_method" value="PUT">
+  <form method="post" action="/test/{{TestName}}/edit" id="form">
+    <input type="hidden" name="QID" class="hiddenQID">
     <!-- Modal -->
     <div class="modal fade" id="Edit" role="dialog">
       <div class="modal-dialog">
@@ -37,19 +37,19 @@
                     <br>
                     <div style="margin-left:35px; padding:5px;"><strong>Answers</strong> <strong style="margin-left:153px;">Correct</strong></div>
                     <label for="">A</label>
-                    <input class="answer col-md-6 col-sm-6" id="ansa" type="text" name="ansa" value="">
+                    <input class="answer col-md-6 col-sm-6" id="ansa" type="text" name="ansa" value="" required>
                     <input class="ok checka"  name="corr" type="radio" value="A">
                     <br>
                     <label for="">B</label>
-                    <input class="answer col-md-6 col-sm-6" id="ansb" type="text" name="ansb" value="">
+                    <input class="answer col-md-6 col-sm-6" id="ansb" type="text" name="ansb" value="" required>
                     <input class="ok checkb" name="corr" type="radio" value="B">
                     <br>
                     <label for="">C</label>
-                    <input class="answer col-md-6 col-sm-6" id="ansc" type="text" name="ansc" value="">
+                    <input class="answer col-md-6 col-sm-6" id="ansc" type="text" name="ansc" value="" required>
                     <input class="ok checkc"  name="corr" type="radio" value="C">
                     <br>
                     <label for="">D</label>
-                    <input class="answer col-md-6 col-sm-6" id="ansd" type="text" name="ansd" value="">
+                    <input class="answer col-md-6 col-sm-6" id="ansd" type="text" name="ansd" value="" required>
                     <input class="ok checkd"  name="corr" type="radio" value="D">
                   </div>
                 </div>
@@ -58,7 +58,7 @@
             <hr>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-md testsave btn-success">Add the question</button>
+            <button type="submit" class="btn btn-md testedit btn-success">Save</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -109,19 +109,19 @@
                     <div style="margin-left:35px; padding:5px;"><strong>Answers</strong> <strong style="margin-left:153px;">Correct</strong></div>
                     
                     <label for="ansa">A</label>
-                    <input class="answer col-md-6 col-sm-6" id="ansa" type="text" name="ansa">
-                    <input class="ok" name="corr" type="radio" value="A">
+                    <input class="answer col-md-6 col-sm-6" id="ansa" type="text" required  name="ansa">
+                    <input class="ok" name="corr" type="radio" value="A" checked >
                     <br>
                     <label for="ansb">B</label>
-                    <input class="answer col-md-6 col-sm-6" id="ansb" type="text" name="ansb">
+                    <input class="answer col-md-6 col-sm-6" id="ansb" required type="text" name="ansb">
                     <input class="ok" name="corr" type="radio" value="B">
                     <br>
                     <label for="ansc">C</label>
-                    <input class="answer col-md-6 col-sm-6" id="ansc" type="text" name="ansc">
+                    <input class="answer col-md-6 col-sm-6" id="ansc" required type="text" name="ansc">
                     <input class="ok" name="corr" type="radio" value="C">
                     <br>
                     <label for="ansd">D</label>
-                    <input class="answer col-md-6 col-sm-6" id="ansd" type="text" name="ansd">
+                    <input class="answer col-md-6 col-sm-6" id="ansd" required type="text" name="ansd">
                     <input class="ok" name="corr" type="radio" value="D">
                   </div>
                 </div>
@@ -148,8 +148,9 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
           <h4 class="modal-title">Choose from existing Questions</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
 
@@ -220,7 +221,7 @@
       </table>
     </div>
     <div class="col-md-6 col-sm-12">
-      <button type="button" class="btn addquest btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
+      <button type="button" class="btn addExistQuestion btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
       <table class="col-md-12 existingquestions"></table>
     </div>
     <div class="buttons col-md-12 col-sm-12">
