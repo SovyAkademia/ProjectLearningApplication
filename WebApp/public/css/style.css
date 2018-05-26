@@ -46,9 +46,14 @@ th{
     margin-left: 14px;
 }
 
+.testinputs{
+    margin-left: -20px;
+}
+
 #testname{
     margin-bottom: 10px;
     margin-left: 24px;
+    width:95.7%;
 }
 
 .testquestions{
@@ -298,6 +303,7 @@ questionlist:hover{
 .addquest{
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 17px;
 }
 
 .top-header{
@@ -553,5 +559,11 @@ questionlist:hover{
 
 .ok{
     margin-left: 20px;
+}
+
+@media only screen and (max-width: 1064px){
+    .fa-user{
+        display: none;
+    }
 }
 

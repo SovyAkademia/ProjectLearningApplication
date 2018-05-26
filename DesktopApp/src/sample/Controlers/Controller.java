@@ -17,6 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import sample.Objects.Category;
+import sample.Objects.Test;
 
 import java.util.ArrayList;
 
@@ -71,10 +72,17 @@ public class Controller {
                     primarystage.close();
 
                     ArrayList<Category> list = communication.getCategories().getCategories();
+                    if (list == null)
+                    {
+
+                    }
                     this.categoryList = list;
                     for (Category temp:list) {
                         //System.out.println(temp.getCategoryName());
                     }
+
+                    Test test = communication.getTest(2);
+                    System.out.println(test.getTestName());
                 }
                 else
                 {

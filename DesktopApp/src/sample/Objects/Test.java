@@ -3,9 +3,16 @@ package sample.Objects;
 import java.util.ArrayList;
 
 public class Test {
+    private String testName;
     private ArrayList<Question> testQuestions;
-    private int ID;
 
+    public String getTestName() {
+        return testName;
+    }
+
+    public void setTestName(String testName) {
+        this.testName = testName;
+    }
 
     public ArrayList<Question> getTestQuestions() {
         return testQuestions;
@@ -15,11 +22,4 @@ public class Test {
         this.testQuestions = testQuestions;
     }
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 }

@@ -21,6 +21,10 @@ public class HttpPost {
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {
+            if (response.code() != 200)
+            {
+                return null;
+            }
             return response.body().string();
         }
     }

@@ -88,17 +88,13 @@ $(function() {
 function testSearch(){ 
 $('#searchtest').keyup(function () {
 
-    var filter = this.value.toLowerCase();  // no need to call jQuery here
+    var filter = this.value.toLowerCase();
 
     $('.card').each(function() {
-        /* cache a reference to the current .media (you're using it twice) */
+        
         var _this = $(this);
         var title = _this.find('h3').text().toLowerCase();
 
-        /* 
-            title and filter are normalized in lowerCase letters
-            for a case insensitive search
-         */
         if (title.indexOf(filter) < 0) {
             _this.hide();
         }else{

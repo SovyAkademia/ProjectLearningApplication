@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: St 23.Máj 2018, 09:32
+-- Čas generovania: Pi 25.Máj 2018, 11:05
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -11,7 +11,9 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
+DROP DATABASE IF EXISTS `sovylearn`;
+CREATE SCHEMA IF NOT EXISTS `sovylearn` DEFAULT CHARACTER SET utf8;
+USE sovylearn;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -146,7 +148,9 @@ CREATE TABLE IF NOT EXISTS `results` (
   `TestID` int(11) NOT NULL,
   `Date` datetime NOT NULL,
   `Score` float NOT NULL,
-  `Time` time NOT NULL,
+  `BeginTime` datetime NOT NULL,
+  `EndTime` datetime NOT NULL,
+  `OverallTime` time NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `StudentID` (`StudentID`),
   KEY `TestID` (`TestID`)
