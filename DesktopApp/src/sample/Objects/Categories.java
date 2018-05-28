@@ -12,4 +12,8 @@ public class Categories {
     public void setCategories(ArrayList categories) {
         this.categories = categories;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/origin/master
