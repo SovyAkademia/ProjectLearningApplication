@@ -87,37 +87,37 @@ $(function() {
  
 // }
 
-var elmt = document.getElementById('name');
-var lname = document.getElementById('lname');
-var password = document.getElementById('password');
-var confirm = document.getElementById('password-confirm');
-var email = document.getElementById('email');
+// var elmt = document.getElementById('name');
+// var lname = document.getElementById('lname');
+// var password = document.getElementById('password');
+// var confirm = document.getElementById('password-confirm');
+// var email = document.getElementById('email');
 
-elmt.addEventListener('keydown', function (event) {
-    if (elmt.value.length === 0 && event.which === 32) {
-        event.preventDefault();
-    }
-});
-lname.addEventListener('keydown', function (event) {
-    if (lname.value.length === 0 && event.which === 32) {
-        event.preventDefault();
-    }
-});
-password.addEventListener('keydown', function (event) {
-    if (password.value.length === 0 && event.which === 32) {
-        event.preventDefault();
-    }
-});
-email.addEventListener('keydown', function (event) {
-    if (email.value.length === 0 && event.which === 32) {
-        event.preventDefault();
-    }
-});
-confirm.addEventListener('keydown', function (event) {
-    if (confirm.value.length === 0 && event.which === 32) {
-        event.preventDefault();
-    }
-});
+// elmt.addEventListener('keydown', function (event) {
+//     if (elmt.value.length === 0 && event.which === 32) {
+//         event.preventDefault();
+//     }
+// });
+// lname.addEventListener('keydown', function (event) {
+//     if (lname.value.length === 0 && event.which === 32) {
+//         event.preventDefault();
+//     }
+// });
+// password.addEventListener('keydown', function (event) {
+//     if (password.value.length === 0 && event.which === 32) {
+//         event.preventDefault();
+//     }
+// });
+// email.addEventListener('keydown', function (event) {
+//     if (email.value.length === 0 && event.which === 32) {
+//         event.preventDefault();
+//     }
+// });
+// confirm.addEventListener('keydown', function (event) {
+//     if (confirm.value.length === 0 && event.which === 32) {
+//         event.preventDefault();
+//     }
+// });
 
 
  
