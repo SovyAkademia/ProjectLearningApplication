@@ -1,0 +1,74 @@
+  <form action="/myTests/category" method="POST">
+  
+        <div class="input-group mb-3 col-centered">
+            
+            <input class="form-control col-md-6 " id="searchtest" onkeyup="testSearch()"  type="text" placeholder="Search..">
+           
+            <span class="col-md-3 col-sm-2 h4 text-right">Choose category:</span>
+            <select class="col-md-2 col-sm-4 class-select" name="options" onchange="this.form.submit()">
+                <option value="all" selected>All</option>
+                {{#each categories}}
+                <option value="{{ID}}" {{#if (eq ID ../categoryId)}}selected {{/if}}>{{CategoryName}}</option>
+                {{/each}}
+            </select>
+            
+        </div>
+    </form>
+<hr>
+
+<div class="card-columns mt-2">
+ 
+    {{#each test}}
+    <div class="card testCard">
+        <div  class="card-body">
+            <h3 id="card-title" class="card-title d-inline-block">{{TestName}}</h3>
+            <span class="float-right small">{{categoryname}}</span>
+            <div class="mb-3">Questions: 30</div>
+            <i class="far fa-edit" style="color:black"></i>
+            <a href="/test/{{TestName}}">Edit</a>
+            <i class="fas fa-chart-bar ml-3" style="color:black;"></i>
+            <a href="#" >Stats</a>
+            {{!-- <a href="#" >Allow</a> --}}  
+        </div>
+    </div>
+    {{/each}}
+    
+    </div>
+
+    
+    {{#unless test}}
+    <h2>No tests found</h2>
+
+    {{/unless}} {{!--
+    <div class="col-md-6">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Test name</th>
+                    <th>Category</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each test}}
+                <tr>
+                    <td>{{testName}}</td>
+                    <td>{{categoryname}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-default">Edit test</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-default">Test statistics</button>
+                    </td>
+
+                    <td>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div> --}}

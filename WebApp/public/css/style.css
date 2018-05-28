@@ -1,16 +1,12 @@
 html,body{
     height: 100%;
     background-color: #ECEFF4;
+    font-family: 'Questrial', sans-serif;
     
 }
 
 a{
     text-decoration: none;
-    font-family: Roboto;
-}
-
-p{
-    font-family: Roboto;
 }
 
 i{
@@ -18,40 +14,109 @@ i{
     color:#FFFFEC;
 }
 
+th{
+    color: white;
+}
+
+.thead{
+    background-color: #434343;
+}
+
+#categories{
+    margin-bottom: 15px;
+}
+
 .navbar-nav>li>a{
     margin-top: -2px;
 }
 
+#test>th{
+    color: rgb(90, 90, 90);
+    }
+
+#mytests{
+    margin-left: 16px;
+}
+
+#message{
+    margin-top: 15px;
+}
+
+#createtest{
+    margin-left: 14px;
+}
+
+.testinputs{
+    margin-left: -20px;
+}
+
 #testname{
     margin-bottom: 10px;
+    margin-left: 24px;
+    width:95.7%;
 }
 
 .testquestions{
-    height: 300px;
-    overflow: scroll;
-    -webkit-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
--moz-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+    overflow: auto;
+    
 }
 
 .existingquestions{
     height: 300px;
-    overflow: scroll;
-    -webkit-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
--moz-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
-box-shadow: 10px 13px 39px -3px rgba(0,0,0,0.41);
+    overflow: auto;
+    -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
 }
 
 .menuic{
     margin-left: 15px;
     margin-top: 2px;
     float: left;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
 }
 
 .headeric{
     color: #9fa2a5;
     margin-right: 15px;
+}
+
+#tooltip {
+    margin-top: 15px;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+#tooltip #tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#tooltip #tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+#tooltip:hover #tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
 
 
@@ -67,12 +132,13 @@ ul>li>a:hover{
 
 ul>li{
     padding-top: 15px;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     text-decoration-line: none;
     list-style: none;
     width: 100%;
     height: 50px;
     float: left;
+    font-family: 'Roboto', sans-serif;
     
 }
 
@@ -171,6 +237,7 @@ ul{
     height: 40px;
     margin-top: 10px;
     padding-left: 5px;
+    margin-left: 44px;
 }
 
 .sidebar{
@@ -236,6 +303,7 @@ questionlist:hover{
 .addquest{
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 17px;
 }
 
 .top-header{
@@ -272,12 +340,25 @@ questionlist:hover{
 }
 
 .studentslist{
+    border:0.5px solid cadetblue;
+    background-color: white;
+    width: 90%;
     margin: 0 auto;
+    overflow: auto;
+    font-size: 15px;
+    padding: 15px;
+    -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
 }
+
 
 #pointsin{
     margin-left: 21px;
     margin-bottom: 5px;
+}
+
+.regMessage{
+    color: green;
+    margin-bottom: 10px;
 }
 
 .alert{
@@ -304,32 +385,14 @@ questionlist:hover{
 
 }
 
+.messageStudent{
+    color: red;
+    margin-bottom: 10px;
+}
+
 #questionlist{
     padding: 5px 5px 5px 5px;
 }
-
-.answer{
-    margin-left: 10px;
-}
-
-#ansa{
-    margin-left: 7px;
-}
-
-#ansb{
-    margin-left: 8px;
-}
-
-#ansc{
-    margin-left: 7px;
-    margin-right: 19px;
-}
-
-#ansd{
-    margin-left: 6px;
-}
-
-
 
 .testcreate{
     background-color: #FFFF;
@@ -342,6 +405,14 @@ questionlist:hover{
 
 }
 
+.whereHeader{
+    display: inline-block;
+    margin-left: 18%;
+    margin-top: 20px;
+    color: #9fa2a5;
+    font-weight: 300;
+}
+
 
 #registrations {
     border:0.5px solid cadetblue;
@@ -350,7 +421,7 @@ questionlist:hover{
     margin: 0 auto;
     overflow: auto;
     max-height: 300px;
-    font-size: 14px;
+    font-size: 15px;
     padding: 15px;
     -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
 
@@ -365,6 +436,10 @@ questionlist:hover{
         display: none;
     }
 
+    .whereHeader{
+        display: none;
+    }
+
     ul>li{
         padding-top: 15px;
         font-size: 16px;
@@ -376,14 +451,9 @@ questionlist:hover{
         
     }
 
-    .answer{
-        
-       
-    }
-
-    .ok{
-        margin-left: 5px;
-    }
+    /* .ok{
+        margin-left: 50px;
+    } */
 
     #pointsin{
         margin-bottom: 10px;
@@ -394,9 +464,6 @@ questionlist:hover{
         margin-top: 5px;
     }
 
-    .top-header{
-        width: 100%;
-    }
     .notifications,.links{
         display: none;
     }
@@ -460,3 +527,43 @@ questionlist:hover{
     }
 
 }
+
+.student-table {
+    counter-reset: serial-number;
+}
+
+.student-table td:first-child:before {
+    counter-increment: serial-number; 
+    content: counter(serial-number);
+}
+
+.tableStudentName a{
+    color: black;
+    border-bottom:1px solid black;
+}
+
+.tableStudentName a:hover{
+    text-decoration: none;
+    border-bottom:1px solid cadetblue;
+}
+
+.testCard{
+    transition: all 100ms ease-in-out;
+}
+
+.testCard:hover {
+    transform: scale(1.05);
+    background-color: #fcfdff;
+
+}
+
+.ok{
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 1064px){
+    .fa-user{
+        display: none;
+    }
+}
+

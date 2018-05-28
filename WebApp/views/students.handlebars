@@ -1,40 +1,62 @@
-<div class="col-md-7 studentslist">
-<input class="form-control" id="search" type="text" placeholder="Search..">
-<table>
+<div class="col-md-11 studentslist">
+
+
+    <form action="/students/class" method="POST">
+        <div class="input-group mb-3 col-centered">
+            <input class="form-control col-md-6 " id="search" onkeyup="StudentSearch()" type="text" placeholder="Search..">
+            <span class="col-md-2 col-sm-2 h4 text-right">Class:</span>
+            <select class="col-md-2 col-sm-4 class-select" name="options" onchange="this.form.submit()">
+                <option value="0" disabled selected>Select class</option>
+                <option value="1" {{#if (eq class 1)}} selected {{/if}}>1.N</option>
+                <option value="2" {{#if (eq class 2)}} selected {{/if}}>2.N</option>
+                <option value="3" {{#if (eq class 3)}} selected {{/if}}>3.N</option>
+            </select>
+            
+        </div>
+    </form>
+
     {{#if result}}
-<table class="table table_show table-bordered table-striped">
-    <thead>
-        <tr>
-            
-            <th>First Name</th>
-            <th>Last Name</th>
-        </tr>
-    </thead>
-    <tbody id="myTable">
-        {{#each result}}
-        <tr>
-            
-            <td class="name">{{FirstName}}</td>
-            <td class="name">{{LastName}}</td>
-            
-    {{!--         <td>
-                <a class="btn  manage" href="/show/{{id}}"><i class="fas butman fa-info-circle"></i>Info</a>
-                <a class="btn  manage" href="/edit/{{id}}"><i class="fas butman fa-pencil-alt"></i>Edit</a>
+    <table id="studenttable" class="table table_show student-table table-bordered">
+        <thead class="thead">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Class</th>
+                <th>Remove</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each result}}
+            <tr id="mainTR">
+                <td class="number"></td>
+                <td class="name tableStudentName">
+                    <a id="studname" href="/students/{{ID}}">{{FirstName}} {{LastName}}</a>
+                </td>
+                <td class="class">{{Email}}</td>
+                <td class="class">{{class}}.N</td>
+                <td class="class"><a href="/students/remove/{{ID}}" onclick="return confirm('Are you sure you want to remove this student?')"><button class="btn btn-sm btn-danger deleteStudent">Remove</button></a></td>
+                {{!--
+                <td>
+                    <a class="btn  manage" href="/show/{{id}}">
+                        <i class="fas butman fa-info-circle"></i>Info</a>
+                    <a class="btn  manage" href="/edit/{{id}}">
+                        <i class="fas butman fa-pencil-alt"></i>Edit</a>
 
 
-                <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form" class="manage">
-                <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn  manage"><i class="fas butman fa-eraser"></i>Delete</button>
-                </form>
+                    <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form" class="manage">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn  manage">
+                            <i class="fas butman fa-eraser"></i>Delete</button>
+                    </form>
 
-            </td> --}}
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+                </td> --}}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
     {{else}}
-<p>NO employees found</p>
+    <p>No students found</p>
     {{/if}}
-</table>
-
 </div>

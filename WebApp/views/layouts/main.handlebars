@@ -6,16 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Questrial|Roboto" rel="stylesheet">
 <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/v4-shims.js"></script>
     
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <title>Document</title>
+    <title>SOVY Learning Page</title>
 </head>
 <body>
  <div class="sidebar col-md-2">
@@ -26,21 +27,26 @@
       <div class="navigation">
          <ul class="navbar-nav">
           {{#if user}}
+          
            <li><i class="fas menuic fa-home"></i><a href="/dashboard">Dashboard</a></li>
-           <li><i class="fas menuic fa-file"></i><a href="">My tests</a></li>
-           <li><i class="fas menuic fa-plus"></i><a href="/createTest">Create test</a></li>
+           <li><i class="fas menuic fa-file"></i><a id="mytests" href="/myTests">My tests</a></li>
+           <li><i class="fas menuic fa-plus"></i><a id="createtest" href="/createTest">Create test</a></li>
            <li><i class="fas menuic fa-graduation-cap"></i><a href="/students">Students</a></li>
+           <li><i class="fas menuic fa-graduation-cap"></i><a href="/teachers">Teachers</a></li>
+           <li class="drop"><a href="/registerTeacher">Register teacher</a></li>
+           <li class="drop"><a href="/registerStudent">Register student</a></li>
           {{else}}
            <li><i class="fas menuic fa-user"></i><a href="/registerStudent">Register as student</a></li>
-           <li><i class="fas menuic fa-user"></i><a href="/registerTeacher">Register as teacher</a></li>
           {{/if}}
          </ul>
       </div>
       
     
   </div>
-    
-      <div class="top-header col-md-12 col-sm-12 col-xs-12">
+      <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2 class="whereHeader">{{where}}</h2>
+        
+        
         {{!-- {{#if user}}
         <div class="notifications">
             <a id="title" href="">Dashboard</a>
@@ -52,6 +58,7 @@
     {{/if}} --}}
 
          <div class="links">
+           
             {{#if user}}
                 <a href="/logout">Log out</a>
             {{else}}
@@ -73,10 +80,13 @@
       <li class="drop"><a href="/">My Tests</a></li>
       <li class="drop"><a href="/createTest">Create new Test</a></li>
       <li class="drop"><a href="/students">Students</a></li>
+      <li class="drop"><a href="/teachers">Teachers</a></li>
       <li class="drop"><a href="/logout">Log out</a></li>
+      <li class="drop"><a href="/registerTeacher">Register teacher</a></li>
+      <li class="drop"><a href="/registerStudent">Register student</a></li>
       {{else}}
+       <li class="drop"><a href="/">Log in</a></li>
        <li class="drop"><a href="/registerStudent">Register as student</a></li>
-       <li class="drop"><a href="/registerTeacher">Register as teacher</a></li>
       {{/if}}
     </ul>
 
@@ -90,21 +100,21 @@
 
       {{#if error_msg}}
 
-        <div class="alert alert-danger">{{error_msg}}</div>
+        <div class="alert alert-danger mb-5">{{error_msg}}</div>
       {{/if}}
       {{#if error}}
-        <div class="alert alert-danger">{{error}}</div>
+        <div class="alert alert-danger mb-5">{{error}}</div>
       {{/if}}
       {{#if errors}}
         {{#each errors}}
-          <div class="alert alert-danger">{{msg}}</div>
+          <div class="alert alert-danger mb-5">{{msg}}</div>
         {{/each}}
       {{/if}}
 
       {{{body}}} 
       </div>
         
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
   <script src="/public/scripts/script.js"></script>
 </body>
 </html>

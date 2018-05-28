@@ -78,25 +78,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Controlers/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="0">
               <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#523#524#0" expanded="true" />
                 <element signature="e#551#552#0" expanded="true" />
+=======
+            <state relative-caret-position="57">
+              <caret line="82" column="75" lean-forward="true" selection-start-line="82" selection-start-column="75" selection-end-line="82" selection-end-column="75" />
+              <folding>
+                <element signature="imports" expanded="true" />
+>>>>>>> refs/remotes/origin/master
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="LoginWindowController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="427">
               <caret line="71" column="67" lean-forward="false" selection-start-line="71" selection-start-column="67" selection-end-line="71" selection-end-column="67" />
+=======
+      <file leaf-file-name="Communication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Controlers/Communication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-51">
+              <caret line="64" column="97" lean-forward="true" selection-start-line="64" selection-start-column="97" selection-end-line="64" selection-end-column="97" />
+>>>>>>> refs/remotes/origin/master
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,6 +119,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="MainWindowController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controlers/MainWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -114,10 +130,18 @@
                 <element signature="e#787#788#0" expanded="true" />
                 <element signature="e#818#819#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="ControllThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/threads/ControllThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+>>>>>>> refs/remotes/origin/master
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Objects/Category.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -128,11 +152,23 @@
                 <element signature="e#154#155#0" expanded="true" />
                 <element signature="e#210#211#0" expanded="true" />
                 <element signature="e#253#254#0" expanded="true" />
+=======
+      <file leaf-file-name="Tests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Objects/Tests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+              <folding>
+                <element signature="e#201#202#0" expanded="true" />
+                <element signature="e#271#272#0" expanded="true" />
+                <element signature="e#317#318#0" expanded="true" />
+>>>>>>> refs/remotes/origin/master
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Categories.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Objects/Categories.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -154,6 +190,34 @@
             <state relative-caret-position="123">
               <caret line="8" column="208" lean-forward="false" selection-start-line="8" selection-start-column="208" selection-end-line="8" selection-end-column="208" />
               <folding />
+=======
+      <file leaf-file-name="TestDetails.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Objects/TestDetails.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <folding>
+                <element signature="e#227#228#0" expanded="true" />
+                <element signature="e#260#261#0" expanded="true" />
+                <element signature="e#288#289#0" expanded="true" />
+                <element signature="e#323#324#0" expanded="true" />
+                <element signature="e#354#355#0" expanded="true" />
+                <element signature="e#402#403#0" expanded="true" />
+                <element signature="e#437#438#0" expanded="true" />
+                <element signature="e#473#474#0" expanded="true" />
+                <element signature="e#505#506#0" expanded="true" />
+                <element signature="e#555#556#0" expanded="true" />
+                <element signature="e#592#593#0" expanded="true" />
+                <element signature="e#623#624#0" expanded="true" />
+                <element signature="e#653#654#0" expanded="true" />
+                <element signature="e#696#697#0" expanded="true" />
+                <element signature="e#729#730#0" expanded="true" />
+                <element signature="e#757#758#0" expanded="true" />
+                <element signature="e#784#785#0" expanded="true" />
+                <element signature="e#821#822#0" expanded="true" />
+                <element signature="e#848#849#0" expanded="true" />
+              </folding>
+>>>>>>> refs/remotes/origin/master
             </state>
           </provider>
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
@@ -161,12 +225,26 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="LoginWindow.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Scenes/LoginWindow.fxml">
           <provider editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+=======
+      <file leaf-file-name="TestPrototype.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Objects/TestPrototype.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+              <folding>
+                <element signature="e#183#184#0" expanded="true" />
+                <element signature="e#214#215#0" expanded="true" />
+                <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#302#303#0" expanded="true" />
+              </folding>
+>>>>>>> refs/remotes/origin/master
             </state>
           </provider>
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
@@ -174,18 +252,27 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Communication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controlers/Communication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="693">
               <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+=======
+      <file leaf-file-name="AnswerFinal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Objects/AnswerFinal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+>>>>>>> refs/remotes/origin/master
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#328#329#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AuthResponse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Objects/AuthResponse.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -203,6 +290,66 @@
                 <element signature="e#494#495#0" expanded="true" />
                 <element signature="e#536#537#0" expanded="true" />
                 <element signature="e#570#571#0" expanded="true" />
+=======
+      <file leaf-file-name="TestFinal.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/Objects/TestFinal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+              <folding>
+                <element signature="e#171#187#0" expanded="true" />
+                <element signature="e#2936#2937#0" expanded="true" />
+                <element signature="e#2967#2968#0" expanded="true" />
+                <element signature="e#3015#3016#0" expanded="true" />
+                <element signature="e#3055#3056#0" expanded="true" />
+                <element signature="e#3110#3111#0" expanded="true" />
+                <element signature="e#3142#3143#0" expanded="true" />
+                <element signature="e#3211#3212#0" expanded="true" />
+                <element signature="e#3253#3254#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuestionsFinal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Objects/QuestionsFinal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29">
+              <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
+              <folding>
+                <element signature="e#169#182#0" expanded="true" />
+                <element signature="e#226#227#0" expanded="true" />
+                <element signature="e#261#262#0" expanded="true" />
+                <element signature="e#317#318#0" expanded="true" />
+                <element signature="e#365#366#0" expanded="true" />
+                <element signature="e#188#189#0" expanded="true" />
+                <element signature="e#221#222#0" expanded="true" />
+                <element signature="e#270#271#0" expanded="true" />
+                <element signature="e#314#315#0" expanded="true" />
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#394#395#0" expanded="true" />
+                <element signature="e#456#457#0" expanded="true" />
+                <element signature="e#494#495#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuestionPrototype.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Objects/QuestionPrototype.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+              <folding>
+                <element signature="e#381#382#0" expanded="true" />
+                <element signature="e#414#415#0" expanded="true" />
+                <element signature="e#463#464#0" expanded="true" />
+                <element signature="e#507#508#0" expanded="true" />
+                <element signature="e#544#545#0" expanded="true" />
+                <element signature="e#577#578#0" expanded="true" />
+                <element signature="e#629#630#0" expanded="true" />
+                <element signature="e#673#674#0" expanded="true" />
+>>>>>>> refs/remotes/origin/master
               </folding>
             </state>
           </provider>
@@ -242,10 +389,15 @@
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/MainWindow.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Scenes/Main.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/sample/api/HttpGet.java" />
+=======
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/Scenes/TestStage.fxml" />
+>>>>>>> refs/remotes/origin/master
         <option value="$PROJECT_DIR$/src/sample/Scenes/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/api/HttpPost.java" />
         <option value="$PROJECT_DIR$/src/sample/Objects/AuthResponse.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/sample/Scenes/TestStage.fxml" />
         <option value="$PROJECT_DIR$/src/sample/threads/ControllThread.java" />
         <option value="$PROJECT_DIR$/src/sample/Controlers/Communication.java" />
@@ -256,6 +408,25 @@
         <option value="$PROJECT_DIR$/src/sample/Scenes/MainWindow.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controlers/MainWindowController.java" />
         <option value="$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java" />
+=======
+        <option value="$PROJECT_DIR$/src/sample/Objects/Category.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/Categories.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/TestDetails.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/Tests.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/Answers.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/Answer.java" />
+        <option value="$PROJECT_DIR$/src/sample/api/HttpPost.java" />
+        <option value="$PROJECT_DIR$/src/sample/api/HttpGet.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controlers/Communication.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/Question.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/Test.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/TestPrototype.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/QuestionPrototype.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/AnswerFinal.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/QuestionsFinal.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controlers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/TestFinal.java" />
+>>>>>>> refs/remotes/origin/master
       </list>
     </option>
   </component>
@@ -313,6 +484,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
               <item name="Objects" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+            </path>
+            <path>
+              <item name="DesktopApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DesktopApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="Pictures" type="462c0819:PsiDirectoryNode" />
+>>>>>>> refs/remotes/origin/master
             </path>
             <path>
               <item name="DesktopApp" type="b2602c69:ProjectViewProjectNode" />
@@ -320,6 +501,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
               <item name="Scenes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DesktopApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DesktopApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="threads" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -496,6 +684,7 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
@@ -566,6 +755,44 @@
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
+=======
+    <frame x="50" y="-11" width="1871" height="1092" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49973246" weight="0.21106558" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5002675" side_tool="true" weight="0.32889345" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49973246" visible="true" weight="0.52868855" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.11823204" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.14713751" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32991803" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="right" id="JetGradle" order="5" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Changes" order="7" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Profiler" order="9" />
+      <window_info anchor="bottom" id="Problems" order="10" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Application Servers" order="11" />
+      <window_info anchor="right" id="Database" order="6" />
+    </layout>
+>>>>>>> refs/remotes/origin/master
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -587,6 +814,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -668,6 +896,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Controlers/Controller.java">
+>>>>>>> refs/remotes/origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2478">
           <caret line="118" column="8" lean-forward="false" selection-start-line="118" selection-start-column="8" selection-end-line="118" selection-end-column="8" />
@@ -699,6 +930,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Objects/AuthResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -716,24 +948,44 @@
             <element signature="e#536#537#0" expanded="true" />
             <element signature="e#570#571#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/TestStage.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+>>>>>>> refs/remotes/origin/master
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/threads/ControllThread.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/api/HttpGet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
           <caret line="54" column="46" lean-forward="false" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/MainWindow.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+>>>>>>> refs/remotes/origin/master
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/api/HttpPost.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/sample.fxml">
+>>>>>>> refs/remotes/origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="17" column="58" lean-forward="true" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/Communication.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -757,7 +1009,27 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/MainWindow.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/TestStage.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/sample.fxml">
+>>>>>>> refs/remotes/origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5145">
           <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
@@ -766,6 +1038,7 @@
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -789,6 +1062,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -798,10 +1072,21 @@
             <element signature="e#523#524#0" expanded="true" />
             <element signature="e#551#552#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/TestStage.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="173" selection-start-line="10" selection-start-column="173" selection-end-line="10" selection-end-column="173" />
+>>>>>>> refs/remotes/origin/master
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/MainWindow.fxml">
+>>>>>>> refs/remotes/origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4872">
           <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
@@ -810,8 +1095,13 @@
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/sample.fxml">
+>>>>>>> refs/remotes/origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4872">
           <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
@@ -820,6 +1110,7 @@
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -833,6 +1124,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -842,8 +1134,31 @@
             <element signature="e#523#524#0" expanded="true" />
             <element signature="e#551#552#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/TestStage.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/MainWindow.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/sample.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="30" />
+>>>>>>> refs/remotes/origin/master
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -867,6 +1182,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1722">
@@ -874,9 +1190,25 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/TestStage.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/MainWindow.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+>>>>>>> refs/remotes/origin/master
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -886,8 +1218,15 @@
             <element signature="e#523#524#0" expanded="true" />
             <element signature="e#551#552#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/sample.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="30" />
+>>>>>>> refs/remotes/origin/master
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -911,7 +1250,19 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/sample.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controlers/Controller.java">
+>>>>>>> refs/remotes/origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
@@ -922,6 +1273,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/stylesheet.xsl" />
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/mainClass.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -930,20 +1282,41 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/api/HttpGet.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/mainClass.css" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+>>>>>>> refs/remotes/origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
           <caret line="54" column="46" lean-forward="false" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/api/HttpPost.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="17" column="58" lean-forward="false" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/TestStage.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+>>>>>>> refs/remotes/origin/master
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects.java" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Objects.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/Objects/AuthResponse.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -962,29 +1335,61 @@
             <element signature="e#536#537#0" expanded="true" />
             <element signature="e#570#571#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/MainWindow.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+>>>>>>> refs/remotes/origin/master
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/ControlerForTest.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/Scenes/TestStage.fxml" />
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.base/javafx/event/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Scenes/sample.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+>>>>>>> refs/remotes/origin/master
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/Categories.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/threads/ControllThread.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/AuthResponse.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="121">
           <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+=======
+        <state relative-caret-position="105">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+>>>>>>> refs/remotes/origin/master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/Communication.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="693">
           <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+=======
+        <state relative-caret-position="690">
+          <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+>>>>>>> refs/remotes/origin/master
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -993,6 +1398,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
           <folding>
@@ -1020,10 +1426,54 @@
             <element signature="e#154#155#0" expanded="true" />
             <element signature="e#210#211#0" expanded="true" />
             <element signature="e#253#254#0" expanded="true" />
+=======
+        <state relative-caret-position="165">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/TestDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding>
+            <element signature="e#227#228#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#354#355#0" expanded="true" />
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#473#474#0" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#729#730#0" expanded="true" />
+            <element signature="e#757#758#0" expanded="true" />
+            <element signature="e#784#785#0" expanded="true" />
+            <element signature="e#821#822#0" expanded="true" />
+            <element signature="e#848#849#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/Tests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+          <folding>
+            <element signature="e#201#202#0" expanded="true" />
+            <element signature="e#271#272#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+>>>>>>> refs/remotes/origin/master
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Objects/Categories.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1033,6 +1483,50 @@
             <element signature="e#205#206#0" expanded="true" />
             <element signature="e#260#261#0" expanded="true" />
             <element signature="e#304#305#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/QuestionPrototype.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding>
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/threads/ControllThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/QuestionsFinal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
+          <folding>
+            <element signature="e#169#182#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#221#222#0" expanded="true" />
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+>>>>>>> refs/remotes/origin/master
           </folding>
         </state>
       </provider>
@@ -1073,10 +1567,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="427">
           <caret line="71" column="67" lean-forward="false" selection-start-line="71" selection-start-column="67" selection-end-line="71" selection-end-column="67" />
+=======
+        <state relative-caret-position="-51">
+          <caret line="64" column="97" lean-forward="true" selection-start-line="64" selection-start-column="97" selection-end-line="64" selection-end-column="97" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controlers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="82" column="75" lean-forward="true" selection-start-line="82" selection-start-column="75" selection-end-line="82" selection-end-column="75" />
+>>>>>>> refs/remotes/origin/master
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/TestPrototype.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding>
+            <element signature="e#183#184#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/AnswerFinal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding>
+            <element signature="e#328#329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/TestFinal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+          <folding>
+            <element signature="e#171#187#0" expanded="true" />
+            <element signature="e#2936#2937#0" expanded="true" />
+            <element signature="e#2967#2968#0" expanded="true" />
+            <element signature="e#3015#3016#0" expanded="true" />
+            <element signature="e#3055#3056#0" expanded="true" />
+            <element signature="e#3110#3111#0" expanded="true" />
+            <element signature="e#3142#3143#0" expanded="true" />
+            <element signature="e#3211#3212#0" expanded="true" />
+            <element signature="e#3253#3254#0" expanded="true" />
           </folding>
         </state>
       </provider>

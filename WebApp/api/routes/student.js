@@ -1,20 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const authTeacher = require('../middleware/authTeacher');
 
 //Import controller
 const studentController = require('../controller/student');
 
-router.get('/', ensureAuth,studentController.show_all);
-router.get('/java', ensureAuth,studentController.show_all_java);
-
-//Access Controll
-function ensureAuth(req,res,next){
-    if (req.isAuthenticated()){
-        return next();
-    }else{
-        req.flash('error_msg','You are not authorized to view this page');
-        res.redirect('/');
-    }
-}
+router.get('/', authTeacher,studentController.show_all);
+router.get('/:id', authTeacher,studentController.show_student);
+router.post('/class', authTeacher,studentController.get_class);
+router.get('/remove/:id', authTeacher,studentController.remove_student);
 
 module.exports = router;

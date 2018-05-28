@@ -10,4 +10,8 @@ public class Category {
     public void setCategoryName(String categoryName) {
         CategoryName = categoryName;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/origin/master

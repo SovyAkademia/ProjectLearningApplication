@@ -2,6 +2,7 @@
 
 
 <div id="registrations"><h3 class="regHead">New registrations</h3>
+ 
     <hr style="background:#434343">
 
     {{#each users}}
@@ -19,10 +20,9 @@
         </div>
     {{/each}}
 
-    {{user.id}}
-
     {{#unless users}}
         <span>There are currently no newly registered users</span>
     {{/unless}}
+
  </div>
 

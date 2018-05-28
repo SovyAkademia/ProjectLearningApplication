@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa regico fa-user"></i></div>
-                        <input type="text" name="lastName" class="form-control" id="name"
+                        <input type="text" name="lastName" class="form-control" id="lname"
                                placeholder="John Doe" required autofocus>
                     </div>
                 </div>
@@ -71,6 +71,7 @@
             </div>
         </div>
         <div class="row">
+            
             <div class="col-md-3 field-label-responsive">
                 <label for="password">Password</label>
             </div>
@@ -91,9 +92,7 @@
             <div class="col-md-5">
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem">
-                            <i class="fa regico fa-repeat"></i>
-                        </div>
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa regico fa-key"></i></div>
                         <input type="password" name="password-confirmation" class="form-control"
                                id="password-confirm" placeholder="Password" required>
                     </div>
@@ -107,10 +106,8 @@
             <div class="col-md-5">
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem">
-                            <i class="fa regico fa-repeat"></i>
-                        </div>
-                        <select name="firstYear" required>
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fas regico fa-calendar-alt"></i></div>
+                        <select class="form-control" name="firstYear" required>
                                 <option disabled selected value> -- select an option -- </option>
                                 <option value="2014">2014/2015</option>
                                 <option value="2015">2015/2016</option>
@@ -127,9 +124,11 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-5">
+                
                 <button type="submit" class="btn btn-sub"><i class="fa fa-user-plus"></i> Register</button>
-                {{message}}
+                <span class="ml-5 text-danger">{{message}}</span>
             </div>
         </div>
     </form>
 </div>
+

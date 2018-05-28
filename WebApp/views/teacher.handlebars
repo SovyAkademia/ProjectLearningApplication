@@ -1,0 +1,23 @@
+<div class="col-md-11 teacherlist">
+
+    <table id="teachersTable" class="table table_show teacher-table table-bordered">
+        <thead class="thead">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each teacher}}
+            <tr id="mainTR">
+                <td class="name tableTeacherName">{{FirstName}} {{LastName}}</td>
+                <td class="class">{{Email}}</td>
+{{!--                 <td class="class"><a href="/students/remove/{{ID}}" onclick="return confirm('Are you sure you want to remove this student?')"><button class="btn btn-sm btn-danger deleteStudent">Remove</button></a></td>
+ --}}            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    
+    
+</div>

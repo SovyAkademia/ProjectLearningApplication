@@ -37,7 +37,9 @@ const registerTeacher = require('./api/routes/registerTeacher');
 const student = require('./api/routes/student');
 const createTest = require('./api/routes/createTest');
 const desktop = require('./api/routes/desktop');
-// const test = require('./api/routes/test');
+const test = require('./api/routes/test');
+const myTests = require('./api/routes/myTests');
+const teacher = require('./api/routes/teacher');
 
 //Session
 app.use(session({
@@ -48,7 +50,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         //Miliseconds, current 1min
-        maxAge: 100000,
+        maxAge: 2000000,
     }
 }));
 
@@ -71,7 +73,15 @@ app.use('/registerTeacher', registerTeacher);
 app.use('/students', student);
 app.use('/createTest', createTest);
 app.use('/desktop', desktop);
-// app.use('/test', test);
+app.use('/test', test);
+app.use('/myTests', myTests);
+app.use('/teachers', teacher);
+
+app.use((req,res)=> {
+    res.render('errorpage',{
+        message:'something went wrong'
+    })
+})
 
 let hbs = exphbs.create({
     defaultLayout: 'main',
@@ -81,10 +91,20 @@ let hbs = exphbs.create({
         isAdmin: function (user) {
             console.log(user[0].admin);
             return user[0].admin == 1;
+        },
+        eq: function(v1,v2) {
+            return v1 == v2;
         }
 
     }
 });
+
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('errorpage', {
+        message: 'Something went wrong, try again',
+    });
+  });
 
 //view engine
 app.engine('handlebars', hbs.engine);

@@ -1,6 +1,7 @@
 // import { workers } from "cluster";
 
 $(document).ready(function() {
+    
     $(":text").keyup(function(e) {
         if($(this).val() != '') {
             $(this).next(".test").show();
@@ -11,8 +12,18 @@ $(document).ready(function() {
     });
 });
 
-$(function() {
 
+$('#password, #password-confirm').on('keyup', function () {
+    if ($('#password').val() == $('#password-confirm').val()) {
+      $('#message').html('Matching').css('color', 'green');
+    } else 
+    {
+      $('#message').html('Not Matching').css('color', 'red');
+    }
+  });
+
+$(function() {
+    
     $('#login-form-link').click(function(e) {
 		$("#login-form").delay(100).fadeIn(100);
  		$("#register-form").fadeOut(100);
@@ -72,6 +83,80 @@ $(function() {
  
 // }
 
+var elmt = document.getElementById('name');
+var lname = document.getElementById('lname');
+var password = document.getElementById('password');
+var confirm = document.getElementById('password-confirm');
+var email = document.getElementById('email');
+
+elmt.addEventListener('keydown', function (event) {
+    if (elmt.value.length === 0 && event.which === 32) {
+        event.preventDefault();
+    }
+});
+lname.addEventListener('keydown', function (event) {
+    if (lname.value.length === 0 && event.which === 32) {
+        event.preventDefault();
+    }
+});
+password.addEventListener('keydown', function (event) {
+    if (password.value.length === 0 && event.which === 32) {
+        event.preventDefault();
+    }
+});
+email.addEventListener('keydown', function (event) {
+    if (email.value.length === 0 && event.which === 32) {
+        event.preventDefault();
+    }
+});
+confirm.addEventListener('keydown', function (event) {
+    if (confirm.value.length === 0 && event.which === 32) {
+        event.preventDefault();
+    }
+});
+
+
+ 
+function testSearch(){ 
+$('#searchtest').keyup(function () {
+
+    var filter = this.value.toLowerCase();
+
+    $('.card').each(function() {
+        
+        var _this = $(this);
+        var title = _this.find('h3').text().toLowerCase();
+
+        if (title.indexOf(filter) < 0) {
+            _this.hide();
+        }else{
+            _this.show();
+        }
+    });
+});
+}
+
+function StudentSearch() {
+    // Declare variables 
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("studenttable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      } 
+    }
+  }
+
 function newItem() {
 	var item = document.getElementById('questioninput').value;
 	var a = document.createElement('a');
@@ -86,12 +171,131 @@ function newItem() {
   tr.onclick = removeItem;
 }
 
-
     
  function addText()
 {    
 	 document.querySelector('.questioncontainer').innerHTML = document.querySelector('.questioninput').value+document.querySelector('.questioninput').value;
  }
+
+ $('.editBtn').click(function(){
+     var questionID = this.value;
+     var testName = $('#nameOfTest').html();
+     console.log(questionID);
+
+     $.ajax({
+        type: 'GET',
+        url:'http://localhost:5000/test/'+testName+'/'+questionID,
+        error: function(){
+           console.log('ajax not working')
+        },
+        dataType: "jsonp",
+        success : function(data){
+            fillModal(data);
+        }
+
+    });
+ })
+
+ function fillModal(data){
+     console.log(data.questionID);
+     var question = data.question[0].questiontext;
+     var points = data.question[0].points;
+     var a = data.answers[0];
+     var b = data.answers[1];
+     var c = data.answers[2];
+     var d = data.answers[3];
+     var array = [a,b,c,d];
+
+     $('.ok').prop('checked', false);
+
+    if(a.correct == 1){
+        console.log('a is correct');
+        $('.checka').prop('checked', true);
+    }
+    else if(b.correct == 1){
+        $('.checkb').prop('checked', true);
+        console.log('b is correct');
+    }
+    else if(c.correct == 1){
+        $('.checkc').prop('checked', true);
+        console.log('c is correct');
+    }
+    else if(d.correct == 1){
+        $('.checkd').prop('checked', true);
+        console.log('d is correct');
+    }
+
+     console.log(a,b,c,d);
+     $('#questioninput').val(question);
+     $('#ansa').val(a.answertext);
+     $('#ansb').val(b.answertext);
+     $('#ansc').val(c.answertext);
+     $('#ansd').val(d.answertext);
+     $('.selectPoints').val(points);
+     $('.hiddenQID').val(data.questionID);
+
+ }
+
+ $('#createCategoryBtn').click(function(){
+     console.log('good');
+     var category = $('#newCategoryInput').val();
+    if(category.trim() == ''){
+        $('.message').html('Category field is empty');
+    }
+
+    else{
+
+        $.ajax({
+            type: 'POST',
+            url:'http://localhost:5000/createTest/createCategory',
+            error: function(data){
+                console.log(data.responseJSON);
+                $('.message').html(data.responseJSON.message);
+            },
+            data:{categoryName:category},
+            dataType: "jsonp",
+            success : function(data){
+                
+                if(data.success == true){
+                     location.reload();
+                } else {
+                    $('.message').html(data.message);
+                }
+                
+            }
+    
+        });
+
+    }
+ });
+
+
+//  $('.class-select').change(function(){
+// 	 console.log('lol');
+//  })
+
+
+// $('.class-select').change(function(){
+// 	$.ajax({
+// 		type: 'GET',
+// 		url:'http://localhost:5000/students/class/'+this.value+'',
+		
+// 		error: function(){
+// 		   console.log('ajax not working')
+// 		},
+// 		dataType: "jsonp",
+// 		success: function (data) {
+// 			console.log(data)
+// 			// location.reload();
+// 		},
+	
+// 	});
+
+// });
+
+/* function form_submit(){
+	document.getElementById("form").submit();
+} */
 
 // function addRow() {
 //     var div = document.createElement('div');

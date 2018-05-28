@@ -14,7 +14,6 @@ exports.dashboard = (req,res,next)=>{
     let getStudents = 'select * from students where allowed = 0 order by DateOfReg DESC';
     let getTeachers = 'select * from teachers where allowed = 0 order by DateOfReg DESC';
 
-    console.log('hey');
     db.query(getStudents,(err,students) => {
         if (err) throw err;
         students.map((student) => {
@@ -33,9 +32,9 @@ exports.dashboard = (req,res,next)=>{
                 let d = new Date(b.DateOfReg)
                 return d-c;
             });
-
             res.render('dashboard', {
-                users
+                users,
+                where:'Dashboard'
             });
         });
     });
@@ -77,7 +76,7 @@ exports.login = (req,res,next)=>{
         db.query(userQuery,[email], (err, result) => {
             if (err) throw err;
             if(result[0].Email == 0){
-                return next(null,false, {message:'User NOT found'});
+                return next(null,false, {message:'User not found'});
             }
         db.query(passQuery,[email],(err,resu) => {
             if (err) throw err;
@@ -88,7 +87,7 @@ exports.login = (req,res,next)=>{
                     return next(null,resu);
                 } else {
                     console.log('wrong password');
-                    return next(null,false,{message:'Wrong email or password'});
+                    return next(null,false,{message:'Wrong password'});
                 }
             });
         });
@@ -96,13 +95,13 @@ exports.login = (req,res,next)=>{
     }));
     
     passport.serializeUser((user,done)=>{
-        console.log(user);
+       // console.log(user);
         done(null,user)
     });
     
     passport.deserializeUser((name,done)=>{
         db.query(getUserId,[name[0].email], (err, user) => {
-            console.log(user);
+          //  console.log(user);
         done(err,user);
         });
     });
