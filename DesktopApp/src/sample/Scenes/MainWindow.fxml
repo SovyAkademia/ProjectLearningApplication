@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.MenuButton?>
@@ -34,43 +33,3 @@
       <MenuButton fx:id="testMenuButton" layoutX="525.0" layoutY="349.0" mnemonicParsing="false" onAction="#performAction" prefHeight="31.0" prefWidth="140.0" text="Tests" />
    </children>
 </Pane>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controlers.Controller">
-   <children>
-      <ImageView fx:id="logoGL" fitHeight="229.0" fitWidth="676.0" layoutX="420.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Pictures/LogoGL1.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imageUsers" fitHeight="52.0" fitWidth="61.0" layoutX="1196.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Pictures/UserPicture.png" />
-         </image>
-      </ImageView>
-      <MenuButton fx:id="MenuButtonForUser" layoutX="1272.0" layoutY="107.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #08A2BE;-fx-text-fill: white;" text="Johny Walker">
-        <items>
-            <MenuItem fx:id="user_profile" mnemonicParsing="false" onAction="#performAction" text="User Profile" />
-              <MenuItem fx:id="action_marks" mnemonicParsing="false" onAction="#performAction" text="Marks score" />
-           <MenuItem fx:id="action_password" mnemonicParsing="false" onAction="#performAction" text="Change password" />
-              <MenuItem fx:id="action_logout" mnemonicParsing="false" onAction="#MenuLogout" text="Log out" />
-           </items>
-      </MenuButton>
-      <MenuButton fx:id="category" layoutX="278.0" layoutY="349.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Choose categories">
-        <items>
-          <MenuItem fx:id="category1" mnemonicParsing="false" onAction="#start" text="Java" />
-          <MenuItem fx:id="category2" mnemonicParsing="false" onAction="#start" text="C / C++" />
-           <MenuItem fx:id="category3" mnemonicParsing="false" onAction="#start" text="HTML,CSS" />
-           <MenuItem fx:id="category4" mnemonicParsing="false" onAction="#start" text="MySQL" />
-        </items>
-      </MenuButton>
-   </children>
-</Pane>
->>>>>>> refs/remotes/origin/master

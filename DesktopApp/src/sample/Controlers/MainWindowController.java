@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import sample.Objects.Category;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import sample.api.Communication;
 
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class MainWindowController {
     @FXML
     public MenuButton menuButtonCategory;
     public MenuButton testMenuButton;
+    public MenuButton MenuButtonForUser;
+
 
     private Communication communication = new Communication();
     private ArrayList<Category> categoryList;

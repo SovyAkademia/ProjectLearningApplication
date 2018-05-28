@@ -3,13 +3,13 @@ package sample.Objects;
 import java.util.ArrayList;
 
 public class Tests {
-    ArrayList<TestDetails> tetsDetails;
+    ArrayList<TestDetails> tests;
 
-    public ArrayList<TestDetails> getTetsDetails() {
-        return tetsDetails;
+    public ArrayList<TestDetails> getTests() {
+        return tests;
     }
 
-    public void setTetsDetails(ArrayList<TestDetails> tetsDetails) {
-        this.tetsDetails = tetsDetails;
+    public void setTests(ArrayList<TestDetails> tests) {
+        this.tests = tests;
     }
 }
