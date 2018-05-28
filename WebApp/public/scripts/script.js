@@ -20,6 +20,10 @@ $('#password, #password-confirm').on('keyup', function () {
     {
       $('#message').html('Not Matching').css('color', 'red');
     }
+    if ($('#password').val() == "" && $('#password-confirm').val() == "")
+    {
+        $('#message').html('');
+    }
   });
 
 $(function() {
