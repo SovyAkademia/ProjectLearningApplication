@@ -62,9 +62,12 @@ th{
 }
 
 .existingquestions{
-    height: 300px;
     overflow: auto;
-    -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
+}
+
+#chooseExist{
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .menuic{
@@ -301,9 +304,9 @@ questionlist:hover{
 }
 
 .addquest{
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 10px;
-    margin-left: 17px;
+
 }
 
 .top-header{
