@@ -2,8 +2,6 @@ package sample.api;
 
 import com.google.gson.Gson;
 import sample.Objects.*;
-import sample.api.HttpGet;
-import sample.api.HttpPost;
 import java.io.IOException;
 
 public class Communication {
@@ -13,7 +11,7 @@ public class Communication {
 
     private final String baseUrl = "http://akademiasovy.ddns.net:3050";
 
-    public boolean authetifiaction(String email, String password)
+    public boolean authenticate(String email, String password)
     {
         String json = "{\n\t\"email\": \""+email+"\",\n\t\"password\":\""+password+"\"}";
         HttpPost httpPost = new HttpPost();
