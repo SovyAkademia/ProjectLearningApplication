@@ -39,6 +39,7 @@ const createTest = require('./api/routes/createTest');
 const desktop = require('./api/routes/desktop');
 const test = require('./api/routes/test');
 const myTests = require('./api/routes/myTests');
+const teacher = require('./api/routes/teacher');
 
 //Session
 app.use(session({
@@ -74,6 +75,7 @@ app.use('/createTest', createTest);
 app.use('/desktop', desktop);
 app.use('/test', test);
 app.use('/myTests', myTests);
+app.use('/teachers', teacher);
 
 app.use((req,res)=> {
     res.render('errorpage',{

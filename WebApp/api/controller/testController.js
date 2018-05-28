@@ -25,7 +25,7 @@ exports.get_test_creator = (req, res, next) => {
         };
         db.query(queryQuestions, [name], (err, questions) => {
     //     console.log(questions);
-            if (err) throw err;
+            if (err) return next(err);
                 if (questions != null) {
                     res.render('test', {
                         TestName: result[0].TestName,
