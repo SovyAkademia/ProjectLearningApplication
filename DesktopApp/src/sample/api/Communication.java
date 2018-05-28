@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 package sample.api;
 
 import com.google.gson.Gson;
 import sample.Objects.*;
 
+=======
+package sample.Api;
+
+import com.google.gson.Gson;
+import sample.Objects.*;
+import sample.api.HttpGet;
+import sample.api.HttpPost;
+>>>>>>> refs/remotes/origin/master
 
 import java.io.IOException;
 
@@ -13,7 +22,11 @@ public class Communication {
 
     private final String baseUrl = "http://akademiasovy.ddns.net:3050";
 
+<<<<<<< HEAD
     public boolean authenticate(String email, String password)
+=======
+    public boolean authetifiaction(String email, String password)
+>>>>>>> refs/remotes/origin/master
     {
         String json = "{\n\t\"email\": \""+email+"\",\n\t\"password\":\""+password+"\"}";
         HttpPost httpPost = new HttpPost();
