@@ -77,8 +77,8 @@ public class Communication {
         return swap;
     }
 
-    public Test getTest(int testID){
-        Test swap = new Test();
+    public TestPrototype getTest(int testID){
+        TestPrototype swap = new TestPrototype();
         try {
             String json = "{\n\t\"testId\":\""+testID+"\"," +
                     "\n\t\"token\":\""+this.token+"\"\n}";
@@ -91,7 +91,7 @@ public class Communication {
                 return null;
             }
             Gson gson = new Gson();
-            swap = gson.fromJson(response,Test.class);
+            swap = gson.fromJson(response,TestPrototype.class);
         }
         catch (Exception e)
         {
@@ -99,4 +99,7 @@ public class Communication {
         }
         return swap;
     }
+
+
+
 }

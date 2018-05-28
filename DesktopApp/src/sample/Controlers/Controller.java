@@ -2,11 +2,8 @@ package sample.Controlers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,7 +14,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import sample.Objects.Category;
-import sample.Objects.Test;
+import sample.Objects.TestFinal;
+import sample.Objects.TestPrototype;
 
 import java.util.ArrayList;
 
@@ -77,12 +75,16 @@ public class Controller {
 
                     }
                     this.categoryList = list;
+
                     for (Category temp:list) {
                         //System.out.println(temp.getCategoryName());
                     }
 
-                    Test test = communication.getTest(2);
-                    System.out.println(test.getTestName());
+                    TestPrototype testPrototype = communication.getTest(1);
+                    System.out.println("completed");
+                    System.out.println(testPrototype.getTestName());
+                    TestFinal actualTest = new TestFinal(testPrototype);
+                    actualTest.printTest();
                 }
                 else
                 {
