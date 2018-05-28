@@ -57,7 +57,7 @@ exports.create_category = (req, res, next) => {
         if (err) {
             return res.jsonp({
                 success: false,
-                message: 'There was some error connecting to DB'
+                message: 'There was some problem with databse'
             })
         };
         if (exists.length > 0) {
@@ -71,7 +71,7 @@ exports.create_category = (req, res, next) => {
             if (err) {
                 return res.status(404).jsonp({
                     success: false,
-                    message: 'There was some error connecting to DB'
+                    message: 'There was some problem with databse'
                 })
             }
             return res.jsonp({

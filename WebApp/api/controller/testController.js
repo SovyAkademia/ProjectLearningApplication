@@ -123,3 +123,35 @@ exports.edit_question = (req,res,next) =>{
         });
     });
 }
+
+exports.get_tests = (req,res,next) => {
+    let getTests = 'select id, testName from tests';
+    db.query(getTests,(err,tests) => {
+        if (err) {
+            return res.status(404).jsonp({
+                message: 'Something went wrong'
+            });
+        }
+        res.jsonp({
+            tests
+        })
+    })
+}
+
+exports.questions_from_selected_test = (req,res,next) => {
+    let testID = req.body.testID;
+    console.log(testID);
+    let queryQuestions = 'SELECT questions.ID,QuestionText,ans1,ans2,ans3,ans4 FROM questions ' +
+        'INNER JOIN test_details ON test_details.QuestionID=questions.ID ' +
+        'INNER JOIN tests ON test_details.TestID=tests.ID ' +
+        'INNER JOIN answers_view on questions.id=answers_view.IDQuestion '+
+        'INNER JOIN categories ON tests.CategoryID=categories.ID WHERE tests.id like ?;';
+
+        db.query(queryQuestions,[testID],(err,questions) => {
+            if (err) throw err;
+
+            res.jsonp({
+                questions
+            })
+        })
+}

@@ -14,7 +14,7 @@
           <div class="modal-body">
             <div id="counter"></div>
             <div class="text-center">
-            <textarea name="textQuest" id="questioninput" class="questioninput" cols="30" rows="3"></textarea>
+              <textarea name="textQuest" id="questioninput" class="questioninput" cols="30" rows="3"></textarea>
             </div>
 
             <div class="row">
@@ -24,21 +24,24 @@
                   <div class="container">
                     <div class="text-center">
                       <span>Points:</span>
-                    <select name="selectPoint" class="selectPoints" id="pointsin">
-                      <optgroup label="Select points">
-                        <option name="1" value="1">1</option>
-                        <option name="2" value="2">2</option>
-                        <option name="3" value="3">3</option>
-                        <option name="4" value="4">4</option>
-                        <option name="5" value="5">5</option>
-                      </optgroup>
-                    </select>
+                      <select name="selectPoint" class="selectPoints" id="pointsin">
+                        <optgroup label="Select points">
+                          <option name="1" value="1">1</option>
+                          <option name="2" value="2">2</option>
+                          <option name="3" value="3">3</option>
+                          <option name="4" value="4">4</option>
+                          <option name="5" value="5">5</option>
+                        </optgroup>
+                      </select>
                     </div>
                     <br>
-                    <div style="margin-left:35px; padding:5px;"><strong>Answers</strong> <strong style="margin-left:153px;">Correct</strong></div>
+                    <div style="margin-left:35px; padding:5px;">
+                      <strong>Answers</strong>
+                      <strong style="margin-left:153px;">Correct</strong>
+                    </div>
                     <label for="">A</label>
                     <input class="answer col-md-6 col-sm-6" id="ansa" type="text" name="ansa" value="" required>
-                    <input class="ok checka"  name="corr" type="radio" value="A">
+                    <input class="ok checka" name="corr" type="radio" value="A">
                     <br>
                     <label for="">B</label>
                     <input class="answer col-md-6 col-sm-6" id="ansb" type="text" name="ansb" value="" required>
@@ -46,11 +49,11 @@
                     <br>
                     <label for="">C</label>
                     <input class="answer col-md-6 col-sm-6" id="ansc" type="text" name="ansc" value="" required>
-                    <input class="ok checkc"  name="corr" type="radio" value="C">
+                    <input class="ok checkc" name="corr" type="radio" value="C">
                     <br>
                     <label for="">D</label>
                     <input class="answer col-md-6 col-sm-6" id="ansd" type="text" name="ansd" value="" required>
-                    <input class="ok checkd"  name="corr" type="radio" value="D">
+                    <input class="ok checkd" name="corr" type="radio" value="D">
                   </div>
                 </div>
               </div>
@@ -73,44 +76,50 @@
         <!-- contenModal t-->
         <div class="modal-content">
           <div class="modal-header">
-            
+
             <h4 class="modal-title">Add new question</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body text-left">
 
-            {{!-- <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()"> --}}
+            {{!--
+            <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()"> --}}
 
             <div class="text-center">
-            <textarea class="questioninput" name="textQuest" id="questioninput" placeholder="Type in your question" required cols="30" rows="3"></textarea>
+              <textarea class="questioninput" name="textQuest" id="questioninput" placeholder="Type in your question" required cols="30"
+                rows="3"></textarea>
             </div>
-            {{!-- <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text" name="textQuest" --}}
-            {{!-- /> --}}
-            {{!-- <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)"> --}}
+            {{!--
+            <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text"
+              name="textQuest" --}} {{!-- /> --}} {{!--
+            <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)"> --}}
 
             <div class="row">
               <div class="container">
                 <div class="col-md-12 col-sm-12">
-                  
+
                   <div class="container">
                     <div class="text-center">
-                    <span>Points:</span>
-                    <select name="selectPoint" id="pointsin">
-                      <optgroup label="Select points">
-                        <option name="1" value="1">1</option>
-                        <option name="2" value="2">2</option>
-                        <option name="3" value="3">3</option>
-                        <option name="4" value="4">4</option>
-                        <option name="5" value="5">5</option>
-                      </optgroup>
-                    </select>
+                      <span>Points:</span>
+                      <select name="selectPoint" id="pointsin">
+                        <optgroup label="Select points">
+                          <option name="1" value="1">1</option>
+                          <option name="2" value="2">2</option>
+                          <option name="3" value="3">3</option>
+                          <option name="4" value="4">4</option>
+                          <option name="5" value="5">5</option>
+                        </optgroup>
+                      </select>
                     </div>
                     <br>
-                    <div style="margin-left:35px; padding:5px;"><strong>Answers</strong> <strong style="margin-left:153px;">Correct</strong></div>
-                    
+                    <div style="margin-left:35px; padding:5px;">
+                      <strong>Answers</strong>
+                      <strong style="margin-left:153px;">Correct</strong>
+                    </div>
+
                     <label for="ansa">A</label>
-                    <input class="answer col-md-6 col-sm-6" id="ansa" type="text" required  name="ansa">
-                    <input class="ok" name="corr" type="radio" value="A" checked >
+                    <input class="answer col-md-6 col-sm-6" id="ansa" type="text" required name="ansa">
+                    <input class="ok" name="corr" type="radio" value="A" checked>
                     <br>
                     <label for="ansb">B</label>
                     <input class="answer col-md-6 col-sm-6" id="ansb" required type="text" name="ansb">
@@ -148,15 +157,21 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          
+
           <h4 class="modal-title">Choose from existing Questions</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
 
-          <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()">
+          <div class="form-group">
+            <label for="sel1">Select test to choose questions from</label>
+            <select class="form-control" id="testSelect">
+             
+            </select>
+          </div>
 
-          <div id="content">
+          <div id="questions" style="overflow-y: scroll; height:300px;">
+
 
           </div>
         </div>
@@ -221,7 +236,7 @@
       </table>
     </div>
     <div class="col-md-6 col-sm-12">
-      <button type="button" class="btn addExistQuestion btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
+      <button type="button" id="chooseExist" class="btn addExistQuestion btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
       <table class="col-md-12 existingquestions"></table>
     </div>
     <div class="buttons col-md-12 col-sm-12">

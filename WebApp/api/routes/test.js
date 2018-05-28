@@ -5,10 +5,12 @@ const router = express.Router();
 const testController = require('../controller/testController');
 const addQuestion = require('../controller/addNewQuestion');
 
+router.post('/questions',testController.questions_from_selected_test);
+router.get('/:name/tests',testController.get_tests);
+router.post('/:name/edit',testController.edit_question);
 router.get('/:name',testController.get_test_creator);
 router.post('/:name',addQuestion.add_question);
-router.get('/:name/:id', testController.show_edit_modal);
-router.post('/:name/edit',testController.edit_question);
+router.get('/:name/:id',testController.show_edit_modal);
 
 //Access Controll 
 function ensureAuth(req,res,next){

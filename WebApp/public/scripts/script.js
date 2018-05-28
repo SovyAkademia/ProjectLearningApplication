@@ -158,6 +158,7 @@ function newItem() {
         },
         dataType: "jsonp",
         success : function(data){
+            console.log(data);
             fillModal(data);
         }
 
@@ -237,7 +238,63 @@ function newItem() {
     }
  });
 
+ $('#chooseExist').click(function(){
+     var testName = $('#nameOfTest').html();
+     console.log(testName);
 
+    $.ajax({
+        type: 'GET',
+        url:'http://localhost:5000/test/'+testName+'/tests',
+        error: function(data){
+            console.log('ajax failed');
+        },
+        dataType: "jsonp",
+        success : function(data){
+            populateSelect(data);
+            
+        }
+
+    });
+ })
+
+function populateSelect(data){
+    console.log(data);
+
+    $('#testSelect').html("");
+   
+   $.each(data.tests,function(index,test){
+       $('#testSelect').append('<option value=' + test.id + '>' + test.testName + '</option>')
+   })
+     // $('#categoriesSelect').append
+}
+
+$('#testSelect').change(function(){
+    console.log(this.value);
+
+    $.ajax({
+        type: 'POST',
+        url:'http://localhost:5000/test/questions',
+        error: function(data){
+            console.log('error');
+        },
+        data:{testID:this.value},
+        dataType: "jsonp",
+        success : function(data){
+            
+            showExistingQuestions(data);
+            
+        }
+
+    });
+
+})
+
+function showExistingQuestions(data){
+    $('#questions').html("");
+    $.each(data.questions, function(index, question){
+        $('#questions').append('<div>'+question.QuestionText +'<div>');
+    })
+}
 //  $('.class-select').change(function(){
 // 	 console.log('lol');
 //  })
