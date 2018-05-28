@@ -9,7 +9,8 @@ exports.show_all = (req, res, next) => {
         result.map(student => student.class = 1);
         res.render('students', {
             result: result,
-            where:'Students'
+            where:'Students',
+            class:1
         });
     });
 }
@@ -26,12 +27,12 @@ exports.show_student = (req, res, next) => {
         'INNER JOIN categories ON tests.CategoryID=categories.ID WHERE results.StudentID like ?;';
 
     db.query(findStudent, [id], (err, student) => {
-        if (err) throw err;
+        if (err) return next(err);
         db.query(countTest, [id], (err, count) => {
-            if (err) throw err;
+            if (err) return next(err);
             let num = count[0].Count;
             db.query(findStudentResults, [id], (err, result) => {
-                if (err) throw err;
+                if (err) return next(err);
                 let testArr = [];
                 for (let index = 0; index < count[0].Count; index++) {
                     let element = (result[index].TestName);
@@ -51,8 +52,7 @@ exports.remove_student = (req, res, next) => {
     let query = 'delete from students where id = ?';
 
     db.query(query,[id],(err,result) => {
-        if(err) throw err;
-
+        if (err) return next(err);
         res.redirect('/students');
     })
 }
@@ -72,7 +72,8 @@ exports.get_class = (req, res, next) => {
     
         res.render('students',{
             result,
-            where:'Students'
+            where:'Students',
+            class:classNumber
         })
     })
 

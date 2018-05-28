@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: St 23.Máj 2018, 09:32
+-- Čas generovania: Pi 25.Máj 2018, 11:05
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -11,7 +11,9 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
+DROP DATABASE IF EXISTS `sovylearn`;
+CREATE SCHEMA IF NOT EXISTS `sovylearn` DEFAULT CHARACTER SET utf8;
+USE sovylearn;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,10 +29,6 @@ SET time_zone = "+00:00";
 --
 -- Štruktúra tabuľky pre tabuľku `answers`
 --
-
-DROP DATABASE IF EXISTS `sovylearn`;
-CREATE SCHEMA IF NOT EXISTS `sovylearn` DEFAULT CHARACTER SET utf8;
-USE sovylearn;
 
 DROP TABLE IF EXISTS `answers`;
 CREATE TABLE IF NOT EXISTS `answers` (
@@ -150,7 +148,9 @@ CREATE TABLE IF NOT EXISTS `results` (
   `TestID` int(11) NOT NULL,
   `Date` datetime NOT NULL,
   `Score` float NOT NULL,
-  `Time` time NOT NULL,
+  `BeginTime` datetime NOT NULL,
+  `EndTime` datetime NOT NULL,
+  `OverallTime` time NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `StudentID` (`StudentID`),
   KEY `TestID` (`TestID`)
@@ -235,7 +235,6 @@ CREATE TABLE IF NOT EXISTS `tests` (
   `TeacherID` int(11) DEFAULT NULL,
   `Allowed` tinyint(1) NOT NULL DEFAULT '0',
   `Time` time DEFAULT NULL,
-  `CountOfQuestions` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `CategoryID` (`CategoryID`),
   KEY `TeacherID` (`TeacherID`)
@@ -245,9 +244,9 @@ CREATE TABLE IF NOT EXISTS `tests` (
 -- Sťahujem dáta pre tabuľku `tests`
 --
 
-INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Time`,`CountOfQuestions`) VALUES
-(1, 'Big HTML test', 1, 1, 0, NULL,3),
-(2, 'Java test', 2, 1, 0, NULL,3);
+INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Time`) VALUES
+(1, 'Big HTML test', 1, 1, 0, NULL),
+(2, 'Java test', 2, 1, 0, NULL);
 
 -- --------------------------------------------------------
 

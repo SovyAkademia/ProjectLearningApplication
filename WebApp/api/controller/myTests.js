@@ -4,7 +4,7 @@ exports.get_all_tests = (req, res, next) => {
     let getTests = "SELECT tests.ID AS 'TestID',TestName,categories.ID AS categoryID ,categoryname FROM tests INNER JOIN teachers ON tests.TeacherID=teachers.ID INNER JOIN categories ON tests.CategoryID=categories.ID WHERE teachers.ID=?;";
     let getCategories = 'select * from categories';
     db.query(getTests, [req.user[0].id], (err, test) => {
-        console.log(test);
+     //   console.log(test);
         if (err) {
            return res.render('myTests', {
                 error: err
@@ -49,8 +49,8 @@ exports.get_all_tests_in_category = (req, res, next) => {
                     error: err
                 });
             }
-            console.log(test,categories);
-            res.render('myTests', {
+/*             console.log(test,categories);
+ */            res.render('myTests', {
                 test,
                 categories,
                 categoryId,

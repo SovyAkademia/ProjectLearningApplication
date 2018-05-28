@@ -25,7 +25,7 @@ exports.get_test_creator = (req, res, next) => {
         };
         db.query(queryQuestions, [name], (err, questions) => {
     //     console.log(questions);
-            if (err) throw err;
+            if (err) return next(err);
                 if (questions != null) {
                     res.render('test', {
                         TestName: result[0].TestName,
@@ -57,15 +57,69 @@ exports.show_edit_modal = (req,res,next) => {
         db.query(query2,[questionID],(err,answers) => {
             if (err) throw err;
             let obj = question.concat(answers);
-            console.log(obj);
             res.jsonp({
                 question:question,
-                answers:answers
+                answers:answers,
+                questionID
             })
         });
     })
 }
 
 exports.edit_question = (req,res,next) =>{
-    console.log(req.params.id);
+    let testName = req.params.name;
+    let QuestionID = req.body.QID;
+    let points = req.body.selectPoint;
+    let questiontext = req.body.textQuest;
+    let answerA = req.body.ansa;
+    let answerB = req.body.ansb;
+    let answerC = req.body.ansc;
+    let answerD = req.body.ansd;
+    let corrA = req.body.corr == 'A' ? 1 : 0;
+    let corrB = req.body.corr == 'B' ? 1 : 0;
+    let corrC = req.body.corr == 'C' ? 1 : 0;
+    let corrD = req.body.corr == 'D' ? 1 : 0;
+
+    let updateQuestionQuery = 'update questions set QuestionText = ?, Points=? where ID like ?;';
+    let updateAnswers_viewQuery = 'update answers_view set ans1 = ?,ans2 = ?,ans3 = ?,ans4 = ? where IDQuestion like ?;';
+    let updateAnswersQuery = 'update answers set AnswerText = ?, Correct = ? where QuestionID like ? and ID like ?;';
+    let selectAnswersID = 'select id from answers where QuestionID like ?;';
+
+
+    db.beginTransaction((err)=>{
+        if (err) return next(err);
+        db.query(updateQuestionQuery,[questiontext,points,QuestionID],(err,updateQuestion)=>{
+            if (err) return next(err);
+            db.query(updateAnswers_viewQuery,[answerA,answerB,answerC,answerD,QuestionID],(err, updateAnswers_view)=>{
+                if (err) return next(err);
+                db.query(selectAnswersID,[QuestionID],(err,AnswerID)=>{
+                    if (err) return next(err);
+                    /*Update answers one by one*/
+                db.query(updateAnswersQuery,[answerA,corrA,QuestionID,AnswerID[0].id],(err,updateA)=>{
+                    if (err) return next(err);
+                    db.query(updateAnswersQuery,[answerB,corrB,QuestionID,AnswerID[1].id],(err,updateB)=>{
+                        if (err) return next(err);
+                        db.query(updateAnswersQuery,[answerC,corrC,QuestionID,AnswerID[2].id],(err,updateC)=>{
+                            if (err) return next(err);
+                            db.query(updateAnswersQuery,[answerD,corrD,QuestionID,AnswerID[3].id],(err,updateD)=>{
+                                if (err) return next(err);
+                                db.commit((err)=> {
+                                    if (err) {
+                                        return db.rollback(() => {
+                                        throw err;
+                                        });
+                                    }
+                                    res.redirect('/test/' + testName);
+                                    req.flash('success_msg', 'Succesfully updated!');
+                                    console.log('Succesfully updated!');
+                                    });                    
+                            });
+                        });
+                    });
+                });
+                })
+                
+            });
+        });
+    });
 }
