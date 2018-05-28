@@ -28,7 +28,7 @@ exports.dashboard = (req, res, next) => {
             let d = new Date(b.DateOfReg)
             return d - c;
         });
-        console.log(users);
+      //  console.log(users);
         res.render('dashboard', {
             users,
             where: 'Dashboard'
@@ -111,6 +111,7 @@ exports.login = (req, res, next) => {
 
 exports.send_mail = (req,res,next) =>{
     let reqid = req.params.id;
+    console.log(reqid);
     let pass = generator.generate({length:6, numbers:true});
     let queryFind = 'select FirstName,LastName, Email from students where ID like ?;';
     let queryInsertGenPass = 'update students set Password = ?, Allowed = 1 where ID like ?;';
@@ -121,7 +122,7 @@ exports.send_mail = (req,res,next) =>{
             if (err) return next(err);
             mailer.transporter.sendMail({
                 from: '"Nodemailer Contact" <NO-REPLY>', // sender address
-                to: result[0].email, // list of receivers
+                to: result[0].Email, // list of receivers
                 subject: 'Access to app', // Subject line
                 text: 'Hello there '+result[0].FirstName+''+result[0].LastName+' your password is '+ pass, // plain text body
             }, (error, info) => {
