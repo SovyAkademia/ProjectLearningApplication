@@ -87,7 +87,7 @@ $(function() {
  
 // }
 
-var elmt = document.getElementById('name');
+/* var elmt = document.getElementById('name');
 var lname = document.getElementById('lname');
 var password = document.getElementById('password');
 var confirm = document.getElementById('password-confirm');
@@ -117,7 +117,7 @@ confirm.addEventListener('keydown', function (event) {
     if (confirm.value.length === 0 && event.which === 32) {
         event.preventDefault();
     }
-});
+}); */
 
 
  

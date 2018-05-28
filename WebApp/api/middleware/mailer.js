@@ -14,4 +14,4 @@ module.exports.transporter = nodemailer.createTransport({
         clientSecret:'HTecPNhmrB9pKOyaw5YYiHGL',
         refreshToken:'1/-JQkQwv5qHhSv-NoWKWo1q58GWnEAfUL-28TBu03Ohc'
     }
-  });
+});
