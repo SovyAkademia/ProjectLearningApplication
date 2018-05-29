@@ -1,3 +1,61 @@
+{{!-- <div>
+
+      {{#if error}}
+        <div class="alert alert-danger mb-5">{{error}}</div>
+      {{/if}}
+      {{#if errors}}
+        {{#each errors}}
+          <div class="alert alert-danger mb-5">{{msg}}</div>
+        {{/each}}
+      {{/if}}
+</div> --}}
+
+<div>
+
+    <form action="/students/category" method="POST">
+
+    <div class="input-group mb-3 col-centered">
+        <input type="hidden" name="student_id" value="{{student.[0].StudentID}}">
+        <input class="form-control col-md-6 " id="searchtest" onkeyup="testSearch()" type="text" placeholder="Search..">
+
+        <span class="col-md-3 col-sm-2 h4 text-right">Choose category:</span>
+        <select class="col-md-2 col-sm-4 class-select" name="options" onchange="this.form.submit()">
+            <option value="all" selected>All</option>
+            {{#each categories}}
+            <option value="{{ID}}" {{#if (eq ID ../categoryId)}}selected {{/if}}>{{CategoryName}}</option>
+            {{/each}}
+        </select>
+
+    </div>
+    </form>
+</div>
+
+<div>
+    {{#if student}}
+    <table id="studenttable" class="table table_show student-table table-bordered">
+        <thead class="thead">
+            <tr>
+                <th>#</th>                  
+                <th>CategoryName</th>
+                <th>TestName</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each student}}
+            <tr>
+                <td class="number"></td>
+                <td class="class">{{CategoryName}}</td>
+                <td class="class">{{TestName}}</td>
+                <td class="class">{{Score}}%</td>                
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+    <p>No students found</p>
+    {{/if}}
+</div>
 
 {{#if student}}
 <h2>{{student.[0].FirstName}} {{student.[0].LastName}}</h2>
@@ -24,7 +82,7 @@
             labels: [{{#each testArr }}"{{this}}",{{/ each}}],
     datasets: [{
         label: '# of Votes',
-        data: [40, 20, 50],
+        data: [{{scoreArr}}],
         borderWidth: 1
     }]
         },
