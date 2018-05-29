@@ -6,6 +6,7 @@ public class TestDetails {
     private String TeacherID;
     private int Allowed;
     private int Time;
+    private int CategoryID;
 
     public int getID() {
         return ID;
@@ -45,5 +46,13 @@ public class TestDetails {
 
     public void setTime(int time) {
         Time = time;
+    }
+
+    public int getCategoryID() {
+        return CategoryID;
+    }
+
+    public void setCategoryID(int categoryID) {
+        CategoryID = categoryID;
     }
 }
