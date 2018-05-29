@@ -30,6 +30,6 @@
         <items>
         </items>
       </MenuButton>
-      <MenuButton fx:id="testMenuButton" layoutX="525.0" layoutY="349.0" mnemonicParsing="false" onAction="#performAction" prefHeight="31.0" prefWidth="140.0" text="Tests" />
+      <MenuButton fx:id="testMenuButton" layoutX="525.0" layoutY="349.0" mnemonicParsing="false" onAction="#performAction2" prefHeight="31.0" prefWidth="140.0" text="Tests" />
    </children>
 </Pane>

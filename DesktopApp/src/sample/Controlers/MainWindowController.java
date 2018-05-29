@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import sample.Objects.Category;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import sample.Objects.TestFinal;
 import sample.api.Communication;
 
 
@@ -54,7 +55,28 @@ public class MainWindowController {
         System.out.println("Clicked On Item:"+target.getId());
     }
 
-    public void createTest(ActionEvent event) {
+
+    public void performAction2(ActionEvent actionEvent) {
+        //you can add this method for multiple menu item and identify
+        //each menu item by its id
+        //MenuItem target  = (MenuItem) actionEvent.getSource();
+        //System.out.println("Clicked On Item:"+target.getId());
+/*
+        ArrayList<Category> list = communication.getCategories().getCategories();
+        this.categoryList = list;
+
+
+        for (Category temp:categoryList) {
+            System.out.println(temp.getCategoryName());
+        }
+        */
+        MenuItem target  = (MenuItem) actionEvent.getSource();
+        System.out.println("Clicked On Item:"+target.getId());
+    }
+
+    public void createTest(ActionEvent event, TestFinal actualTest) {
+        int countOfQuestions = actualTest.getQuestions().size();
+        System.out.println(countOfQuestions);
 
         try {
             Group root = new Group();
@@ -66,7 +88,7 @@ public class MainWindowController {
             TabPane tabPane = new TabPane();
             BorderPane mainPane = new BorderPane();
 
-            for(int i=1;i<15;i++) {
+            for(int i=0;i<countOfQuestions;i++) {
 
                 ToggleGroup toggleGroup = new ToggleGroup();
 

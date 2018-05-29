@@ -10,6 +10,8 @@ import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 import sample.Objects.Category;
 import sample.Objects.TestDetails;
+import sample.Objects.TestFinal;
+import sample.Objects.TestPrototype;
 import sample.api.Communication;
 
 import java.util.ArrayList;
@@ -21,6 +23,8 @@ public class LoginWindowController extends MainWindowController{
     public TextField loginField;
     public PasswordField passwordField;
     public Label lblError;
+
+    private static TestFinal actualTest;
 
     @FXML
     public MenuButton menuButtonCategory;
@@ -74,6 +78,14 @@ public class LoginWindowController extends MainWindowController{
                                     //String Id = (detail.getID()).toString();
                                     swap.setId(detail.getID());
                                     System.out.println(swap.getId());
+                                    swap.setOnAction(eventClicked1 -> {
+                                        String itemId = swap.getId();
+                                        TestPrototype newTest = communication.getTest(itemId);
+                                        actualTest = new TestFinal(newTest);
+                                        //System.out.println("DOSTAL SOM TEN DRBNUTY TEST");
+                                        actualTest.printTest();
+                                        new MainWindowController().createTest(null,actualTest);
+                                            });
                                     testMenuButton.getItems().add(swap);
 
                                 }
