@@ -7,13 +7,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import sample.Objects.AnswerFinal;
 import sample.Objects.Category;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import sample.Objects.QuestionsFinal;
 import sample.Objects.TestFinal;
 import sample.api.Communication;
 
@@ -88,24 +91,35 @@ public class MainWindowController {
             TabPane tabPane = new TabPane();
             BorderPane mainPane = new BorderPane();
 
-            for(int i=0;i<countOfQuestions;i++) {
+            int i = 1;
+            for(QuestionsFinal swapQuestion:actualTest.getQuestions()) {
 
                 ToggleGroup toggleGroup = new ToggleGroup();
 
                 Tab tab = new Tab();
-                tab.setText("Question " + i);
+                tab.setText("Q "+i);
+                i++;
                 HBox hbox = new HBox();
                 mainPane.setTop(hbox);
+                GridPane myGrid = new GridPane();
+                hbox.getChildren().add(myGrid);
 
-                Label lbl = new Label("This is question number "+i);
+                Label lbl = new Label(swapQuestion.getQuestionText());
+                myGrid.add(lbl,0,0,2,1);
 
-                RadioButton radio1 = new RadioButton();
-                RadioButton radio2 = new RadioButton();
-                RadioButton radio3 = new RadioButton();
-                RadioButton radio4 = new RadioButton();
-                toggleGroup.selectToggle(radio1);
-                toggleGroup.selectToggle(radio2);
-                toggleGroup.selectToggle(radio3);
+                int position = 300;
+                int row = 2;
+                for (AnswerFinal swapAnswer:swapQuestion.getAnswers()) {
+                    RadioButton newRadio = new RadioButton();
+                    newRadio.setToggleGroup(toggleGroup);
+                    newRadio.setText(swapAnswer.getAnswerText());
+                    newRadio.setTranslateX(300);
+                    newRadio.setTranslateY(position);
+                    newRadio.setStyle("-fx-text-fill: white;");
+                    position+=50;
+                    myGrid.add(newRadio,0,row);
+                    row++;
+                }
 
                 Button btnSubmitQuestion = new Button("Submit answer"); //toto tu vytvori tlacidlo prida mu ID,funkciu a zavrie scenu
                 btnSubmitQuestion.setId("closeButton");
@@ -115,21 +129,6 @@ public class MainWindowController {
                 lbl.setTranslateX(650);
                 lbl.setTranslateY(250);
 
-                hbox.getChildren().add(radio1);
-                radio1.setTranslateX(300);
-                radio1.setTranslateY(300);
-
-                hbox.getChildren().add(radio2);
-                radio2.setTranslateX(300);
-                radio2.setTranslateY(350);
-
-                hbox.getChildren().add(radio3);
-                radio3.setTranslateX(300);
-                radio3.setTranslateY(400);
-
-                hbox.getChildren().add(radio4);
-                radio4.setTranslateX(300);
-                radio4.setTranslateY(450);
 
                 hbox.getChildren().add(btnSubmitQuestion);
                 btnSubmitQuestion.setTranslateX(250);
@@ -144,10 +143,7 @@ public class MainWindowController {
 
                 tabPane.setStyle("-fx-background-color: #434343;-fx-text-fill: white;");
                 lbl.setStyle("-fx-text-fill: white;-fx-text-size: 25px");
-                radio1.setStyle("-fx-text-fill: white;");
-                radio2.setStyle("-fx-text-fill: white;");
-                radio3.setStyle("-fx-text-fill: white;");
-                radio4.setStyle("-fx-text-fill: white;");
+
             }
 
             mainPane.prefHeightProperty().bind(scene.heightProperty()); //da tabPane na celu stranu STAGU
