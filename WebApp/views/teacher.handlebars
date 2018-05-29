@@ -12,14 +12,14 @@
                     </div>
                     <div class="modal-body">
                         <input class="col-md-8 col-sm-10" placeholder="E-Mail" type="text" name="inviteTeacher">
-                        <button type="submit" class="btn btn-md btn-success">Send invitation</button>
+                        <button type="submit" id="sendinv" class="btn btn-md btn-success">Send invitation</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
 
-    <button type="button" id="inviteTeacherBtn" class="btn btn-md testsave btn-success" data-toggle="modal" data-target="#inviteTeacher">Invite teacher</button>
+    
 
 
     <table id="teachersTable" class="table table_show teacher-table table-bordered">
@@ -45,6 +45,6 @@
             {{/each}}
         </tbody>
     </table>
-
+<button type="button" id="inviteTeacherBtn" class="btn btn-md testsave btn-success" data-toggle="modal" data-target="#inviteTeacher">Invite teacher</button>
 
 </div>

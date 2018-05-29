@@ -333,6 +333,10 @@ ul{
    
 }
 
+#inviteTeacherBtn{
+    align-content: center;
+}
+
 questionlist:hover{
     text-decoration: none;
 }
@@ -396,6 +400,10 @@ questionlist:hover{
     -webkit-box-shadow: -2px 1px 26px -8px rgba(0,0,0,0.75);
 }
 
+.teacherlist{
+    overflow: auto;
+}
+
 
 #pointsin{
     margin-left: 21px;
@@ -434,6 +442,10 @@ questionlist:hover{
 .messageStudent{
     color: red;
     margin-bottom: 10px;
+}
+
+.forgot{
+    font-size: 15px;
 }
 
 #questionlist{
@@ -489,6 +501,7 @@ questionlist:hover{
     .whereHeader{
         display: none;
     }
+
 
     ul>li{
         padding-top: 15px;
@@ -612,7 +625,7 @@ questionlist:hover{
 }
 
 @media only screen and (max-width: 1064px){
-    .fa-user{
+    .user{
         display: none;
     }
 }
