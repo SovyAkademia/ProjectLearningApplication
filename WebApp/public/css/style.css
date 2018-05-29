@@ -65,6 +65,10 @@ th{
     overflow: auto;
 }
 
+#existquest>th{
+    color: black;
+}
+
 #chooseExist{
     margin-top: 10px;
     margin-bottom: 15px;
@@ -80,6 +84,40 @@ th{
 .headeric{
     color: #9fa2a5;
     margin-right: 15px;
+}
+
+#ansd{
+    margin-right: 21px;
+    margin-left: 19px;
+}
+
+#tooltipexist{
+    margin:0px;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted rgb(105, 105, 105);
+}
+
+#tooltipexist #tooltiptextexist{
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#tooltipexist:hover #tooltiptextexist {
+    visibility: visible;
+    opacity: 1;
 }
 
 #tooltip {
@@ -252,6 +290,7 @@ ul{
     
 
 }
+
 
 .btn-sub{
     background-color: #08A2BE;

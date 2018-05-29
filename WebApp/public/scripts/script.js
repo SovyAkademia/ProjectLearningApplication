@@ -241,6 +241,8 @@ function newItem() {
 
  }
 
+
+
  $('#createCategoryBtn').click(function(){
      console.log('good');
      var category = $('#newCategoryInput').val();
@@ -326,8 +328,27 @@ $('#testSelect').change(function(){
 
 function showExistingQuestions(data){
     $('#questions').html("");
+    var tr = ('<tr></tr>')
+    $('#questions').append(
+        '<tr id="existquest"><th>Question</th>\
+         <th>Answers</th>\
+         <th>Add</th></tr>');
     $.each(data.questions, function(index, question){
+<<<<<<< HEAD
         $('#questions').append('<div>'+question.QuestionText +'<button value="'+question.ID+'" onclick="addExistQuestion(event)" class="btn btn-success">Add</button></div>');
+=======
+        $('#questions').append(
+            '<tr><td>'+question.QuestionText+'</td>\
+            <td id="tooltipexist">Answers\
+            <span id="tooltiptextexist">\
+              <p>A. '+this.ans1+'</p>\
+              <p>B. '+this.ans2+'</p>\
+              <p>C. '+this.ans3+'</p>\
+              <p>D. '+this.ans4+'</p>\
+            </span>\
+          </td>\
+        <td><button class="btn btn-success btn-sm">Add</button></td></tr>');
+>>>>>>> 9d1c9825921966f9dffc3296b7ee6d05f8f8c135
     })
 }
 
@@ -423,26 +444,26 @@ function addExistQuestion(e){
 
 //     div.className = 'row';
 
-//     div.innerHTML = '<div id="counter"></div><input class="col-md-8 col-sm-10 questioninput" placeholder="Question?" type="text" value="" />\
-// 		<input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)"><br>\
-// 		<div class="row">\
-// 		<div class="container">\
-// 		<div class="col-md-12 col-sm-12">\
-//          				<input id="pointsin" placeholder="Points" list="points">\
-// 						<datalist id="points">\
-// 						<option value="1">\
-// 						<option value="2">\
-// 						<option value="3">\
-// 						<option value="4">\
-// 						<option value="5">\
-// 						</datalist><br>\
-// 					<label for="">A</label><input class="answer" type="text"><input class="ok" name="correctans" type="radio"><br>\
-//                     <label for="">B</label><input class="answer" type="text"><input class="ok" name="correctans" type="radio"><br>\
-//                     <label for="">C</label><input class="answer" type="text"><input class="ok" name="correctans" type="radio"><br>\
-//                     <label for="">D</label><input class="answer" type="text"><input class="ok" name="correctans" type="radio">\
-// 					</div>\
-// 					</div>\
-// 					</div><hr>';
+    // div.innerHTML = '<div id="counter"></div><input class="col-md-8 col-sm-10 questioninput" placeholder="Question?" type="text" value="" />\
+	// 	<input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)"><br>\
+	// 	<div class="row">\
+	// 	<div class="container">\
+	// 	<div class="col-md-12 col-sm-12">\
+    //      				<input id="pointsin" placeholder="Points" list="points">\
+	// 					<datalist id="points">\
+	// 					<option value="1">\
+	// 					<option value="2">\
+	// 					<option value="3">\
+	// 					<option value="4">\
+	// 					<option value="5">\
+	// 					</datalist><br>\
+	// 				<label for="">A</label><input class="answer" type="text"><input class="ok" name="correctans" type="radio"><br>\
+    //                 <label for="">B</label><input class="answer" type="text"><input class="ok" name="correctans" type="radio"><br>\
+    //                 <label for="">C</label><input class="answer" type="text"><input class="ok" name="correctans" type="radio"><br>\
+    //                 <label for="">D</label><input class="answer" type="text"><input class="ok" name="correctans" type="radio">\
+	// 				</div>\
+	// 				</div>\
+	// 				</div><hr>';
    
 // 					document.getElementById('content').appendChild(div);
 // }

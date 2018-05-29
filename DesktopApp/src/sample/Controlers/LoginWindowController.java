@@ -6,9 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 import sample.Objects.Category;
 import sample.Objects.TestDetails;
+import sample.Objects.TestFinal;
+import sample.Objects.TestPrototype;
 import sample.api.Communication;
 
 import java.util.ArrayList;
@@ -21,6 +24,8 @@ public class LoginWindowController extends MainWindowController{
     public PasswordField passwordField;
     public Label lblError;
 
+    private static TestFinal actualTest;
+
     @FXML
     public MenuButton menuButtonCategory;
 
@@ -31,13 +36,10 @@ public class LoginWindowController extends MainWindowController{
     public Button closeButton;
 
     public void clickLogin(ActionEvent event) {
-        String email = loginField.textProperty().get();
-        String password = passwordField.textProperty().get();
+        try {
+            String email = loginField.textProperty().get();
+            String password = passwordField.textProperty().get();
 
-        if (email.length() < 1 || password.length() < 1)
-            lblError.textProperty().set("Error input try again");
-        else
-            try {
                 if (communication.authenticate(email,password))
                 {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Scenes/MainWindow.fxml"));
@@ -61,8 +63,6 @@ public class LoginWindowController extends MainWindowController{
 
                     menuButtonCategory = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("menuButtonCategory")).get(0);
                     testMenuButton = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("testMenuButton")).get(0);
-                    int i=0;
-
 
                     for (Category temp:categoryList) {
 
@@ -74,7 +74,20 @@ public class LoginWindowController extends MainWindowController{
                             List<TestDetails> listOfTests = communication.getTestsDetails(currentItem).getTests();
                             if(listOfTests != null) {
                                 for (TestDetails detail : listOfTests) {
-                                    testMenuButton.getItems().add(new MenuItem(detail.getTestName()));
+                                    MenuItem swap = new MenuItem(detail.getTestName());
+                                    //String Id = (detail.getID()).toString();
+                                    swap.setId(detail.getID());
+                                    System.out.println(swap.getId());
+                                    swap.setOnAction(eventClicked1 -> {
+                                        String itemId = swap.getId();
+                                        TestPrototype newTest = communication.getTest(itemId);
+                                        actualTest = new TestFinal(newTest);
+                                        //System.out.println("DOSTAL SOM TEN DRBNUTY TEST");
+                                        actualTest.printTest();
+                                        new MainWindowController().createTest(null,actualTest);
+                                            });
+                                    testMenuButton.getItems().add(swap);
+
                                 }
                             }
                         });
@@ -83,7 +96,7 @@ public class LoginWindowController extends MainWindowController{
                 }
                 else
                 {
-
+                    lblError.textProperty().set("Wrong email or password!!!Try again!");
                 }
 
             } catch (Exception e) {

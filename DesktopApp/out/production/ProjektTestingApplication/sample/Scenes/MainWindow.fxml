@@ -18,7 +18,7 @@
             <Image url="@../Pictures/UserPicture.png" />
          </image>
       </ImageView>
-      <MenuButton fx:id="MenuButtonForUser" layoutX="1272.0" layoutY="107.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #08A2BE;-fx-text-fill: white;" text="Johny Walker">
+      <MenuButton fx:id="MenuButtonForUser" layoutX="1272.0" layoutY="107.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" text="Johny Walker">
         <items>
             <MenuItem fx:id="user_profile" mnemonicParsing="false" onAction="#performAction" text="User Profile" />
               <MenuItem fx:id="action_marks" mnemonicParsing="false" onAction="#performAction" text="Marks score" />
@@ -26,10 +26,10 @@
               <MenuItem fx:id="action_logout" mnemonicParsing="false" onAction="#MenuLogout" text="Log out" />
            </items>
       </MenuButton>
-      <MenuButton fx:id="menuButtonCategory" layoutX="278.0" layoutY="349.0" mnemonicParsing="false" onAction="#performAction" style="-fx-background-color: green;" text="Choose categories">
+      <MenuButton fx:id="menuButtonCategory" layoutX="278.0" layoutY="349.0" mnemonicParsing="false" onAction="#performAction" text="Choose categories">
         <items>
         </items>
       </MenuButton>
-      <MenuButton fx:id="testMenuButton" layoutX="525.0" layoutY="349.0" mnemonicParsing="false" onAction="#performAction" prefHeight="31.0" prefWidth="140.0" text="Tests" />
+      <MenuButton fx:id="testMenuButton" layoutX="525.0" layoutY="349.0" mnemonicParsing="false" onAction="#performAction2" prefHeight="31.0" prefWidth="140.0" text="Tests" />
    </children>
 </Pane>

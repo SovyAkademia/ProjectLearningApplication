@@ -1,17 +1,18 @@
 package sample.Objects;
 
 public class TestDetails {
-    private int ID;
+    private String ID;
     private String TestName;
     private String TeacherID;
     private int Allowed;
     private int Time;
+    private int CategoryID;
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -45,5 +46,13 @@ public class TestDetails {
 
     public void setTime(int time) {
         Time = time;
+    }
+
+    public int getCategoryID() {
+        return CategoryID;
+    }
+
+    public void setCategoryID(int categoryID) {
+        CategoryID = categoryID;
     }
 }

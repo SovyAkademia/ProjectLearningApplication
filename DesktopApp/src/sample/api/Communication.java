@@ -74,7 +74,7 @@ public class Communication {
         return swap;
     }
 
-    public TestPrototype getTest(int testID){
+    public TestPrototype getTest(String testID){
         TestPrototype swap = new TestPrototype();
         try {
             String json = "{\n\t\"testId\":\""+testID+"\"," +
@@ -96,7 +96,4 @@ public class Communication {
         }
         return swap;
     }
-
-
-
 }

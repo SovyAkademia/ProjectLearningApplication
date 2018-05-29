@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: Pi 25.Máj 2018, 11:05
+-- Čas generovania: Út 29.Máj 2018, 09:34
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `answers` (
   `Correct` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
   KEY `questionID` (`QuestionID`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=177 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `answers`
@@ -67,8 +67,8 @@ INSERT INTO `answers` (`ID`, `QuestionID`, `AnswerText`, `Correct`) VALUES
 (20, 5, 'private int i=1;', 1),
 (21, 6, 'Lower letter', 0),
 (22, 6, 'Upper letter', 1),
-(23, 6, 'Number', 0),
-(24, 6, 'Special character', 0);
+(23, 6, 'Special character', 0),
+(24, 6, 'Number', 0);
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `answers_view` (
   `ans4` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDQuestion` (`IDQuestion`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CategoryName` varchar(255) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `categories`
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `QuestionText` varchar(1000) DEFAULT NULL,
   `Points` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `questions`
@@ -186,11 +186,41 @@ CREATE TABLE IF NOT EXISTS `students` (
   `FirstName` varchar(30) NOT NULL,
   `LastName` varchar(30) NOT NULL,
   `Email` varchar(255) NOT NULL,
-  `Password` varchar(255) NOT NULL,
+  `Password` varchar(255) DEFAULT NULL,
   `DateOfReg` datetime DEFAULT NULL,
   `Year` int(4) NOT NULL,
   `Online` tinyint(1) NOT NULL DEFAULT '0',
   `Allowed` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Sťahujem dáta pre tabuľku `students`
+--
+
+INSERT INTO `students` (`ID`, `FirstName`, `LastName`, `Email`, `Password`, `DateOfReg`, `Year`, `Online`, `Allowed`) VALUES
+(2, 'Boris', 'Galický', 'boris.galicky@akademiasovy.sk', '1234', NULL, 2017, 0, 1),
+(3, 'Erik', 'Ruszinka', 'erik.ruszinka@akademiasovy.sk', '1234', NULL, 2017, 0, 1),
+(8, 'Try', 'Student', 'try.student@gmail.com', '1234', NULL, 2017, 0, 1),
+(9, 'Try', 'Student2', 'try.student2@gmail.com', '1234', NULL, 2017, 0, 1),
+(10, 'Try', 'Student3', 'try.student3@gmail.com', '1234', NULL, 2017, 0, 1),
+(11, 'Try', 'Student4', 'try.student4@gmail.com', '1234', NULL, 2017, 0, 1),
+(12, 'Try', 'Student5', 'try.student5@gmail.com', '1234', NULL, 2017, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Štruktúra tabuľky pre tabuľku `students_history`
+--
+
+DROP TABLE IF EXISTS `students_history`;
+CREATE TABLE IF NOT EXISTS `students_history` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `FirstName` varchar(255) NOT NULL,
+  `LastName` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `DateOfDelete` datetime DEFAULT NULL,
+  `Year` int(4) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -212,14 +242,15 @@ CREATE TABLE IF NOT EXISTS `teachers` (
   `Allowed` tinyint(1) NOT NULL DEFAULT '0',
   `Admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `teachers`
 --
 
 INSERT INTO `teachers` (`ID`, `FirstName`, `LastName`, `Email`, `Password`, `DateOfReg`, `Online`, `Allowed`, `Admin`) VALUES
-(1, 'Roland', 'Onofrej', 'roland.onofrej@akademiasovy.sk', '$2b$10$wY52SZgiYCuAedhlF89MmOwoHoaUbDYol965mHMqep83efz766iG.', '2018-05-18 00:00:00', 0, 0, 0);
+(1, 'Roland', 'Onofrej', 'roland.onofrej@akademiasovy.sk', '$2b$10$wY52SZgiYCuAedhlF89MmOwoHoaUbDYol965mHMqep83efz766iG.', '2018-05-18 00:00:00', 0, 1, 1),
+(2, 'John', 'Doe', 'john.doe@gmail.com', '$2b$10$vFpCeBjl22l2HMWi/zg3S.xe0RLEfZATggwpHV8KGXlJL6yIL5S/W', '2018-05-25 16:38:14', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -238,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `tests` (
   PRIMARY KEY (`ID`),
   KEY `CategoryID` (`CategoryID`),
   KEY `TeacherID` (`TeacherID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `tests`
@@ -246,7 +277,8 @@ CREATE TABLE IF NOT EXISTS `tests` (
 
 INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Time`) VALUES
 (1, 'Big HTML test', 1, 1, 0, NULL),
-(2, 'Java test', 2, 1, 0, NULL);
+(2, 'Java test', 2, 1, 0, NULL),
+(7, 'Exercise test', 2, 2, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -262,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `test_details` (
   PRIMARY KEY (`ID`),
   KEY `TestID` (`TestID`),
   KEY `QuestionID` (`QuestionID`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `test_details`

@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite id="" name="" >
+<node_order><![CDATA[]]></node_order>
+<details><![CDATA[]]></details> 
+<testsuite id="14" name="Web Application" >
+<node_order><![CDATA[1]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="16" name="Register as student">
+	<node_order><![CDATA[0]]></node_order>
+	<externalid><![CDATA[1]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check registration of student&#39;s account.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Registration should be successful.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+
+</testcase>
+
+<testcase internalid="18" name="Register as teacher">
+	<node_order><![CDATA[1]]></node_order>
+	<externalid><![CDATA[2]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of registration of teacher&#39;s account.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Registration should be successful.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+
+</testcase>
+
+<testcase internalid="20" name="Login">
+	<node_order><![CDATA[2]]></node_order>
+	<externalid><![CDATA[3]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check login functionality with:</p>
+
+<p>1.) valid e-mail and invalid password</p>
+
+<p>2.) invalid e-mail and invalid password</p>
+
+<p>3.) invalid e-mail and valid password</p>
+
+<p>4.) valid e-mail and valid password</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Registration process should be successful only when 4. case written in summary will be done.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;roland.onofrej@akademiasovy.sk&quot; e-mail address into the email input. Next enter &quot;12345&quot; into password field.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Warning message &quot;Wrong&nbsp;password&quot;&nbsp;will appear above.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;rolandonofrej@akademiasovy.sk&quot; e-mail address into the email input. Next enter &quot;12345&quot; into password field.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Warning message &quot;User not&nbsp;found&quot; will appear above.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;rolandonofrej@akademiasovy.sk&quot; e-mail into the email input. Next enter &quot;1234&quot; into password field.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Warning message &quot;User not found&quot; will appear above.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;roland.onofrej@akademiasovy.sk&quot; e-mail into the email input. Next enter &quot;1234&quot; into password field.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>You will be redirected to dashboard screen. White window&nbsp;&quot;New registrations&quot; will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="34" name="Auto Logout">
+	<node_order><![CDATA[3]]></node_order>
+	<externalid><![CDATA[4]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check if user is automatically logged out because of inactivity.</p>
+
+<p>&nbsp;</p>
+
+<p>Test data:</p>
+
+<p>E-mail: roland.onofrej@akademiasovy.sk</p>
+
+<p>Password: 1234</p>
+]]></summary>
+	<preconditions><![CDATA[<p>User will not be not authorized&nbsp;to view other&nbsp;pages.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[1]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Log in. Use test data stated above in summary field.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Login must be successful.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Wait 1 minute, then click on any item placed in left panel (Dashboard, My tests, Create test, Students).</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Warning window &quot;You are not authorized to view this page&quot; will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+<testsuite id="56" name="Create new test" >
+<node_order><![CDATA[5]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="38" name="Create new category">
+	<node_order><![CDATA[4]]></node_order>
+	<externalid><![CDATA[5]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of creating new category.<br />
+Check creating of duplicate categories.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>New category should be succesfully created.<br />
+Creating of two simillar categories will not be permitted.<br />
+Creating of category with blank title will not be possible.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Create test&quot; item on left panel.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Window &quot;Create new test&quot; will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Click on the dropdown button above with preset text &quot;HTML&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dropdown button will show 2 options.</p>
+
+<p>HTML, Java.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Create new category&quot; option&nbsp;placed below.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window &quot;Create new category&quot; will appear in the top of the screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;C++&quot;&nbsp;into the field in dialog window. Then click on the cross in the top right&nbsp;corner of the window.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window will disappear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>Click on the dropdown button above with preset text &quot;HTML&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dropdown button will show 2 options.</p>
+
+<p>HTML, Java</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Create new category&quot; option&nbsp;placed below.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window &quot;Create new category&quot; will appear in the top of the screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[7]]></step_number>
+	<actions><![CDATA[<p>Enter one or more spaces into the field in dialog window. Then click on the &quot;Save&quot; button placed in the bottom right corner.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Warning message &quot;Category field is empty&quot; will appear next to the &quot;Save&quot; button.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[8]]></step_number>
+	<actions><![CDATA[<p>Delete entered space/spaces and enter &quot;HTML&quot; into the field.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Warning message &quot;Category already exist&quot; will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[9]]></step_number>
+	<actions><![CDATA[<p>Delete entered text and enter more than 255 characters into the field.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Warning message &quot;There was some problem with database&quot; will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[10]]></step_number>
+	<actions><![CDATA[<p>Delete entered text&nbsp;and enter &quot;C++&quot;&nbsp;into the field in dialog window. Then click on the &quot;Save&quot; button&nbsp;in the bottom&nbsp;right&nbsp;corner of the window.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window will disappear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[11]]></step_number>
+	<actions><![CDATA[<p>Click on the dropdown button above with preset text &quot;HTML&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dropdown button will show 3 options.</p>
+
+<p>HTML, Java, C++</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="54" name="Create new test">
+	<node_order><![CDATA[1005]]></node_order>
+	<externalid><![CDATA[6]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of creating new test.<br />
+Check if creating of tests with simillar titles will not be permitted.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>New test should be succesfully created.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on input placed above and select choice &quot;Java&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Java category will be chosen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;Exercise test&quot; into &quot;Test name&quot; input below.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Blue button &quot;Start creating test&quot; will appear in the bottom of window.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Delete whole entered text in &quot;Test name&quot; input.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Blue button &quot;Start creating test&quot; will disappear from screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Insert some text into &quot;Test name&quot; input below. Then click on button &quot;Start creating test&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>You will be redirected to another screen. White window with &quot;Test name: Exercise test&quot; on the top will appear. On the right side there is stated &quot;Test category: Java&quot;.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Create test&quot; item on left panel. Insert into &quot;Test name&quot; input &quot;Exercise text&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Warning message &quot;Test already exists&quot; will appear in bottom right corner of window and content of input will be erased.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="58" name="Show tests">
+	<node_order><![CDATA[1006]]></node_order>
+	<externalid><![CDATA[7]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of displaying of all tests.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>All created tests will be successfully displayed.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;My tests&quot; item on left panel.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>&quot;My tests&quot; screen will appear. There are two input above. Left one for search, right one for filtering of tests depending on category. Created test is displayed below.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Click on search input and enter &quot;e&quot; character.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>No changes will be made on the screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Click on search input, delete previously typed characters and enter &quot;q&quot; character.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Exercise test will disappear from the screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Choose category&quot; dropdown button placed next to the&nbsp;search input. Choose HTML option.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Exercise test will disappear from the screen. &quot;No tests found&quot; message will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Choose category&quot; dropdown button again. Then choose Java option.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Exercise test will be displayed.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<p>Click on edit option inside of&nbsp; &quot;Exercise test&quot; box.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>You will be redirected to another screen. White window with &quot;Test name: Exercise test&quot; on the top will appear. On the right side there is stated &quot;Test category: Java&quot;.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="71" name="Add new question">
+	<node_order><![CDATA[1007]]></node_order>
+	<externalid><![CDATA[8]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of adding new question to the test.<br />
+Check functonality of checking blank input fields.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Question will be correctly added to test.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on the blue button &quot;Add new question&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window with &quot;Add new quesiton&quot; title will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Click on the green button &quot;Add the question&quot;&nbsp;in the bottom.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under the input with preset value &quot;Type in your question&quot;.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Enter one or more spaces in the input with preset value &quot;Type in your question&quot;. Click on the green button &quot;Add the question&quot; in the bottom.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p><strong><span style="color:#c0392b">{Something}</span></strong> will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Delete entered space/spaces and insert &quot;My Question&quot; into upper field&nbsp;and enter one or more spaces in the input for Answer A. Click on the green button &quot;Add the question&quot; in the bottom.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p><span style="color:#e74c3c"><strong>{Something}</strong></span> will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>Delete entered space/spaces in upper input and type&nbsp;&quot;My Question&quot; into this&nbsp;input. Then click on green button &quot;Add the&nbsp;question&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under the input for Answer A.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;First&quot; into input for Answer A. Then click on &quot;Add the&nbsp;question&quot; button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under the input for Answer B.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[7]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;Second&quot; into input for Answer B.&nbsp;Then click on &quot;Add the&nbsp;question&quot; button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under the input for Answer C.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[8]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;Third&quot; into input for Answer C.&nbsp;Then click on &quot;Add the&nbsp;question&quot; button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under the input for D-answer.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[9]]></step_number>
+	<actions><![CDATA[<p>Firstly enter &quot;Fourth&quot; into input for Answer D. Secondly delete entered text from topmost input.&nbsp;Finally click on &quot;Add the&nbsp;question&quot; button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under the input with preset value &quot;Type in your question&quot;.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[10]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;My Question&quot; in the topmost input. Then click click on grey button &quot;Close&quot; in bottom right corner.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window for editing of&nbsp;questions will disappear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[11]]></step_number>
+	<actions><![CDATA[<p>Click on the blue button &quot;Add new question&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window with &quot;Add new quesiton&quot; title will appear. There will be some value inserted in:</p>
+
+<p>Upper input: My Question<br />
+Points: 1<br />
+Answer A: First<br />
+Answer B: Second<br />
+Answer C: Third<br />
+Answer D: Fourth</p>
+
+<p>Radio button &quot;Correct&quot; will be selected for Answer A choice.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[12]]></step_number>
+	<actions><![CDATA[<p>Click on the &quot;Points&quot; dropdown. Select &quot;4&quot; choice. Next select radio button &quot;Correct&quot; for Answer C.&nbsp;Then click in the green button &quot;Add the question&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window will disappear. Created question will be added to list under blue button &quot;Add new question&quot;.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="89" name="Show questions">
+	<node_order><![CDATA[1008]]></node_order>
+	<externalid><![CDATA[9]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of listing of all questions.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>All questions will be displayed correctly.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+
+</testcase>
+</testsuite></testsuite><testsuite id="15" name="Desktop Application" >
+<node_order><![CDATA[2]]></node_order>
+<details><![CDATA[]]></details> 
+</testsuite></testsuite>
