@@ -13,15 +13,16 @@ exports.register_new_student = (req, res, next) => {
     console.log(req.body);
 
     let selectEmail = 'select Email from students where Email like ?';
-    let insertStudent = 'insert into students(FirstName,LastName,Email,Year,DateOfReg) values(?,?,?,?,CURRENT_TIMESTAMP())';
+    let insertStudent = 'insert into students (FirstName,LastName,Email,Year,DateOfReg) values(?,?,?,?,CURRENT_TIMESTAMP())';
 
     db.query(selectEmail, [email], (err, result) => {
         if (err) return next(err);
-
+        
         if (result.length == 0) {
             if (err) return next(err);
             db.query(insertStudent, [firstName, lastName, email, firstYear], (err, inserted) => {
-                if (err) return next(err);
+                if (err) throw err;
+                console.log('ok');
                 console.log('Student registered');
                 res.render('login', { message: 'Student succesfully registered' });
             });

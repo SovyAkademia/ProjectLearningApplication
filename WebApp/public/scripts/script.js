@@ -305,7 +305,6 @@ function populateSelect(data){
 }
 
 $('#testSelect').change(function(){
-    console.log(this.value);
 
     $.ajax({
         type: 'POST',
@@ -328,9 +327,70 @@ $('#testSelect').change(function(){
 function showExistingQuestions(data){
     $('#questions').html("");
     $.each(data.questions, function(index, question){
-        $('#questions').append('<div>'+question.QuestionText +'<div>');
+        $('#questions').append('<div>'+question.QuestionText +'<button value="'+question.ID+'" onclick="addExistQuestion(event)" class="btn btn-success">Add</button></div>');
     })
 }
+
+function addExistQuestion(e){
+    var testName = $("#testSelect option:selected" ).text();
+    var questionID = e.target.value;
+
+    $.ajax({
+        type: 'GET',
+        url:'http://localhost:5000/test/'+testName+'/'+questionID,
+        error: function(){
+           console.log('ajax not working')
+        },
+        dataType: "jsonp",
+        success : function(data){
+            console.log(data);
+            var currentTest = $('#nameOfTest').html();
+
+            var corr;
+            if(data.answers[0].correct == 1){
+                corr = 'A';
+            } else if(data.answers[1].correct == 1){
+                corr = 'B';
+            } else if(data.answers[2].correct == 1){
+                corr = 'C';
+            } else if(data.answers[3].correct == 1){
+                corr = 'D';
+            }
+
+            $.ajax({
+                type: 'POST',
+                url:'http://localhost:5000/test/'+currentTest+'',
+                error: function(){
+                   console.log('ajax not working');
+                },
+                dataType: "html",
+                data:{
+                    textQuest:data.question[0].questiontext,
+                    selectPoint:data.question[0].points,
+                    ansa:data.answers[0].answertext,
+                    ansb:data.answers[1].answertext,
+                    ansc:data.answers[2].answertext,
+                    ansd:data.answers[3].answertext,
+                    corr:corr
+
+                    
+                },
+                success : function(data){
+                     location.reload();
+                    
+                }
+        
+            });
+            
+            
+        }
+
+    });
+
+}
+    
+
+    
 //  $('.class-select').change(function(){
 // 	 console.log('lol');
 //  })
@@ -398,4 +458,4 @@ function showExistingQuestions(data){
 // 	var counterval = $('#counter').html;
 	
 
-//   });
+//   })

@@ -14,6 +14,7 @@ exports.add_question = (req, res, next) => {
     let corrB = req.body.corr == 'B' ? 1 : 0;
     let corrC = req.body.corr == 'C' ? 1 : 0;
     let corrD = req.body.corr == 'D' ? 1 : 0;
+    console.log(all);
     
     let queryFindTest = 'select * from tests where TestName like ?;';
     let queryInsertQuestion = 'insert into questions (QuestionText,Points) values(?,?);';

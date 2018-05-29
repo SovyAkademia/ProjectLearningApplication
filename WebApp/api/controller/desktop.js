@@ -118,7 +118,7 @@ exports.student_login = (req, res, next) => {
 exports.get_test = (req, res, next) => {
 
     let query1 = 'select testName from tests where id = ?';
-    let query = 'SELECT questions.id as questionID,questionText, answerText FROM questions INNER JOIN answers ON questions.ID=answers.QuestionID INNER JOIN test_details ON test_details.QuestionID=questions.ID INNER JOIN tests ON test_details.TestID=tests.ID WHERE tests.ID=? ';
+    let query = 'SELECT questions.id as questionID,questionText, answerText, answers.id as answerID FROM questions INNER JOIN answers ON questions.ID=answers.QuestionID INNER JOIN test_details ON test_details.QuestionID=questions.ID INNER JOIN tests ON test_details.TestID=tests.ID WHERE tests.ID=? ';
     db.query(query1, [req.body.testId], (err, testName) => {
         if (err || testName.length < 1){
             return res.status(404).json({
