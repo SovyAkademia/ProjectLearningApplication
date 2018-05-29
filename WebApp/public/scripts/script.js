@@ -334,21 +334,7 @@ function showExistingQuestions(data){
          <th>Answers</th>\
          <th>Add</th></tr>');
     $.each(data.questions, function(index, question){
-<<<<<<< HEAD
         $('#questions').append('<div>'+question.QuestionText +'<button value="'+question.ID+'" onclick="addExistQuestion(event)" class="btn btn-success">Add</button></div>');
-=======
-        $('#questions').append(
-            '<tr><td>'+question.QuestionText+'</td>\
-            <td id="tooltipexist">Answers\
-            <span id="tooltiptextexist">\
-              <p>A. '+this.ans1+'</p>\
-              <p>B. '+this.ans2+'</p>\
-              <p>C. '+this.ans3+'</p>\
-              <p>D. '+this.ans4+'</p>\
-            </span>\
-          </td>\
-        <td><button class="btn btn-success btn-sm">Add</button></td></tr>');
->>>>>>> 9d1c9825921966f9dffc3296b7ee6d05f8f8c135
     })
 }
 
