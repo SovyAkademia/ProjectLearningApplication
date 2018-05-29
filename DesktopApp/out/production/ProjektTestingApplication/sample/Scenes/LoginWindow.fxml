@@ -9,8 +9,9 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="708.0" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controlers.LoginWindowController">
    <children>
-      <Button fx:id="btnLogin" layoutX="301.0" layoutY="477.0" mnemonicParsing="false" onAction="#clickLogin" prefHeight="35.0" prefWidth="114.0" text="Login" />
+      <TextField fx:id="loginField" layoutX="261.0" layoutY="286.0" prefHeight="35.0" prefWidth="186.0" promptText="Type here ..." style="-fx-background-color: white; -fx-border-color: black;" />
       <PasswordField fx:id="passwordField" layoutX="261.0" layoutY="387.0" prefHeight="35.0" prefWidth="186.0" promptText="Type here ..." style="-fx-background-color: white; -fx-border-color: black;" />
+      <Button fx:id="btnLogin" layoutX="301.0" layoutY="477.0" mnemonicParsing="false" onAction="#clickLogin" prefHeight="35.0" prefWidth="114.0" text="Login" />
       <Label layoutX="195.0" layoutY="78.0" text="Sovy Test" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="72.0" />
@@ -21,12 +22,11 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="loginField" layoutX="261.0" layoutY="286.0" prefHeight="35.0" prefWidth="186.0" promptText="Type here ..." style="-fx-background-color: white; -fx-border-color: black;" />
       <Label layoutX="301.0" layoutY="340.0" text="Password" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblError" layoutX="154.0" layoutY="477.0" prefHeight="35.0" prefWidth="107.0" />
+      <Label fx:id="lblError" layoutX="227.0" layoutY="433.0" prefHeight="44.0" prefWidth="249.0" textFill="WHITE" />
    </children>
 </Pane>
