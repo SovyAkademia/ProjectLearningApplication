@@ -96,7 +96,4 @@ public class Communication {
         }
         return swap;
     }
-
-
-
 }
