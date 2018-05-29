@@ -13,10 +13,10 @@ public class QuestionsFinal {
         this.questionText = questionText;
     }
 
-    public QuestionsFinal(int questionID, String questionText, String answer) {
+    public QuestionsFinal(int questionID, String questionText, String answer,String answerID) {
         this.questionID = questionID;
         this.questionText = questionText;
-        this.answers.add(new AnswerFinal(answer));
+        this.answers.add(new AnswerFinal(answer,answerID));
     }
 
     public String getQuestionText() {

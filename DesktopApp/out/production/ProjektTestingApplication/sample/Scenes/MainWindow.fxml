@@ -22,7 +22,7 @@
         <items>
             <MenuItem fx:id="user_profile" mnemonicParsing="false" onAction="#performAction" text="User Profile" />
               <MenuItem fx:id="action_marks" mnemonicParsing="false" onAction="#performAction" text="Marks score" />
-           <MenuItem fx:id="action_password" mnemonicParsing="false" onAction="#performAction" text="Change password" />
+           <MenuItem fx:id="action_password" mnemonicParsing="false" onAction="#changePassword" text="Change password" />
               <MenuItem fx:id="action_logout" mnemonicParsing="false" onAction="#MenuLogout" text="Log out" />
            </items>
       </MenuButton>

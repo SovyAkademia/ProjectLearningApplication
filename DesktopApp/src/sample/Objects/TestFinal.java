@@ -13,18 +13,18 @@ public class TestFinal {
             int swapId = swap.getQuestionID();
             boolean exist = false;
             if (this.questions == null) {
-                this.questions.add(new QuestionsFinal(swapId,swap.getQuestionText(),swap.getAnswerText()));
+                this.questions.add(new QuestionsFinal(swapId,swap.getQuestionText(),swap.getAnswerText(),swap.getAnswerID()));
             }
             for (QuestionsFinal swap2:this.questions) {
                 if (swap2.getQuestionID() == swapId){
-                    swap2.getAnswers().add(new AnswerFinal(swap.getAnswerText()));
+                    swap2.getAnswers().add(new AnswerFinal(swap.getAnswerText(),swap.getAnswerID()));
                     exist = true;
                     break;
                 }
             }
             if (exist){}
             else {
-                this.getQuestions().add(new QuestionsFinal(swapId,swap.getQuestionText(),swap.getAnswerText()));
+                this.getQuestions().add(new QuestionsFinal(swapId,swap.getQuestionText(),swap.getAnswerText(),swap.getAnswerID()));
             }
         }
     }

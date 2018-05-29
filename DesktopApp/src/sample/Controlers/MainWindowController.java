@@ -2,11 +2,13 @@ package sample.Controlers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -116,12 +118,20 @@ public class MainWindowController {
                     newRadio.setTranslateX(300);
                     newRadio.setTranslateY(position);
                     newRadio.setStyle("-fx-text-fill: white;");
+                    String newID = (swapQuestion.getQuestionID()+" "+swapAnswer.getAnswerID());
+                    newRadio.setUserData(newID);
+                    newRadio.setId("ans "+(i-2)+" "+(row-2));
+                    System.out.println(newRadio.getId());
                     position+=50;
                     myGrid.add(newRadio,0,row);
                     row++;
                 }
 
                 Button btnSubmitQuestion = new Button("Submit answer"); //toto tu vytvori tlacidlo prida mu ID,funkciu a zavrie scenu
+                btnSubmitQuestion.setOnAction(resolveSubmit -> {
+                    String checkedID = toggleGroup.getSelectedToggle().getUserData().toString();
+                    System.out.println(checkedID);
+                });
                 btnSubmitQuestion.setId("closeButton");
                 mainPane.setCenter(tabPane);
 
@@ -144,6 +154,11 @@ public class MainWindowController {
                 tabPane.setStyle("-fx-background-color: #434343;-fx-text-fill: white;");
                 lbl.setStyle("-fx-text-fill: white;-fx-text-size: 25px");
 
+                if (i == countOfQuestions)
+                {
+
+                }
+
             }
 
             mainPane.prefHeightProperty().bind(scene.heightProperty()); //da tabPane na celu stranu STAGU
@@ -156,6 +171,64 @@ public class MainWindowController {
 
 
         } catch (Exception e) {
-            e.printStackTrace();}    }
+            e.printStackTrace();}
+    }
+
+    public void changePassword() {
+        Stage primaryStage = new Stage();
+        primaryStage.setTitle("Change Password");
+        GridPane gridko = new GridPane();
+        gridko.getColumnConstraints().add(new ColumnConstraints(18));
+
+        Label labelNewPassword = new Label();
+        labelNewPassword.setText("Here insert NEW password: ");
+        labelNewPassword.setTextFill(Color.WHITE);
+        GridPane.setConstraints(labelNewPassword,2,1);
+
+        TextField fieldNewPassword = new TextField();
+        GridPane.setConstraints(fieldNewPassword,2,2);
+
+        Label labelNewAgainPassword = new Label();
+        labelNewAgainPassword.setText("Here insert NEW password again: ");
+        labelNewAgainPassword.setTextFill(Color.WHITE);
+        GridPane.setConstraints(labelNewAgainPassword,2,4);
+
+        TextField fieldNewAgainPassword = new TextField();
+        GridPane.setConstraints(fieldNewAgainPassword,2,5);
+
+        Label labelOldPassword = new Label();
+        labelOldPassword.setText("Here insert OLD password: ");
+        labelOldPassword.setTextFill(Color.WHITE);
+        GridPane.setConstraints(labelOldPassword,2,7);
+
+        TextField fieldOldPassword = new TextField();
+        GridPane.setConstraints(fieldOldPassword,2,8);
+
+        Button btn = new Button();
+        btn.setText("Submit new password");
+        GridPane.setConstraints(btn, 3,9);
+        gridko.setStyle("-fx-background-color: #434343;");
+
+
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String newPassword = fieldNewPassword.getText();
+                String newPasswordAgain = fieldNewAgainPassword.getText();
+                String oldPassword = fieldOldPassword.getText();
+                if(newPassword.equals(newPasswordAgain) && oldPassword.length()>4 && newPassword.length()>4) {
+                    System.out.println("Correct change");
+                    primaryStage.close();
+                }
+                else {
+                    System.out.println("Chyba zle heslo");
+                }
+            }
+        });
+
+        gridko.getChildren().addAll(btn,labelNewAgainPassword,labelNewPassword,labelOldPassword,fieldNewAgainPassword,fieldNewPassword,fieldOldPassword);
+        primaryStage.setScene(new Scene(gridko, 300, 250));
+        primaryStage.show();
+    }
 
 }

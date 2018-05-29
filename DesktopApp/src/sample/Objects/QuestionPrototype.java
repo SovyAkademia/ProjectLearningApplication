@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class QuestionPrototype {
     private int questionID;
+    private String answerID;
     private String questionText;
     private String answerText;
 
@@ -29,5 +30,13 @@ public class QuestionPrototype {
 
     public void setAnswerText(String answerText) {
         this.answerText = answerText;
+    }
+
+    public String getAnswerID() {
+        return answerID;
+    }
+
+    public void setAnswerID(String answerID) {
+        this.answerID = answerID;
     }
 }
