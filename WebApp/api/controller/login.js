@@ -137,3 +137,17 @@ exports.send_mail = (req,res,next) =>{
             });
         });
 }
+
+exports.decline_user = (req ,res, next) =>{
+    let reqid = req.params.id;
+
+    let deleteQuery = 'delete from students where id like ?;';
+
+    db.query(deleteQuery,[reqid],(err,insertPass)=>{
+        if (err) return next(err);
+
+        req.flash('error_msg', 'User deleted');               
+        res.redirect('/dashboard');
+    });
+
+}

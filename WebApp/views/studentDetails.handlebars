@@ -57,9 +57,15 @@
     {{/if}}
 </div>
 
-{{#if student}}
-<h2>{{student.[0].FirstName}} {{student.[0].LastName}}</h2>
+{{#if studentInfo}}
+<h2>{{studentInfo.[0].FirstName}} {{studentInfo.[0].LastName}}</h2>
 <hr>
+<a href="/students/pass/{{studentInfo.[0].ID}}">
+    <button class="btn btn-success btn-sm studentAcceptBtn">Change pass</button>
+</a>
+<a href="/students/archive/{{studentInfo.[0].ID}}">
+    <button class="btn btn-danger btn-sm studentDeclineBtn">Archive</button>
+</a>
 
 <h3>Tests taken</h3>
 {{else}}
