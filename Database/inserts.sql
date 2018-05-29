@@ -11,6 +11,7 @@ insert into categories(CategoryName) values ('SQL');
 insert into categories(CategoryName) values ('C');
 insert into categories(CategoryName) values ('Python');
 insert into categories(CategoryName) values ('Linux');
+commit;
 
 
 
@@ -20,20 +21,20 @@ insert into categories(CategoryName) values ('Linux');
 
 
 
-
-
+start transaction;
 INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Time`) VALUES
 (3, 'Test test', 1, 1, 0, NULL),
 (4, 'Best test', 2, 1, 0, NULL);
+commit;
 
-
+start transaction;
 INSERT INTO `test_details` (`ID`, `TestID`, `QuestionID`) VALUES
-(7, 3, 1),
-(8, 3, 2),
-(9, 3, 3),
-(10, 4, 4),
-(11, 4, 5),
-(12, 5, 6);
+(8, 3, 1),
+(9, 3, 2),
+(10, 3, 3),
+(11, 4, 4),
+(12, 4, 5),
+(13, 5, 6);
 
 
 commit;
