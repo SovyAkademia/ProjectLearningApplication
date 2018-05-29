@@ -44,7 +44,7 @@ exports.get_test_creator = (req, res, next) => {
 
 exports.show_edit_modal = (req,res,next) => {
     let questionID = req.params.id;
-    let query = 'select questiontext,points from questions where id = ?';
+    let query = 'select questiontext,points from questions where id = ? order id asc';
     let query2 = 'select answertext,correct from answers where questionid = ?';
 
     db.query(query,[questionID],(err,question) => {
