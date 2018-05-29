@@ -28,12 +28,12 @@ INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Ti
 
 
 INSERT INTO `test_details` (`ID`, `TestID`, `QuestionID`) VALUES
-(7, 3, 1),
-(8, 3, 2),
-(9, 3, 3),
-(10, 4, 4),
-(11, 4, 5),
-(12, 5, 6);
+(8, 3, 1),
+(9, 3, 2),
+(10, 3, 3),
+(11, 4, 4),
+(12, 4, 5),
+(13, 5, 6);
 
 
 commit;
