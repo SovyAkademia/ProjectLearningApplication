@@ -99,19 +99,6 @@
                 <div class="col-md-12 col-sm-12">
 
                   <div class="container">
-                    <div class="text-center">
-                      <span>Points:</span>
-                      <select name="selectPoint" id="pointsin">
-                        <optgroup label="Select points">
-                          <option name="1" value="1">1</option>
-                          <option name="2" value="2">2</option>
-                          <option name="3" value="3">3</option>
-                          <option name="4" value="4">4</option>
-                          <option name="5" value="5">5</option>
-                        </optgroup>
-                      </select>
-                    </div>
-                    <br>
                     <div style="margin-left:35px; padding:5px;">
                       <strong>Answers</strong>
                       <strong style="margin-left:153px;">Correct</strong>
@@ -136,7 +123,6 @@
                 </div>
               </div>
             </div>
-            <hr>
           </div>
           <div class="modal-footer">
             <button type="submit" id="addnewquest" class="btn btn-md testsave btn-success" >Add the question</button>
@@ -168,8 +154,7 @@
             <select class="form-control col-md-12" id="testSelect">
              
             </select>
-          </div>
-          <hr>
+
 
           <table id="questions" class="col-md-12" style="overflow-y: scroll;">
 
@@ -205,7 +190,7 @@
   </div>
   <div class="row">
     <div class="col-md-12 col-sm-12">
-      <button type="button" id="addquest" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal" data-target="#myModal">Add new question</button>
+      <button type="button" id="addnewquest" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal" data-target="#myModal">Add new question</button>
       <button type="button" id="chooseExist" class="btn addExistQuestion btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
       <table class="col-md-12 testquestions" id="questionlist">
         <thead>

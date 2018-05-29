@@ -87,8 +87,8 @@ th{
 }
 
 #ansd{
-    margin-right: 21px;
-    margin-left: 19px;
+    margin-right: 19px;
+    margin-left: 20px;
 }
 
 #tooltipexist{
@@ -348,6 +348,10 @@ questionlist:hover{
 
 }
 
+#addquest{
+    margin-left: 10px;;
+}
+
 .top-header{
     background-color: #FFFFFF;
     height: 70px;
@@ -476,6 +480,10 @@ questionlist:hover{
 @media only screen and (max-width: 767px){
     .sidebar{
         display: none;
+    }
+
+    #addquest{
+        margin-left: 20px;;
     }
 
     .whereHeader{
