@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: Út 29.Máj 2018, 09:26
+-- Čas generovania: Út 29.Máj 2018, 09:34
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -11,9 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-DROP DATABASE IF EXISTS `sovylearn`;
-CREATE SCHEMA IF NOT EXISTS `sovylearn` DEFAULT CHARACTER SET utf8;
-USE sovylearn;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -134,19 +131,7 @@ INSERT INTO `questions` (`ID`, `QuestionText`, `Points`) VALUES
 (3, 'HTML is...?', 2),
 (4, 'JavaFX is used for creating of...?', 3),
 (5, 'What is correct syntax for defining of integer?', 2),
-(6, 'The name of class should start with...?', 1),
-(37, 'fioghiofdg', 2),
-(36, 'jjkj', 1),
-(33, 'sidofhdisofhiodsfhsdiof', 1),
-(34, 'Quest', 2),
-(35, 'ffdsfs', 1),
-(38, 'kfdgdfg', 2),
-(39, 'lfpúskgpdkf', 1),
-(40, 'pkrpekper', 5),
-(41, 'josdjodsjfs', 1),
-(42, 'klgndfklngkldfngkf', 3),
-(43, 'pkfdhpkhf', 2),
-(44, 'pldsfplsdpflsdpfl', 4);
+(6, 'The name of class should start with...?', 1);
 
 -- --------------------------------------------------------
 
@@ -319,44 +304,7 @@ INSERT INTO `test_details` (`ID`, `TestID`, `QuestionID`) VALUES
 (3, 1, 3),
 (4, 2, 4),
 (5, 2, 5),
-(6, 2, 6),
-(8, 7, 8),
-(9, 7, 9),
-(10, 7, 10),
-(11, 7, 11),
-(12, 7, 12),
-(13, 7, 13),
-(14, 7, 14),
-(15, 7, 15),
-(16, 7, 16),
-(17, 7, 17),
-(18, 7, 18),
-(19, 7, 19),
-(20, 7, 20),
-(21, 7, 21),
-(22, 7, 22),
-(23, 7, 23),
-(24, 7, 24),
-(25, 7, 25),
-(26, 7, 26),
-(27, 7, 27),
-(28, 7, 28),
-(29, 7, 29),
-(30, 7, 30),
-(31, 7, 31),
-(32, 7, 32),
-(33, 7, 33),
-(34, 7, 34),
-(35, 7, 35),
-(36, 7, 36),
-(37, 7, 37),
-(38, 7, 38),
-(39, 7, 39),
-(40, 7, 40),
-(41, 7, 41),
-(42, 7, 42),
-(43, 7, 43),
-(44, 7, 44);
+(6, 2, 6);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
