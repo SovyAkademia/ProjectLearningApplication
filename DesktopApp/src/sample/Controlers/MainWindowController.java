@@ -49,8 +49,6 @@ public class MainWindowController {
 /*
         ArrayList<Category> list = communication.getCategories().getCategories();
         this.categoryList = list;
-
-
         for (Category temp:categoryList) {
             System.out.println(temp.getCategoryName());
         }
@@ -69,8 +67,6 @@ public class MainWindowController {
 /*
         ArrayList<Category> list = communication.getCategories().getCategories();
         this.categoryList = list;
-
-
         for (Category temp:categoryList) {
             System.out.println(temp.getCategoryName());
         }
@@ -99,7 +95,8 @@ public class MainWindowController {
                 ToggleGroup toggleGroup = new ToggleGroup();
 
                 Tab tab = new Tab();
-                tab.setText("Q "+i);
+                tab.setText("Question "+i);
+                tab.setStyle("-fx-background-color: RED;");
                 i++;
                 HBox hbox = new HBox();
                 mainPane.setTop(hbox);
@@ -130,6 +127,8 @@ public class MainWindowController {
                 Button btnSubmitQuestion = new Button("Submit answer"); //toto tu vytvori tlacidlo prida mu ID,funkciu a zavrie scenu
                 btnSubmitQuestion.setOnAction(resolveSubmit -> {
                     String checkedID = toggleGroup.getSelectedToggle().getUserData().toString();
+                    tab.setStyle("-fx-background-color: GREEN;");
+                    tabPane.getSelectionModel().selectNext();
                     System.out.println(checkedID);
                 });
                 btnSubmitQuestion.setId("closeButton");
@@ -139,7 +138,6 @@ public class MainWindowController {
                 lbl.setTranslateX(650);
                 lbl.setTranslateY(250);
 
-
                 hbox.getChildren().add(btnSubmitQuestion);
                 btnSubmitQuestion.setTranslateX(250);
                 btnSubmitQuestion.setTranslateY(500);
@@ -148,9 +146,7 @@ public class MainWindowController {
                 tabPane.getTabs().add(tab);
 
                 lbl.setFont(new Font("Arial", 30));
-
                 tab.setClosable(false);
-
                 tabPane.setStyle("-fx-background-color: #434343;-fx-text-fill: white;");
                 lbl.setStyle("-fx-text-fill: white;-fx-text-size: 25px");
 
@@ -168,7 +164,6 @@ public class MainWindowController {
             root.getChildren().add(mainPane);
             primaryStage.setScene(scene);
             primaryStage.show();
-
 
         } catch (Exception e) {
             e.printStackTrace();}
@@ -208,7 +203,6 @@ public class MainWindowController {
         btn.setText("Submit new password");
         GridPane.setConstraints(btn, 3,9);
         gridko.setStyle("-fx-background-color: #434343;");
-
 
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override

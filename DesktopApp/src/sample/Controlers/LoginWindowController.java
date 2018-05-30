@@ -40,69 +40,64 @@ public class LoginWindowController extends MainWindowController{
             String email = loginField.textProperty().get();
             String password = passwordField.textProperty().get();
 
-                if (communication.authenticate(email,password))
-                {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Scenes/MainWindow.fxml"));
-                    Parent root = (Parent) fxmlLoader.load();
-                    Stage stage = new Stage();
-                    stage.setResizable(false);
-                    stage.setScene(new Scene(root));
+            if (communication.authenticate(email,password))
+            {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Scenes/MainWindow.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setResizable(false);
+                stage.setScene(new Scene(root));
 
-                    stage.setTitle("Main");
+                stage.setTitle("Main");
 
-                    stage.show();
-                    //stage.setMaximized(true);
-                    //stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-                    //stage.setFullScreen(true);
-                    Stage primarystage = (Stage) btnLogin.getScene().getWindow();
+                stage.show();
+                stage.setMaximized(true);
+                stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+                stage.setFullScreen(true);
+                Stage primarystage = (Stage) btnLogin.getScene().getWindow();
+                primarystage.close();
 
-                    primarystage.close();
+                ArrayList<Category> list = communication.getCategories().getCategories();
+                this.categoryList = list;
 
-                    ArrayList<Category> list = communication.getCategories().getCategories();
-                    this.categoryList = list;
+                menuButtonCategory = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("menuButtonCategory")).get(0);
+                testMenuButton = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("testMenuButton")).get(0);
 
-                    menuButtonCategory = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("menuButtonCategory")).get(0);
-                    testMenuButton = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("testMenuButton")).get(0);
-
-                    for (Category temp:categoryList) {
-
-                        System.out.println(temp.getCategoryName());
-                        MenuItem item = new MenuItem(temp.getCategoryName());
-                        item.setOnAction(eventClicked -> {
-                            String currentItem = item.getText();
-                            testMenuButton.getItems().clear();
-                            List<TestDetails> listOfTests = communication.getTestsDetails(currentItem).getTests();
-                            if(listOfTests != null) {
-                                for (TestDetails detail : listOfTests) {
-                                    MenuItem swap = new MenuItem(detail.getTestName());
-                                    //String Id = (detail.getID()).toString();
-                                    swap.setId(detail.getID());
-                                    System.out.println(swap.getId());
-                                    swap.setOnAction(eventClicked1 -> {
-                                        String itemId = swap.getId();
-                                        TestPrototype newTest = communication.getTest(itemId);
-                                        actualTest = new TestFinal(newTest);
-                                        //System.out.println("DOSTAL SOM TEN DRBNUTY TEST");
-                                        actualTest.printTest();
-                                        new MainWindowController().createTest(null,actualTest);
-                                            });
-                                    testMenuButton.getItems().add(swap);
-
-                                }
+                for (Category temp:categoryList) {
+                    System.out.println(temp.getCategoryName());
+                    MenuItem item = new MenuItem(temp.getCategoryName());
+                    item.setOnAction(eventClicked -> {
+                        String currentItem = item.getText();
+                        menuButtonCategory.setText(currentItem);
+                        testMenuButton.getItems().clear();
+                        List<TestDetails> listOfTests = communication.getTestsDetails(currentItem).getTests();
+                        if(listOfTests != null) {
+                            for (TestDetails detail : listOfTests) {
+                                MenuItem swap = new MenuItem(detail.getTestName());
+                                //String Id = (detail.getID()).toString();
+                                swap.setId(detail.getID());
+                                System.out.println(swap.getId());
+                                swap.setOnAction(eventClicked1 -> {
+                                    String itemId = swap.getId();
+                                    TestPrototype newTest = communication.getTest(itemId);
+                                    actualTest = new TestFinal(newTest);
+                                    //System.out.println("DOSTAL SOM TEN DRBNUTY TEST");
+                                    actualTest.printTest();
+                                    new MainWindowController().createTest(null,actualTest);
+                                });
+                                testMenuButton.getItems().add(swap);
                             }
-                        });
-                        menuButtonCategory.getItems().add(item);
-                    }
+                        }
+                    });
+                    menuButtonCategory.getItems().add(item);
                 }
-                else
-                {
-                    lblError.textProperty().set("Wrong email or password!!!Try again!");
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            else
+            {
+                lblError.textProperty().set("Wrong email or password!!!Try again!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
-
 }

@@ -428,8 +428,7 @@ $('.enable').click(function(){
 function disableEdit(button){
     var card = button.parentElement.parentElement;
     console.log(card);
-    // $(card).find()
-    // card.remove();
+    
 }
     
 
