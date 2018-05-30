@@ -18,13 +18,12 @@ exports.show_student = (req, res, next) => {
     let countTest = 'SELECT Count(TestName) as Count FROM tests ' +
         'INNER JOIN results ON tests.ID=results.TestID ' +
         'INNER JOIN categories ON tests.CategoryID=categories.ID WHERE results.StudentID like ?;';
-    let getCategories = 'select * from categories';
+    let getCategories = 'select * from categories;';
 
     db.query(findStudent,[id],(err,studentInfo)=>{
         if (err) return next(err); 
     db.query(findStudentTests, [id], (err, student) => {
         if (err) return next(err);
-        console.log(student);
         db.query(countTest, [id], (err, count) => {
             if (err) return next(err);
             let num = count[0].Count;
@@ -61,11 +60,13 @@ exports.show_student = (req, res, next) => {
 exports.tests_in_category = (req, res, next) => {
     let categoryId = req.body.options;
     let studentID = req.body.student_id;
+    let id = req.body.student_id;
+    let findStudent = 'select ID,FirstName, LastName from students where id like ?;';
     let findStudentResults = 'SELECT CategoryName,TestName, Score FROM tests ' +
         'INNER JOIN results ON tests.ID=results.TestID ' +
         'INNER JOIN categories ON tests.CategoryID=categories.ID ' +
         'WHERE results.StudentID like ? and categoryid like ?;';
-    let findStudent = 'select students.ID AS "StudentID",FirstName, LastName,CategoryName,TestName, Score from students ' +
+    let findStudentTests = 'select students.ID AS "StudentID",FirstName, LastName,CategoryName,TestName, Score from students ' +
         'INNER JOIN results ON results.StudentID = students.ID ' +
         'INNER JOIN tests ON tests.ID=results.TestID ' +
         'INNER JOIN categories ON tests.CategoryID=categories.ID ' +
@@ -79,13 +80,14 @@ exports.tests_in_category = (req, res, next) => {
     if (categoryId == 'all') {
         return res.redirect('/students/' + studentID);
     }
-
-    db.query(findStudent, [studentID,categoryId], (err, student) => {
+    db.query(findStudent,[id],(err,studentInfo)=>{
+        if (err) return next(err); 
+    db.query(findStudentTests, [studentID,categoryId], (err, student) => {
         if (err) return next(err);
         db.query(countTest, [studentID, categoryId], (err, count) => {
             if (err) return next(err);
             let num = count[0].Count;
-            if (num != 0){ 
+            if (num != 0 || student !=null){ 
                 db.query(findStudentResults, [studentID, categoryId], (err, testScore) => {
                     if (err) return next(err);
                     let testArr = [];
@@ -106,7 +108,8 @@ exports.tests_in_category = (req, res, next) => {
                             categories,
                             student,
                             testArr,
-                            scoreArr
+                            scoreArr,
+                            studentInfo
                         });
                     });
                 });
@@ -120,11 +123,11 @@ exports.tests_in_category = (req, res, next) => {
             
         });
     });
+});
 }
 
 exports.archive_student = (req,res,next) => {
     let id = req.params.id;
-    console.log(req.params.id);
     let findStudent = 'select FirstName, LastName,Email,Year from students where id like ?;';
     let archiveQuery = 'insert into students_history (FirstName,LastName,Email,DateOfDelete,Year) '+
     'values (?,?,?,now(),?);';
