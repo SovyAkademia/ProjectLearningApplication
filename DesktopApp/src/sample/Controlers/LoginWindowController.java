@@ -82,7 +82,7 @@ public class LoginWindowController extends MainWindowController{
                                     TestPrototype newTest = communication.getTest(itemId);
                                     actualTest = new TestFinal(newTest);
                                     //System.out.println("DOSTAL SOM TEN DRBNUTY TEST");
-                                    actualTest.printTest();
+                                    //actualTest.printTest();
                                     new MainWindowController().createTest(null,actualTest);
                                 });
                                 testMenuButton.getItems().add(swap);

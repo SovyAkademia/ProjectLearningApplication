@@ -97,7 +97,30 @@ public class Communication {
         return swap;
     }
 
-    //public
+    public boolean postResult(String jsonBase){
+        String[] base = jsonBase.split(" ");
+        String json = "{" +
+                "\n\t"+"\"studentID\":" +"\""+base[3]+"\""+
+                "\n\t"+"\"testID\":" +"\""+base[2]+"\""+
+                "\n\t"+"\"questionID\":" +"\""+base[0]+"\""+
+                "\n\t"+"\"answerID\":" +"\""+base[1]+"\""+
+                "\n\t"+"\"token\":" +"\""+token+"\""+
+                "}";
+        try {
+            String url = baseUrl+"/desktop/";
+            String response = new HttpPost().post(url,json);
+            if (response == null) {
+                return false;
+            }
+            return true;
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 
 }
