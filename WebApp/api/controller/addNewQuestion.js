@@ -30,12 +30,13 @@ exports.add_question = (req, res, next) => {
       db.query(queryInsertQuestion, [question, points], (err, insertQuestion) => {
           console.log(insertQuestion);
     /* ID of inserted question */  
-    let QuestionId = insertQuestion.insertId;
     if (err) {
         return db.rollback(() => {
         throw err;
         });
     }
+    let QuestionId = insertQuestion.insertId;
+
     /* find id od test */
             db.query(queryIdTest, [test], (err, TestId) => {
                 if (err) throw err;
