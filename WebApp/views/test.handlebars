@@ -86,12 +86,13 @@
             <input class="btn-create col-md-12" type="button" value="Create New Qusetion +" onclick="addRow()"> --}}
 
             <div class="text-center">
-            <textarea class="form-control questioninput" name="textQuest" id="questioninput" placeholder="Type in your question" required cols="30" rows="3"></textarea>
-            <div class="message"></div>
+              <textarea class="form-control questioninput" name="textQuest" id="questioninput" placeholder="Type in your question" required
+                cols="30" rows="3"></textarea>
+              <div class="message"></div>
             </div>
             {{!--
-            <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text"
-              name="textQuest" --}} {{!-- /> --}} {{!--
+            <input class="col-md-8 col-sm-10 questioninput" id="questioninput" placeholder="Question?" required type="text" name="textQuest"
+              --}} {{!-- /> --}} {{!--
             <input class="btn btn-danger btn-delete" type="button" value="Delete" onclick="removeRow(this)"> --}}
 
             <div class="row">
@@ -112,6 +113,19 @@
                 <div class="col-md-12 col-sm-12">
 
                   <div class="container">
+                    <div class="text-center">
+                      <span>Points:</span>
+                      <select name="selectPoint" id="pointsin">
+                        <optgroup label="Select points">
+                          <option name="1" value="1">1</option>
+                          <option name="2" value="2">2</option>
+                          <option name="3" value="3">3</option>
+                          <option name="4" value="4">4</option>
+                          <option name="5" value="5">5</option>
+                        </optgroup>
+                      </select>
+                    </div>
+                    <br>
                     <div style="margin-left:35px; padding:5px;">
                       <strong>Answers</strong>
                       <strong style="margin-left:153px;">Correct</strong>
@@ -138,7 +152,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" id="addnewquest" class="btn btn-md testsave btn-success" >Add the question</button>
+            <button type="submit" id="addnewquest" class="btn btn-md testsave btn-success">Add the question</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -165,80 +179,80 @@
           <div class="form-group">
             <label for="testSelect">Select test to choose questions from</label>
             <select class="form-control col-md-12" id="testSelect">
-             
+
             </select>
 
 
-          <table id="questions" class="col-md-12" style="overflow-y: scroll;">
+            <table id="questions" class="col-md-12" style="overflow-y: scroll;">
 
 
-          </table>
-          
+            </table>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
 
-    </div>
-  </div>
-
-</div>
-
-
-<div class="container testcreate">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-6">
-          <h4>Test name:
-            <span id="nameOfTest">{{TestName}}</span>
-          </h4>
-        </div>
-        <div class="col-md-6">
-          <h4>Test category: {{CategoryName}}</h4>
-        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 col-sm-12">
-      <button type="button" id="addnewquest" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal" data-target="#myModal">Add new question</button>
-      <button type="button" id="chooseExist" class="btn addExistQuestion btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
-      <table class="col-md-12 testquestions" id="questionlist">
-        <thead>
-          <tr id="test">
-            <th>Question</th>
-            <th>Answers</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each questions}}
-          <tr>
-            <td>{{this.QuestionText}}</td>
-            <td id="tooltip">Answers
-              <span id="tooltiptext">
-                <p>A. {{this.ans1}}</p>
-                <p>B. {{this.ans2}}</p>
-                <p>C. {{this.ans3}}</p>
-                <p>D. {{this.ans4}}</p>
-              </span>
-            </td>
 
-            <td>
-              <button value="{{ID}}" type="button" class="btn addquest editBtn btn-info btn-md col-md-12" data-toggle="modal" data-target="#Edit">Edit
-              </button>
-            </td>
-          </tr>
-          {{/each}}
-        </tbody>
-      </table>
+  </div>
+
+
+  <div class="container testcreate">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Test name:
+              <span id="nameOfTest">{{TestName}}</span>
+            </h4>
+          </div>
+          <div class="col-md-6">
+            <h4>Test category: {{CategoryName}}</h4>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="buttons col-md-12 col-sm-12">
-      {{!--
-      <button class="btn col-sm-12 testbtns btn-success">Save the test</button>
-      <button class="btn col-sm-12 testbtns btn-danger">Cancel the test</button> --}}
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <button type="button" id="addnewquest" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal" data-target="#myModal">Add new question</button>
+        <button type="button" id="chooseExist" class="btn addExistQuestion btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
+        <table class="col-md-12 testquestions" id="questionlist">
+          <thead>
+            <tr id="test">
+              <th>Question</th>
+              <th>Answers</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each questions}}
+            <tr>
+              <td>{{this.QuestionText}}</td>
+              <td id="tooltip">Answers
+                <span id="tooltiptext">
+                  <p>A. {{this.ans1}}</p>
+                  <p>B. {{this.ans2}}</p>
+                  <p>C. {{this.ans3}}</p>
+                  <p>D. {{this.ans4}}</p>
+                </span>
+              </td>
+
+              <td>
+                <button value="{{ID}}" type="button" class="btn addquest editBtn btn-info btn-md col-md-12" data-toggle="modal" data-target="#Edit">Edit
+                </button>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="buttons col-md-12 col-sm-12">
+        {{!--
+        <button class="btn col-sm-12 testbtns btn-success">Save the test</button>
+        <button class="btn col-sm-12 testbtns btn-danger">Cancel the test</button> --}}
+      </div>
     </div>
   </div>
-</div>

@@ -28,6 +28,7 @@ exports.add_question = (req, res, next) => {
         if (err) throw err;        
     /* Insert question into question table */
       db.query(queryInsertQuestion, [question, points], (err, insertQuestion) => {
+          console.log(insertQuestion);
     /* ID of inserted question */  
     let QuestionId = insertQuestion.insertId;
     if (err) {
