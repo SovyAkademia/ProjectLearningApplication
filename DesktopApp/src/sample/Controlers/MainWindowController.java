@@ -129,7 +129,17 @@ public class MainWindowController {
                     String checkedID = toggleGroup.getSelectedToggle().getUserData().toString();
                     tab.setStyle("-fx-background-color: GREEN;");
                     tabPane.getSelectionModel().selectNext();
-                    System.out.println(checkedID);
+
+                    //System.out.println(checkedID);
+
+                    if(communication.postResult(checkedID))
+                    {
+                        System.out.println("sending OK");
+                    }
+                    else
+                    {
+                        System.out.println("Error while sending");
+                    }
                 });
                 btnSubmitQuestion.setId("closeButton");
                 mainPane.setCenter(tabPane);

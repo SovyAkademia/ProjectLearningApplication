@@ -99,6 +99,10 @@ public class Communication {
 
     public boolean postResult(String jsonBase){
         String[] base = jsonBase.split(" ");
+        if (base.length <= 3)
+        {
+            return false;
+        }
         String json = "{" +
                 "\n\t"+"\"studentID\":" +"\""+base[3]+"\""+
                 "\n\t"+"\"testID\":" +"\""+base[2]+"\""+
