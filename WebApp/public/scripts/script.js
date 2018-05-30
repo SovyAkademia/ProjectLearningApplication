@@ -1,6 +1,7 @@
 // import { workers } from "cluster";
-
+var ourUrl = 'http://localhost:5000';
 $(document).ready(function() {
+    
     
     $(":text").keyup(function(e) {
         if($(this).val() != '') {
@@ -51,7 +52,7 @@ $(function() {
 		console.log(email);
 		$.ajax({
 			type: 'POST',
-			url:'http://localhost:5000/dashboard/handleRegistration',
+			url:ourUrl+'/dashboard/handleRegistration',
 			data: {'email':email},
             
             error: function(){
@@ -188,7 +189,7 @@ function newItem() {
 
      $.ajax({
         type: 'GET',
-        url:'http://localhost:5000/test/'+testName+'/'+questionID,
+        url:ourUrl+'/test/'+testName+'/'+questionID,
         error: function(){
            console.log('ajax not working')
         },
@@ -254,7 +255,7 @@ function newItem() {
 
         $.ajax({
             type: 'POST',
-            url:'http://localhost:5000/createTest/createCategory',
+            url:ourUrl+'/createTest/createCategory',
             error: function(data){
                 console.log(data.responseJSON);
                 $('.message').html(data.responseJSON.message);
@@ -282,7 +283,7 @@ function newItem() {
 
     $.ajax({
         type: 'GET',
-        url:'http://localhost:5000/test/'+testName+'/tests',
+        url:ourUrl+'/test/'+testName+'/tests',
         error: function(data){
             console.log('ajax failed');
         },
@@ -310,7 +311,7 @@ $('#testSelect').change(function(){
 
     $.ajax({
         type: 'POST',
-        url:'http://localhost:5000/test/questions',
+        url:ourUrl+'/test/questions',
         error: function(data){
             console.log('error');
         },
@@ -353,7 +354,7 @@ function addExistQuestion(e){
 
     $.ajax({
         type: 'GET',
-        url:'http://localhost:5000/test/'+testName+'/'+questionID,
+        url:ourUrl+'/test/'+testName+'/'+questionID,
         error: function(){
            console.log('ajax not working')
         },
@@ -375,7 +376,7 @@ function addExistQuestion(e){
             
             $.ajax({
                 type: 'POST',
-                url:'http://localhost:5000/test/'+currentTest+'',
+                url:ourUrl+'/test/'+currentTest+'',
                 error: function(){
                    console.log('ajax not working');
                 },
@@ -408,7 +409,7 @@ $('.enable').click(function(){
     var btn = this;
     $.ajax({
         type: 'POST',
-        url:'http://localhost:5000/myTests/enable',
+        url:ourUrl+'/myTests/enable',
         error: function(data){
             console.log('error');
         },
