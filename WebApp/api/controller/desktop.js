@@ -25,7 +25,7 @@ exports.get_tests = (req, res, next) => {
     let category = req.params.category;
 
     let getCategoryId = 'select id from categories where CategoryName like ?';
-    let getTests = 'select * from tests where CategoryID = ?';
+    let getTests = 'select * from tests where CategoryID = ? and allowed = 1';
 
     db.query(getCategoryId, [category], (err, categoryId) => {
         if (err || categoryId.length == 0) {
@@ -116,7 +116,7 @@ exports.student_login = (req, res, next) => {
 }
 
 exports.get_test = (req, res, next) => {
-    
+
 
     let query1 = 'select testName from tests where id = ?';
     let query = 'SELECT questions.id as questionID,questionText, answerText, answers.id as answerID FROM questions INNER JOIN answers ON questions.ID=answers.QuestionID INNER JOIN test_details ON test_details.QuestionID=questions.ID INNER JOIN tests ON test_details.TestID=tests.ID WHERE tests.ID=? ';

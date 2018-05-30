@@ -405,6 +405,29 @@ function addExistQuestion(e){
 
 }
 
+$('.activate').click(function(){
+    var c = confirm('Are you sure you want to activate this test? After activating the test you will not be able to edit the test in any way.');
+    if(c== true){
+    var btn = this;
+    $.ajax({
+        type: 'POST',
+        url:ourUrl+'/myTests/activate',
+        error: function(data){
+            console.log('error');
+        },
+        data:{testID:this.value},
+        dataType: "jsonp",
+        success : function(data){
+        location.reload();
+            
+        }
+
+    });
+
+    }
+    
+});
+
 $('.enable').click(function(){
     var btn = this;
     $.ajax({
@@ -416,20 +439,31 @@ $('.enable').click(function(){
         data:{testID:this.value},
         dataType: "jsonp",
         success : function(data){
-            console.log('TestID enabled: '+data.testID);
-
-            disableEdit(btn)
+        location.reload();
             
         }
 
     });
 });
 
-function disableEdit(button){
-    var card = button.parentElement.parentElement;
-    console.log(card);
-    
-}
+$('.disable').click(function(){
+    var btn = this;
+    $.ajax({
+        type: 'POST',
+        url:ourUrl+'/myTests/disable',
+        error: function(data){
+            console.log('error');
+        },
+        data:{testID:this.value},
+        dataType: "jsonp",
+        success : function(data){
+        location.reload();
+            
+        }
+
+    });
+});
+
     
 
     

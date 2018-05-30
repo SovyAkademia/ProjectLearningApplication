@@ -1,7 +1,7 @@
 const db = require('../models/db');
 
 exports.get_all_tests = (req, res, next) => {
-    let getTests = "SELECT tests.ID AS 'TestID',TestName,categories.ID AS categoryID ,categoryname FROM tests INNER JOIN teachers ON tests.TeacherID=teachers.ID INNER JOIN categories ON tests.CategoryID=categories.ID WHERE teachers.ID=?;";
+    let getTests = "SELECT tests.ID AS 'TestID',tests.Allowed,tests.Activated,TestName,categories.ID AS categoryID ,categoryname FROM tests INNER JOIN teachers ON tests.TeacherID=teachers.ID INNER JOIN categories ON tests.CategoryID=categories.ID WHERE teachers.ID=?;";
     let getCategories = 'select * from categories';
     db.query(getTests, [req.user[0].id], (err, test) => {
      //   console.log(test);
@@ -30,7 +30,7 @@ exports.get_all_tests = (req, res, next) => {
 
 exports.get_all_tests_in_category = (req, res, next) => {
     let categoryId = req.body.options;
-    let getTests = 'select tests.TestName,tests.id as "TestID",Categories.categoryname,categories.id as categoryID from tests inner join categories on tests.categoryid = categories.id where categoryid like ? and teacherid like ?;';
+    let getTests = 'select tests.TestName,tests.Allowed,tests.Activated,tests.id as "TestID",Categories.categoryname,categories.id as categoryID from tests inner join categories on tests.categoryid = categories.id where categoryid like ? and teacherid like ?;';
     let getCategories = 'select * from categories';
 
     if(categoryId == 'all'){
@@ -60,12 +60,34 @@ exports.get_all_tests_in_category = (req, res, next) => {
     });
 }
 
-exports.enable_test = (req,res,next) => {
+exports.activate_test = (req,res,next) => {
     const testID = req.body.testID;
-    let query = 'update tests set allowed = 1 where id = ?';;
+    let query = 'update tests set activated = 1 where id = ?';;
 
     db.query(query,[testID],(err,result) => {
         if (err) return next(err);
         res.jsonp({testID:testID});
     })
+}
+
+exports.enable_test = (req,res,next) => {
+    const testID = req.body.testID;
+    let query = 'update tests set Allowed = 1 where id = ?';;
+
+    db.query(query,[testID],(err,result) => {
+        if (err) return next(err);
+        res.jsonp({testID:testID});
+    })
+
+}
+
+exports.disable_test = (req,res,next) => {
+    const testID = req.body.testID;
+    let query = 'update tests set Allowed = 0 where id = ?';;
+
+    db.query(query,[testID],(err,result) => {
+        if (err) return next(err);
+        res.jsonp({testID:testID});
+    })
+
 }

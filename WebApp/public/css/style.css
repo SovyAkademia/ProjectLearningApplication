@@ -612,8 +612,6 @@ questionlist:hover{
 
 .testCard{
     transition: all 100ms ease-in-out;
-    border-color:green;
-    
 }
 
 .testCard:hover {

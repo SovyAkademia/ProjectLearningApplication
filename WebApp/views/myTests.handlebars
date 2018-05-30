@@ -19,21 +19,32 @@
 <div class="card-columns mt-2">
 
     {{#each test}}
-    <div class="card testCard">
+    
+    <div class="card testCard"  {{#if (eq this.Allowed 1)}}style="border-color:green;"{{/if}}>
         <div class="card-body">
             <h3 id="card-title" class="card-title d-inline-block">{{TestName}}</h3>
             <span class="float-right small">{{categoryname}}</span>
             <div class="mb-3"></div>
             <i class="far fa-edit " style="color:black"></i>
+            {{#if (eq this.Activated 0)}}
             <a class="editLink" href="/test/{{TestName}}">Edit</a>
+            {{/if}}
             <i class="fas fa-chart-bar ml-3" style="color:black;"></i>
             <a href="#">Stats</a>
-            <a href="#" class="ml-5" data-toggle="hint" data-placement="top" title="After activating the test, you will not be able to edit it anymore"><button value="{{TestID}}" class="btn btn-outline-primary enable ">Activate</button></a>
-            <a href="#" class="float-right" data-toggle="hint" data-placement="top" title="Make this test available to students"><button value="{{TestID}}" class="btn btn-outline-success enable ">Enable</button></a>
-            {{!--
-            <a href="#">Allow</a> --}}
+            {{#if (eq this.Activated 0)}}
+            <a href="#" class="float-right activate" data-toggle="hint" data-placement="top" title="After activating the test, you will not be able to edit it anymore"><button value="{{TestID}}" class="btn btn-outline-primary activate">Activate</button></a>
+            {{/if}}
+            {{#if (eq this.Activated 1)}}
+                {{#if (eq this.Allowed 0)}}
+                <a href="#" class="float-right" data-toggle="hint" data-placement="top" title="Make this test available to students"><button value="{{TestID}}" class="btn btn-outline-success enable ">Enable</button></a>
+                {{else}}
+                <a href="#" class="float-right" data-toggle="hint" data-placement="top" title="Hide this test to students"><button value="{{TestID}}" class="btn btn-outline-warning disable">Hide</button></a>
+                {{/if}}
+            {{/if}}
         </div>
     </div>
+
+    
     {{/each}}
 
 </div>
