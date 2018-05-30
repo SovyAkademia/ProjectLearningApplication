@@ -59,3 +59,13 @@ exports.get_all_tests_in_category = (req, res, next) => {
         });
     });
 }
+
+exports.enable_test = (req,res,next) => {
+    const testID = req.body.testID;
+    let query = 'update tests set allowed = 1 where id = ?';;
+
+    db.query(query,[testID],(err,result) => {
+        if (err) return next(err);
+        res.jsonp({testID:testID});
+    })
+}

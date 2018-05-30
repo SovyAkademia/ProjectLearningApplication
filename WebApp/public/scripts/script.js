@@ -119,7 +119,7 @@ $(function() {
 //     }
 // });
 
-
+$('[data-toggle="hint"]').tooltip(); 
  
 function testSearch(){ 
 $('#searchtest').keyup(function () {
@@ -372,7 +372,7 @@ function addExistQuestion(e){
             } else if(data.answers[3].correct == 1){
                 corr = 'D';
             }
-
+            
             $.ajax({
                 type: 'POST',
                 url:'http://localhost:5000/test/'+currentTest+'',
@@ -388,7 +388,6 @@ function addExistQuestion(e){
                     ansc:data.answers[2].answertext,
                     ansd:data.answers[3].answertext,
                     corr:corr
-
                     
                 },
                 success : function(data){
@@ -403,6 +402,33 @@ function addExistQuestion(e){
 
     });
 
+}
+
+$('.enable').click(function(){
+    var btn = this;
+    $.ajax({
+        type: 'POST',
+        url:'http://localhost:5000/myTests/enable',
+        error: function(data){
+            console.log('error');
+        },
+        data:{testID:this.value},
+        dataType: "jsonp",
+        success : function(data){
+            console.log('TestID enabled: '+data.testID);
+
+            disableEdit(btn)
+            
+        }
+
+    });
+});
+
+function disableEdit(button){
+    var card = button.parentElement.parentElement;
+    console.log(card);
+    // $(card).find()
+    // card.remove();
 }
     
 

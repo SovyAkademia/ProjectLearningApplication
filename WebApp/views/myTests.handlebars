@@ -24,10 +24,11 @@
             <h3 id="card-title" class="card-title d-inline-block">{{TestName}}</h3>
             <span class="float-right small">{{categoryname}}</span>
             <div class="mb-3">Questions: 30</div>
-            <i class="far fa-edit" style="color:black"></i>
-            <a href="/test/{{TestName}}">Edit</a>
+            <i class="far fa-edit " style="color:black"></i>
+            <a class="editLink" href="/test/{{TestName}}">Edit</a>
             <i class="fas fa-chart-bar ml-3" style="color:black;"></i>
             <a href="#">Stats</a>
+            <a href="#" class="float-right" data-toggle="hint" data-placement="top" title="Make this test available to students"><button value="{{TestID}}" class="btn btn-outline-primary enable ">Enable</button></a>
             {{!--
             <a href="#">Allow</a> --}}
         </div>

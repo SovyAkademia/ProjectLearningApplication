@@ -11,7 +11,7 @@ exports.show_all = (req, res, next) => {
 
     db.query(selectAllQuery, (err, teacher) => {
         if (err) return next(err);
-        res.render('teacher', { teacher });
+        res.render('teacher', { teacher, where:'Teachers' });
     });
 }
 

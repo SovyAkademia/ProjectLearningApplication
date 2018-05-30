@@ -21,7 +21,7 @@ exports.register_new_student = (req, res, next) => {
         if (result.length == 0) {
             if (err) return next(err);
             db.query(insertStudent, [firstName, lastName, email, firstYear], (err, inserted) => {
-                if (err) throw err;
+                if (err) return next(err);
                 console.log('ok');
                 console.log('Student registered');
                 res.render('login', { message: 'Student succesfully registered' });

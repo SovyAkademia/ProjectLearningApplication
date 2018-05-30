@@ -472,7 +472,7 @@ questionlist:hover{
 }
 
 
-#registrations {
+#registrations,#news {
     border:0.5px solid cadetblue;
     background-color: white;
     width: 81%;
@@ -612,6 +612,7 @@ questionlist:hover{
 
 .testCard{
     transition: all 100ms ease-in-out;
+    
 }
 
 .testCard:hover {
