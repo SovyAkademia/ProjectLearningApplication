@@ -7,12 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import sample.Objects.Category;
-import sample.Objects.TestDetails;
-import sample.Objects.TestFinal;
-import sample.Objects.TestPrototype;
+import sample.Objects.*;
 import sample.api.Communication;
+import sample.api.HttpGet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +27,7 @@ public class LoginWindowController extends MainWindowController{
 
     @FXML
     public MenuButton menuButtonCategory;
+    public ProgressBar connectivity;
 
     private Communication communication = new Communication();
     private ArrayList<Category> categoryList;
@@ -39,6 +39,17 @@ public class LoginWindowController extends MainWindowController{
         try {
             String email = loginField.textProperty().get();
             String password = passwordField.textProperty().get();
+
+            int actual = new HttpGet().tryTime();
+            if (actual == 0) {
+                connectivity.setProgress(0);
+                lblError.textProperty().set("Server Connectivity Error");
+                return;
+            }
+            else {
+                connectivity.setProgress(1);
+                lblError.textProperty().set("");
+            }
 
             if (communication.authenticate(email,password))
             {
@@ -98,6 +109,16 @@ public class LoginWindowController extends MainWindowController{
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void checkStatus(MouseEvent mouseEvent) {
+        MyTimeDate actual = new HttpGet().getTime();
+        if (actual == null) {
+            connectivity.setProgress(0);
+        }
+        else {
+            connectivity.setProgress(1);
         }
     }
 }

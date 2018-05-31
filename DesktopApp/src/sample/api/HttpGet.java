@@ -3,14 +3,19 @@ package sample.api;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import java.io.IOException;
+
+import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import sample.Objects.MyConnectivity;
+import sample.Objects.MyTimeDate;
 
 public class HttpGet {
 
@@ -46,6 +51,9 @@ public class HttpGet {
     {
         String result = "";
         try {
+            if (this.tryTime() == 0 ) {
+                return null;
+            }
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
                     .url(url)
@@ -58,12 +66,80 @@ public class HttpGet {
             }
             //System.out.println(response.code());
         }
+        catch (ConnectException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
         catch (Exception e)
         {
             e.printStackTrace();
         }
-        finally {
+        return result;
+    }
+
+    public String simpleTry(String url)
+    {
+        String result = "";
+        try {
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+            Response response = client.newCall(request).execute();
+            result = response.body().string();
+            if (response.code() != 200)
+            {
+                return null;
+            }
+            //System.out.println(response.code());
+        }
+        catch (ConnectException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public MyTimeDate getTime(){
+        String url = "http://akademiasovy.ddns.net:3050"+"/desktop/getTime";
+        try {
+            String response = this.simpleTry(url);
+            if (response == null) {
+                return null;
+            }
+            Gson gson = new Gson();
+            MyConnectivity response2 = gson.fromJson(response, MyConnectivity.class);
+            MyTimeDate result = new MyTimeDate(response2.getDatetime());
             return result;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public int tryTime(){
+        String url = "http://akademiasovy.ddns.net:3050"+"/desktop/getTime";
+        try {
+            String response = this.simpleTry(url);
+            if (response == null) {
+                return 0;
+            }
+            Gson gson = new Gson();
+            MyConnectivity response2 = gson.fromJson(response, MyConnectivity.class);
+            MyTimeDate result = new MyTimeDate(response2.getDatetime());
+            return 1;
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            return 0;
         }
     }
 
