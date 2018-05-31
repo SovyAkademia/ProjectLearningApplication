@@ -36,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpGet.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HttpGet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/api/HttpGet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="437">
@@ -50,32 +50,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="16" column="68" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyConnectivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Objects/MyConnectivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-              <folding>
-                <element signature="e#185#186#0" expanded="true" />
-                <element signature="e#233#234#0" expanded="true" />
-                <element signature="e#273#274#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyTimeDate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Objects/MyTimeDate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-              <folding>
-                <element signature="method#MyTimeDate#0;class#MyTimeDate#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -100,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainWindowController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainWindowController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controlers/MainWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="245" column="5" selection-start-line="245" selection-start-column="5" selection-end-line="245" selection-end-column="5" />
+            <state relative-caret-position="632">
+              <caret line="131" column="37" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,12 +109,12 @@
         <option value="$PROJECT_DIR$/src/sample/api/Communication.java" />
         <option value="$PROJECT_DIR$/src/sample/Objects/MyTimeDate.java" />
         <option value="$PROJECT_DIR$/src/sample/Objects/MyConnectivity.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controlers/MainWindowController.java" />
         <option value="$PROJECT_DIR$/src/sample/Scenes/MainWindow.fxml" />
         <option value="$PROJECT_DIR$/src/sample/api/HttpPost.java" />
         <option value="$PROJECT_DIR$/src/sample/Scenes/LoginWindow.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controlers/LoginWindowController.java" />
         <option value="$PROJECT_DIR$/src/sample/api/HttpGet.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controlers/MainWindowController.java" />
       </list>
     </option>
   </component>
@@ -608,16 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controlers/MainWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="245" column="5" selection-start-line="245" selection-start-column="5" selection-end-line="245" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/api/HttpPost.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -665,6 +629,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="138" column="9" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controlers/MainWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="131" column="37" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
