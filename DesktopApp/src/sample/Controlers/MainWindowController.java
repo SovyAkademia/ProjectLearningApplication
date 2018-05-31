@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -14,13 +15,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import sample.Objects.AnswerFinal;
-import sample.Objects.Category;
+import sample.Objects.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import sample.Objects.QuestionsFinal;
-import sample.Objects.TestFinal;
 import sample.api.Communication;
+import sample.api.HttpGet;
 
 
 import java.util.ArrayList;
@@ -32,6 +31,7 @@ public class MainWindowController {
     public MenuButton menuButtonCategory;
     public MenuButton testMenuButton;
     public MenuButton MenuButtonForUser;
+    public ProgressBar connectivity2;
 
 
     private Communication communication = new Communication();
@@ -235,4 +235,13 @@ public class MainWindowController {
         primaryStage.show();
     }
 
+    public void checkConnection2(MouseEvent mouseEvent) {
+        MyTimeDate actual = new HttpGet().getTime();
+        if (actual == null) {
+            connectivity2.setProgress(0);
+        }
+        else {
+            connectivity2.setProgress(1);
+        }
+    }
 }
