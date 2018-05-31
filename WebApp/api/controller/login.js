@@ -45,9 +45,6 @@ exports.dashboard = (req, res, next) => {
     // });
 }
 
-exports.handleRegistration = (req, res, next) => {
-    res.jsonp({ message: 'user handled' });
-}
 
 exports.logout = (req, res, next) => {
     req.logout();
@@ -118,23 +115,29 @@ exports.send_mail = (req,res,next) =>{
     
     db.query(queryFind,[reqid], (err,result) => {
         if (err) return next(err);
-        db.query(queryInsertGenPass,[pass,reqid],(err,insertPass)=>{
-            if (err) return next(err);
-            mailer.transporter.sendMail({
-                from: '"Nodemailer Contact" <NO-REPLY>', // sender address
-                to: result[0].Email, // list of receivers
-                subject: 'Access to app', // Subject line
-                text: 'Hello there '+result[0].FirstName+''+result[0].LastName+' your password is '+ pass, // plain text body
-            }, (error, info) => {
-                if (error) {
-                    req.flash('error_msg','error');
-                    res.redirect('/dashboard');
-                }else{
-                    req.flash('msg','success');
-                    res.redirect('/dashboard');
-                }                    
-            });
-            });
+        bcrypt.hash(pass,10,(err,hash) => {
+            if(err) return next(err);
+
+            db.query(queryInsertGenPass,[hash,reqid],(err,insertPass)=>{
+                if (err) return next(err);
+                mailer.transporter.sendMail({
+                    from: '"Nodemailer Contact" <NO-REPLY>', // sender address
+                    to: result[0].Email, // list of receivers
+                    subject: 'Access to app', // Subject line
+                    text: 'Hello there '+result[0].FirstName+''+result[0].LastName+' your password is '+ pass, // plain text body
+                }, (error, info) => {
+                    if (error) {
+                        req.flash('error_msg','error');
+                        res.redirect('/dashboard');
+                    }else{
+                        req.flash('msg','success');
+                        res.redirect('/dashboard');
+                    }                    
+                });
+                });
+
+        })
+        
         });
 }
 

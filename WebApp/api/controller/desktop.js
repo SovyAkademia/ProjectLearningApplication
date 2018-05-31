@@ -2,6 +2,7 @@ const db = require('../models/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+
 exports.get_categories = (req, res, next) => {
     let query = 'select CategoryName from categories';
 
@@ -72,6 +73,8 @@ exports.student_login = (req, res, next) => {
     let studentEmail = req.body.email;
     let studentPass = req.body.password;
 
+    console.log(req.body);
+
     let findStudent = 'select id,email,password from students where email like ?';
 
     db.query(findStudent, [studentEmail], (err, result) => {
@@ -117,29 +120,45 @@ exports.student_login = (req, res, next) => {
 
 exports.get_test = (req, res, next) => {
 
+    let studentID = req.body.studentID;
+    let testID = req.body.testId;
 
+    let insertResult = 'insert into results (studentid,testid,begintime,tempscore) values(?,?,now(),0)';
     let query1 = 'select testName from tests where id = ?';
     let query = 'SELECT questions.id as questionID,questionText, answerText, answers.id as answerID FROM questions INNER JOIN answers ON questions.ID=answers.QuestionID INNER JOIN test_details ON test_details.QuestionID=questions.ID INNER JOIN tests ON test_details.TestID=tests.ID WHERE tests.ID=? ';
-    db.query(query1, [req.body.testId], (err, testName) => {
-        if (err || testName.length < 1){
+    db.query(insertResult,[studentID,testID],(err,inserted) => {
+        if (err){
             return res.status(404).json({
                 message: 'failed to retrieve test'
             })
         }
 
-        db.query(query, [req.body.testId], (err, result) => {
-            if (err){
+        let resultID = inserted.insertId;
+
+        db.query(query1, [testID], (err, testName) => {
+            if (err || testName.length < 1){
                 return res.status(404).json({
                     message: 'failed to retrieve test'
                 })
-            };
-
-            res.status(200).json({
-                testName: testName[0].testName,
-                questions: result
+            }
+    
+            db.query(query, [req.body.testId], (err, result) => {
+                if (err){
+                    return res.status(404).json({
+                        message: 'failed to retrieve test'
+                    })
+                };
+    
+                res.status(200).json({
+                    resultID,
+                    testName: testName[0].testName,
+                    questions: result
+                });
             });
         });
+
     });
+   
 }
 
 exports.server_time = (req,res,next)=>{
