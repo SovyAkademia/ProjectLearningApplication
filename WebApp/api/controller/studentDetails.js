@@ -4,8 +4,11 @@ const flash = require('connect-flash');
 const dateFormat = require('dateformat');
 const nodemailer = require('nodemailer');
 const generator = require('generate-password');
+const bcrypt = require('bcrypt');
+
 
 let mailer = require('../middleware/mailer');
+let graph = require('../controller/graph');
 
 exports.show_student = (req, res, next) => {
     let id = req.params.id;
@@ -22,17 +25,6 @@ exports.show_student = (req, res, next) => {
         'INNER JOIN results ON tests.ID=results.TestID ' +
         'INNER JOIN categories ON tests.CategoryID=categories.ID WHERE results.StudentID like ?;';
     let getCategories = 'select * from categories;';
-    let averageScore = 'select avg(score) as score from results '+ 
-    'inner join tests on tests.id=results.testid '+
-    'inner join categories on tests.categoryid=categories.id where tests.categoryid = 2 '+ 
-    'union '+ 
-    'select avg(score) as score from results '+ 
-    'inner join tests on tests.id=results.testid '+
-    'inner join categories on tests.categoryid=categories.id where tests.categoryid = 1 '+
-    'union '+
-    'select avg(score) as score from results '+
-    'inner join tests on tests.id=results.testid '+
-    'inner join categories on tests.categoryid=categories.id where tests.categoryid = 3;';
 
     db.query(findStudent,[id],(err,studentInfo)=>{
         if (err) return next(err); 
@@ -51,7 +43,9 @@ exports.show_student = (req, res, next) => {
                     testArr.push(test);
                     scoreArr.push(score);
                 }
-                db.query(averageScore, (err,scoreRadar)=>{
+               // db.query(averageScore, (err,scoreRadar)=>{
+                   /*Exported module with function from graph.js in controller */
+                graph.radarGr((err,scoreRadar)=>{
                     if (err) return next(err);
                     let scoreRadarArr = [];
                     for (index = 0; index < 3; index++) {
@@ -180,19 +174,25 @@ exports.pass = (req,res,next)=>{
     let id = req.params.id;
     let pass = generator.generate({length:6, numbers:true});
     let queryFindStudent = 'select Email from students where id like ?;';
+    let queryInsertNewPass = 'update students set Password = ? where id like ?;';
+
+    
     db.query(queryFindStudent,[id],(err,result)=>{
         if (err) return next(err);
-        console.log(result[0].Email);
-        mailer.transporter.sendMail({
-            from: '"Nodemailer Contact" <NO-REPLY>', // sender address
-            to: result[0].Email, // list of receivers
-            subject: 'Access to app', // Subject line
-            text: 'Password for registration is  '+ pass, // plain text body
-            
-        }, (err, info) => {
-            req.flash('msg','Email has been sent');
-            res.redirect('/students/'+id);
-    });  
-    })
-    
+        bcrypt.hash(pass,10, (err,hash) => {
+            if (err) return next(err);
+                db.query(queryInsertNewPass,[hash,id],(err,updatePass)=>{
+                if (err) return next(err);
+                mailer.transporter.sendMail({
+                    from: '"Nodemailer Contact" <NO-REPLY>', // sender address
+                    to: result[0].Email, // list of receivers
+                    subject: 'Access to app', // Subject line
+                    text: 'New password '+ pass, // plain text body                    
+                }, (err, info) => {
+                    req.flash('msg','Email has been sent');
+                    res.redirect('/students/'+id);
+            });
+        });          
+    });
+});    
 }
