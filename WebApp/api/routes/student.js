@@ -11,7 +11,7 @@ router.get('/:id',studentDetails.show_student);
 router.post('/class',studentController.get_class);
 router.get('/remove/:id',studentController.remove_student);
 router.post('/category',studentDetails.tests_in_category);
-//router.get('/pass',studentDetails);
+router.get('/pass/:id',studentDetails.pass);
 router.get('/archive/:id',studentDetails.archive_student);
 
 

@@ -21,7 +21,8 @@ exports.send_invitation = (req, res, next) => {
         from: '"Nodemailer Contact" <NO-REPLY>', // sender address
         to: req.body.inviteTeacher, // list of receivers
         subject: 'Access to app', // Subject line
-        text: 'Password for registration is  '+ pass, // plain text body
+        text: 'Welcome '+req.body.firstName+" "+req.body.lastName+"\n"+
+        "Your password is "+pass, // plain text body
         
     }, (err, info) => {
         req.flash('msg','Email has been sent');

@@ -2,6 +2,10 @@ const db = require('../models/db');
 const _ = require('lodash');
 const flash = require('connect-flash');
 const dateFormat = require('dateformat');
+const nodemailer = require('nodemailer');
+const generator = require('generate-password');
+
+let mailer = require('../middleware/mailer');
 
 exports.show_student = (req, res, next) => {
     let id = req.params.id;
@@ -58,7 +62,6 @@ exports.show_student = (req, res, next) => {
                             scoreRadarArr.push(0);            
                         }
                     }
-                    console.log(scoreRadarArr)
                     db.query(getCategories, (err, categories) => {
                         if (err) {
                             return res.render('studentDetails', {
@@ -171,4 +174,25 @@ exports.archive_student = (req,res,next) => {
         })
 
     })
+}
+
+exports.pass = (req,res,next)=>{
+    let id = req.params.id;
+    let pass = generator.generate({length:6, numbers:true});
+    let queryFindStudent = 'select Email from students where id like ?;';
+    db.query(queryFindStudent,[id],(err,result)=>{
+        if (err) return next(err);
+        console.log(result[0].Email);
+        mailer.transporter.sendMail({
+            from: '"Nodemailer Contact" <NO-REPLY>', // sender address
+            to: result[0].Email, // list of receivers
+            subject: 'Access to app', // Subject line
+            text: 'Password for registration is  '+ pass, // plain text body
+            
+        }, (err, info) => {
+            req.flash('msg','Email has been sent');
+            res.redirect('/students/'+id);
+    });  
+    })
+    
 }
