@@ -62,10 +62,10 @@ exports.tests_in_category = (req, res, next) => {
     let studentID = req.body.student_id;
     let id = req.body.student_id;
     let findStudent = 'select ID,FirstName, LastName from students where id like ?;';
-    let findStudentResults = 'SELECT CategoryName,TestName, Score FROM tests ' +
+    let findStudentResults = 'SELECT CategoryName,TestName, Score, Date FROM tests ' +
         'INNER JOIN results ON tests.ID=results.TestID ' +
         'INNER JOIN categories ON tests.CategoryID=categories.ID ' +
-        'WHERE results.StudentID like ? and categoryid like ?;';
+        'WHERE results.StudentID like ? and categoryid like ? limit 5;';
     let findStudentTests = 'select students.ID AS "StudentID",FirstName, LastName,CategoryName,TestName, Score from students ' +
         'INNER JOIN results ON results.StudentID = students.ID ' +
         'INNER JOIN tests ON tests.ID=results.TestID ' +
@@ -89,6 +89,7 @@ exports.tests_in_category = (req, res, next) => {
             let num = count[0].Count;
             if (num != 0 || student !=null){ 
                 db.query(findStudentResults, [studentID, categoryId], (err, testScore) => {
+                    console.log(testScore);
                     if (err) return next(err);
                     let testArr = [];
                     let scoreArr = [];
