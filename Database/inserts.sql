@@ -23,8 +23,10 @@ commit;
 
 start transaction;
 INSERT INTO `tests` (`ID`, `TestName`, `CategoryID`, `TeacherID`, `Allowed`, `Time`) VALUES
-(3, 'Test test', 1, 1, 0, NULL),
-(4, 'Best test', 2, 1, 0, NULL);
+(3, 'Test test', 1, 1, 1, NULL),
+(4, 'Best test', 2, 1, 1, NULL),
+(5, 'Get Rest', 2, 1, 1, NULL),
+(6, 'West', 2, 1, 1, NULL);
 commit;
 
 start transaction;
@@ -34,7 +36,25 @@ INSERT INTO `test_details` (`ID`, `TestID`, `QuestionID`) VALUES
 (10, 3, 3),
 (11, 4, 4),
 (12, 4, 5),
-(13, 5, 6);
+(13, 3, 6),
+(14, 3, 5),
+(15, 4, 5),
+(16, 4, 4),
+(17, 4, 3),
+(18, 4, 2),
+(19, 4, 1),
+(20, 5, 5),
+(21, 5, 4),
+(22, 5, 3),
+(23, 5, 2),
+(24, 5, 1),
+(25, 6, 5),
+(26, 6, 4),
+(27, 6, 3),
+(28, 6, 2),
+(29, 6, 1);
+
+
 
 
 commit;
