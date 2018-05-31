@@ -126,23 +126,3 @@ exports.tests_in_category = (req, res, next) => {
     });
 });
 }
-
-exports.archive_student = (req,res,next) => {
-    let id = req.params.id;
-    let findStudent = 'select FirstName, LastName,Email,Year from students where id like ?;';
-    let archiveQuery = 'insert into students_history (FirstName,LastName,Email,DateOfDelete,Year) '+
-    'values (?,?,?,now(),?);';
-    let deleteQuery = 'delete from students where id like ?;';
-
-    db.query(findStudent,[id],(err,student)=>{
-        if (err) return next(err);
-        db.query(archiveQuery,[student[0].FirstName,student[0].LastName,student[0].Email,student[0].Year],
-        (err,result)=>{
-            db.query(deleteQuery,[id],(err,deleteInfo)=>{
-                req.flash('error_msg', 'Student archived');
-                res.redirect('/students');
-            })
-        })
-
-    })
-}

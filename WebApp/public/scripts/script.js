@@ -2,7 +2,7 @@
 var ourUrl = 'http://localhost:5000';
 $(document).ready(function() {
     
-    
+
     $(":text").keyup(function(e) {
         if($(this).val() != '') {
             $(this).next(".test").show();
