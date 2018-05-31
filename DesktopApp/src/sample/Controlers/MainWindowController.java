@@ -104,10 +104,13 @@ public class MainWindowController {
                 hbox.getChildren().add(myGrid);
 
                 Label lbl = new Label(swapQuestion.getQuestionText());
+                lbl.prefHeight(100);
+                lbl.prefWidth(300);
                 myGrid.add(lbl,0,0,2,1);
 
                 int position = 300;
                 int row = 2;
+                int countofans = 0;
                 for (AnswerFinal swapAnswer:swapQuestion.getAnswers()) {
                     RadioButton newRadio = new RadioButton();
                     newRadio.setToggleGroup(toggleGroup);
@@ -122,6 +125,12 @@ public class MainWindowController {
                     position+=50;
                     myGrid.add(newRadio,0,row);
                     row++;
+                    if (countofans >= 3){
+                        break;
+                    }
+                    else {
+                        countofans++;
+                    }
                 }
 
                 Button btnSubmitQuestion = new Button("Submit answer"); //toto tu vytvori tlacidlo prida mu ID,funkciu a zavrie scenu
