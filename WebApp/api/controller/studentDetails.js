@@ -45,11 +45,11 @@ exports.show_student = (req, res, next) => {
                 }
                // db.query(averageScore, (err,scoreRadar)=>{
                    /*Exported module with function from graph.js in controller */
-                graph.radarGr((err,scoreRadar)=>{
+                graph.radarGr(id,(err,scoreRadar)=>{
                     if (err) return next(err);
                     let scoreRadarArr = [];
                     for (index = 0; index < 3; index++) {
-                        if (scoreRadar[index].score != null) {
+                        if (scoreRadar[index].score != 0) {
                             let element = (scoreRadar[index].score);
                             scoreRadarArr.push(element);            
                         }else{
