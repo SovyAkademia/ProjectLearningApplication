@@ -74,6 +74,7 @@ public class LoginWindowController extends MainWindowController{
                 menuButtonCategory = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("menuButtonCategory")).get(0);
                 testMenuButton = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("testMenuButton")).get(0);
 
+                 testRunning = 0;
                 for (Category temp:categoryList) {
                     System.out.println(temp.getCategoryName());
                     MenuItem item = new MenuItem(temp.getCategoryName());
