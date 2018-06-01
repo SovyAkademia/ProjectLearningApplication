@@ -20,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import sample.api.Communication;
 import sample.api.HttpGet;
+import sample.threads.RewriteThr;
 
 
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class MainWindowController {
     public MenuButton testMenuButton;
     public MenuButton MenuButtonForUser;
     public ProgressBar connectivity2;
+
+    public static int testRunning;
 
 
     private Communication communication = new Communication();
@@ -133,6 +136,19 @@ public class MainWindowController {
                     }
                 }
 
+                /*
+                Label time = new Label();
+                time.setStyle("-fx-text-fill: white;");
+                time.setId("myCounetr");
+                time.setText("ahoj");
+                testRunning = 1;
+
+                myGrid.add(time,1,6);
+
+                RewriteThr rewriteThr = new RewriteThr();
+                rewriteThr.start(time,500);
+                */
+
                 Button btnSubmitQuestion = new Button("Submit answer"); //toto tu vytvori tlacidlo prida mu ID,funkciu a zavrie scenu
                 btnSubmitQuestion.setOnAction(resolveSubmit -> {
                     String checkedID = toggleGroup.getSelectedToggle().getUserData().toString();
@@ -175,6 +191,8 @@ public class MainWindowController {
                 }
 
             }
+
+
 
             mainPane.prefHeightProperty().bind(scene.heightProperty()); //da tabPane na celu stranu STAGU
             mainPane.prefWidthProperty().bind(scene.widthProperty());

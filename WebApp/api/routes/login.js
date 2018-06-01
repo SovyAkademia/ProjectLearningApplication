@@ -13,7 +13,6 @@ router.get('/',loginController.index_get);
 router.get('/dashboard',authTeacher,loginController.dashboard);
 router.post('/login',loginController.login);
 router.get('/logout', loginController.logout);
-router.post('/dashboard/handleRegistration',authTeacher,loginController.handleRegistration);
 router.get('/send/:id',authTeacher,loginController.send_mail);
 router.get('/delete/:id',authTeacher,loginController.decline_user);
 
