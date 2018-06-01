@@ -15,7 +15,7 @@
                                placeholder="Teacher FirstName" required autofocus>
                         <input type="text" name="lastName" class="form-control" id="lname"
                                placeholder="Teacher LastName" required autofocus>
-                        <input class="col-md-8 col-sm-10" placeholder="E-Mail" type="text" name="inviteTeacher">
+                        <input class="col-md-8 col-sm-10" placeholder="E-Mail" type="text" name="email" required autofocus>
                         <button type="submit" id="sendinv" class="btn btn-md btn-success">Send invitation</button>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Remove</th>
+                <th>Operations</th>
             </tr>
         </thead>
         <tbody>
@@ -39,6 +39,14 @@
             <tr id="mainTR">
                 <td class="name tableTeacherName">{{FirstName}} {{LastName}}</td>
                 <td class="class">{{Email}}</td>
+                <td>
+                    <a href="/teachers/archive/{{ID}}">
+                        <button class="btn btn-success btn-sm studentAcceptBtn">Archive</button>
+                    </a>
+                    <a href="/teachers/delete/{{ID}}">
+                        <button class="btn btn-danger btn-sm studentAcceptBtn">Delete</button>
+                    </a>
+                </td>
                 {{!--
                 <td class="class">
                     <a href="/students/remove/{{ID}}" onclick="return confirm('Are you sure you want to remove this student?')">
