@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `results` (
   `BeginTime` datetime NOT NULL,
   `EndTime` datetime,
   `OverallTime` time,
-  'TempScore' int(11) NOT NULL,
+  `TempScore` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `StudentID` (`StudentID`),
   KEY `TestID` (`TestID`)
