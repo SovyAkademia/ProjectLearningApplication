@@ -73,7 +73,6 @@ exports.student_login = (req, res, next) => {
     let studentEmail = req.body.email;
     let studentPass = req.body.password;
 
-
     let findStudent = 'select id,email,password from students where email like ?';
 
     db.query(findStudent, [studentEmail], (err, result) => {
@@ -133,6 +132,8 @@ exports.get_test = (req, res, next) => {
         }
 
         let resultID = inserted.insertId;
+        resultID = String(resultID);
+        console.log(resultID);
 
         db.query(query1, [testID], (err, testName) => {
             if (err || testName.length < 1){
@@ -149,7 +150,7 @@ exports.get_test = (req, res, next) => {
                 };
     
                 res.status(200).json({
-                    resultID,
+                    resultID:resultID,
                     testName: testName[0].testName,
                     questions: result
                 });
@@ -179,7 +180,6 @@ exports.handle_answer = (req,res,next) => {
     let studentID = req.body.studentID;
     let questionID = req.body.questionID;
     let answerID = req.body.answerID;
-
 
     let insertToResultDetails = 'insert into result_details(resultid,questionid,answerid) values(?,?,?)';
     let selectPoints = 'select points from questions where id = ?';
