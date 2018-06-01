@@ -14,6 +14,4 @@ router.post('/send',teacherController.send_invitation);
 router.get('/archive/:id',teacherController.archive_teacher);
 router.get('/delete/:id',teacherController.delete_teacher);
 
-
-
 module.exports = router;

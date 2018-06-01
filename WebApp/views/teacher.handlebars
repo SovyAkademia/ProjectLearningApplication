@@ -44,7 +44,7 @@
                         <button class="btn btn-success btn-sm studentAcceptBtn">Archive</button>
                     </a>
                     <a href="/teachers/delete/{{ID}}">
-                        <button class="btn btn-danger btn-sm studentAcceptBtn">Delete</button>
+                        <button class="btn btn-danger btn-sm studentAcceptBtn" onclick="return confirm('Warning, following action is irreversible. Continue?')">Delete</button>
                     </a>
                 </td>
                 {{!--
