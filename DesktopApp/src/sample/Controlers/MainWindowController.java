@@ -248,6 +248,7 @@ public class MainWindowController {
 
                 if (i > countOfQuestions)
                 {
+                    finalRow++;
                     Label testoutput = new Label("  Test result: ");
                     testoutput.prefHeight(80);
                     testoutput.setStyle("-fx-text-fill: white;");
@@ -263,8 +264,9 @@ public class MainWindowController {
                         if (countOfQuestions == answered){
                             String testResult = communication.finalizeTest(this.actualResultID,this.actualTestID);
                             if (testResult != null) {
-                                testoutput.setText("   Test result: "+testResult);
+                                testoutput.setText("    "+testResult);
                                 end.setDisable(false);
+                                finalize.setDisable(true);
                             }
                             else {
                                 testoutput.setText("Communication error");
@@ -276,9 +278,9 @@ public class MainWindowController {
                     });
                     finalize.setText("Finish");
                     end.setText("Exit Test");
+                    myGrid2.add(finalize,1,finalRow);
                     finalRow++;
                     myGrid2.add(end,1,finalRow);
-                    myGrid2.add(finalize,1,finalRow);
                     tabFinal.setClosable(false);
                     tabFinal.setContent(hbox2);
                     tabPane.getTabs().add(tabFinal);

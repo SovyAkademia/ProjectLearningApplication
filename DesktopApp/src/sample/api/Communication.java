@@ -184,7 +184,7 @@ public class Communication {
     }
 
     public String finalizeTest(String resultID, String testID){
-        String url = baseUrl+"desktop/finalScore";
+        String url = baseUrl+"/desktop/finalScore";
         String json = "";
         String response;
         json = "{" +
