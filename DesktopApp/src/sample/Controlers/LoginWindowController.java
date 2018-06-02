@@ -88,12 +88,12 @@ public class LoginWindowController extends MainWindowController{
                                 MenuItem swap = new MenuItem(detail.getTestName());
                                 //String Id = (detail.getID()).toString();
                                 swap.setId(detail.getID());
-                                System.out.println(swap.getId());
+                                //System.out.println(swap.getId());
                                 swap.setOnAction(eventClicked1 -> {
                                     String itemId = swap.getId();
                                     TestPrototype newTest = communication.getTest(itemId);
                                     actualTest = new TestFinal(newTest);
-                                    actualTest.printTest();
+                                    //actualTest.printTest();
                                     new MainWindowController().createTest(null,actualTest);
                                 });
                                 testMenuButton.getItems().add(swap);

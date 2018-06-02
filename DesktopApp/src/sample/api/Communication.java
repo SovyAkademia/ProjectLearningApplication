@@ -8,6 +8,7 @@ public class Communication {
 
     private static String token;
     private static int studentId;
+    private static String actualTestID;
 
     public String getToken() {
         return token;
@@ -112,6 +113,7 @@ public class Communication {
             }
             Gson gson = new Gson();
             swap = gson.fromJson(response,TestPrototype.class);
+            this.actualTestID = testID;
         }
         catch (Exception e)
         {
@@ -181,5 +183,36 @@ public class Communication {
         return false;
     }
 
+    public String finalizeTest(String resultID, String testID){
+        String url = baseUrl+"desktop/finalScore";
+        String json = "";
+        String response;
+        json = "{" +
+                "\n\t"+"\"resultID\":" +"\""+resultID+"\","+
+                "\n\t"+"\"testID\":" +"\""+testID+"\","+
+                "\n\t"+"\"token\":" +"\""+token+"\""+
+                "}";
+        try {
+            response = new HttpPost().post(url,json);
+            if (response == null) {
+                return null;
+            }
+            else {
+                return response;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    public String getActualTestID() {
+        return actualTestID;
+    }
+
+    public void setActualTestID(String actualTestID) {
+        this.actualTestID = actualTestID;
+    }
 }

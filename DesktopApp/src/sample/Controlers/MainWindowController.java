@@ -36,6 +36,10 @@ public class MainWindowController {
 
     public static int testRunning;
 
+    private int answered = 0;
+    private String actualTestID;
+    private String actualResultID;
+
 
     private Communication communication = new Communication();
     private ArrayList<Category> categoryList;
@@ -80,6 +84,9 @@ public class MainWindowController {
 
     public void createTest(ActionEvent event, TestFinal actualTest) {
         int countOfQuestions = actualTest.getQuestions().size();
+        answered = 0;
+        this.actualResultID = actualTest.getResultID();
+        this.actualTestID = communication.getActualTestID();
         //System.out.println(countOfQuestions);
 
         try {
@@ -213,6 +220,7 @@ public class MainWindowController {
                             finalAns.setStyle("-fx-text-fill: green;");
                         }
                         btnSubmitQuestion.setDisable(true);
+                        answered++;
                     }
                     else
                     {
@@ -240,6 +248,37 @@ public class MainWindowController {
 
                 if (i > countOfQuestions)
                 {
+                    Label testoutput = new Label("  Test result: ");
+                    testoutput.prefHeight(80);
+                    testoutput.setStyle("-fx-text-fill: white;");
+                    testoutput.setFont(new Font("Arial", 30));
+                    myGrid2.add(testoutput,0,finalRow);
+                    Button finalize = new Button();
+                    Button end = new Button();
+                    end.setDisable(true);
+                    end.setOnAction(finish -> {
+                        Platform.exit();
+                    });
+                    finalize.setOnAction(endTest ->{
+                        if (countOfQuestions == answered){
+                            String testResult = communication.finalizeTest(this.actualResultID,this.actualTestID);
+                            if (testResult != null) {
+                                testoutput.setText("   Test result: "+testResult);
+                                end.setDisable(false);
+                            }
+                            else {
+                                testoutput.setText("Communication error");
+                            }
+                        }
+                        else {
+                            testoutput.setText("Error ");
+                        }
+                    });
+                    finalize.setText("Finish");
+                    end.setText("Exit Test");
+                    finalRow++;
+                    myGrid2.add(end,1,finalRow);
+                    myGrid2.add(finalize,1,finalRow);
                     tabFinal.setClosable(false);
                     tabFinal.setContent(hbox2);
                     tabPane.getTabs().add(tabFinal);
