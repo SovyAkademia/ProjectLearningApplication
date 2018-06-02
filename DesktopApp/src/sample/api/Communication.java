@@ -120,11 +120,11 @@ public class Communication {
         return swap;
     }
 
-    public boolean postResult(String jsonBase){
+    public int postResult(String jsonBase){
         String[] base = jsonBase.split(" ");
         if (base.length <= 3)
         {
-            return false;
+            return 0;
         }
         String json = "{" +
                 "\n\t"+"\"studentID\":" +"\""+base[2]+"\","+
@@ -133,16 +133,46 @@ public class Communication {
                 "\n\t"+"\"resultID\":" +"\""+base[3]+"\","+
                 "\n\t"+"\"token\":" +"\""+token+"\""+
                 "}";
-        System.out.println(json);
+        //System.out.println(json);
         try {
             String url = baseUrl+"/desktop/handleAnswer";
             String response = new HttpPost().post(url,json);
             if (response == null) {
+                return 0;
+            }
+            if (response.matches("correct"))
+            {
+                return 2;
+            }
+            else {
+                return 1;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public boolean changePassword(String oldPass, String newPass){
+        String url = baseUrl+"desktop/changePassword";
+        String json = "";
+        String response = "";
+        json = "{" +
+                "\n\t"+"\"studentID\":" +"\""+studentId+"\","+
+                "\n\t"+"\"oldPassword\":" +"\""+oldPass+"\","+
+                "\n\t"+"\"newPassword\":" +"\""+newPass+"\","+
+                "\n\t"+"\"token\":" +"\""+token+"\""+
+                "}";
+        try {
+            response = new HttpPost().post(url,json);
+            if (response == null) {
                 return false;
             }
-            System.out.println(response);
-            return true;
-
+            else {
+                return true;
+            }
         }
         catch (Exception e)
         {
