@@ -97,19 +97,20 @@
 
             <div class="row">
               <div class="container">
-                {{!-- <div class="text-center">	
-                      <span>Points:</span>	
-                      <select name="selectPoint" id="pointsin">	
-                        <optgroup label="Select points">	
-                          <option name="1" value="1">1</option>	
-                          <option name="2" value="2">2</option>	
-                          <option name="3" value="3">3</option>	
-                          <option name="4" value="4">4</option>	
-                         <option name="5" value="5">5</option>	
-                       </optgroup>	
-                      </select>	
-                    </div>	
-                   <br> --}}
+                {{!--
+                <div class="text-center">
+                  <span>Points:</span>
+                  <select name="selectPoint" id="pointsin">
+                    <optgroup label="Select points">
+                      <option name="1" value="1">1</option>
+                      <option name="2" value="2">2</option>
+                      <option name="3" value="3">3</option>
+                      <option name="4" value="4">4</option>
+                      <option name="5" value="5">5</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <br> --}}
                 <div class="col-md-12 col-sm-12">
 
                   <div class="container">
@@ -201,53 +202,51 @@
 
 
   <div class="container testcreate">
-    <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>
+        <span id="nameOfTest">{{TestName}}</span>
+      </h1>
+
+    </div>
+
+    <div class="row mt-3">
       <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-6">
-            <h4>Test name:
-              <span id="nameOfTest">{{TestName}}</span>
-            </h4>
-          </div>
-          <div class="col-md-6">
-            <h4>Test category: {{CategoryName}}</h4>
-          </div>
+        <div class="row text-center">
+
+
         </div>
       </div>
     </div>
+    <div class="row text-center">
+      <div class="col-md-12">
+        <button type="button" id="addnewquest" class="btn  addquest btn-info btn-md col-md-4 " data-toggle="modal" data-target="#myModal">Add new question</button>
+        <button type="button" id="chooseExist" class="btn ml-3 addExistQuestion btn-info btn-md col-md-4" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
+      </div>
+    </div>
+    <hr>
+
     <div class="row">
       <div class="col-md-12 col-sm-12">
-        <button type="button" id="addnewquest" class="btn addquest btn-info btn-md col-md-12 " data-toggle="modal" data-target="#myModal">Add new question</button>
-        <button type="button" id="chooseExist" class="btn addExistQuestion btn-info btn-md col-md-12" data-toggle="modal" data-target="#choose">Choose from existing questions</button>
-        <table class="col-md-12 testquestions" id="questionlist">
-          <thead>
-            <tr id="test">
-              <th>Question</th>
-              <th>Answers</th>
-              <th>Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each questions}}
-            <tr>
-              <td>{{this.QuestionText}}</td>
-              <td id="tooltip">Answers
-                <span id="tooltiptext">
-                  <p>A. {{this.ans1}}</p>
-                  <p>B. {{this.ans2}}</p>
-                  <p>C. {{this.ans3}}</p>
-                  <p>D. {{this.ans4}}</p>
-                </span>
-              </td>
 
-              <td>
-                <button value="{{ID}}" type="button" class="btn addquest editBtn btn-info btn-md col-md-12" data-toggle="modal" data-target="#Edit">Edit
-                </button>
-              </td>
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
+        {{#each questions}}
+        <div class="ml-5">
+
+          <h4>{{this.QuestionText}}</h4>
+
+          <p>A. {{this.ans1}}</p>
+          <p>B. {{this.ans2}}</p>
+          <p>C. {{this.ans3}}</p>
+          <p>D. {{this.ans4}}</p>
+          
+
+
+
+          <button value="{{ID}}" type="button" class="btn addquest editBtn btn-info btn-sm col-md-1" data-toggle="modal" data-target="#Edit">Edit</button>
+          <button value="{{ID}}" type="button" class="btn addquest deleteQuest deleteBtn btn-danger btn-sm col-md-1">Delete</button>
+
+        </div>
+        <hr> {{/each}}
+
       </div>
       <div class="buttons col-md-12 col-sm-12">
         {{!--

@@ -156,3 +156,19 @@ exports.questions_from_selected_test = (req,res,next) => {
             })
         })
 }
+
+exports.delete_question = (req,res,next) => {
+    
+    let questionID = req.body.questionID;
+    console.log(questionID);
+
+    let deleteQuestion = 'delete from questions where id = ?';
+
+    db.query(deleteQuestion,[questionID],(err,deleted) => {
+        if(err) return next(err);
+
+        res.jsonp({
+            message:'question deleted'
+        })
+    })
+}
