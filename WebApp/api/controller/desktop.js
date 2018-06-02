@@ -1,6 +1,7 @@
 const db = require('../models/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const moment = require('moment');
 
 
 exports.get_categories = (req, res, next) => {
@@ -283,5 +284,67 @@ exports.handle_answer = (req, res, next) => {
             })
         })
 
+    })
+}
+
+exports.final_score = (req,res,next) => {
+    let resultID = req.body.resultID;
+    let testID = req.body.testID;
+
+    let selectTemp = 'select tempScore from results where id = ?';
+    let getMaxPossibleScore = 'select sum(Points) as maxScore from questions inner join test_details on questions.id = test_details.questionid where testID = ?;';
+    let updateResult = 'update results set date = now(),score = ?, endtime = now() where id = ?';
+    let getTimes = 'select begintime,endtime from results where id = ?';
+    let setFinalTime = 'update results set overalltime = ? where id = ?';
+
+    db.query(selectTemp,[resultID],(err,tempScore) => {
+        if(err){
+            return res.status(500).send('something went wrong');
+        }
+
+        db.query(getMaxPossibleScore,[testID],(err,maxScore) => {
+            if(err){
+                return res.status(500).send('something went wrong');
+            }
+
+            let finalScore = tempScore[0].tempScore / maxScore[0].maxScore *100;
+            finalScore = Math.round(finalScore * 100) / 100;
+            console.log(finalScore);
+
+            db.query(updateResult,[finalScore,resultID],(err,updated) => {
+                if(err){
+                    return res.status(500).send('something went wrong');
+                }
+
+                db.query(getTimes,[resultID],(err,times) => {
+                    if(err){
+                        return res.status(500).send('something went wrong');
+                    }
+
+                    let startTime = times[0].begintime;
+                    let endTime = times[0].endtime;
+
+                    var start_date = moment(startTime, 'YYYY-MM-DD HH:mm:ss');
+                    var end_date = moment(endTime, 'YYYY-MM-DD HH:mm:ss');
+
+                    var duration = moment.duration(end_date.diff(start_date));
+                    var seconds = duration.asSeconds(); 
+
+                    var finalTime = moment.utc(seconds*1000).format('mm:ss');
+                    console.log(finalTime);
+
+                    db.query(setFinalTime,[finalTime,resultID],(err,result) => {
+                        if(err){
+                            return res.status(500).send('something went wrong');
+                        }
+
+                        res.status(200).send('Final score: '+ finalScore+'% in ' + finalTime);
+
+                    })
+                })
+
+                
+            })
+        });
     })
 }

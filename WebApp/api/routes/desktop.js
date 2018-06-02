@@ -14,5 +14,6 @@ router.post('/getTest',authStudent,desktopController.get_test);
 router.get('/getTime',desktopController.server_time);
 router.post('/handleAnswer',authStudent,desktopController.handle_answer);
 router.post('/changePassword',authStudent,desktopController.change_password);
+router.post('/finalScore',authStudent,desktopController.final_score);
 
 module.exports = router;
