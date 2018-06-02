@@ -6,8 +6,28 @@ import java.io.IOException;
 
 public class Communication {
 
-    private String token;
-    private int studentId;
+    private static String token;
+    private static int studentId;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getBaseUrl() {
+        return baseUrl;
+    }
 
     private final String baseUrl = "http://akademiasovy.ddns.net:3050";
 
@@ -78,9 +98,12 @@ public class Communication {
         TestPrototype swap = new TestPrototype();
         try {
             String json = "{\n\t\"testId\":\""+testID+"\"," +
+                    "\n\t\"studentID\":\""+studentId+"\"," +
                     "\n\t\"token\":\""+this.token+"\"\n}";
 
             String url = baseUrl+"/desktop/getTest";
+
+            System.out.println(json);
 
             String response = new HttpPost().post(url,json);
             if (response == null) {
@@ -104,18 +127,20 @@ public class Communication {
             return false;
         }
         String json = "{" +
-                "\n\t"+"\"studentID\":" +"\""+base[3]+"\""+
-                "\n\t"+"\"testID\":" +"\""+base[2]+"\""+
-                "\n\t"+"\"questionID\":" +"\""+base[0]+"\""+
-                "\n\t"+"\"answerID\":" +"\""+base[1]+"\""+
+                "\n\t"+"\"studentID\":" +"\""+base[2]+"\","+
+                "\n\t"+"\"questionID\":" +"\""+base[0]+"\","+
+                "\n\t"+"\"answerID\":" +"\""+base[1]+"\","+
+                "\n\t"+"\"resultID\":" +"\""+base[3]+"\","+
                 "\n\t"+"\"token\":" +"\""+token+"\""+
                 "}";
+        System.out.println(json);
         try {
-            String url = baseUrl+"/desktop/";
+            String url = baseUrl+"/desktop/handleAnswer";
             String response = new HttpPost().post(url,json);
             if (response == null) {
                 return false;
             }
+            System.out.println(response);
             return true;
 
         }

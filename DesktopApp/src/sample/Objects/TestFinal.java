@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 public class TestFinal {
     private String testNmae;
+    private String resultID;
     private ArrayList<QuestionsFinal> questions = new ArrayList<QuestionsFinal>();
 
     public TestFinal(TestPrototype prototype) {
+        //System.out.println(prototype.getResultID());
         this.questions = new ArrayList<QuestionsFinal>();
         this.testNmae=prototype.getTestName();
+
+            this.resultID = prototype.getResultID();
+
         for (QuestionPrototype swap:prototype.getTestQuestionPrototypes()) {
             int swapId = swap.getQuestionID();
             boolean exist = false;
@@ -53,5 +58,13 @@ public class TestFinal {
 
     public void setQuestions(ArrayList<QuestionsFinal> questions) {
         this.questions = questions;
+    }
+
+    public String getResultID() {
+        return resultID;
+    }
+
+    public void setResultID(String resultID) {
+        this.resultID = resultID;
     }
 }

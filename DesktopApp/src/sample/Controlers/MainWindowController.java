@@ -121,7 +121,7 @@ public class MainWindowController {
                     newRadio.setTranslateX(300);
                     newRadio.setTranslateY(position);
                     newRadio.setStyle("-fx-text-fill: white;");
-                    String newID = (swapQuestion.getQuestionID()+" "+swapAnswer.getAnswerID());
+                    String newID = (swapQuestion.getQuestionID()+" "+swapAnswer.getAnswerID()+" "+communication.getStudentId()+" "+actualTest.getResultID());
                     newRadio.setUserData(newID);
                     newRadio.setId("ans "+(i-2)+" "+(row-2));
                     System.out.println(newRadio.getId());
@@ -154,6 +154,8 @@ public class MainWindowController {
                     String checkedID = toggleGroup.getSelectedToggle().getUserData().toString();
                     tab.setStyle("-fx-background-color: GREEN;");
                     tabPane.getSelectionModel().selectNext();
+                    tab.setDisable(true);
+                    btnSubmitQuestion.setDisable(true);
 
                     //System.out.println(checkedID);
 
@@ -191,6 +193,7 @@ public class MainWindowController {
                 }
 
             }
+
 
 
 

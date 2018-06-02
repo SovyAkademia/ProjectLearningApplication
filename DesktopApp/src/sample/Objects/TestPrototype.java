@@ -3,6 +3,7 @@ package sample.Objects;
 import java.util.ArrayList;
 
 public class TestPrototype {
+    private String resultID;
     private String testName;
     private ArrayList<QuestionPrototype> questions;
 
@@ -22,4 +23,11 @@ public class TestPrototype {
         this.questions = testQuestionPrototypes;
     }
 
+    public String getResultID() {
+        return resultID;
+    }
+
+    public void setResultID(String resultID) {
+        this.resultID = resultID;
+    }
 }

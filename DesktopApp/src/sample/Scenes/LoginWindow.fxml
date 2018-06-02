@@ -29,7 +29,7 @@
          </font>
       </Label>
       <Label fx:id="lblError" layoutX="227.0" layoutY="433.0" prefHeight="44.0" prefWidth="249.0" textFill="WHITE" />
-      <ProgressBar fx:id="connectivity" layoutX="611.0" layoutY="485.0" onMouseClicked="#checkStatus" prefHeight="10.0" prefWidth="50.0" progress="0.5" style="-fx-background-color: #f44242;" />
-      <Label layoutX="514.0" layoutY="487.0" text="Server Status" />
+      <ProgressBar fx:id="connectivity" layoutX="611.0" layoutY="485.0" onMouseClicked="#checkStatus" opacity="0.34" prefHeight="10.0" prefWidth="50.0" progress="0.5" style="-fx-background-color: #f44242;" />
+      <Label layoutX="514.0" layoutY="487.0" opacity="0.5" text="Server Status" textFill="WHITE" />
    </children>
 </Pane>
