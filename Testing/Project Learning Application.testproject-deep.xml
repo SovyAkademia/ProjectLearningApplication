@@ -33,8 +33,9 @@
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>Enter&nbsp;&quot;Ruszinka&quot; into Last Name input.<br />
-Enter your real e-mail address into e-mail input.<br />
-Enter &quot;2017/2018&quot; option in dropdown button.</p>
+Enter &quot;boris98nhl@gmail.com&quot; into e-mail input.<br />
+Enter &quot;2017/2018&quot; option in dropdown button.<br />
+Fill &quot;Terms and condtitions&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under &quot;First Name&quot; input.</p>
 ]]></expectedresults>
@@ -44,8 +45,9 @@ Enter &quot;2017/2018&quot; option in dropdown button.</p>
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>Enter&nbsp;&quot;Erik&quot; into First Name input.<br />
-Enter your real e-mail address into e-mail input.<br />
-Enter &quot;2017/2018&quot; option in dropdown button.</p>
+Enter &quot;boris98nhl@gmail.com&quot; into e-mail input.<br />
+Enter &quot;2017/2018&quot; option in dropdown button.<br />
+Fill &quot;Terms and condtitions&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under &quot;Last Name&quot; input.</p>
 ]]></expectedresults>
@@ -57,7 +59,8 @@ Enter &quot;2017/2018&quot; option in dropdown button.</p>
 	<actions><![CDATA[<p>Clear all inputs&nbsp;and:<br />
 Enter&nbsp;&quot;Erik&quot; into First Name input.<br />
 Enter&nbsp;&quot;Ruszinka&quot; into Last Name input.<br />
-Enter &quot;2017/2018&quot; option in dropdown button.</p>
+Enter &quot;2017/2018&quot; option in dropdown button.<br />
+Fill &quot;Terms and condtitions&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under &quot;E-Mail Address&quot; input.</p>
 ]]></expectedresults>
@@ -68,7 +71,8 @@ Enter &quot;2017/2018&quot; option in dropdown button.</p>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>Enter &quot;Erik&quot; into First Name input.<br />
 Enter&nbsp;&quot;Ruszinka&quot; into Last Name input.<br />
-Enter your real e-mail address into e-mail input.</p>
+Enter &quot;boris98nhl@gmail.com&quot; into e-mail input.<br />
+Fill &quot;Terms and condtitions&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Message box &quot;Vyberte položku zo zoznamu&quot; will appear under &quot;First year of study&quot; dropdown button.</p>
 ]]></expectedresults>
@@ -79,8 +83,39 @@ Enter your real e-mail address into e-mail input.</p>
 	<step_number><![CDATA[6]]></step_number>
 	<actions><![CDATA[<p>Enter &quot;Erik&quot; into First Name input.<br />
 Enter&nbsp;&quot;Ruszinka&quot; into Last Name input.<br />
-Enter your real e-mail address into e-mail input.<br />
+Enter &quot;boris98nhl@gmail.com&quot; into e-mail input.<br />
 Enter &quot;2017/2018&quot; option in dropdown button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Message box &quot;Ak chcete pokračovať. začiarknite toto pol&iacute;čko&quot; will appear under &quot;Terms and conditions&quot; checkbox.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[7]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Terms and conditions&quot; below.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window will be open.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[8]]></step_number>
+	<actions><![CDATA[<p>Inside of dialog window for &quot;Terms and conditions&quot;, click on grey cross in top right corner.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window will disappear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[9]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;Erik&quot; into First Name input.<br />
+Enter&nbsp;&quot;Ruszinka&quot; into Last Name input.<br />
+Enter &quot;boris98nhl@gmail.com&quot; into e-mail input.<br />
+Enter &quot;2017/2018&quot; option in dropdown button.<br />
+Fill &quot;Terms and condtitions&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>You will be redirected to login page. There will be message &quot;<span style="color:#27ae60">Student succesfully registered</span>&quot; under &quot;Password&quot; input.</p>
 ]]></expectedresults>
@@ -189,7 +224,8 @@ Enter &quot;2017/2018&quot; option in dropdown button.</p>
 	<node_order><![CDATA[3]]></node_order>
 	<externalid><![CDATA[4]]></externalid>
 	<version><![CDATA[1]]></version>
-	<summary><![CDATA[<p>Check if user is automatically logged out because of inactivity.</p>
+	<summary><![CDATA[<p>Check if user is automatically logged out because of inactivity.<br />
+<em><strong>(This test case is not necessary)</strong></em></p>
 
 <p>&nbsp;</p>
 
@@ -219,8 +255,7 @@ Enter &quot;2017/2018&quot; option in dropdown button.</p>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
-	<actions><![CDATA[<p>Wait 10&nbsp;minutes, then click on any item placed in left panel (Dashboard, My tests, Create test, Students).<br />
-<em><strong>(This test case is not necessary)</strong></em></p>
+	<actions><![CDATA[<p>Wait 10&nbsp;minutes, then click on any item placed in left panel (Dashboard, My tests, Create test, Students).</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Warning window &quot;You are not authorized to view this page&quot; will appear.</p>
 ]]></expectedresults>
@@ -514,7 +549,7 @@ Check if creating of tests with simillar titles will not be permitted.</p>
 <details><![CDATA[]]></details> 
 
 <testcase internalid="71" name="Add new question">
-	<node_order><![CDATA[4]]></node_order>
+	<node_order><![CDATA[0]]></node_order>
 	<externalid><![CDATA[8]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of adding new question to the test.<br />
@@ -531,7 +566,7 @@ Check functonality of checking blank input fields.</p>
 <steps>
 <step>
 	<step_number><![CDATA[1]]></step_number>
-	<actions><![CDATA[<p>Click on the blue button &quot;Add new question&quot;.</p>
+	<actions><![CDATA[<p>Click on the left blue button &quot;Add new question&quot;.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Dialog window with &quot;Add new question&quot; title will appear.</p>
 ]]></expectedresults>
@@ -641,7 +676,7 @@ Answer D: Fourth</p>
 	<step_number><![CDATA[12]]></step_number>
 	<actions><![CDATA[<p>Click on the &quot;Points&quot; dropdown. Select &quot;4&quot; choice. Next select radio button &quot;Correct&quot; for Answer C.&nbsp;Then click in the green button &quot;Add the question&quot;.</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>Dialog window will disappear. Created question&nbsp;will be added to list under blue button &quot;Add new question&quot;.<br />
+	<expectedresults><![CDATA[<p>Dialog window will disappear. Created question&nbsp;will be added to list.<br />
 Parameters of question:<br />
 Question: My question<br />
 Answers: Answers - hover effect will show all answers (A. First, B. Second,C. Third,D. Fourth)</p>
@@ -652,7 +687,7 @@ Answers: Answers - hover effect will show all answers (A. First, B. Second,C. Th
 </testcase>
 
 <testcase internalid="119" name="Choose from existing questions">
-	<node_order><![CDATA[5]]></node_order>
+	<node_order><![CDATA[1]]></node_order>
 	<externalid><![CDATA[13]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check if it&#39;s possible to add foreign question into the test.</p>
@@ -668,7 +703,7 @@ Answers: Answers - hover effect will show all answers (A. First, B. Second,C. Th
 <steps>
 <step>
 	<step_number><![CDATA[1]]></step_number>
-	<actions><![CDATA[<p>Click on the blue button &quot;Choose from existing questions&quot;.</p>
+	<actions><![CDATA[<p>Click on the right blue button &quot;Choose from existing questions&quot;.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Dialog window &quot;Choose from existing questions&quot; will appear.</p>
 ]]></expectedresults>
@@ -681,7 +716,7 @@ Answers: Answers - hover effect will show all answers (A. First, B. Second,C. Th
 For example &quot;Java test&quot;.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>List of questions will appear under dropdown button.<br />
-There&#39;s only one question - Sample question.</p>
+There are 3 questions.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -709,7 +744,7 @@ There&#39;s only one question - Sample question.</p>
 	<actions><![CDATA[<p>Click on the dropdown button and select test you want to import question from.<br />
 For example &quot;Big HTML test&quot;.</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>No question will appear below.</p>
+	<expectedresults><![CDATA[<p>List of questions will appear under dropdown button. There are 3 questions listed.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -719,15 +754,14 @@ For example &quot;Big HTML test&quot;.</p>
 	<actions><![CDATA[<p>Click on the dropdown button and select test you want to import question from.<br />
 For example &quot;Java test&quot;.</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>List of questions will appear under dropdown button.<br />
-There&#39;s only one question - Sample question.</p>
+	<expectedresults><![CDATA[<p>List of questions will appear under dropdown button. There are 3 questions listed</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[7]]></step_number>
-	<actions><![CDATA[<p>Click on the green button &quot;Add&quot;.</p>
+	<actions><![CDATA[<p>Click on the green button &quot;Add&quot; for question &quot;JavaFX is used for creating of...?&quot;.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Dialog window will disappear and added question will be displayed in the list of questions below.</p>
 ]]></expectedresults>
@@ -735,9 +769,220 @@ There&#39;s only one question - Sample question.</p>
 </step>
 </steps>
 </testcase>
+
+<testcase internalid="357" name="Edit question">
+	<node_order><![CDATA[2]]></node_order>
+	<externalid><![CDATA[64]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of editing the question.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Question properties can be edited successfully.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on the &quot;Edit&quot; button under &quot;JavaFX is used for creating of...?&quot; question.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window will appear.</p>
+
+<p><br />
+Displayed properties will be:<br />
+Points: 3<br />
+Answer A: Server<br />
+Answer B: GUI (correct)<br />
+Answer C: Test applications<br />
+Answer D: Database scripts</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Points&quot; dropdown button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Select option &quot;4&quot; and click on&nbsp;grey &quot;Close&quot; button.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Click on the &quot;Edit&quot; button under &quot;JavaFX is used for creating of...?&quot; question.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window will appear.</p>
+
+<p><br />
+Displayed properties will be:<br />
+Points: 3<br />
+Answer A: Server<br />
+Answer B: GUI (correct)<br />
+Answer C: Test applications<br />
+Answer D: Database scripts</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Points&quot; dropdown button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Select option &quot;4&quot; and click on&nbsp;green&nbsp;&quot;Save&quot; button.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>Click on the &quot;Edit&quot; button under &quot;JavaFX is used for creating of...?&quot; question.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Dialog window will appear.</p>
+
+<p><br />
+Displayed properties will be:<br />
+Points: 4<br />
+Answer A: Server<br />
+Answer B: GUI (correct)<br />
+Answer C: Test applications<br />
+Answer D: Database scripts</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="355" name="Delete question">
+	<node_order><![CDATA[3]]></node_order>
+	<externalid><![CDATA[63]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of deleting question.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Question will be removed correctly.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on red &quot;Delete&quot; button under &quot;My question&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window &quot;Are you sure you want to delete this question?&quot; will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Cancel&quot; choice inside of alert window.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window will disappear and no changes will be made.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Click on red &quot;Delete&quot; button under &quot;My question&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window &quot;Are you sure you want to delete this question?&quot; will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;OK&quot; choice inside of alert window.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window will disappear and selected question will be removed from list of questions.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
 </testsuite>
-<testcase internalid="138" name="Enable test - Finish">
+<testcase internalid="303" name="Activate test">
 	<node_order><![CDATA[4]]></node_order>
+	<externalid><![CDATA[57]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of activating of test.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Test will be activated and it will be not possible to editit anymore.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;My tests&quot; item on left panel.<br />
+<em>If you are currently on &quot;My tests&quot; page, you may skip this step.</em></p>
+]]></actions>
+	<expectedresults><![CDATA[<p>&quot;My tests&quot; screen will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Move mouse cursor on blue&nbsp;&quot;Activate&quot; button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Black message box &quot;After activating the test, you will not&nbsp;be able to edit it anymore&quot; will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Activate&quot; button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window &quot;Are you sure you want to activate this test? After activating the test you will not be able to edit the test in any way&quot; will appear in the top of the screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Click on cancel button inside of alert window.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window will disappear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Activate&quot; button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window &quot;Are you sure you want to activate this test? After activating the test you will not be able to edit the test in any way&quot; will appear in the top of the screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<p>Click on OK button inside of alert window.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>&quot;Activate&quot; button will change to green bordered &quot;Enable&quot; button and edit option will disappear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="138" name="Enable/Hide test">
+	<node_order><![CDATA[5]]></node_order>
 	<externalid><![CDATA[18]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of&nbsp; allowing the test.</p>
@@ -763,9 +1008,18 @@ There&#39;s only one question - Sample question.</p>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
-	<actions><![CDATA[<p>Click on &quot;Enable&quot; button&nbsp;inside of&nbsp; &quot;Exercise test&quot; box.</p>
+	<actions><![CDATA[<p>Click on green bordered&nbsp;&quot;Enable&quot; button&nbsp;inside of&nbsp; &quot;Exercise test&quot; box.</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>Test will be allowed for students.<strong><span style="color:#e74c3c">{and something front-end effect}</span></strong></p>
+	<expectedresults><![CDATA[<p>Test will be allowed for students,&nbsp;button &quot;Enable&quot; will change to &quot;Hide&quot; and test box will be green bordered.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Click on yellow bordered &quot;Hide&quot; button inside of &quot;Exercise test&quot; box.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Test will be hidden for students,&nbsp;button &quot;Hide&quot; will change back to &quot;Enable&quot; and green border will disappear.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -896,43 +1150,25 @@ Boris Galick&yacute; and Erik Ruszinka.</p>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
-	<actions><![CDATA[<p>Click on &quot;Remove&quot; button to remove student Erik Ruszinka.</p>
+	<actions><![CDATA[<p>Click on &quot;Erik Ruszinka&quot;.</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>Alert window will appear and ask &quot;Are you sure you want to remove this student?&quot;.</p>
+	<expectedresults><![CDATA[<p>You will be redirected to profile page.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
-	<actions><![CDATA[<p>Choose &quot;Cancel&quot; option inside of alert window.</p>
+	<actions><![CDATA[<p>Click on the green button &quot;Archive&quot;.</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>Alert window will disappear.</p>
-]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[4]]></step_number>
-	<actions><![CDATA[<p>Click on &quot;Remove&quot; button to remove student Erik Ruszinka.</p>
-]]></actions>
-	<expectedresults><![CDATA[<p>Alert window will appear and ask &quot;Are you sure you want to remove this student?&quot;.</p>
-]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[5]]></step_number>
-	<actions><![CDATA[<p>Choose &quot;OK&quot; option inside of alert window.</p>
-]]></actions>
-	<expectedresults><![CDATA[<p>Alert window will disappear and student Erik Ruszinka will be removed from table of displayed students.</p>
+	<expectedresults><![CDATA[<p>&quot;Students&quot; page will appear. Red window &quot;Student archived&quot; will appear above.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
 </testcase>
 
-<testcase internalid="110" name="Show student details - Finish">
+<testcase internalid="110" name="Show student details">
 	<node_order><![CDATA[1002]]></node_order>
 	<externalid><![CDATA[12]]></externalid>
 	<version><![CDATA[1]]></version>
@@ -954,7 +1190,7 @@ Boris Galick&yacute; and Erik Ruszinka.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>You will be redirected to &quot;Students&quot; page.<br />
 There will be displayed list of all&nbsp;students.<br />
-There will be only student &quot;Boris Galick&yacute;&quot;.</p>
+There will be only one student - Boris Galick&yacute;.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -963,8 +1199,91 @@ There will be only student &quot;Boris Galick&yacute;&quot;.</p>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>Click on &quot;Boris Galick&yacute;&quot;.</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>Profile page of Boris Galick&yacute; will be displayed.<br />
-<span style="color:#e74c3c"><strong>{Description of profile page}</strong></span></p>
+	<expectedresults><![CDATA[<p>Profile page of student &quot;Boris Galick&yacute;&quot; will be displayed.<br />
+Graphs of student&#39;s result will be displayed below.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="305" name="Change password">
+	<node_order><![CDATA[1003]]></node_order>
+	<externalid><![CDATA[58]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of changing a password.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Password will be successfully changed - new password will be generated.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Students&quot; item on left panel.<br />
+<em>If you are currently on &quot;Students&quot; page, you may skip this step.</em></p>
+]]></actions>
+	<expectedresults><![CDATA[<p>You will be redirected to &quot;Students&quot; page.<br />
+There will be displayed list of all&nbsp;students.<br />
+There will be only one student - Boris Galick&yacute;.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Boris Galick&yacute;&quot;.<br />
+<em>If you have already&nbsp;clicked on &quot;Boris Galick&yacute;&quot; student, you may skip this step.</em></p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Profile page of student &quot;Boris Galick&yacute;&quot; will be displayed.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Click on the button &quot;Change password&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Newly generated password will be sent to student&#39;s email address. Page will be refreshed and no&nbsp;changes will be made on the screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="353" name="Archive student">
+	<node_order><![CDATA[1004]]></node_order>
+	<externalid><![CDATA[62]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Students&quot; item on left panel.<br />
+Then click on &quot;Boris Galick&yacute;&quot;.<br />
+<em>If you are currently on Boris Galick&yacute;&#39;s profile&nbsp;page, you may skip this step.</em></p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Profile page of student &quot;Boris Galick&yacute;&quot; will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Click on red button &quot;Archive&quot; under the name of student.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Student will disappear from the screen and red box message &quot;Student archived&quot; will appear above.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -991,10 +1310,9 @@ There will be only student &quot;Boris Galick&yacute;&quot;.</p>
 <steps>
 <step>
 	<step_number><![CDATA[1]]></step_number>
-	<actions><![CDATA[<p>Click on &quot;Teachers&quot; item on left panel.<br />
-<em>If you are currently on &quot;Students&quot; page, you may skip this step.</em></p>
+	<actions><![CDATA[<p>Click on &quot;Teachers&quot; item on left panel.</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>&quot;Teachers&quot; page will appear. There are two teachers in the screen. Roland Onofrej and John Doe.</p>
+	<expectedresults><![CDATA[<p>&quot;Teachers&quot; page will appear. There are four&nbsp;teachers in the screen. Roland Onofrej,&nbsp;John Doe, First Teacher and Second Teacher.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -1007,7 +1325,7 @@ There will be only student &quot;Boris Galick&yacute;&quot;.</p>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of inviting another teachers.</p>
 ]]></summary>
-	<preconditions><![CDATA[<p>Teacher will get invitation by e-mail.</p>
+	<preconditions><![CDATA[<p>Teacher will be registered and he will get his login data via e-mail.</p>
 ]]></preconditions>
 	<execution_type><![CDATA[1]]></execution_type>
 	<importance><![CDATA[2]]></importance>
@@ -1021,7 +1339,7 @@ There will be only student &quot;Boris Galick&yacute;&quot;.</p>
 	<actions><![CDATA[<p>Click on &quot;Teachers&quot; item on left panel.<br />
 <em>If you are currently on &quot;Students&quot; page, you may skip this step.</em></p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>&quot;Teachers&quot; page will appear. There are two teachers in the screen. Roland Onofrej and John Doe.</p>
+	<expectedresults><![CDATA[<p>&quot;Teachers&quot; page will appear. There are four&nbsp;teachers in the screen. Roland Onofrej,&nbsp;John Doe, First Teacher and Second Teacher.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -1055,32 +1373,161 @@ There will be only student &quot;Boris Galick&yacute;&quot;.</p>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
-	<actions><![CDATA[<p>Insert into &quot;E-Mail&quot; input some e-mail address you have access to. And click on the green button &quot;Send invitation&quot;.</p>
+	<actions><![CDATA[<p>Fill inputs &quot;First Name&quot; and &quot;Last Name&quot;&nbsp;with some values and insert into &quot;E-Mail&quot; input some e-mail address you have access to. And click on the green button &quot;Send invitation&quot;.</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>E-mail invitation will be sent to entered e-mail address.</p>
+	<expectedresults><![CDATA[<p>E-mail message with generated password will be sent to entered&nbsp;email address, Newly registered teacher can login with e-mail address to which he recieved message with new password.</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
 </testcase>
 
-<testcase internalid="18" name="Register as teacher - TO DO">
-	<node_order><![CDATA[2]]></node_order>
-	<externalid><![CDATA[2]]></externalid>
+<testcase internalid="312" name="Archive and delete teacher">
+	<node_order><![CDATA[3]]></node_order>
+	<externalid><![CDATA[59]]></externalid>
 	<version><![CDATA[1]]></version>
-	<summary><![CDATA[<p>Check functionality of registration of teacher&#39;s account.</p>
+	<summary><![CDATA[<p>Check functionality of removing and archiving a teacher.</p>
 ]]></summary>
-	<preconditions><![CDATA[<p>Registration should be successful.</p>
+	<preconditions><![CDATA[<p>Teacher will be successfully removed.</p>
 ]]></preconditions>
 	<execution_type><![CDATA[1]]></execution_type>
-	<importance><![CDATA[3]]></importance>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Log out&quot; option in top right corner of the screen.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>You will be logged out and redirected to login page.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Login as &quot;Roland Onofrej&quot;.<br />
+Enter &quot;roland.onofrej@akademiasovy.sk&quot; into &quot;E-mail&quot; input.<br />
+Enter &quot;XIP3Lq&quot; into &quot;Password input&quot;.<br />
+Click on the &quot;Login&quot; button.<br />
+&nbsp;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>You will be successfully logged in.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Teachers&quot; item on left panel.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>&quot;Teachers&quot; page will appear. There are four&nbsp;teachers in the screen. Roland Onofrej,&nbsp;John Doe, First Teacher and Second Teacher.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Click on green button &quot;Archive&quot; which belongs to First Teacher.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>&quot;First Teacher&quot; will disappear from the page and red box message &quot;Teacher archived&quot; will appear above.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>Click on red button &quot;Delete&quot; which belongs to Second&nbsp;Teacher.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window &quot;Warning, following action is irreversible. Continue?&quot; will appear above.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<p>Click on cancel option inside of alert window.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window will disappear and no changes will be made.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[7]]></step_number>
+	<actions><![CDATA[<p>Click on red button &quot;Delete&quot; which belongs to Second&nbsp;Teacher.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window &quot;Warning, following action is irreversible. Continue?&quot; will appear above.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[8]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;OK&quot; option inside of alert window.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Alert window will disappear. Red box message &quot;Teacher deleted&quot; will be displayed in the top of the screen and Second Teacher will be missing on the list of teachers.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[9]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Teachers&quot; item on left panel.<br />
+<em>If you are currently on &quot;Students&quot; page, you may skip this step.</em></p>
+]]></actions>
+	<expectedresults><![CDATA[<p>&quot;Teachers&quot; page will appear. There are four&nbsp;teachers in the screen. Roland Onofrej,&nbsp;John Doe, First Teacher and Second Teacher.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="387" name="Change password - TO DO">
+	<node_order><![CDATA[4]]></node_order>
+	<externalid><![CDATA[66]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check functionality of changing teacher&#39;s password.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Password will be changed.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
 	<estimated_exec_duration></estimated_exec_duration>
 	<status>1</status>
 	<is_open>1</is_open>
 	<active>1</active>
 
 </testcase>
-</testsuite></testsuite><testsuite id="15" name="Desktop Application" >
+</testsuite>
+<testcase internalid="374" name="Logout">
+	<node_order><![CDATA[7]]></node_order>
+	<externalid><![CDATA[65]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Check logout functionality.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>User will be logged out.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Log out&quot;option in right top corner of the screen.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>You will be logged out and redirected to login page.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite><testsuite id="15" name="Desktop Application" >
 <node_order><![CDATA[2]]></node_order>
 <details><![CDATA[]]></details> 
 
@@ -1148,9 +1595,9 @@ There will be only student &quot;Boris Galick&yacute;&quot;.</p>
 	<node_order><![CDATA[1]]></node_order>
 	<externalid><![CDATA[53]]></externalid>
 	<version><![CDATA[1]]></version>
-	<summary><![CDATA[<p>Checking funcionality of show user profile</p>
+	<summary><![CDATA[<p>Checking funcionality of showing user profile.</p>
 ]]></summary>
-	<preconditions><![CDATA[<p>User profile will be shown properly</p>
+	<preconditions><![CDATA[<p>User profile will be shown properly.</p>
 ]]></preconditions>
 	<execution_type><![CDATA[1]]></execution_type>
 	<importance><![CDATA[2]]></importance>
@@ -1178,17 +1625,190 @@ There will be only student &quot;Boris Galick&yacute;&quot;.</p>
 </step>
 </steps>
 </testcase>
-<testsuite id="301" name="Take test" >
-<node_order><![CDATA[1]]></node_order>
+<testsuite id="349" name="User options" >
+<node_order><![CDATA[2]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="345" name="Marks score">
+	<node_order><![CDATA[0]]></node_order>
+	<externalid><![CDATA[54]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Checking funcionality of showning marks score</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Marks score window will be shown</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on right top dropdown button marked as &quot;Johny Walker&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>List of options will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Marks score&quot; option from list.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Marks score window will be shown.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="333" name="Change password">
+	<node_order><![CDATA[1]]></node_order>
+	<externalid><![CDATA[55]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Checking funcionality of changing password</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Password will be changed only if it&#39;s longer than 4 characters, entered password in field &quot;NEW password&quot; will matched with field &quot;NEW password again&quot; and &quot;OLD password&quot; field will matched with old password</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Click on right top dropdown button marked as &quot;Johny Walker&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>List of options will appear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Click on &quot;Change password&quot; option.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>New window with three fields &quot;Here insert NEW password&quot;, &quot;Here insert NEW password again&quot; and &quot;Here insert OLD password&quot; will open.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<ol>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;4321&quot;</li>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;54321&quot;</li>
+	<li>In field &quot;Here insert OLD password&quot; insert &quot;1234&quot;</li>
+</ol>
+]]></actions>
+	<expectedresults><![CDATA[<p>Password cannot be changed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<ol>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;54321&quot;</li>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;4321&quot;</li>
+	<li>In field &quot;Here insert OLD password&quot; insert &quot;1234&quot;</li>
+</ol>
+]]></actions>
+	<expectedresults><![CDATA[<p>Password cannot be changed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<ol>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;4321&quot;</li>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;4321&quot;</li>
+	<li>In field &quot;Here insert OLD password&quot; insert &quot;1234&quot;</li>
+</ol>
+]]></actions>
+	<expectedresults><![CDATA[<p>Password cannot be changed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<ol>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;54321&quot;</li>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;54321&quot;</li>
+	<li>In field &quot;Here insert OLD password&quot; insert &quot;12345&quot;</li>
+</ol>
+]]></actions>
+	<expectedresults><![CDATA[<p>Password cannot be changed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[7]]></step_number>
+	<actions><![CDATA[<ol>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;64321&quot;</li>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;54321&quot;</li>
+	<li>In field &quot;Here insert OLD password&quot; insert &quot;1234&quot;</li>
+</ol>
+]]></actions>
+	<expectedresults><![CDATA[<p>Password cannot be changed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[8]]></step_number>
+	<actions><![CDATA[<ol>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;54321&quot;</li>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;64321&quot;</li>
+	<li>In field &quot;Here insert OLD password&quot; insert &quot;1234&quot;</li>
+</ol>
+]]></actions>
+	<expectedresults><![CDATA[<p>Password cannot be changed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[9]]></step_number>
+	<actions><![CDATA[<p>Leave any of fields blank</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Password cannot be changed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[10]]></step_number>
+	<actions><![CDATA[<ol>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;54321&quot;</li>
+	<li>In field &quot;Here insert NEW password&quot; insert &quot;54321&quot;</li>
+	<li>In field &quot;Here insert OLD password&quot; insert &quot;1234&quot;</li>
+</ol>
+]]></actions>
+	<expectedresults><![CDATA[<p>Password will succesfully changed to &quot;54321&quot; and window will be closed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite><testsuite id="301" name="Take test" >
+<node_order><![CDATA[3]]></node_order>
 <details><![CDATA[]]></details> 
 
 <testcase internalid="277" name="Choose test">
 	<node_order><![CDATA[2]]></node_order>
 	<externalid><![CDATA[51]]></externalid>
 	<version><![CDATA[1]]></version>
-	<summary><![CDATA[<p>Check funcionality of choosing a test</p>
+	<summary><![CDATA[<p>Check funcionality of choosing a test.</p>
 ]]></summary>
-	<preconditions><![CDATA[<p>After choose test, you will be redirected to window with selected test</p>
+	<preconditions><![CDATA[<p>After choosing of&nbsp;test, you will be redirected to window with selected test.</p>
 ]]></preconditions>
 	<execution_type><![CDATA[1]]></execution_type>
 	<importance><![CDATA[2]]></importance>
@@ -1239,9 +1859,9 @@ There will be only student &quot;Boris Galick&yacute;&quot;.</p>
 	<node_order><![CDATA[3]]></node_order>
 	<externalid><![CDATA[52]]></externalid>
 	<version><![CDATA[1]]></version>
-	<summary><![CDATA[<p>Check funcionality of filling the test</p>
+	<summary><![CDATA[<p>Check funcionality of filling the test.</p>
 ]]></summary>
-	<preconditions><![CDATA[<p>Test will be finished with all answered questions only</p>
+	<preconditions><![CDATA[<p>Test will be finished only if one answer for each question has been selected.</p>
 ]]></preconditions>
 	<execution_type><![CDATA[1]]></execution_type>
 	<importance><![CDATA[2]]></importance>
@@ -1329,9 +1949,9 @@ There will be only student &quot;Boris Galick&yacute;&quot;.</p>
 	<node_order><![CDATA[4]]></node_order>
 	<externalid><![CDATA[56]]></externalid>
 	<version><![CDATA[1]]></version>
-	<summary><![CDATA[<p>Checking funcionality of log out user</p>
+	<summary><![CDATA[<p>Checking funcionality of logging out a user.</p>
 ]]></summary>
-	<preconditions><![CDATA[<p>User will be logged out and application will be closed</p>
+	<preconditions><![CDATA[<p>User will be logged out and application will be closed.</p>
 ]]></preconditions>
 	<execution_type><![CDATA[1]]></execution_type>
 	<importance><![CDATA[2]]></importance>

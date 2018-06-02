@@ -1,4 +1,9 @@
 <div class="col-md-11 teacherlist">
+    <form action="/students/class" method="POST">
+        <div class="input-group mb-3 col-centered">
+            <input class="form-control col-md-6 " id="t_search" onkeyup="TeacherSearch()" type="text" placeholder="Search...">
+        </div>
+    </form>
 
     <form method="POST" class="form-horizontal" role="form" action="/teachers/send">
         <!-- Modal -->
