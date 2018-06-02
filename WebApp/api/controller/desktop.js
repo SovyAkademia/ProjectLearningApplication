@@ -1,6 +1,7 @@
 const db = require('../models/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const moment = require('moment');
 
 
 exports.get_categories = (req, res, next) => {
@@ -124,8 +125,8 @@ exports.get_test = (req, res, next) => {
     let insertResult = 'insert into results (studentid,testid,begintime,tempscore) values(?,?,now(),0)';
     let query1 = 'select testName from tests where id = ?';
     let query = 'SELECT questions.id as questionID,questionText, answerText, answers.id as answerID FROM questions INNER JOIN answers ON questions.ID=answers.QuestionID INNER JOIN test_details ON test_details.QuestionID=questions.ID INNER JOIN tests ON test_details.TestID=tests.ID WHERE tests.ID=? ';
-    db.query(insertResult,[studentID,testID],(err,inserted) => {
-        if (err){
+    db.query(insertResult, [studentID, testID], (err, inserted) => {
+        if (err) {
             return res.status(404).json({
                 message: 'failed to retrieve test'
             })
@@ -136,21 +137,21 @@ exports.get_test = (req, res, next) => {
         console.log(resultID);
 
         db.query(query1, [testID], (err, testName) => {
-            if (err || testName.length < 1){
+            if (err || testName.length < 1) {
                 return res.status(404).json({
                     message: 'failed to retrieve test'
                 })
             }
-    
+
             db.query(query, [req.body.testId], (err, result) => {
-                if (err){
+                if (err) {
                     return res.status(404).json({
                         message: 'failed to retrieve test'
                     })
                 };
-    
+
                 res.status(200).json({
-                    resultID:resultID,
+                    resultID: resultID,
                     testName: testName[0].testName,
                     questions: result
                 });
@@ -158,24 +159,72 @@ exports.get_test = (req, res, next) => {
         });
 
     });
-   
+
 }
 
-exports.server_time = (req,res,next)=>{
-    var currentdate = new Date(); 
-    var datetime =  currentdate.getDate() + "/"
-                    + (currentdate.getMonth()+1)  + "/" 
-                    + currentdate.getFullYear() + " @ "  
-                    + currentdate.getHours() + ":"  
-                    + currentdate.getMinutes() + ":" 
-                    + currentdate.getSeconds();
+exports.server_time = (req, res, next) => {
+    var currentdate = new Date();
+    var datetime = currentdate.getDate() + "/"
+        + (currentdate.getMonth() + 1) + "/"
+        + currentdate.getFullYear() + " @ "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
 
     res.status(200).json({
         datetime
     });
 }
 
-exports.handle_answer = (req,res,next) => {
+exports.change_password = (req, res, next) => {
+    let studentID = req.body.studentID;
+    let currentPassword = req.body.actualPassword;
+    let newPassword = req.body.newPassword;
+
+    let getCurrentPass = 'select password from students where id = ?';
+    let updatePass = 'update students set password = ? where id = ?';
+
+    db.query(getCurrentPass, [studentID], (err, pass) => {
+        if (err || pass.length == 0) {
+
+            return res.send('something went wrong');
+        }
+
+        bcrypt.compare(currentPassword, pass[0].password, (err, match) => {
+            if (err) {
+                return res.status(401).send('wrong password');
+            }
+
+            if (match) {
+                bcrypt.hash(newPassword, 10, (err, hash) => {
+                    if (err) {
+                        return res.status(500).send('something went wrong');
+                    }
+
+                    db.query(updatePass, [hash, studentID], (err, updated) => {
+                        if (err) {
+
+                            return res.status(500).send('something went wrong');
+                        } else {
+
+                            return res.status(200).send('password updated');
+                        }
+
+                    });
+                })
+
+            } else {
+                return res.status(401).send('wrong password');
+            }
+
+        });
+
+    });
+
+}
+
+
+exports.handle_answer = (req, res, next) => {
     let resultID = req.body.resultID;
     let studentID = req.body.studentID;
     let questionID = req.body.questionID;
@@ -187,32 +236,32 @@ exports.handle_answer = (req,res,next) => {
     let selectTempScore = 'select tempscore from results where id = ?';
     let updateScore = 'update results set tempscore = ? where id = ?';
 
-    db.query(insertToResultDetails,[resultID,questionID,answerID],(err,result) => {
-        if (err){
+    db.query(insertToResultDetails, [resultID, questionID, answerID], (err, result) => {
+        if (err) {
             return res.status(404).json({
                 message: 'something went wrong'
             });
         }
-        db.query(selectPoints,[questionID],(err,points) => {
-            if (err){
+        db.query(selectPoints, [questionID], (err, points) => {
+            if (err) {
                 return res.status(404).json({
                     message: 'something went wrong'
                 });
             }
 
-            db.query(selectCorrect,[answerID],(err,correct) => {
-                if (err){
+            db.query(selectCorrect, [answerID], (err, correct) => {
+                if (err) {
                     return res.status(404).json({
                         message: 'something went wrong'
                     });
                 }
 
-                if(correct[0].correct == 0){
+                if (correct[0].correct == 0) {
                     return res.status(200).send('incorrect');
                 }
 
-                db.query(selectTempScore,[resultID],(err,tempScore) => {
-                    if (err){
+                db.query(selectTempScore, [resultID], (err, tempScore) => {
+                    if (err) {
                         return res.status(404).json({
                             message: 'something went wrong'
                         });
@@ -220,8 +269,8 @@ exports.handle_answer = (req,res,next) => {
                     let updatedScore = tempScore[0].tempscore + points[0].points;
                     console.log(updatedScore);
 
-                    db.query(updateScore,[updatedScore,resultID],(err,updated) => {
-                        if (err){
+                    db.query(updateScore, [updatedScore, resultID], (err, updated) => {
+                        if (err) {
                             return res.status(404).json({
                                 message: 'something went wrong'
                             });
@@ -235,5 +284,67 @@ exports.handle_answer = (req,res,next) => {
             })
         })
 
+    })
+}
+
+exports.final_score = (req,res,next) => {
+    let resultID = req.body.resultID;
+    let testID = req.body.testID;
+
+    let selectTemp = 'select tempScore from results where id = ?';
+    let getMaxPossibleScore = 'select sum(Points) as maxScore from questions inner join test_details on questions.id = test_details.questionid where testID = ?;';
+    let updateResult = 'update results set date = now(),score = ?, endtime = now() where id = ?';
+    let getTimes = 'select begintime,endtime from results where id = ?';
+    let setFinalTime = 'update results set overalltime = ? where id = ?';
+
+    db.query(selectTemp,[resultID],(err,tempScore) => {
+        if(err){
+            return res.status(500).send('something went wrong');
+        }
+
+        db.query(getMaxPossibleScore,[testID],(err,maxScore) => {
+            if(err){
+                return res.status(500).send('something went wrong');
+            }
+
+            let finalScore = tempScore[0].tempScore / maxScore[0].maxScore *100;
+            finalScore = Math.round(finalScore * 100) / 100;
+            console.log(finalScore);
+
+            db.query(updateResult,[finalScore,resultID],(err,updated) => {
+                if(err){
+                    return res.status(500).send('something went wrong');
+                }
+
+                db.query(getTimes,[resultID],(err,times) => {
+                    if(err){
+                        return res.status(500).send('something went wrong');
+                    }
+
+                    let startTime = times[0].begintime;
+                    let endTime = times[0].endtime;
+
+                    var start_date = moment(startTime, 'YYYY-MM-DD HH:mm:ss');
+                    var end_date = moment(endTime, 'YYYY-MM-DD HH:mm:ss');
+
+                    var duration = moment.duration(end_date.diff(start_date));
+                    var seconds = duration.asSeconds(); 
+
+                    var finalTime = moment.utc(seconds*1000).format('mm:ss');
+                    console.log(finalTime);
+
+                    db.query(setFinalTime,[finalTime,resultID],(err,result) => {
+                        if(err){
+                            return res.status(500).send('something went wrong');
+                        }
+
+                        res.status(200).send('Final score: '+ finalScore+'% in ' + finalTime);
+
+                    })
+                })
+
+                
+            })
+        });
     })
 }
