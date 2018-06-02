@@ -632,24 +632,21 @@ questionlist:hover{
 
 .tab { 
     display: inline-block;
-    width: 25%;
     text-align: center;
     box-sizing: border-box;
     font-size: 30px;
     font-family: 'Poppins', sans-serif;
     margin-top: 10px;
     border-radius: 5px;
-    margin-left: 1%;
-    background-color:inherit;
     color:#16607E;
     border-color: black;
-    -webkit-box-shadow: 10px 10px 42px -17px rgba(0,0,0,0.75);
     font-weight: bold;
     cursor: pointer;
 }
 
 nav {
-    margin-bottom: 50px;
+    margin-left:30%;
+    margin-bottom: 20px;
 }
 
 .tab p {

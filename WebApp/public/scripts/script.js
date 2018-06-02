@@ -483,6 +483,8 @@ $('.deleteQuest').click(function(){
     }
    
 });
+
+
     
 
     
