@@ -9,7 +9,9 @@ let mailer = require('../middleware/mailer');
 //Import controller
 const teacherController = require('../controller/teacher');
 
-router.get('/', authTeacher,teacherController.show_all);
+router.get('/', teacherController.show_all);
 router.post('/send',teacherController.send_invitation);
+router.get('/archive/:id',teacherController.archive_teacher);
+router.get('/delete/:id',teacherController.delete_teacher);
 
 module.exports = router;

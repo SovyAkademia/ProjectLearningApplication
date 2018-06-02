@@ -1,9 +1,58 @@
+<!-- Modal -->
+<div class="modal fade" id="tos" role="dialog">
+    <div class="modal-dialog">
+        <!-- contenModal t-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Term of service</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="counter"></div>
+
+                In order to use the Services you will be required to create an account. As part of the
+                Account creation process, you will provide an email address. You will recieve your unique personal password.
+                Your email address and password
+                are your credentials to access the Testing Application. You are responsible for keeping your password and log - in
+                information secure. If you believe that your password has been stolen or compromised, it is your responsibility
+                to contact administroator right away, by contacting at testsovy@gmail.com
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="gdpr" role="dialog">
+    <div class="modal-dialog">
+        <!-- contenModal t-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">General Data Protection Regulation</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="counter"></div>
+                The General Data Protection Regulation (GDPR) (EU) 2016/679 is a regulation in EU law on data protection and privacy for
+                all individuals within the European Union (EU) and the European Economic Area (EEA). It also addresses the
+                export of personal data outside the EU and EEA. The GDPR aims primarily to give control to citizens and residents
+                over their personal data and to simplify the regulatory environment for international business by unifying
+                the regulation within the EU.
+                
+                 <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016R0679" target="_blank">Full text of the GDPR Directive</a> 
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div class=" regastudent container">
     <form class="form-horizontal" role="form" method="POST" action="/registerStudent">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <h2>Register as New Student</h2>
+                <h2>Registration of New Student</h2>
                 <hr>
             </div>
         </div>
@@ -14,38 +63,40 @@
             <div class="col-md-5">
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa regico fa-user"></i></div>
-                        <input type="text" name="firstName" class="form-control" id="name"
-                               placeholder="John" required autofocus>
+                        <div class="input-group-addon" style="width: 2.6rem">
+                            <i class="fa regico fa-user"></i>
+                        </div>
+                        <input type="text" name="firstName" class="form-control" id="name" placeholder="John" required autofocus>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
+                    <span class="text-danger align-middle">
+                        <!-- Put name validation error messages here -->
+                    </span>
                 </div>
             </div>
         </div>
-         <div class="row">
+        <div class="row">
             <div class="col-md-3 field-label-responsive">
                 <label for="name">Last Name</label>
             </div>
             <div class="col-md-5">
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa regico fa-user"></i></div>
-                        <input type="text" name="lastName" class="form-control" id="lname"
-                               placeholder="Doe" required autofocus>
+                        <div class="input-group-addon" style="width: 2.6rem">
+                            <i class="fa regico fa-user"></i>
+                        </div>
+                        <input type="text" name="lastName" class="form-control" id="lname" placeholder="Doe" required autofocus>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
+                    <span class="text-danger align-middle">
+                        <!-- Put name validation error messages here -->
+                    </span>
                 </div>
             </div>
         </div>
@@ -56,21 +107,22 @@
             <div class="col-md-5">
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa regico fa-at"></i></div>
-                        <input type="text" name="email" class="form-control" id="email"
-                               placeholder="you@example.com" required autofocus>
+                        <div class="input-group-addon" style="width: 2.6rem">
+                            <i class="fa regico fa-at"></i>
+                        </div>
+                        <input type="text" name="email" class="form-control" id="email" placeholder="you@example.com" required autofocus>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put e-mail validation error messages here -->
-                        </span>
+                    <span class="text-danger align-middle">
+                        <!-- Put e-mail validation error messages here -->
+                    </span>
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-3 field-label-responsive">
                 <label for="date">First year of study</label>
@@ -78,29 +130,60 @@
             <div class="col-md-5">
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fas regico fa-calendar-alt"></i></div>
+                        <div class="input-group-addon" style="width: 2.6rem">
+                            <i class="fas regico fa-calendar-alt"></i>
+                        </div>
                         <select class="form-control" name="firstYear" required>
-                                <option disabled selected value> -- select an option -- </option>
-                                <option value="2014">2014/2015</option>
-                                <option value="2015">2015/2016</option>
-                                <option value="2016">2016/2017</option>
-                                <option value="2017">2017/2018</option>
-                                <option value="2018">2018/2019</option>
-                                <option value="2019">2019/2020</option>
-                                <option value="2020">2020/2021</option>
-                        </select> 
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="2014">2014/2015</option>
+                            <option value="2015">2015/2016</option>
+                            <option value="2016">2016/2017</option>
+                            <option value="2017">2017/2018</option>
+                            <option value="2018">2018/2019</option>
+                            <option value="2019">2019/2020</option>
+                            <option value="2020">2020/2021</option>
+                        </select>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="gdpr">Regulations</label>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem">
+                            <i class="fas regico fa-file-alt"></i>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="gdpr" id="gdpr" required autofocus>
+                            <span>
+                                <a href="#" data-toggle="hint" data-placement="top" title="Terms of service are rules by which one must agree to abide in order to use a service.">
+                                    <span data-toggle="modal" data-target="#tos"> Terms and conditions </span>
+                                </a>
+                                and
+                                <a href="#" data-toggle="hint" data-placement="top" title="General Data Protection Regulation">
+                                    <span data-toggle="modal" data-target="#gdpr"> GDPR </span>
+                                </a>
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-5">
-                
-                <button type="submit" class="btn btn-sub"><i class="fa fa-user-plus"></i> Register</button>
+
+                <button type="submit" class="btn btn-sub">
+                    <i class="fa fa-user-plus"></i> Register</button>
                 <span class="ml-5 text-danger">{{message}}</span>
             </div>
         </div>
     </form>
 </div>
-

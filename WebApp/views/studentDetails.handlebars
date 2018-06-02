@@ -10,46 +10,59 @@
       {{/if}}
 </div> --}}
 {{#if studentInfo}}
-<h2>{{studentInfo.[0].FirstName}} {{studentInfo.[0].LastName}}</h2>
+<div class="student d-inline-block">
+    <h1>{{studentInfo.[0].FirstName}} {{studentInfo.[0].LastName}}</h1>
+    <div class="options d-inline-block">
+    <a href="/students/pass/{{studentInfo.[0].ID}}">
+        <button class="btn btn-primary btn-sm studentAcceptBtn">Change password</button>
+    </a>
+    <a href="/students/archive/{{studentInfo.[0].ID}}">
+        <button class="btn btn-danger btn-sm studentDeclineBtn">Archive</button>
+    </a>
+    </div>
+</div>
 
-<a href="/students/pass/{{studentInfo.[0].ID}}">
-    <button class="btn btn-success btn-sm studentAcceptBtn">Change pass</button>
-</a>
-<a href="/students/archive/{{studentInfo.[0].ID}}">
-    <button class="btn btn-danger btn-sm studentDeclineBtn">Archive</button>
-</a>
+<nav class="d-inline-block">
+    <div id = "defaultOpen" class="info tab" onclick="openTab(event, 'info')">
+        <p>TESTS TAKEN</p>
+    </div>
+
+    <div class="potencial tab" onclick="openTab(event,'potencial')">
+        <p>POTENTIAL</p>
+    </div>
+</nav>
+<hr>
 
 {{else}}
 <h2>No tests found</h2>
 {{/if}}
 
-<div>
 
-    <form action="/students/category" method="POST">
-
-    <div class="input-group mb-3 col-centered">
-        <input type="hidden" name="student_id" value="{{studentInfo.[0].ID}}">
-
-        <span class="col-md-3 col-sm-2 h4 text-right">Choose category:</span>
-        <select class="col-md-2 col-sm-4 class-select" name="options" onchange="this.form.submit()">
-            <option value="all" selected>All</option>
-            {{#each categories}}
-            <option value="{{ID}}" {{#if (eq ID ../categoryId)}}selected {{/if}}>{{CategoryName}}</option>
-            {{/each}}
-        </select>
-
+<div id="info" class="tabContent" style="margin-left:30px">
+    <div>
+        <form action="/students/category" method="POST">
+            <div class="input-group mb-3 col-centered">
+                <input type="hidden" name="student_id" value="{{studentInfo.[0].ID}}">
+                <span class="col-md-3 col-sm-2 h4 text-right">Choose category:</span>
+                <select class="col-md-2 col-sm-4 class-select" name="options" onchange="this.form.submit()">
+                    <option value="all" selected>All</option>
+                    {{#each categories}}
+                    <option value="{{ID}}" {{#if (eq ID ../categoryId)}}selected {{/if}}>{{CategoryName}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </form>
     </div>
-    </form>
-</div>
 
-<div>
+<div class="row">
+    
     {{#if student}}
-    <table id="studenttable" class="table table_show student-table table-bordered">
+    <table id="studenttable" class="col-md-6 table table_show student-table table-bordered">
         <thead class="thead">
             <tr>
                 <th>#</th>                  
-                <th>CategoryName</th>
-                <th>TestName</th>
+                <th>Category</th>
+                <th>Test</th>
                 <th>Score</th>
                 <th>Date</th>
             </tr>
@@ -60,24 +73,52 @@
                 <td class="number"></td>
                 <td class="class">{{CategoryName}}</td>
                 <td class="class">{{TestName}}</td>
-                <td class="class">{{Score}}%</td>
+                <td class="class scoreRow">{{Score}}%</td>
                 <td class="class">{{formatDate Date}}</td>                
             </tr>
             {{/each}}
         </tbody>
     </table>
     {{else}}
-    <p>No students found</p>
+    <p>No tests found</p>
+    {{/if}}
+
+    {{#if student}}
+    <canvas class="d-inline-block" id="lineChart" height="400" width="400" style="border:solid; margin-left:8%;"></canvas>
     {{/if}}
 </div>
 
 
-<canvas id="lineChart" height="400" width="400" style="border:solid"></canvas>
-<canvas id="radar-chart" height="400" width="400" style="border:solid"></canvas>
+</div>
+
+<div id="potencial" class="tabContent">
+    <canvas id="radar-chart" height="400" width="400" style="border:solid"></canvas>
+</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
 <script>
+
+
+document.getElementById("defaultOpen").click();
+
+function openTab(e,tabName) {
+    var current = document.getElementById(tabName);
+    var other = document.getElementsByClassName('tabContent');
+    var activeBtn = document.getElementsByClassName('active');
+    
+    for(i=0;i<activeBtn.length;i++) {
+        activeBtn[i].classList.remove('active');
+    }
+    e.target.classList.add('active');
+    
+    for(i=0;i<other.length;i++) {
+        other[i].style.display = 'none';
+    }
+    current.style.display = 'block';
+}
+
     const CHART = document.getElementById("lineChart");
     console.log(CHART);
 
@@ -89,6 +130,7 @@
             labels: [{{#each testArr }}"{{this}}",{{/ each}}],
     datasets: [{
         label: 'Tests score',
+        backgroundColor: "rgba(0, 191, 255,0.2)",
         data: [{{scoreArr}}]
     }]
         },
@@ -123,7 +165,7 @@
                 {
                     label: "1950",
                     fill: true,
-                    backgroundColor: "rgba(179,181,198,0.2)",
+                    backgroundColor: "rgba(0, 191, 255,0.2)",
                     borderColor: "rgba(179,181,198,1)",
                     pointBorderColor: "#fff",
                     pointBackgroundColor: "rgba(179,181,198,1)",
@@ -133,4 +175,21 @@
         },
         options: options
     });
+
+    $('.scoreRow').each(function(i,el){
+       var testScore = $(el).html();
+
+        var score = testScore.split('').slice(0,2).join('');
+        
+        if(score >= 85){
+        $(el).css('color','green');
+        } else if(score < 85 && score >= 50){ 
+        $(el).css('color','orange');
+        } else if(score < 50){ 
+        $(el).css('color','red');
+        }
+        
+    })
+
+
 </script>

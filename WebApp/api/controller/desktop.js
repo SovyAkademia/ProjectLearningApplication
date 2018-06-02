@@ -73,8 +73,6 @@ exports.student_login = (req, res, next) => {
     let studentEmail = req.body.email;
     let studentPass = req.body.password;
 
-    console.log(req.body);
-
     let findStudent = 'select id,email,password from students where email like ?';
 
     db.query(findStudent, [studentEmail], (err, result) => {
@@ -134,6 +132,8 @@ exports.get_test = (req, res, next) => {
         }
 
         let resultID = inserted.insertId;
+        resultID = String(resultID);
+        console.log(resultID);
 
         db.query(query1, [testID], (err, testName) => {
             if (err || testName.length < 1){
@@ -150,7 +150,7 @@ exports.get_test = (req, res, next) => {
                 };
     
                 res.status(200).json({
-                    resultID,
+                    resultID:resultID,
                     testName: testName[0].testName,
                     questions: result
                 });
@@ -173,4 +173,67 @@ exports.server_time = (req,res,next)=>{
     res.status(200).json({
         datetime
     });
+}
+
+exports.handle_answer = (req,res,next) => {
+    let resultID = req.body.resultID;
+    let studentID = req.body.studentID;
+    let questionID = req.body.questionID;
+    let answerID = req.body.answerID;
+
+    let insertToResultDetails = 'insert into result_details(resultid,questionid,answerid) values(?,?,?)';
+    let selectPoints = 'select points from questions where id = ?';
+    let selectCorrect = 'select correct from answers where id = ?';
+    let selectTempScore = 'select tempscore from results where id = ?';
+    let updateScore = 'update results set tempscore = ? where id = ?';
+
+    db.query(insertToResultDetails,[resultID,questionID,answerID],(err,result) => {
+        if (err){
+            return res.status(404).json({
+                message: 'something went wrong'
+            });
+        }
+        db.query(selectPoints,[questionID],(err,points) => {
+            if (err){
+                return res.status(404).json({
+                    message: 'something went wrong'
+                });
+            }
+
+            db.query(selectCorrect,[answerID],(err,correct) => {
+                if (err){
+                    return res.status(404).json({
+                        message: 'something went wrong'
+                    });
+                }
+
+                if(correct[0].correct == 0){
+                    return res.status(200).send('incorrect');
+                }
+
+                db.query(selectTempScore,[resultID],(err,tempScore) => {
+                    if (err){
+                        return res.status(404).json({
+                            message: 'something went wrong'
+                        });
+                    }
+                    let updatedScore = tempScore[0].tempscore + points[0].points;
+                    console.log(updatedScore);
+
+                    db.query(updateScore,[updatedScore,resultID],(err,updated) => {
+                        if (err){
+                            return res.status(404).json({
+                                message: 'something went wrong'
+                            });
+                        }
+                        console.log('score updated')
+                        return res.status(200).send('correct');
+                    });
+
+
+                })
+            })
+        })
+
+    })
 }

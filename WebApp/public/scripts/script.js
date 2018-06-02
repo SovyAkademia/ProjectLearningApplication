@@ -463,6 +463,28 @@ $('.disable').click(function(){
     });
 });
 
+$('.deleteQuest').click(function(){
+    var c = confirm('Are you sure you want to delete this question?');
+    if(c== true){
+        $.ajax({
+            type: 'POST',
+            url:ourUrl+'/test/deleteQuestion',
+            error: function(data){
+                console.log('error');
+            },
+            data:{questionID:this.value},
+            dataType: "jsonp",
+            success : function(data){
+            location.reload();
+                
+            }
+    
+        });
+    }
+   
+});
+
+
     
 
     

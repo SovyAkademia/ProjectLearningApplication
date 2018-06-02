@@ -112,6 +112,7 @@ exports.send_mail = (req,res,next) =>{
     let pass = generator.generate({length:6, numbers:true});
     let queryFind = 'select FirstName,LastName, Email from students where ID like ?;';
     let queryInsertGenPass = 'update students set Password = ?, Allowed = 1 where ID like ?;';
+    console.log(req.body);
     
     db.query(queryFind,[reqid], (err,result) => {
         if (err) return next(err);
@@ -130,6 +131,7 @@ exports.send_mail = (req,res,next) =>{
                         req.flash('error_msg','error');
                         res.redirect('/dashboard');
                     }else{
+                        console.log('email sent');
                         req.flash('msg','success');
                         res.redirect('/dashboard');
                     }                    
