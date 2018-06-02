@@ -13,5 +13,6 @@ router.post('/auth/login',desktopController.student_login);
 router.post('/getTest',authStudent,desktopController.get_test);
 router.get('/getTime',desktopController.server_time);
 router.post('/handleAnswer',authStudent,desktopController.handle_answer);
+router.post('/changePassword',authStudent,desktopController.change_password);
 
 module.exports = router;
