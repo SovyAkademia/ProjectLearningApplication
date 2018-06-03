@@ -4,7 +4,10 @@ exports.get_create_test = (req, res, next) => {
     let query = 'select CategoryName from categories';
 
     db.query(query, (err, result) => {
-        if (err) return next(err);
+        if (err) {
+            console.log(err);
+            return next(err);
+        }
         res.render('newTest', {
             categories: result,
             where: 'Create Test'
@@ -23,10 +26,16 @@ exports.create_test = (req, res, next) => {
     let query = 'select CategoryName from categories';
 
     db.query(query, (err, categories) => {
-        if (err) return next(err);   
+        if (err){
+            conole.log(err);
+            return next(err)
+        };   
 
         db.query(checkIfExists, [testName], (err, exists) => {
-            if (err) return next(err);
+            if (err){
+                conole.log(err);
+                return next(err)
+            };
 
             if (exists[0].count > 0) {
                 return res.render('newTest', {

@@ -6,6 +6,7 @@ exports.get_all_tests = (req, res, next) => {
     db.query(getTests, [req.user[0].id], (err, test) => {
      //   console.log(test);
         if (err) {
+            console.log(err);
            return res.render('myTests', {
                 error: err
             });
@@ -39,12 +40,15 @@ exports.get_all_tests_in_category = (req, res, next) => {
 
     db.query(getTests, [categoryId, req.user[0].id], (err, test) => {
         if (err) {
+            console.log(err);
             return res.render('myTests', {
                 error: err
             });
         }
+        console.log(test)
         db.query(getCategories, (err, categories) => {
             if (err) {
+                console.log(err);
                 return res.render('myTests', {
                     error: err
                 });
@@ -65,7 +69,10 @@ exports.activate_test = (req,res,next) => {
     let query = 'update tests set activated = 1 where id = ?';;
 
     db.query(query,[testID],(err,result) => {
-        if (err) return next(err);
+        if (err){
+            conole.log(err);
+            return next(err)
+        };
         res.jsonp({testID:testID});
     })
 }
@@ -75,7 +82,10 @@ exports.enable_test = (req,res,next) => {
     let query = 'update tests set Allowed = 1 where id = ?';;
 
     db.query(query,[testID],(err,result) => {
-        if (err) return next(err);
+        if (err){
+            conole.log(err);
+            return next(err)
+        };
         res.jsonp({testID:testID});
     })
 
@@ -86,7 +96,10 @@ exports.disable_test = (req,res,next) => {
     let query = 'update tests set Allowed = 0 where id = ?';;
 
     db.query(query,[testID],(err,result) => {
-        if (err) return next(err);
+        if (err){
+            conole.log(err);
+            return next(err)
+        };
         res.jsonp({testID:testID});
     })
 
