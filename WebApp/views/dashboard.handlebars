@@ -1,6 +1,13 @@
 <div id="news">
 <h3>Most recent test results</h3>
 <hr style="background:#434343">
+{{#each results}}
+<div class="results" style="line-height:30px;">
+    {{formatDate this.date}} - <b>{{firstname}} {{lastname}}</b>  has finished test <b>{{testname}}</b> with the score of <b class="chooseColor">{{score}}%</b> in <b>{{overalltime}}</b>  
+
+</div>
+<hr>
+{{/each}}
 
 </div>
 <br>
@@ -14,7 +21,7 @@
         <div class="regContent">
             
             <span>
-                <em>{{formatDate this.DateOfReg }} - </em> A new {{this.type}} <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email <b><span class="regEmail">{{this.Email}}</span></b> has registered.
+              {{formatDate this.DateOfReg }} - A new {{this.type}} <b>{{this.FirstName }}</b> <b>{{this.LastName }}</b> with Email <b><span class="regEmail">{{this.Email}}</span></b> has registered.
             </span> 
 
             <span class="handleRegBtns"><br>

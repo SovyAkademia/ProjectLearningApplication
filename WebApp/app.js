@@ -87,7 +87,7 @@ let hbs = exphbs.create({
     defaultLayout: 'main',
     // Specify helpers which are only registered on this instance. 
     helpers: {
-        formatDate: function (date) { return dateFormat(date, "dd.mm.yyyy"); },
+        formatDate: function (date) { return dateFormat(date, "default"); },
         isAdmin: function (user) {
             console.log(user[0].admin);
             return user[0].admin == 1;

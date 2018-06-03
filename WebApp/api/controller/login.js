@@ -15,24 +15,31 @@ exports.index_get = (req, res, next) => {
 
 exports.dashboard = (req, res, next) => {
     let getStudents = 'select * from students where allowed = 0 order by DateOfReg DESC';
-    let getTeachers = 'select * from teachers where allowed = 0 order by DateOfReg DESC';
+    let getLatestResults = 'select results.score,results.date,results.overalltime,students.firstname,students.lastname,tests.testname from results inner join students on results.studentid = students.id inner join tests on results.testid = tests.id where score is not null limit 25'
 
     db.query(getStudents, (err, students) => {
         if (err) return next(err);
-        students.map((student) => {
-            student.type = 'student';
-        });
-        let users = students;
-        users.sort((a, b) => {
-            let c = new Date(a.DateOfReg);
-            let d = new Date(b.DateOfReg)
-            return d - c;
-        });
-      //  console.log(users);
-        res.render('dashboard', {
-            users,
-            where: 'Dashboard'
-        });
+        db.query(getLatestResults,(err,results) => {
+            if (err) return next(err);
+            console.log(results);
+            students.map((student) => {
+                student.type = 'student';
+            });
+
+            let users = students;
+            users.sort((a, b) => {
+                let c = new Date(a.DateOfReg);
+                let d = new Date(b.DateOfReg)
+                return d - c;
+            });
+          //  console.log(users);
+            res.render('dashboard', {
+                users,
+                results,
+                where: 'Dashboard'
+            });
+        })
+        
     });
     // console.log(req.user);
     // db.query('select FirstName, LastName from temp_teachers where id like ?',[req.user[0].id], (err,result) => {
