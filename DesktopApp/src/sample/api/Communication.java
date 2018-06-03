@@ -8,6 +8,7 @@ public class Communication {
 
     private static String token;
     private static int studentId;
+    private static String actualTestID;
 
     public String getToken() {
         return token;
@@ -112,6 +113,7 @@ public class Communication {
             }
             Gson gson = new Gson();
             swap = gson.fromJson(response,TestPrototype.class);
+            this.actualTestID = testID;
         }
         catch (Exception e)
         {
@@ -120,11 +122,11 @@ public class Communication {
         return swap;
     }
 
-    public boolean postResult(String jsonBase){
+    public int postResult(String jsonBase){
         String[] base = jsonBase.split(" ");
         if (base.length <= 3)
         {
-            return false;
+            return 0;
         }
         String json = "{" +
                 "\n\t"+"\"studentID\":" +"\""+base[2]+"\","+
@@ -133,16 +135,46 @@ public class Communication {
                 "\n\t"+"\"resultID\":" +"\""+base[3]+"\","+
                 "\n\t"+"\"token\":" +"\""+token+"\""+
                 "}";
-        System.out.println(json);
+        //System.out.println(json);
         try {
             String url = baseUrl+"/desktop/handleAnswer";
             String response = new HttpPost().post(url,json);
             if (response == null) {
+                return 0;
+            }
+            if (response.matches("correct"))
+            {
+                return 2;
+            }
+            else {
+                return 1;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public boolean changePassword(String oldPass, String newPass){
+        String url = baseUrl+"desktop/changePassword";
+        String json = "";
+        String response = "";
+        json = "{" +
+                "\n\t"+"\"studentID\":" +"\""+studentId+"\","+
+                "\n\t"+"\"oldPassword\":" +"\""+oldPass+"\","+
+                "\n\t"+"\"newPassword\":" +"\""+newPass+"\","+
+                "\n\t"+"\"token\":" +"\""+token+"\""+
+                "}";
+        try {
+            response = new HttpPost().post(url,json);
+            if (response == null) {
                 return false;
             }
-            System.out.println(response);
-            return true;
-
+            else {
+                return true;
+            }
         }
         catch (Exception e)
         {
@@ -151,5 +183,36 @@ public class Communication {
         return false;
     }
 
+    public String finalizeTest(String resultID, String testID){
+        String url = baseUrl+"/desktop/finalScore";
+        String json = "";
+        String response;
+        json = "{" +
+                "\n\t"+"\"resultID\":" +"\""+resultID+"\","+
+                "\n\t"+"\"testID\":" +"\""+testID+"\","+
+                "\n\t"+"\"token\":" +"\""+token+"\""+
+                "}";
+        try {
+            response = new HttpPost().post(url,json);
+            if (response == null) {
+                return null;
+            }
+            else {
+                return response;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    public String getActualTestID() {
+        return actualTestID;
+    }
+
+    public void setActualTestID(String actualTestID) {
+        this.actualTestID = actualTestID;
+    }
 }

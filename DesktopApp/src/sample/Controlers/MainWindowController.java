@@ -36,6 +36,10 @@ public class MainWindowController {
 
     public static int testRunning;
 
+    private int answered = 0;
+    private String actualTestID;
+    private String actualResultID;
+
 
     private Communication communication = new Communication();
     private ArrayList<Category> categoryList;
@@ -80,7 +84,10 @@ public class MainWindowController {
 
     public void createTest(ActionEvent event, TestFinal actualTest) {
         int countOfQuestions = actualTest.getQuestions().size();
-        System.out.println(countOfQuestions);
+        answered = 0;
+        this.actualResultID = actualTest.getResultID();
+        this.actualTestID = communication.getActualTestID();
+        //System.out.println(countOfQuestions);
 
         try {
             Group root = new Group();
@@ -91,6 +98,16 @@ public class MainWindowController {
 
             TabPane tabPane = new TabPane();
             BorderPane mainPane = new BorderPane();
+
+            Tab tabFinal = new Tab();
+            tabFinal.setText("Final");
+            tabFinal.setStyle("-fx-background-color: YELLOW;");
+            HBox hbox2 = new HBox();
+            mainPane.setTop(hbox2);
+            GridPane myGrid2 = new GridPane();
+            hbox2.getChildren().add(myGrid2);
+
+            int finalRow = 0;
 
             int i = 1;
             for(QuestionsFinal swapQuestion:actualTest.getQuestions()) {
@@ -111,6 +128,21 @@ public class MainWindowController {
                 lbl.prefWidth(300);
                 myGrid.add(lbl,0,0,2,1);
 
+                Label finalLbl = new Label(swapQuestion.getQuestionText());
+                //finalLbl.prefWidth(150);
+                finalLbl.prefHeight(80);
+                finalLbl.setStyle("-fx-text-fill: white;");
+                finalLbl.setFont(new Font("Arial", 30));
+                myGrid2.add(finalLbl,0,finalRow);
+                Label finalAns = new Label("   Empty ");
+                finalAns.prefHeight(80);
+                finalAns.setFont(new Font("Arial", 30));
+                //finalAns.prefWidth(250);
+                finalAns.setId("answ"+String.valueOf(swapQuestion.getQuestionID()));
+                finalAns.setStyle("-fx-text-fill: red;");
+                myGrid2.add(finalAns,1,finalRow);
+
+                finalRow++;
                 int position = 300;
                 int row = 2;
                 int countofans = 0;
@@ -121,10 +153,10 @@ public class MainWindowController {
                     newRadio.setTranslateX(300);
                     newRadio.setTranslateY(position);
                     newRadio.setStyle("-fx-text-fill: white;");
-                    String newID = (swapQuestion.getQuestionID()+" "+swapAnswer.getAnswerID()+" "+communication.getStudentId()+" "+actualTest.getResultID());
+                    String newID = (swapQuestion.getQuestionID()+" "+swapAnswer.getAnswerID()+" "+communication.getStudentId()+" "+actualTest.getResultID() + " ## " + swapAnswer.getAnswerText());
                     newRadio.setUserData(newID);
-                    newRadio.setId("ans "+(i-2)+" "+(row-2));
-                    System.out.println(newRadio.getId());
+                    newRadio.setId(swapAnswer.getAnswerText());
+                    //System.out.println(newRadio.getId());
                     position+=50;
                     myGrid.add(newRadio,0,row);
                     row++;
@@ -151,17 +183,44 @@ public class MainWindowController {
 
                 Button btnSubmitQuestion = new Button("Submit answer"); //toto tu vytvori tlacidlo prida mu ID,funkciu a zavrie scenu
                 btnSubmitQuestion.setOnAction(resolveSubmit -> {
+                    if (resolveSubmit == null) {
+                        return;
+                    }
+                    if (toggleGroup.getSelectedToggle() == null) {
+                        return;
+                    }
+                    if (toggleGroup.getSelectedToggle().getUserData() == null) {
+                        return;
+                    }
                     String checkedID = toggleGroup.getSelectedToggle().getUserData().toString();
-                    tab.setStyle("-fx-background-color: GREEN;");
-                    tabPane.getSelectionModel().selectNext();
-                    tab.setDisable(true);
-                    btnSubmitQuestion.setDisable(true);
+
+                    String[] res = checkedID.split("##");
+                    String swapper = "   Answer:  ";
+
+                    int abc = 0;
+                    for (String a: res) {
+                        if (abc == 0){
+                            abc++;
+                        }
+                        else {
+                            swapper = swapper+ " " + a;
+                        }
+                    }
 
                     //System.out.println(checkedID);
-
-                    if(communication.postResult(checkedID))
+                    int communicate = communication.postResult(res[0]);
+                    if(communicate > 0)
                     {
-                        System.out.println("sending OK");
+                        //System.out.println("sending OK");
+                        tab.setStyle("-fx-background-color: GREEN;");
+                        tabPane.getSelectionModel().selectNext();
+                        //tab.setDisable(true);
+                        finalAns.setText(swapper);
+                        if (communicate == 2){
+                            finalAns.setStyle("-fx-text-fill: green;");
+                        }
+                        btnSubmitQuestion.setDisable(true);
+                        answered++;
                     }
                     else
                     {
@@ -187,9 +246,44 @@ public class MainWindowController {
                 tabPane.setStyle("-fx-background-color: #434343;-fx-text-fill: white;");
                 lbl.setStyle("-fx-text-fill: white;-fx-text-size: 25px");
 
-                if (i == countOfQuestions)
+                if (i > countOfQuestions)
                 {
-
+                    finalRow++;
+                    Label testoutput = new Label("  Test result: ");
+                    testoutput.prefHeight(80);
+                    testoutput.setStyle("-fx-text-fill: white;");
+                    testoutput.setFont(new Font("Arial", 30));
+                    myGrid2.add(testoutput,0,finalRow);
+                    Button finalize = new Button();
+                    Button end = new Button();
+                    end.setDisable(true);
+                    end.setOnAction(finish -> {
+                        Platform.exit();
+                    });
+                    finalize.setOnAction(endTest ->{
+                        if (countOfQuestions == answered){
+                            String testResult = communication.finalizeTest(this.actualResultID,this.actualTestID);
+                            if (testResult != null) {
+                                testoutput.setText("    "+testResult);
+                                end.setDisable(false);
+                                finalize.setDisable(true);
+                            }
+                            else {
+                                testoutput.setText("Communication error");
+                            }
+                        }
+                        else {
+                            testoutput.setText("Error ");
+                        }
+                    });
+                    finalize.setText("Finish");
+                    end.setText("Exit Test");
+                    myGrid2.add(finalize,1,finalRow);
+                    finalRow++;
+                    myGrid2.add(end,1,finalRow);
+                    tabFinal.setClosable(false);
+                    tabFinal.setContent(hbox2);
+                    tabPane.getTabs().add(tabFinal);
                 }
 
             }
@@ -252,7 +346,12 @@ public class MainWindowController {
                 String oldPassword = fieldOldPassword.getText();
                 if(newPassword.equals(newPasswordAgain) && oldPassword.length()>4 && newPassword.length()>4) {
                     System.out.println("Correct change");
-                    primaryStage.close();
+                    if (communication.changePassword(oldPassword,newPassword)) {
+                        primaryStage.close();
+                    }
+                    else {
+                        System.out.println("Something went wrong");
+                    }
                 }
                 else {
                     System.out.println("Chyba zle heslo");
