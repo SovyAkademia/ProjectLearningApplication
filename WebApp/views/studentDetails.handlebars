@@ -40,7 +40,7 @@
 
 <div id="info" class="tabContent" style="margin-left:30px">
     <div>
-        <form action="/students/category" method="POST">
+        <form action="/students/{{studentInfo.[0].ID}}" method="POST">
             <div class="input-group mb-3 col-centered">
                 <input type="hidden" name="student_id" value="{{studentInfo.[0].ID}}">
                 <span class="col-md-3 col-sm-2 h4 text-right">Choose category:</span>

@@ -18,9 +18,10 @@ exports.show_student = (req, res, next) => {
         'INNER JOIN tests ON tests.ID=results.TestID ' +
         'INNER JOIN categories ON tests.CategoryID=categories.ID ' +
         'WHERE students.ID like ?;';
-    let findStudentResults = 'SELECT CategoryName,TestName, Score FROM tests ' +
+    let findStudentResults = 'SELECT CategoryName,TestName, Score, Date FROM tests ' +
         'INNER JOIN results ON tests.ID=results.TestID ' +
-        'INNER JOIN categories ON tests.CategoryID=categories.ID WHERE results.StudentID like ?;';
+        'INNER JOIN categories ON tests.CategoryID=categories.ID WHERE results.StudentID like ? '+ 
+        'order by "Date" desc limit 5;';
     let countTest = 'SELECT Count(TestName) as Count FROM tests ' +
         'INNER JOIN results ON tests.ID=results.TestID ' +
         'INNER JOIN categories ON tests.CategoryID=categories.ID WHERE results.StudentID like ?;';
@@ -79,6 +80,7 @@ exports.show_student = (req, res, next) => {
 }
 
 exports.tests_in_category = (req, res, next) => {
+    console.log(req.params,req.body.options);
     let categoryId = req.body.options;
     let studentID = req.body.student_id;
     let id = req.body.student_id;
@@ -86,7 +88,7 @@ exports.tests_in_category = (req, res, next) => {
     let findStudentResults = 'SELECT CategoryName,TestName, Score, Date FROM tests ' +
         'INNER JOIN results ON tests.ID=results.TestID ' +
         'INNER JOIN categories ON tests.CategoryID=categories.ID ' +
-        'WHERE results.StudentID like ? and categoryid like ? limit 5;';
+        'WHERE results.StudentID like ? and categoryid like ? order by "Date" limit 5;';
     let findStudentTests = 'select students.ID AS "StudentID",FirstName, LastName,CategoryName,TestName, Score from students ' +
         'INNER JOIN results ON results.StudentID = students.ID ' +
         'INNER JOIN tests ON tests.ID=results.TestID ' +
