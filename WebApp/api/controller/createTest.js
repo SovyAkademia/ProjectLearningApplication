@@ -1,13 +1,14 @@
 const db = require('../models/db');
 
 exports.get_create_test = (req, res, next) => {
+    console.log('im in get create test function');
     let query = 'select CategoryName from categories';
 
     db.query(query, (err, result) => {
         if (err) {
             throw err;
         }
-        res.render('newTest', {
+        res.render('newtest', {
             categories: result,
             where: 'Create Test'
         });
