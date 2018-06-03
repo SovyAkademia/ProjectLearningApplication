@@ -108,11 +108,9 @@ exports.login = (req, res, next) => {
 
 exports.send_mail = (req,res,next) =>{
     let reqid = req.params.id;
-    console.log(reqid);
     let pass = generator.generate({length:6, numbers:true});
     let queryFind = 'select FirstName,LastName, Email from students where ID like ?;';
     let queryInsertGenPass = 'update students set Password = ?, Allowed = 1 where ID like ?;';
-    console.log(req.body);
     
     db.query(queryFind,[reqid], (err,result) => {
         if (err) return next(err);

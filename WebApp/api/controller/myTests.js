@@ -38,9 +38,6 @@ exports.get_all_tests_in_category = (req, res, next) => {
         return res.redirect('/myTests');
     }
 
-    console.log(req.body);
-    console.log(req.user[0].id);
-
     db.query(getTests, [categoryId, req.user[0].id], (err, test) => {
         if (err) {
             console.log(err);
@@ -48,7 +45,6 @@ exports.get_all_tests_in_category = (req, res, next) => {
                 error: err
             });
         }
-        console.log(test)
         db.query(getCategories, (err, categories) => {
             if (err) {
                 console.log(err);
