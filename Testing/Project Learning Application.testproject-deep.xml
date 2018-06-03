@@ -35,7 +35,7 @@
 	<actions><![CDATA[<p>Enter&nbsp;&quot;Ruszinka&quot; into Last Name input.<br />
 Enter &quot;boris98nhl@gmail.com&quot; into e-mail input.<br />
 Enter &quot;2017/2018&quot; option in dropdown button.<br />
-Fill &quot;Terms and condtitions&quot; checkbox.</p>
+Fill &quot;I agree with Terms and condtitions and GDPR&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under &quot;First Name&quot; input.</p>
 ]]></expectedresults>
@@ -47,7 +47,7 @@ Fill &quot;Terms and condtitions&quot; checkbox.</p>
 	<actions><![CDATA[<p>Enter&nbsp;&quot;Erik&quot; into First Name input.<br />
 Enter &quot;boris98nhl@gmail.com&quot; into e-mail input.<br />
 Enter &quot;2017/2018&quot; option in dropdown button.<br />
-Fill &quot;Terms and condtitions&quot; checkbox.</p>
+Fill &quot;I agree with Terms and condtitions and GDPR&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under &quot;Last Name&quot; input.</p>
 ]]></expectedresults>
@@ -60,7 +60,7 @@ Fill &quot;Terms and condtitions&quot; checkbox.</p>
 Enter&nbsp;&quot;Erik&quot; into First Name input.<br />
 Enter&nbsp;&quot;Ruszinka&quot; into Last Name input.<br />
 Enter &quot;2017/2018&quot; option in dropdown button.<br />
-Fill &quot;Terms and condtitions&quot; checkbox.</p>
+Fill &quot;I agree with Terms and condtitions and GDPR&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under &quot;E-Mail Address&quot; input.</p>
 ]]></expectedresults>
@@ -72,7 +72,7 @@ Fill &quot;Terms and condtitions&quot; checkbox.</p>
 	<actions><![CDATA[<p>Enter &quot;Erik&quot; into First Name input.<br />
 Enter&nbsp;&quot;Ruszinka&quot; into Last Name input.<br />
 Enter &quot;boris98nhl@gmail.com&quot; into e-mail input.<br />
-Fill &quot;Terms and condtitions&quot; checkbox.</p>
+Fill &quot;I agree with Terms and condtitions and GDPR&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Message box &quot;Vyberte položku zo zoznamu&quot; will appear under &quot;First year of study&quot; dropdown button.</p>
 ]]></expectedresults>
@@ -93,7 +93,7 @@ Enter &quot;2017/2018&quot; option in dropdown button.</p>
 
 <step>
 	<step_number><![CDATA[7]]></step_number>
-	<actions><![CDATA[<p>Click on &quot;Terms and conditions&quot; below.</p>
+	<actions><![CDATA[<p>Click on&nbsp; &quot;I agree with Terms and condtitions and GDPR&quot;&nbsp; link below.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Dialog window will be open.</p>
 ]]></expectedresults>
@@ -115,7 +115,7 @@ Enter &quot;2017/2018&quot; option in dropdown button.</p>
 Enter&nbsp;&quot;Ruszinka&quot; into Last Name input.<br />
 Enter &quot;boris98nhl@gmail.com&quot; into e-mail input.<br />
 Enter &quot;2017/2018&quot; option in dropdown button.<br />
-Fill &quot;Terms and condtitions&quot; checkbox.</p>
+Fill &quot;I agree with Terms and condtitions and GDPR&quot; checkbox.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>You will be redirected to login page. There will be message &quot;<span style="color:#27ae60">Student succesfully registered</span>&quot; under &quot;Password&quot; input.</p>
 ]]></expectedresults>
@@ -126,17 +126,16 @@ Fill &quot;Terms and condtitions&quot; checkbox.</p>
 
 <testcase internalid="20" name="Login">
 	<node_order><![CDATA[1]]></node_order>
-	<externalid><![CDATA[3]]></externalid>
+	<externalid><![CDATA[2]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check login functionality with:</p>
 
-<p>1.) valid e-mail and invalid password</p>
-
-<p>2.) invalid e-mail and invalid password</p>
-
-<p>3.) invalid e-mail and valid password</p>
-
-<p>4.) valid e-mail and valid password</p>
+<p>1.) valid e-mail and invalid password<br />
+2.) invalid e-mail and invalid password<br />
+3.) invalid e-mail and valid password<br />
+4.) any e-mail and no password<br />
+5.) no e-mail and any password<br />
+6.) valid e-mail and valid password</p>
 ]]></summary>
 	<preconditions><![CDATA[<p>Registration process should be successful only when 4. case stated in summary will be done.</p>
 ]]></preconditions>
@@ -149,7 +148,7 @@ Fill &quot;Terms and condtitions&quot; checkbox.</p>
 <steps>
 <step>
 	<step_number><![CDATA[1]]></step_number>
-	<actions><![CDATA[<p>Enter &quot;john.doe@gmail.com&quot; e-mail address into the email input. Next enter &quot;12345&quot; into password field.</p>
+	<actions><![CDATA[<p>Enter &quot;john.doe@gmail.com&quot; into the email input. Next enter &quot;12345&quot; into password field. Then click on &quot;Login&quot; button.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Warning message &quot;Wrong&nbsp;password&quot;&nbsp;will appear above.</p>
 ]]></expectedresults>
@@ -158,7 +157,7 @@ Fill &quot;Terms and condtitions&quot; checkbox.</p>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
-	<actions><![CDATA[<p>Enter &quot;johndoe@gmail.com&quot; e-mail address into the email input. Next enter &quot;12345&quot; into password field.</p>
+	<actions><![CDATA[<p>Enter &quot;johndoe@gmail.com&quot;&nbsp;into the email input. Next enter &quot;12345&quot; into password field.&nbsp;Then click on &quot;Login&quot; button.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Warning message &quot;User not&nbsp;found&quot; will appear above.</p>
 ]]></expectedresults>
@@ -167,7 +166,7 @@ Fill &quot;Terms and condtitions&quot; checkbox.</p>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
-	<actions><![CDATA[<p>Enter &quot;johndoe@gmail.com&quot; e-mail into the email input. Next enter &quot;1234&quot; into password field.</p>
+	<actions><![CDATA[<p>Enter &quot;johndoe@gmail.com&quot; into the email input. Next enter &quot;1234&quot; into password field.&nbsp;Then click on &quot;Login&quot; button.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>Warning message &quot;User not found&quot; will appear above.</p>
 ]]></expectedresults>
@@ -176,6 +175,24 @@ Fill &quot;Terms and condtitions&quot; checkbox.</p>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;john.doe@gmail.com&quot; into e-mail input. Let password field empty. Then click on &quot;Login&quot; button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under password input.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;1234&quot; into password input. Let email field&nbsp;empty. Then click on &quot;Login&quot; button.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Message box &quot;Vyplňte toto pole&quot; will appear under email input.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
 	<actions><![CDATA[<p>Enter &quot;john.doe@gmail.com&quot; e-mail into the email input. Next enter &quot;1234&quot; into password field.</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>You will be redirected to dashboard screen. White windows &quot;Most recent test results&quot; and &quot;New registrations&quot; will appear.</p>
@@ -187,7 +204,7 @@ Fill &quot;Terms and condtitions&quot; checkbox.</p>
 
 <testcase internalid="136" name="Approve student">
 	<node_order><![CDATA[2]]></node_order>
-	<externalid><![CDATA[17]]></externalid>
+	<externalid><![CDATA[3]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of approving students.</p>
 ]]></summary>
@@ -688,7 +705,7 @@ Answers: Answers - hover effect will show all answers (A. First, B. Second,C. Th
 
 <testcase internalid="119" name="Choose from existing questions">
 	<node_order><![CDATA[1]]></node_order>
-	<externalid><![CDATA[13]]></externalid>
+	<externalid><![CDATA[9]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check if it&#39;s possible to add foreign question into the test.</p>
 ]]></summary>
@@ -772,7 +789,7 @@ For example &quot;Java test&quot;.</p>
 
 <testcase internalid="357" name="Edit question">
 	<node_order><![CDATA[2]]></node_order>
-	<externalid><![CDATA[64]]></externalid>
+	<externalid><![CDATA[10]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of editing the question.</p>
 ]]></summary>
@@ -858,7 +875,7 @@ Answer D: Database scripts</p>
 
 <testcase internalid="355" name="Delete question">
 	<node_order><![CDATA[3]]></node_order>
-	<externalid><![CDATA[63]]></externalid>
+	<externalid><![CDATA[11]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of deleting question.</p>
 ]]></summary>
@@ -911,7 +928,7 @@ Answer D: Database scripts</p>
 </testsuite>
 <testcase internalid="303" name="Activate test">
 	<node_order><![CDATA[4]]></node_order>
-	<externalid><![CDATA[57]]></externalid>
+	<externalid><![CDATA[12]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of activating of test.</p>
 ]]></summary>
@@ -983,7 +1000,7 @@ Answer D: Database scripts</p>
 
 <testcase internalid="138" name="Enable/Hide test">
 	<node_order><![CDATA[5]]></node_order>
-	<externalid><![CDATA[18]]></externalid>
+	<externalid><![CDATA[13]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of&nbsp; allowing the test.</p>
 ]]></summary>
@@ -1031,7 +1048,7 @@ Answer D: Database scripts</p>
 
 <testcase internalid="92" name="Show students">
 	<node_order><![CDATA[1000]]></node_order>
-	<externalid><![CDATA[10]]></externalid>
+	<externalid><![CDATA[14]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of displaying of all students.</p>
 ]]></summary>
@@ -1123,7 +1140,7 @@ Choose &quot;3.N&quot; choice.</p>
 
 <testcase internalid="103" name="Remove student">
 	<node_order><![CDATA[1001]]></node_order>
-	<externalid><![CDATA[11]]></externalid>
+	<externalid><![CDATA[15]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of removing students.</p>
 ]]></summary>
@@ -1170,7 +1187,7 @@ Boris Galick&yacute; and Erik Ruszinka.</p>
 
 <testcase internalid="110" name="Show student details">
 	<node_order><![CDATA[1002]]></node_order>
-	<externalid><![CDATA[12]]></externalid>
+	<externalid><![CDATA[16]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of displaying of student details.</p>
 ]]></summary>
@@ -1209,7 +1226,7 @@ Graphs of student&#39;s result will be displayed below.</p>
 
 <testcase internalid="305" name="Change password">
 	<node_order><![CDATA[1003]]></node_order>
-	<externalid><![CDATA[58]]></externalid>
+	<externalid><![CDATA[17]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of changing a password.</p>
 ]]></summary>
@@ -1257,7 +1274,7 @@ There will be only one student - Boris Galick&yacute;.</p>
 
 <testcase internalid="353" name="Archive student">
 	<node_order><![CDATA[1004]]></node_order>
-	<externalid><![CDATA[62]]></externalid>
+	<externalid><![CDATA[18]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[]]></summary>
 	<preconditions><![CDATA[]]></preconditions>
@@ -1295,7 +1312,7 @@ Then click on &quot;Boris Galick&yacute;&quot;.<br />
 
 <testcase internalid="129" name="Show teachers">
 	<node_order><![CDATA[0]]></node_order>
-	<externalid><![CDATA[15]]></externalid>
+	<externalid><![CDATA[19]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of displaying all of teachers.</p>
 ]]></summary>
@@ -1316,12 +1333,48 @@ Then click on &quot;Boris Galick&yacute;&quot;.<br />
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;q&quot; character into the search input.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>All of teachers will disappear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;r&quot; character into the search input.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>John Doe will disappear.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;t&quot; character into the search input.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Only First Teacher and Second Teacher will be displayed.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>Enter &quot;se&quot;&nbsp;into the search input.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Only Second Teacher will be displayed.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
 </steps>
 </testcase>
 
 <testcase internalid="131" name="Invite teacher">
 	<node_order><![CDATA[1]]></node_order>
-	<externalid><![CDATA[16]]></externalid>
+	<externalid><![CDATA[20]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of inviting another teachers.</p>
 ]]></summary>
@@ -1384,7 +1437,7 @@ Then click on &quot;Boris Galick&yacute;&quot;.<br />
 
 <testcase internalid="312" name="Archive and delete teacher">
 	<node_order><![CDATA[3]]></node_order>
-	<externalid><![CDATA[59]]></externalid>
+	<externalid><![CDATA[21]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check functionality of removing and archiving a teacher.</p>
 ]]></summary>
@@ -1484,27 +1537,10 @@ Click on the &quot;Login&quot; button.<br />
 </step>
 </steps>
 </testcase>
-
-<testcase internalid="387" name="Change password - TO DO">
-	<node_order><![CDATA[4]]></node_order>
-	<externalid><![CDATA[66]]></externalid>
-	<version><![CDATA[1]]></version>
-	<summary><![CDATA[<p>Check functionality of changing teacher&#39;s password.</p>
-]]></summary>
-	<preconditions><![CDATA[<p>Password will be changed.</p>
-]]></preconditions>
-	<execution_type><![CDATA[1]]></execution_type>
-	<importance><![CDATA[2]]></importance>
-	<estimated_exec_duration></estimated_exec_duration>
-	<status>1</status>
-	<is_open>1</is_open>
-	<active>1</active>
-
-</testcase>
 </testsuite>
 <testcase internalid="374" name="Logout">
 	<node_order><![CDATA[7]]></node_order>
-	<externalid><![CDATA[65]]></externalid>
+	<externalid><![CDATA[22]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[<p>Check logout functionality.</p>
 ]]></summary>
