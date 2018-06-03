@@ -48,7 +48,7 @@ exports.show_student = (req, res, next) => {
                 graph.radarGr(id,(err,scoreRadar)=>{
                     if (err) return next(err);
                     let scoreRadarArr = [];
-                    for (index = 0; index < 3; index++) {
+                    for (index = 0; index < scoreRadar.length; index++) {
                         if (scoreRadar[index].score != 0) {
                             let element = (scoreRadar[index].score);
                             scoreRadarArr.push(element);            
