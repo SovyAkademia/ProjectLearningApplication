@@ -31,12 +31,15 @@ exports.get_all_tests = (req, res, next) => {
 
 exports.get_all_tests_in_category = (req, res, next) => {
     let categoryId = req.body.options;
-    let getTests = 'select tests.TestName,tests.Allowed,tests.Activated,tests.id as "TestID",Categories.categoryname,categories.id as categoryID from tests inner join categories on tests.categoryid = categories.id where categoryid like ? and teacherid like ?;';
+    let getTests = 'select tests.TestName,tests.Allowed,tests.Activated,tests.id as "TestID",categories.categoryname as "categoryname",categories.id as categoryID from tests inner join categories on tests.categoryid = categories.id where categoryid like ? and teacherid like ?;';
     let getCategories = 'select * from categories';
 
     if(categoryId == 'all'){
         return res.redirect('/myTests');
     }
+
+    console.log(req.body);
+    console.log(req.user[0].id);
 
     db.query(getTests, [categoryId, req.user[0].id], (err, test) => {
         if (err) {

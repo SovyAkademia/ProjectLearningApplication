@@ -1,5 +1,8 @@
 // import { workers } from "cluster";
-var ourUrl = 'http://localhost:5000';
+
+var ourUrl = 'http://akademiasovy.ddns.net:3050';
+
+
 $(document).ready(function() {
     
 
