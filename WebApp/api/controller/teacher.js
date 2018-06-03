@@ -84,7 +84,10 @@ exports.make_admin = (req,res,next) => {
     let setAdmin = 'update teachers set admin = ? where id = ?';
 
     db.query(setAdmin,[1,id],(err,updated) => {
-        if (err) return next(err);
+        if (err) {
+            console.log(err);
+            return next(err);
+        }
         req.flash('error_msg', 'Teacher updated to admin');
             res.redirect('/teachers');
     })
