@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1422.0" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controlers.MainWindowController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1422.0" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controlers.MainWindowController">
     <children>
         <ImageView fx:id="logoGL" fitHeight="229.0" fitWidth="676.0" layoutX="420.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../Pictures/LogoGL1.png" />
+                <Image url="@sample/Pictures/LogoGL1.png" />
             </image>
         </ImageView>
         <ImageView fx:id="imageUsers" fitHeight="52.0" fitWidth="61.0" layoutX="1196.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../Pictures/UserPicture.png" />
+                <Image url="@sample/Pictures/UserPicture.png" />
             </image>
         </ImageView>
-        <MenuButton fx:id="MenuButtonForUser" layoutX="1272.0" layoutY="107.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" text="">
+        <MenuButton fx:id="MenuButtonForUser" layoutX="1272.0" layoutY="107.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" text="User">
             <items>
-                <MenuItem fx:id="user_profile" mnemonicParsing="false" onAction="#performAction" text="User Profile" />
-                <MenuItem fx:id="action_marks" mnemonicParsing="false" onAction="#performAction" text="Marks score" />
                 <MenuItem fx:id="action_password" mnemonicParsing="false" onAction="#changePassword" text="Change password" />
                 <MenuItem fx:id="action_logout" mnemonicParsing="false" onAction="#MenuLogout" text="Log out" />
             </items>

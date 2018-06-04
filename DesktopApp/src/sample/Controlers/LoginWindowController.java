@@ -25,21 +25,17 @@ public class LoginWindowController extends MainWindowController{
 
     private static TestFinal actualTest;
 
-    @FXML
     public MenuButton menuButtonCategory;
     public ProgressBar connectivity;
 
     private Communication communication = new Communication();
     private ArrayList<Category> categoryList;
 
-    @FXML
-    public Button closeButton;
-
     public void clickLogin(ActionEvent event) {
-        try {
-            String email = loginField.textProperty().get();
-            String password = passwordField.textProperty().get();
+        String email = loginField.textProperty().get();
+        String password = passwordField.textProperty().get();
 
+        try {
             int actual = new HttpGet().tryTime();
             if (actual == 0) {
                 connectivity.setProgress(0);
@@ -53,7 +49,7 @@ public class LoginWindowController extends MainWindowController{
 
             if (communication.authenticate(email,password))
             {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Scenes/MainWindow.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(LoginWindowController.class.getClassLoader().getResource("MainWindow.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setResizable(false);
@@ -62,19 +58,23 @@ public class LoginWindowController extends MainWindowController{
                 stage.setTitle("Main");
 
                 stage.show();
+
                 stage.setMaximized(true);
                 stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
                 stage.setFullScreen(true);
                 Stage primarystage = (Stage) btnLogin.getScene().getWindow();
                 primarystage.close();
 
+
                 ArrayList<Category> list = communication.getCategories().getCategories();
                 this.categoryList = list;
+
+                //MenuButtonForUser.setText(email);
 
                 menuButtonCategory = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("menuButtonCategory")).get(0);
                 testMenuButton = (MenuButton) root.getChildrenUnmodifiable().filtered(node -> node.getId().equals("testMenuButton")).get(0);
 
-                 testRunning = 0;
+                testRunning = 0;
                 for (Category temp:categoryList) {
                     System.out.println(temp.getCategoryName());
                     MenuItem item = new MenuItem(temp.getCategoryName());
@@ -103,6 +103,7 @@ public class LoginWindowController extends MainWindowController{
                     menuButtonCategory.getItems().add(item);
                 }
             }
+
             else
             {
                 lblError.textProperty().set("Wrong email or password!!!Try again!");

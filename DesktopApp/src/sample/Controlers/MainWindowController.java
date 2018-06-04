@@ -28,7 +28,6 @@ import java.util.ArrayList;
 
 public class MainWindowController {
 
-    @FXML
     public MenuButton menuButtonCategory;
     public MenuButton testMenuButton;
     public MenuButton MenuButtonForUser;
@@ -40,44 +39,15 @@ public class MainWindowController {
     private String actualTestID;
     private String actualResultID;
 
-
     private Communication communication = new Communication();
-    private ArrayList<Category> categoryList;
+
 
     public void MenuLogout(ActionEvent arg0) {
         Platform.exit();
     }
 
     public void performAction(ActionEvent actionEvent) {
-        //you can add this method for multiple menu item and identify
-        //each menu item by its id
-        //MenuItem target  = (MenuItem) actionEvent.getSource();
-        //System.out.println("Clicked On Item:"+target.getId());
-/*
-        ArrayList<Category> list = communication.getCategories().getCategories();
-        this.categoryList = list;
-        for (Category temp:categoryList) {
-            System.out.println(temp.getCategoryName());
-        }
-        */
         System.out.println("here");
-        MenuItem target  = (MenuItem) actionEvent.getSource();
-        System.out.println("Clicked On Item:"+target.getId());
-    }
-
-
-    public void performAction2(ActionEvent actionEvent) {
-        //you can add this method for multiple menu item and identify
-        //each menu item by its id
-        //MenuItem target  = (MenuItem) actionEvent.getSource();
-        //System.out.println("Clicked On Item:"+target.getId());
-/*
-        ArrayList<Category> list = communication.getCategories().getCategories();
-        this.categoryList = list;
-        for (Category temp:categoryList) {
-            System.out.println(temp.getCategoryName());
-        }
-        */
         MenuItem target  = (MenuItem) actionEvent.getSource();
         System.out.println("Clicked On Item:"+target.getId());
     }
@@ -124,11 +94,16 @@ public class MainWindowController {
                 hbox.getChildren().add(myGrid);
 
                 Label lbl = new Label(swapQuestion.getQuestionText());
-                lbl.prefHeight(100);
-                lbl.prefWidth(300);
-                myGrid.add(lbl,0,0,2,1);
+                lbl.setMaxWidth(400);
+                lbl.setWrapText(true);
+                lbl.setTranslateY(50);
+
+                //Label lbl = new Label(swapQuestion.getQuestionText());
+                myGrid.add(lbl,0,0,5,3);
 
                 Label finalLbl = new Label(swapQuestion.getQuestionText());
+                finalLbl.setWrapText(true);
+                finalLbl.setMaxWidth(1100);
                 //finalLbl.prefWidth(150);
                 finalLbl.prefHeight(80);
                 finalLbl.setStyle("-fx-text-fill: white;");
@@ -167,19 +142,6 @@ public class MainWindowController {
                         countofans++;
                     }
                 }
-
-                /*
-                Label time = new Label();
-                time.setStyle("-fx-text-fill: white;");
-                time.setId("myCounetr");
-                time.setText("ahoj");
-                testRunning = 1;
-
-                myGrid.add(time,1,6);
-
-                RewriteThr rewriteThr = new RewriteThr();
-                rewriteThr.start(time,500);
-                */
 
                 Button btnSubmitQuestion = new Button("Submit answer"); //toto tu vytvori tlacidlo prida mu ID,funkciu a zavrie scenu
                 btnSubmitQuestion.setOnAction(resolveSubmit -> {
@@ -245,6 +207,7 @@ public class MainWindowController {
                 tab.setClosable(false);
                 tabPane.setStyle("-fx-background-color: #434343;-fx-text-fill: white;");
                 lbl.setStyle("-fx-text-fill: white;-fx-text-size: 25px");
+
 
                 if (i > countOfQuestions)
                 {
