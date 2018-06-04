@@ -1,3 +1,5 @@
+
+{{#if (eq user.[0].admin 1)}}
 <div class="col-md-11 teacherlist">
     <form action="/students/class" method="POST">
         <div class="input-group mb-3 col-centered">
@@ -48,9 +50,13 @@
                     <a href="/teachers/archive/{{ID}}">
                         <button class="btn btn-success btn-sm studentAcceptBtn">Archive</button>
                     </a>
+                    <a href="/teachers/makeAdmin/{{ID}}">
+                        <button class="btn btn-primary btn-sm studentAcceptBtn " onclick="return confirm('Do you really want to give this teacher admin rights? After this action, he will be also able to list, invite, delete or promote another teachers.')">Give admin status</button>
+                    </a>
                     <a href="/teachers/delete/{{ID}}">
                         <button class="btn btn-danger btn-sm studentAcceptBtn" onclick="return confirm('Warning, following action is irreversible. Continue?')">Delete</button>
                     </a>
+                    
                 </td>
                 {{!--
                 <td class="class">
@@ -65,3 +71,5 @@
 <button type="button" id="inviteTeacherBtn" class="btn btn-md testsave btn-success" data-toggle="modal" data-target="#inviteTeacher">Invite teacher</button>
 
 </div>
+
+{{/if}}

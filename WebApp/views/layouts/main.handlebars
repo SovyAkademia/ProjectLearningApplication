@@ -32,7 +32,9 @@
            <li><i class="fas menuic fa-file"></i><a id="mytests" href="/myTests">My tests</a></li>
            <li><i class="fas menuic fa-plus"></i><a id="createtest" href="/createTest">Create test</a></li>
            <li><i class="fas menuic fa-graduation-cap"></i><a href="/students">Students</a></li>
+           {{#if (eq user.[0].admin 1)}}
            <li><i class="fas menuic fa-user"></i><a href="/teachers">Teachers</a></li>
+           {{/if}}
           {{else}}
            <li><i class="fas menuic user fa-user"></i><a href="/registerStudent">Register as student</a></li>
           {{/if}}
@@ -78,7 +80,9 @@
       <li class="drop"><a href="/myTests">My Tests</a></li>
       <li class="drop"><a href="/createTest">Create new Test</a></li>
       <li class="drop"><a href="/students">Students</a></li>
+      {{#if (eq user.[0].admin 1)}}
       <li class="drop"><a href="/teachers">Teachers</a></li>
+      {{/if}}
       <li class="drop"><a href="/logout">Log out</a></li>
       {{else}}
        <li class="drop"><a href="/">Log in</a></li>

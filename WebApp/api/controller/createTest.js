@@ -6,7 +6,7 @@ exports.get_create_test = (req, res, next) => {
 
     db.query(query, (err, result) => {
         if (err) {
-            throw err;
+            return next(err)
         }
         res.render('newtest', {
             categories: result,

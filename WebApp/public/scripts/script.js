@@ -507,6 +507,20 @@ $('.deleteQuest').click(function(){
    
 });
 
+$('.chooseColor').each(function(i,el){
+    var testScore = $(el).html();
+     var score = testScore.split('').slice(0,2).join('');
+     
+     if(score >= 85){
+     $(el).css('color','green');
+     } else if(score < 85 && score >= 50){ 
+     $(el).css('color','orange');
+     } else if(score < 50){ 
+     $(el).css('color','red');
+     }
+     
+ })
+
 
     
 
