@@ -22,7 +22,7 @@
                 <Image url="@../Pictures/UserPicture.png" />
             </image>
         </ImageView>
-        <MenuButton fx:id="MenuButtonForUser" layoutX="1272.0" layoutY="107.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" text="Johny Walker">
+        <MenuButton fx:id="MenuButtonForUser" layoutX="1272.0" layoutY="107.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" text="">
             <items>
                 <MenuItem fx:id="user_profile" mnemonicParsing="false" onAction="#performAction" text="User Profile" />
                 <MenuItem fx:id="action_marks" mnemonicParsing="false" onAction="#performAction" text="Marks score" />

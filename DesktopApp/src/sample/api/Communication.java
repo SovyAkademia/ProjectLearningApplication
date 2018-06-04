@@ -9,6 +9,7 @@ public class Communication {
     private static String token;
     private static int studentId;
     private static String actualTestID;
+    private static String userEmail;
 
     public String getToken() {
         return token;
@@ -32,12 +33,21 @@ public class Communication {
 
     private final String baseUrl = "http://akademiasovy.ddns.net:3050";
 
+    public static String getUserEmail() {
+        return userEmail;
+    }
+
+    public static void setUserEmail(String userEmail) {
+        Communication.userEmail = userEmail;
+    }
+
     public boolean authenticate(String email, String password)
     {
         String json = "{\n\t\"email\": \""+email+"\",\n\t\"password\":\""+password+"\"}";
         HttpPost httpPost = new HttpPost();
         String url = baseUrl+"/desktop/auth/login";
         String response = "";
+        this.userEmail = email;
         try {
             response = httpPost.post(url,json);
             if (response == null) {
