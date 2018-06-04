@@ -125,7 +125,7 @@ exports.send_mail = (req,res,next) =>{
                     from: '"Nodemailer Contact" <NO-REPLY>', // sender address
                     to: result[0].Email, // list of receivers
                     subject: 'Access to app', // Subject line
-                    text: 'Hello there '+result[0].FirstName+''+result[0].LastName+' your password is '+ pass, // plain text body
+                    text: 'Hello '+result[0].FirstName+' '+result[0].LastName+' your password is '+ pass, // plain text body
                 }, (error, info) => {
                     if (error) {
                         req.flash('error_msg','error');

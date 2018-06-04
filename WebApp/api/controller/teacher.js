@@ -34,7 +34,8 @@ exports.send_invitation = (req, res, next) => {
                 to: req.body.email, // list of receivers
                 subject: 'Access to app', // Subject line
                 text: 'Welcome '+req.body.firstName+" "+req.body.lastName+"\n"+
-                "Your password is "+pass, // plain text body                
+                "Your password is "+pass +"\n"+
+                "http://akademiasovy.ddns.net:3050", // plain text body                               
             }, (err, info) => {
                 req.flash('msg','Email has been sent');
                 res.redirect('/teachers');
