@@ -16,7 +16,7 @@ commit;
 
 
 
-
+update teachers set Password = '$2b$10$xwktZI1GwKYiDWxmcBCWFOB/7wLnnSj1xxqlPkrWc8UCqBgFkY93G' where id = 1;
 
 
 
