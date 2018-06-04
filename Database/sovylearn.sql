@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: Po 04.Jún 2018, 06:30
+-- Čas generovania: Po 04.Jún 2018, 06:46
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -159,11 +159,11 @@ CREATE TABLE IF NOT EXISTS `results` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `StudentID` int(11) NOT NULL,
   `TestID` int(11) NOT NULL,
-  `Date` datetime NOT NULL,
-  `Score` float NOT NULL,
+  `Date` datetime DEFAULT NULL,
+  `Score` float DEFAULT NULL,
   `BeginTime` datetime NOT NULL,
-  `EndTime` datetime NOT NULL,
-  `OverallTime` time NOT NULL,
+  `EndTime` datetime DEFAULT NULL,
+  `OverallTime` time DEFAULT NULL,
   `tempScore` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `StudentID` (`StudentID`),
