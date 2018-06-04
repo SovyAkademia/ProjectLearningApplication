@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1:3306
--- Čas generovania: Ne 03.Jún 2018, 15:20
+-- Čas generovania: Po 04.Jún 2018, 06:30
 -- Verzia serveru: 5.7.19
 -- Verzia PHP: 5.6.31
 
@@ -12,7 +12,7 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `sovylearn`;
-CREATE SCHEMA IF NOT EXISTS `sovylearn` DEFAULT CHARACTER SET utf8;	
+CREATE SCHEMA IF NOT EXISTS `sovylearn` DEFAULT CHARACTER SET utf8;
 USE sovylearn;
 
 
@@ -164,6 +164,7 @@ CREATE TABLE IF NOT EXISTS `results` (
   `BeginTime` datetime NOT NULL,
   `EndTime` datetime NOT NULL,
   `OverallTime` time NOT NULL,
+  `tempScore` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `StudentID` (`StudentID`),
   KEY `TestID` (`TestID`)
@@ -250,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `teachers` (
   `Allowed` tinyint(1) NOT NULL DEFAULT '0',
   `Admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Sťahujem dáta pre tabuľku `teachers`
