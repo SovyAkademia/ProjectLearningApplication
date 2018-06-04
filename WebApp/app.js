@@ -69,7 +69,7 @@ app.use((req, res, next) => {
 
 app.use('/', login);
 app.use('/registerStudent', registerStudent);
-app.use('/registerTeacher', registerTeacher);
+//app.use('/registerTeacher', registerTeacher);
 app.use('/students', student);
 app.use('/createTest', createTest);
 app.use('/desktop', desktop);

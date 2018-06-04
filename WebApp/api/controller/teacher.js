@@ -34,6 +34,7 @@ exports.send_invitation = (req, res, next) => {
                 to: req.body.email, // list of receivers
                 subject: 'Access to app', // Subject line
                 text: 'Welcome '+req.body.firstName+" "+req.body.lastName+"\n"+
+                "Your login is "+req.body.email+"\n"+
                 "Your password is "+pass +"\n"+
                 "http://akademiasovy.ddns.net:3050", // plain text body                               
             }, (err, info) => {
